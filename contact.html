@@ -1,0 +1,75 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Get started: MPAI</title>
+<meta name="description" content="Tell me about your business and any extra jobs, and I will reply by email.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap">
+<link rel="stylesheet" href="styles.css">
+<script src="nav.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>
+MPAI</a>
+<button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+<nav aria-label="Main" id="site-nav"><ul><li><a href="index.html">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="about.html">About</a></li><li><a href="contact.html" aria-current="page">Contact</a></li></ul></nav>
+</div></header>
+<main id="main">
+<section class="hero"><div class="wrap" style="display:block">
+<h1>Get started</h1>
+<p class="lead">Set-up is from &pound;1,000 for a sole trader and covers any five of the seven jobs. Add up to two more of your own that aren't on the list, and I'll quote for them once I've seen them. I'll reply by email.</p>
+<form class="five" name="five-jobs" method="POST" action="thanks.html" data-netlify="true" netlify-honeypot="company-website">
+<input type="hidden" name="form-name" value="five-jobs">
+<p class="hidden"><label>Leave this empty <input name="company-website"></label></p>
+<div class="row2">
+<div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
+<div class="field"><label for="business">Business name</label><input id="business" name="business" autocomplete="organization" required></div>
+</div>
+<div class="row2">
+<div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
+<div class="field"><label for="phone">Phone <span class="hint">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
+</div>
+<div class="row2">
+<div class="field"><label for="website">Website <span class="hint">(optional)</span></label><input id="website" name="website" type="url" placeholder="https://"></div>
+<div class="field"><label for="system">Email and files</label><select id="system" name="system"><option>Microsoft 365 / Outlook</option><option>Google / Gmail</option><option>Not sure</option></select></div>
+</div>
+<fieldset>
+<legend>Pick any five of the seven jobs</legend>
+<p class="hint">Tick the five you want. You can change your mind when we talk.</p>
+<div class="picks">
+<label class="pick"><input type="checkbox" name="want-day" value="yes"> <span><strong>Your day, briefed</strong><br><span class="hint">Every morning, midday and end of day, a summary of what needs you, what can wait and what's coming up.</span></span></label>
+<label class="pick"><input type="checkbox" name="want-second-brain" value="yes"> <span><strong>Claude knows your business</strong><br><span class="hint">Your team, clients, suppliers and the way you write, kept in one place.</span></span></label>
+<label class="pick"><input type="checkbox" name="want-paperwork" value="yes"> <span><strong>Paperwork ready to go</strong><br><span class="hint">Your letters, quote styles and terms, drafted for each job.</span></span></label>
+<label class="pick"><input type="checkbox" name="want-invoices" value="yes"> <span><strong>Invoices sent and chased</strong><br><span class="hint">Invoices sent, overdue reminders and thank-yous, with a delay the client has explained left alone.</span></span></label>
+<label class="pick"><input type="checkbox" name="want-meetings" value="yes"> <span><strong>Meetings and calls turned into actions</strong><br><span class="hint">A summary, a follow-up email or site notes, and a list of actions from each meeting or call.</span></span></label>
+<label class="pick"><input type="checkbox" name="want-presentations" value="yes"> <span><strong>Presentations built for each client</strong><br><span class="hint">A presentation about your firm, tailored to each client you pitch to.</span></span></label>
+<label class="pick"><input type="checkbox" name="want-expenses" value="yes"> <span><strong>Staff expenses, calculated</strong><br><span class="hint">Your team's expenses added up, with a clear total for you to approve.</span></span></label>
+</div>
+</fieldset>
+<fieldset>
+<legend>Up to two more of your own</legend>
+<p class="hint">Jobs that aren't on the list above. Short is fine, like "booking site visits". Each extra job is quoted once I've seen it.</p>
+<div class="jobs">
+<div class="job"><span aria-hidden="true">1</span><input name="custom-1" aria-label="Your own job 1"></div>
+<div class="job"><span aria-hidden="true">2</span><input name="custom-2" aria-label="Your own job 2"></div>
+</div>
+</fieldset>
+<div class="field"><label for="notes">Anything else? <span class="hint">(optional)</span></label><textarea id="notes" name="notes" rows="3"></textarea></div>
+<p><button class="btn" type="submit">Send my jobs</button></p>
+<p class="hint">I'll only use your details to reply to you.</p>
+</form>
+</div></section>
+
+</main>
+<footer class="site"><div class="wrap">
+<p>MPAI. Claude, set up for small businesses in Brentwood and surrounding areas.</p>
+<p><a href="mailto:matthew@mpai.site">matthew@mpai.site</a></p>
+</div></footer>
+</body>
+</html>
