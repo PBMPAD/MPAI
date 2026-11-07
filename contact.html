@@ -23,7 +23,7 @@ MPAI</a>
 <main id="main">
 <section class="hero"><div class="wrap" style="display:block">
 <h1>Get started</h1>
-<p class="lead">Set-up is from &pound;1,000 for a sole trader and covers any five of the seven jobs. Add up to two more of your own that aren't on the list, and I'll quote for them once I've seen them. I'll reply by email.</p>
+<p class="lead">Set-up is from &pound;750 and covers all five jobs. Add up to two more of your own that aren't on the list, and I'll quote for them once I've seen them. I'll reply by email.</p>
 <form class="five" method="POST" action="https://formspree.io/f/xpppejjl"> 
 <script>document.addEventListener('DOMContentLoaded',function(){var f=document.querySelector('form.five');f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('button');if(b){b.disabled=true;b.textContent='Sending...';}fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){window.location.href='thanks.html';}else{throw new Error();}}).catch(function(){if(b){b.disabled=false;b.textContent='Send my jobs';}alert('Sorry, that did not send. Please email matthew@mpai.site instead.');});});});</script>  
 <input type="hidden" name="_next" value="https://mpai.site/thanks.html"> 
@@ -40,22 +40,20 @@ MPAI</a>
 <div class="field"><label for="website">Website <span class="hint">(optional)</span></label><input id="website" name="website" type="url" placeholder="https://"></div>
 <div class="field"><label for="system">Email and files</label><select id="system" name="system"><option>Microsoft 365 / Outlook</option><option>Google / Gmail</option><option>Not sure</option></select></div>
 </div>
-<fieldset>
-<legend>Pick any five of the seven jobs</legend>
-<p class="hint">Tick the five you want. You can change your mind when we talk.</p>
-<div class="picks">
-<label class="pick"><input type="checkbox" name="want-day" value="yes"> <span><strong>Your day, briefed</strong><br><span class="hint">Every morning, midday and end of day, a summary of what needs you, what can wait and what's coming up.</span></span></label>
-<label class="pick"><input type="checkbox" name="want-second-brain" value="yes"> <span><strong>Claude knows your business</strong><br><span class="hint">Your team, clients, suppliers and the way you write, kept in one place.</span></span></label>
-<label class="pick"><input type="checkbox" name="want-paperwork" value="yes"> <span><strong>Paperwork ready to go</strong><br><span class="hint">Your letters, quote styles and terms, drafted for each job.</span></span></label>
-<label class="pick"><input type="checkbox" name="want-invoices" value="yes"> <span><strong>Invoices sent and chased</strong><br><span class="hint">Invoices sent, overdue reminders and thank-yous, with a delay the client has explained left alone.</span></span></label>
-<label class="pick"><input type="checkbox" name="want-meetings" value="yes"> <span><strong>Meetings and calls turned into actions</strong><br><span class="hint">A summary, a follow-up email or site notes, and a list of actions from each meeting or call.</span></span></label>
-<label class="pick"><input type="checkbox" name="want-presentations" value="yes"> <span><strong>Presentations built for each client</strong><br><span class="hint">A presentation about your firm, tailored to each client you pitch to.</span></span></label>
-<label class="pick"><input type="checkbox" name="want-expenses" value="yes"> <span><strong>Staff expenses, calculated</strong><br><span class="hint">Your team's expenses added up, with a clear total for you to approve.</span></span></label>
-</div>
-</fieldset>
+<section class="included" aria-labelledby="included-title">
+<h2 id="included-title">All five jobs are included</h2>
+<p class="hint">You don't need to choose. I set up all five, starting with Claude knowing your business.</p>
+<ul class="included-list">
+<li><strong>Your day, briefed</strong><br><span class="hint">Every morning, midday and end of day, a summary of what needs you, what can wait and what's coming up.</span></li>
+<li><strong>Claude knows your business</strong><br><span class="hint">Your team, clients, suppliers and the way you write, kept in one place.</span></li>
+<li><strong>Paperwork ready to go</strong><br><span class="hint">Your letters, quote styles and terms, drafted for each job.</span></li>
+<li><strong>Invoices sent and chased</strong><br><span class="hint">Invoices sent, overdue reminders and thank-yous, with a delay the client has explained left alone.</span></li>
+<li><strong>Meetings and calls turned into actions</strong><br><span class="hint">A summary, a follow-up email or site notes, and a list of actions from each meeting or call.</span></li>
+</ul>
+</section>
 <fieldset>
 <legend>Up to two more of your own</legend>
-<p class="hint">Jobs that aren't on the list above. Short is fine, like "booking site visits". Each extra job is quoted once I've seen it.</p>
+<p class="hint">Jobs that aren't on the list above. Short is fine, like "booking site visits". Each extra job is quoted once I've seen it, and never added to the &pound;750.</p>
 <div class="jobs">
 <div class="job"><span aria-hidden="true">1</span><input name="custom-1" aria-label="Your own job 1"></div>
 <div class="job"><span aria-hidden="true">2</span><input name="custom-2" aria-label="Your own job 2"></div>
