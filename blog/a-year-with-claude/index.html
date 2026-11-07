@@ -8,21 +8,24 @@
 <link rel="icon" href="../../logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="../../styles.css">
-<link rel="stylesheet" href="../../extras.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap">
+<link rel="stylesheet" href="../../site.css">
 <script src="../../nav.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="sheet">
+
 <header class="site"><div class="wrap">
-<a class="brand" href="../../index.html"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>
-MPAI</a>
+<a class="brand" href="../../index.html" aria-label="MPAI home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>MPAI</a>
 <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
-<nav aria-label="Main" id="site-nav"><ul><li><a href="../../index.html">Home</a></li><li><a href="../../how-it-works.html">How it works</a></li><li><a href="../../about.html">About</a></li><li><a href="../../blog/" aria-current="page">Blog</a></li><li><a href="../../contact.html">Contact</a></li></ul></nav>
+<nav aria-label="Main" id="site-nav"><ul><li><a href="../../how-it-works.html">How it works</a></li><li><a href="../../index.html#offer">Price</a></li><li><a href="../../about.html">About</a></li><li><a href="../../blog/" aria-current="page">Blog</a></li><li><a href="../../contact.html">Contact</a></li></ul></nav>
+<a class="btn btn-dark nav-cta" href="../../contact.html">Get started</a>
 </div></header>
+
 <main id="main">
-<section class="prose-section"><div class="wrap prose"><article>
+<section class="page-head page-end" style="text-align:left"><div class="wrap prose">
+<article>
 <p class="crumb"><a href="../">Blog</a></p>
 <h1>A year with Claude, and what I've learnt</h1>
 <p class="meta">Matthew Price · 07/11/26</p>
@@ -48,14 +51,26 @@ MPAI</a>
 
 <h2>Check for yourself</h2>
 <p>All my badges are on the <a href="../../badges/">badges page</a>, and each one links to Claude Academy so you can check it yourself. If you'd like to see how this could work in your business, get in touch.</p>
-<p><a class="btn" href="../../contact.html">Get in touch</a></p>
-</article></div></section>
+<p><a class="btn btn-dark" href="../../contact.html">Get in touch</a></p>
+</article>
+</div></section>
 </main>
+
 <footer class="site"><div class="wrap">
-<p>MPAI. Claude, set up for small businesses in Brentwood and surrounding areas.</p>
+<div class="f-brand">
+<p class="brand-word">MPAI</p>
+<p>Claude, set up for small businesses in Brentwood and surrounding areas.</p>
+</div>
+<ul class="f-links">
+<li><a href="../../how-it-works.html">How it works</a></li>
+<li><a href="../../about.html">About</a></li>
+<li><a href="../../blog/">Blog</a></li>
+<li><a href="../../contact.html">Contact</a></li>
+</ul>
 <p class="foot-badge"><a href="../../badges/">Claude Academy trained</a></p>
 <p><a href="mailto:matthew@mpai.site">matthew@mpai.site</a></p>
 </div></footer>
+</div>
 <script type="application/ld+json">
 {"@context":"https://schema.org","@type":"Article","headline":"A year with Claude, and what I've learnt","description":"A year of using Claude in a busy director's day, what worked, what didn't, and what it means for a small business.","datePublished":"2026-11-07","author":{"@type":"Person","name":"Matthew Price"},"publisher":{"@type":"Organization","name":"MPAI","url":"https://mpai.site/"},"mainEntityOfPage":"https://mpai.site/blog/a-year-with-claude/"}
 </script>

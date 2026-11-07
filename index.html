@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap">
-<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="site.css">
 <script>if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('play');</script>
 <script src="nav.js"></script>
 </head>
@@ -20,7 +20,7 @@
 <header class="site"><div class="wrap">
 <a class="brand" href="index.html" aria-label="MPAI home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>MPAI</a>
 <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
-<nav aria-label="Main" id="site-nav"><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="#offer">Price</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+<nav aria-label="Main" id="site-nav"><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="#offer">Price</a></li><li><a href="about.html">About</a></li><li><a href="blog/">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
 <a class="btn btn-dark nav-cta" href="contact.html">Get started</a>
 </div></header>
 
@@ -58,14 +58,14 @@
 <section class="jobs" id="jobs" aria-labelledby="jobs-title">
 <div class="wrap">
 <h2 class="display center" id="jobs-title">Five jobs off your desk, <em>set up in your own email and files</em></h2>
-<p class="sub center">Claude does the work where you already keep it. You see each job done, not a chat window to copy from.</p>
+<p class="sub center">Tap a job to see what it does, with an example of it done.</p>
 <div class="jobs-grid">
 <ol class="joblist" id="joblist">
-<li class="is-open"><button type="button" aria-expanded="true" aria-controls="jd1 jm1" id="jb1">Your day, briefed</button><p id="jd1">Every morning, midday and end of day, Claude reads your inbox and diary and tells you what needs you, what can wait and what&rsquo;s coming up.</p></li>
-<li><button type="button" aria-expanded="false" aria-controls="jd2 jm2" id="jb2">Claude knows your business</button><p id="jd2">Your team, clients and suppliers, what you do and how you like things written, kept in one place so Claude never needs telling twice. I set this up first.</p></li>
-<li><button type="button" aria-expanded="false" aria-controls="jd3 jm3" id="jb3">Paperwork ready to go</button><p id="jd3">Your letters, quotes and terms in one place, so Claude drafts the right version for the job and starts a report from the email or call that confirmed what was agreed.</p></li>
-<li><button type="button" aria-expanded="false" aria-controls="jd4 jm4" id="jb4">Invoices sent and chased</button><p id="jd4">Invoices go out, polite reminders follow when they go overdue, but not if the client has already explained a delay, and a thank-you goes back when you&rsquo;re paid.</p></li>
-<li><button type="button" aria-expanded="false" aria-controls="jd5 jm5" id="jb5">Meetings and calls turned into actions</button><p id="jd5">Record a meeting or call with a recorder app or pocket device. Claude writes the summary, drafts the follow-up and lists what needs doing. If you record a call, tell the other person.</p></li>
+<li class="is-open"><button type="button" aria-expanded="true" aria-controls="jd1 jm1" id="jb1"><span class="jl-text">Your day, briefed</span><span class="jl-icon" aria-hidden="true"></span></button><p id="jd1">Every morning, midday and end of day, Claude reads your inbox and diary and tells you what needs you, what can wait and what&rsquo;s coming up.</p></li>
+<li><button type="button" aria-expanded="false" aria-controls="jd2 jm2" id="jb2"><span class="jl-text">Claude knows your business</span><span class="jl-icon" aria-hidden="true"></span></button><p id="jd2">Your team, clients and suppliers, what you do and how you like things written, kept in one place so Claude never needs telling twice. I set this up first.</p></li>
+<li><button type="button" aria-expanded="false" aria-controls="jd3 jm3" id="jb3"><span class="jl-text">Paperwork ready to go</span><span class="jl-icon" aria-hidden="true"></span></button><p id="jd3">Your letters, quotes and terms in one place, so Claude drafts the right version for the job and starts a report from the email or call that confirmed what was agreed.</p></li>
+<li><button type="button" aria-expanded="false" aria-controls="jd4 jm4" id="jb4"><span class="jl-text">Invoices sent and chased</span><span class="jl-icon" aria-hidden="true"></span></button><p id="jd4">Invoices go out, polite reminders follow when they go overdue, but not if the client has already explained a delay, and a thank-you goes back when you&rsquo;re paid.</p></li>
+<li><button type="button" aria-expanded="false" aria-controls="jd5 jm5" id="jb5"><span class="jl-text">Meetings and calls turned into actions</span><span class="jl-icon" aria-hidden="true"></span></button><p id="jd5">Record a meeting or call with a recorder app or pocket device. Claude writes the summary, drafts the follow-up and lists what needs doing. If you record a call, tell the other person.</p></li>
 </ol>
 
 <div class="scene scene-desk" aria-label="Example of each job, done">
@@ -110,24 +110,7 @@
 <div class="scene scene-sky2">
 <div class="wrap">
 <h2 class="display center" id="search-title">Most people use AI <em>like a search box</em></h2>
-<p class="sub center">You ask, it answers, and you copy the answer into your email yourself. Set up properly, Claude works in your inbox, calendar and files.</p>
-<div class="trio">
-<article class="tcard">
-<h3>It works in your inbox</h3>
-<p>The reply is drafted in your email, in your words, ready to send.</p>
-<div class="tmock" aria-hidden="true"><p class="tm-line"><b>To</b> a client</p><p class="tm-line"><b>Re</b> Your quote</p><p class="tm-body">Thanks for getting back to me. I&rsquo;ve attached the updated quote&hellip;</p><p class="tm-chip">Draft</p></div>
-</article>
-<article class="tcard">
-<h3>It fills in your templates</h3>
-<p>Quotes and letters come from your own templates and land in the right folder.</p>
-<div class="tmock" aria-hidden="true"><p class="tm-path">Documents <span>/</span> Quotes <span>/</span> 2026</p><p class="tm-file">Quote, garden office.docx</p><p class="tm-file faint">Quote, loft conversion.docx</p></div>
-</article>
-<article class="tcard">
-<h3>It knows when to ask</h3>
-<p>Low-risk emails like invoice reminders send themselves. Replies that matter are drafted for you to approve.</p>
-<div class="tmock" aria-hidden="true"><p class="tm-row"><span>Invoice reminder</span><em>Sent</em></p><p class="tm-row"><span>Reply to a new client</span><em class="ask">Your OK</em></p></div>
-</article>
-</div>
+<p class="sub center">You ask, it answers, and you copy the answer into your email yourself. Useful, but you&rsquo;re still doing the work. Set up properly, Claude does the job in your inbox, calendar and files, and you check the result.</p>
 <p class="center more"><a class="textlink" href="how-it-works.html">See how it works, step by step</a></p>
 </div>
 </div>

@@ -53,7 +53,18 @@
         li.classList.toggle('is-open',on);b.setAttribute('aria-expanded',on?'true':'false');
         var m=document.getElementById('jm'+(i+1));if(m)m.hidden=!on;
       });
+      place();
     };
+    /* On narrow screens the example sits under the open job, not at the end of the list */
+    var scene=document.querySelector('.scene-desk'),grid=list.parentNode,narrow=window.matchMedia('(max-width:980px)');
+    var place=function(){
+      if(!scene)return;
+      var li=list.querySelector('li.is-open');
+      if(narrow.matches&&li){if(scene.parentNode!==li)li.appendChild(scene)}
+      else if(scene.parentNode!==grid)grid.appendChild(scene);
+    };
+    if(narrow.addEventListener)narrow.addEventListener('change',place);
+    place();
     items.forEach(function(li,i){li.querySelector('button').addEventListener('click',function(){open(i)})});
   }
 
