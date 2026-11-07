@@ -13,3 +13,6 @@ a.post-card p{margin:0}
 .badge-list li{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:12px}
 .badge-name{font-weight:700}
 footer.site .foot-badge{margin:0}
+.badge-list li{flex-wrap:wrap}
+.badge-list li img{width:240px;max-width:100%;height:auto;border-radius:12px;flex:none}
+.badge-list li .badge-name{flex:1;min-width:10rem}

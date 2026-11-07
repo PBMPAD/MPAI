@@ -41,6 +41,10 @@ MPAI</a>
   var list=document.getElementById("badge-list");
   (window.MPAI_BADGES||[]).forEach(function(b){
     var li=document.createElement("li");
+    if(b.image){
+      var img=document.createElement("img");img.src=b.image;img.alt=b.name+" course completion badge";img.width=240;img.height=164;img.loading="lazy";
+      li.appendChild(img);
+    }
     var nm=document.createElement("span");nm.className="badge-name";nm.textContent=b.name;
     var a=document.createElement("a");a.className="btn small";a.href=b.verify;a.textContent="Verify";
     a.setAttribute("aria-label","Verify "+b.name+" at Claude Academy");
