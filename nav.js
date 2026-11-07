@@ -11,6 +11,14 @@ document.documentElement.classList.add('js');
       var links=ul.querySelectorAll('li'),last=links[links.length-1];
       if(last&&/contact/.test(last.innerHTML))ul.insertBefore(li,last);else ul.appendChild(li);
     }
+    var cta=document.querySelector('.hero .btn[href$="contact.html"]');
+    if(cta&&document.querySelector('.hero .desk')&&!document.querySelector('.home-badge')){
+      var c=document.createElement('a');
+      c.className='home-badge';c.href=base+'badges/';
+      c.style.cssText='display:inline-flex;align-items:center;gap:10px;margin:8px 0 0 14px;vertical-align:middle;border:2px solid var(--teal);border-radius:14px;padding:6px 14px 6px 6px;background:var(--surface);text-decoration:none;color:var(--ink);font-weight:700;font-size:.95rem;line-height:1.25';
+      c.innerHTML='<img src="'+base+'images/ai-fluency-small-businesses.webp" alt="AI Fluency for Small Businesses course completion badge" width="480" height="328" style="width:72px;height:auto;border-radius:8px"><span>Claude Academy trained<br><span style="color:var(--teal-ink)">Verify &rarr;</span></span>';
+      cta.parentNode.appendChild(c);
+    }
     var fw=document.querySelector('footer.site .wrap');
     if(fw&&!fw.querySelector('.foot-badge')){
       var p=document.createElement('p');p.className='foot-badge';
