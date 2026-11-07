@@ -4,108 +4,200 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>MPAI: More time for the work that matters | Small business help in Brentwood</title>
-<meta name="description" content="I help small businesses in Brentwood and surrounding areas get more time for the work that matters. Pick five of seven admin jobs and Claude takes them off your desk, from &pound;1,000 for a sole trader.">
+<meta name="description" content="I set up Claude on your own computer, connected to your email, calendar and files, so five everyday admin jobs get done for you. All five, from &pound;750, for small businesses in Brentwood and surrounding areas.">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&display=swap">
-<link rel="stylesheet" href="styles.css">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap">
+<link rel="stylesheet" href="home.css">
+<script>if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('play');</script>
 <script src="nav.js"></script>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
+<div class="sheet">
+
 <header class="site"><div class="wrap">
-<a class="brand" href="index.html"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>
-MPAI</a>
+<a class="brand" href="index.html" aria-label="MPAI home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>MPAI</a>
 <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
-<nav aria-label="Main" id="site-nav"><ul><li><a href="index.html" aria-current="page">Home</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+<nav aria-label="Main" id="site-nav"><ul><li><a href="how-it-works.html">How it works</a></li><li><a href="#offer">Price</a></li><li><a href="about.html">About</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+<a class="btn btn-dark nav-cta" href="contact.html">Get started</a>
 </div></header>
+
 <main id="main">
-<section class="hero"><div class="wrap">
-<div>
-<h1>More time for the work that matters</h1>
-<p class="lead">I help small businesses in Brentwood and surrounding areas get on with the work they're good at. Pick five of seven jobs and I take them off your desk, from &pound;1,000 for a sole trader.</p>
-<p><a class="btn" href="contact.html">Get started</a> &nbsp; <a href="#offer">See what's included</a></p>
-<p class="hint">Set up with Claude on your own computer. No AI experience needed.</p>
+
+<section class="hero" aria-labelledby="hero-title">
+<div class="wrap hero-copy">
+<a class="pill" href="badges/"><img src="images/ai-fluency-small-businesses.webp" alt="" width="480" height="328">Claude Academy trained<svg class="pill-arrow" aria-hidden="true" viewBox="0 0 16 16"><path d="M3 8h10M9 4l4 4-4 4" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+<h1 id="hero-title">More time for <em>the work that matters</em></h1>
+<p class="lead">I set up Claude on your own computer, connected to your email, calendar and files, so five everyday admin jobs get done for you. All five, from <span class="num">&pound;750</span>.</p>
+<p class="actions"><a class="btn btn-dark" href="contact.html">Get started</a><a class="textlink" href="#jobs">See the five jobs</a></p>
 </div>
-<div class="desk" aria-label="Seven jobs I take off your desk, each crossed off. You pick five.">
-<h2>Seven jobs, pick five</h2>
-<ol>
-<li><span>Your day, briefed</span></li>
-<li><span>Claude knows your business</span></li>
-<li><span>Paperwork ready to go</span></li>
-<li><span>Invoices sent and chased</span></li>
-<li><span>Meetings and calls turned into actions</span></li>
-<li><span>Presentations built for each client</span></li>
-<li><span>Staff expenses, calculated</span></li>
+
+<div class="scene scene-sky">
+<div class="deskcard" id="deskcard" role="group" aria-labelledby="deskcard-title">
+<div class="dc-head">
+<p class="dc-title" id="deskcard-title"><span class="dc-mark" aria-hidden="true"></span>Your desk, Monday</p>
+<p class="dc-tag">Example day</p>
+</div>
+<p class="dc-count"><span class="dc-num" data-count>5</span> of 5 jobs done</p>
+<div class="dc-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
+<ol class="dc-jobs">
+<li class="done"><span class="tick" aria-hidden="true"></span><span class="job"><s>Your day, briefed</s><span class="state"><span class="wait" aria-hidden="true">Reading your inbox and diary&hellip;</span><span class="did">Brief ready: two things need you today</span></span></span></li>
+<li class="done"><span class="tick" aria-hidden="true"></span><span class="job"><s>Claude knows your business</s><span class="state"><span class="wait" aria-hidden="true">Checking your business notes&hellip;</span><span class="did">Your team, clients and writing style, on file</span></span></span></li>
+<li class="done"><span class="tick" aria-hidden="true"></span><span class="job"><s>Paperwork ready to go</s><span class="state"><span class="wait" aria-hidden="true">Opening your quote template&hellip;</span><span class="did">Quote drafted and saved in your Quotes folder</span></span></span></li>
+<li class="done"><span class="tick" aria-hidden="true"></span><span class="job"><s>Invoices sent and chased</s><span class="state"><span class="wait" aria-hidden="true">Checking what&rsquo;s overdue&hellip;</span><span class="did">Polite reminder sent on an overdue invoice</span></span></span></li>
+<li class="done"><span class="tick" aria-hidden="true"></span><span class="job"><s>Meetings and calls turned into actions</s><span class="state"><span class="wait" aria-hidden="true">Writing up this morning&rsquo;s call&hellip;</span><span class="did">Summary written, follow-up waiting for your OK</span></span></span></li>
 </ol>
-<p class="note">Simple chasers go out on their own. Anything important waits for your OK.</p>
+<p class="dc-note">Simple chasers go out on their own. Anything important waits for your OK.</p>
 </div>
-</div></section>
-
-<section id="jobs"><div class="wrap">
-<h2>Seven jobs that eat into your week</h2>
-<p class="tapnote">Tap a job to see what it does.</p>
-<div class="basics">
-<details class="job-d" open><summary><h3>Your day, briefed</h3></summary><p>Starting the day buried in email. Every morning, midday and end of day, Claude reads your inbox and diary and tells you what needs you, what can wait and what's coming up.</p></details>
-<details class="job-d" open><summary><h3>Claude knows your business</h3></summary><p>Explaining yourself again and again. Your team, clients and suppliers, what you do and how you like things written, kept in one place so Claude never needs telling twice.</p></details>
-<details class="job-d" open><summary><h3>Paperwork ready to go</h3></summary><p>Letters, quotes and terms written from scratch every time. Your templates in one place, so Claude drafts the right version for the job and starts a report from the email or call that confirmed what was agreed.</p></details>
-<details class="job-d" open><summary><h3>Invoices sent and chased</h3></summary><p>Awkward to chase, easy to forget. Invoices go out, polite reminders follow when they go overdue, but not if the client has already explained a delay, and a thank-you goes back when you're paid.</p></details>
-<details class="job-d" open><summary><h3>Meetings and calls turned into actions</h3></summary><p>Notes nobody has time to write up. Record a meeting or a phone call with a recorder app or pocket device, and Claude writes the summary, drafts the follow-up email or site notes, and lists what needs doing. If you record a call, tell the other person.</p></details>
-<details class="job-d" open><summary><h3>Presentations built for each client</h3></summary><p>Every pitch starting from a blank slide. Claude builds a presentation that showcases your firm, then tailors it to the client you're pitching to.</p></details>
-<details class="job-d" open><summary><h3>Staff expenses, calculated</h3></summary><p>Expense claims chased at the end of the month. Your team sends in their expenses and Claude adds them up, with a clear total for you to check and approve.</p></details>
+<button class="replay" type="button" id="replay" aria-controls="deskcard"><span class="replay-mark" aria-hidden="true"></span><span class="replay-label">Play again</span></button>
 </div>
-</div></section>
+</section>
 
-<section id="offer"><div class="wrap">
-<h2>Any five, from &pound;1,000</h2>
-<p>One price, one package. I set it up with you on your own computer, connected to your email, calendar and files.</p>
-<div class="plans one">
-<div class="plan featured">
-<h3>Set-up</h3>
-<p class="price">From &pound;1,000 <span>sole trader</span></p>
-<ul>
-<li>Any five of the seven jobs, set up and working</li>
+<section class="jobs" id="jobs" aria-labelledby="jobs-title">
+<div class="wrap">
+<h2 class="display center" id="jobs-title">Five jobs off your desk, <em>set up in your own email and files</em></h2>
+<p class="sub center">Claude does the work where you already keep it. You see each job done, not a chat window to copy from.</p>
+<div class="jobs-grid">
+<ol class="joblist" id="joblist">
+<li class="is-open"><button type="button" aria-expanded="true" aria-controls="jd1 jm1" id="jb1">Your day, briefed</button><p id="jd1">Every morning, midday and end of day, Claude reads your inbox and diary and tells you what needs you, what can wait and what&rsquo;s coming up.</p></li>
+<li><button type="button" aria-expanded="false" aria-controls="jd2 jm2" id="jb2">Claude knows your business</button><p id="jd2">Your team, clients and suppliers, what you do and how you like things written, kept in one place so Claude never needs telling twice. I set this up first.</p></li>
+<li><button type="button" aria-expanded="false" aria-controls="jd3 jm3" id="jb3">Paperwork ready to go</button><p id="jd3">Your letters, quotes and terms in one place, so Claude drafts the right version for the job and starts a report from the email or call that confirmed what was agreed.</p></li>
+<li><button type="button" aria-expanded="false" aria-controls="jd4 jm4" id="jb4">Invoices sent and chased</button><p id="jd4">Invoices go out, polite reminders follow when they go overdue, but not if the client has already explained a delay, and a thank-you goes back when you&rsquo;re paid.</p></li>
+<li><button type="button" aria-expanded="false" aria-controls="jd5 jm5" id="jb5">Meetings and calls turned into actions</button><p id="jd5">Record a meeting or call with a recorder app or pocket device. Claude writes the summary, drafts the follow-up and lists what needs doing. If you record a call, tell the other person.</p></li>
+</ol>
+
+<div class="scene scene-desk" aria-label="Example of each job, done">
+<div class="mini" id="jm1" aria-labelledby="jb1">
+<p class="mini-h">Morning brief <span>07:30</span></p>
+<dl class="rows">
+<div><dt>Needs you</dt><dd>Reply to a quote question. Approve one invoice.</dd></div>
+<div><dt>Can wait</dt><dd>Four newsletters and a supplier update.</dd></div>
+<div><dt>Coming up</dt><dd>Site visit at 2pm. Directions are in your diary.</dd></div>
+</dl>
+</div>
+<div class="mini" id="jm2" aria-labelledby="jb2" hidden>
+<p class="mini-h">Your business notes <span>Updated today</span></p>
+<ul class="chips"><li>Your team</li><li>Clients</li><li>Suppliers</li><li>What you charge</li><li>How you write</li><li>What never goes out without you</li></ul>
+</div>
+<div class="mini" id="jm3" aria-labelledby="jb3" hidden>
+<p class="mini-h">Quotes folder <span>Saved just now</span></p>
+<ul class="files"><li><b>Quote, kitchen refit.docx</b><span>From your quote template</span></li><li><b>Terms of business.pdf</b><span>Attached, latest version</span></li></ul>
+</div>
+<div class="mini" id="jm4" aria-labelledby="jb4" hidden>
+<p class="mini-h">Invoices <span>This week</span></p>
+<dl class="rows">
+<div><dt>Overdue</dt><dd>Polite reminder sent.</dd></div>
+<div><dt>Late, explained</dt><dd>Client mentioned a delay. No chaser.</dd></div>
+<div><dt>Paid</dt><dd>Thank-you sent.</dd></div>
+</dl>
+</div>
+<div class="mini" id="jm5" aria-labelledby="jb5" hidden>
+<p class="mini-h">Call with a new client <span>18 min</span></p>
+<dl class="rows">
+<div><dt>Summary</dt><dd>Written and saved with the client&rsquo;s file.</dd></div>
+<div><dt>Follow-up</dt><dd>Email drafted, waiting for your OK.</dd></div>
+<div><dt>Actions</dt><dd>Three added to your list.</dd></div>
+</dl>
+</div>
+</div>
+</div>
+</div>
+</section>
+
+<section class="search" aria-labelledby="search-title">
+<div class="scene scene-sky2">
+<div class="wrap">
+<h2 class="display center" id="search-title">Most people use AI <em>like a search box</em></h2>
+<p class="sub center">You ask, it answers, and you copy the answer into your email yourself. Set up properly, Claude works in your inbox, calendar and files.</p>
+<div class="trio">
+<article class="tcard">
+<h3>It works in your inbox</h3>
+<p>The reply is drafted in your email, in your words, ready to send.</p>
+<div class="tmock" aria-hidden="true"><p class="tm-line"><b>To</b> a client</p><p class="tm-line"><b>Re</b> Your quote</p><p class="tm-body">Thanks for getting back to me. I&rsquo;ve attached the updated quote&hellip;</p><p class="tm-chip">Draft</p></div>
+</article>
+<article class="tcard">
+<h3>It fills in your templates</h3>
+<p>Quotes and letters come from your own templates and land in the right folder.</p>
+<div class="tmock" aria-hidden="true"><p class="tm-path">Documents <span>/</span> Quotes <span>/</span> 2026</p><p class="tm-file">Quote, garden office.docx</p><p class="tm-file faint">Quote, loft conversion.docx</p></div>
+</article>
+<article class="tcard">
+<h3>It knows when to ask</h3>
+<p>Low-risk emails like invoice reminders send themselves. Replies that matter are drafted for you to approve.</p>
+<div class="tmock" aria-hidden="true"><p class="tm-row"><span>Invoice reminder</span><em>Sent</em></p><p class="tm-row"><span>Reply to a new client</span><em class="ask">Your OK</em></p></div>
+</article>
+</div>
+<p class="center more"><a class="textlink" href="how-it-works.html">See how it works, step by step</a></p>
+</div>
+</div>
+</section>
+
+<section class="founder" aria-labelledby="founder-title">
+<div class="wrap">
+<h2 class="display center" id="founder-title">I&rsquo;m a chartered surveyor. <em>I automated my own day first.</em></h2>
+<div class="founder-grid">
+<div class="fcol">
+<h3>Built on my own work</h3>
+<p>Quotes, chasers, reports, client updates: I built Claude into all of it at the surveying practice where I work, and it gave me time back for the work that matters.</p>
+</div>
+<figure class="stamp"><img src="matthew.webp" alt="Matthew Price, founder of MPAI" width="700" height="617"></figure>
+<div class="fcol">
+<h3>Local, and in plain English</h3>
+<p>MPAI is me doing the same for small businesses in Brentwood and surrounding areas. I set it up with you on your computer, with no jargon.</p>
+<p><a class="textlink" href="about.html">More about me</a></p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="offer" id="offer" aria-labelledby="offer-title">
+<div class="wrap">
+<h2 class="display center" id="offer-title">All five jobs, <em>from &pound;750</em></h2>
+<p class="sub center">One price, one package. I set it all up with you on your own computer, connected to your email, calendar and files.</p>
+<div class="ticket">
+<div class="t-main">
+<p class="t-price"><span>from</span> &pound;750</p>
+<ul class="t-list">
+<li>All five jobs, set up and working</li>
 <li>The basics: email by voice, document editing and decks from notes</li>
 <li>Support while it beds in</li>
 </ul>
+<a class="btn btn-dark" href="contact.html">Get started</a>
 </div>
+<dl class="t-side">
+<div><dt>Jobs of your own</dt><dd>Send me up to two. Each is quoted once I&rsquo;ve seen it, and never added to the <span class="num">&pound;750</span>.</dd></div>
+<div><dt>Care plan</dt><dd>Optional, after set-up, to keep it all running. From <span class="num">&pound;100</span> a month.</dd></div>
+<div><dt>Your Claude plan</dt><dd>You&rsquo;ll need your own paid Claude plan. It&rsquo;s separate from my fee.</dd></div>
+</dl>
 </div>
-<p class="hint" style="margin-top:20px">Got a job of your own that isn't on the list? Send me up to two. Each is quoted once I've seen it, and never added to the set-up price. After set-up, an optional care plan keeps it all running, from &pound;100 a month.</p>
-<p style="margin-top:24px"><a class="btn" href="contact.html">Get started</a> &nbsp; <a href="how-it-works.html#set-up">Full pricing and what's included</a></p>
-</div></section>
-
-<section class="video-band"><div class="wrap">
-<h2>MPAI in 60 seconds</h2>
-<video controls preload="metadata" playsinline poster="video-poster.jpg" width="1280" height="720">
-<source src="mpai-in-60-seconds.mp4" type="video/mp4">
-Your browser can't play this video. <a href="mpai-in-60-seconds.mp4">Download it instead</a>.
-</video>
-</div></section>
-
-<section class="band"><div class="wrap">
-<h2>Most people use AI like a search box</h2>
-<p>You ask a question, it answers, and you copy the answer into your email or document yourself. Useful, but you're still doing the work.</p>
-<p>Set up properly, Claude works in your inbox, your calendar and your files. It drafts the reply in your email, fills in your quote template and saves it in the right folder.</p>
-<p><a href="how-it-works.html">See how it works, step by step</a></p>
-</div></section>
-
-<section class="band"><div class="wrap founder">
-<img class="photo" src="matthew.webp" alt="Matthew Price, founder of MPAI" width="700" height="617">
-<div>
-<blockquote>I'm a chartered surveyor. I automated my own working day first.</blockquote>
-<p>Quotes, chasers, reports, client updates: I built Claude into all of it at the surveying practice where I work, and it gave me time back for the work that matters. MPAI is me doing the same for small businesses in Brentwood and surrounding areas, in plain English, with no jargon.</p>
-<p><a href="about.html">More about me</a></p>
+<p class="center more"><a class="textlink" href="how-it-works.html#set-up">Full pricing and what&rsquo;s included</a></p>
 </div>
-</div></section>
-<section class="cta-band"><div class="wrap">
-<div><h2>Ready to get your time back?</h2><p>Any five of seven jobs, from &pound;1,000. Tell me about your business and any extra jobs, and I'll reply by email.</p></div>
-<a class="btn" href="contact.html">Get started</a>
-</div></section>
+</section>
+
+<section class="close wrap" aria-labelledby="close-title">
+<span class="close-mark" aria-hidden="true"></span>
+<h2 class="display center" id="close-title">Ready to get your time back? <em>Tell me about your business.</em></h2>
+<p class="sub center">Send the form with your business and any extra jobs, and I&rsquo;ll reply by email.</p>
+<p class="center"><a class="btn btn-dark" href="contact.html">Get started</a></p>
+</section>
 </main>
+
 <footer class="site"><div class="wrap">
-<p>MPAI. Claude, set up for small businesses in Brentwood and surrounding areas.</p>
+<div class="f-brand">
+<p class="brand-word">MPAI</p>
+<p>Claude, set up for small businesses in Brentwood and surrounding areas.</p>
+</div>
+<ul class="f-links">
+<li><a href="how-it-works.html">How it works</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="blog/">Blog</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<p class="foot-badge"><a href="badges/">Claude Academy trained</a></p>
 <p><a href="mailto:matthew@mpai.site">matthew@mpai.site</a></p>
 </div></footer>
+</div>
+<script src="home.js" defer></script>
 </body>
 </html>
