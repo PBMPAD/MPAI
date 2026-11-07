@@ -59,7 +59,8 @@
     var place=function(){
       if(!scene)return;
       var li=list.querySelector('li.is-open');
-      if(narrow.matches&&li){if(scene.parentNode!==li)li.appendChild(scene)}
+      var inner=li&&li.querySelector('.jl-inner');
+      if(narrow.matches&&inner){if(scene.parentNode!==inner)inner.appendChild(scene)}
       else if(scene.parentNode!==grid)grid.appendChild(scene);
       /* On a phone, with every job closed there is nothing to show */
       scene.hidden=narrow.matches&&!li;
