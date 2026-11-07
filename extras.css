@@ -1,0 +1,15 @@
+.prose{max-width:44rem}
+.prose h1{font-size:clamp(2rem,5vw,3rem);margin-bottom:.4em}
+.prose h2{font-size:clamp(1.4rem,3.4vw,1.8rem);margin-top:1.8em}
+.prose p{max-width:none}
+.prose .lead{color:var(--soft);font-size:1.25rem}
+.meta{color:var(--soft);font-size:.95rem;display:block;margin-bottom:1.2em}
+.crumb{font-size:.95rem;margin-bottom:.4em}
+a.post-card{display:block;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:22px 24px;text-decoration:none;color:var(--ink);margin-top:20px}
+a.post-card:hover,a.post-card:focus-visible{border-color:var(--teal)}
+a.post-card h2{margin:.1em 0 .3em;font-size:1.5rem}
+a.post-card p{margin:0}
+.badge-list{list-style:none;padding:0;margin:24px 0}
+.badge-list li{display:flex;align-items:center;justify-content:space-between;gap:16px;background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:14px 18px;margin-bottom:12px}
+.badge-name{font-weight:700}
+footer.site .foot-badge{margin:0}
