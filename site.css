@@ -635,3 +635,10 @@ header.site nav a{white-space:nowrap}
 
 .results-h{font:600 1.15rem/1.25 var(--label);letter-spacing:-.01em;color:var(--navy);text-align:center;margin:0 0 18px}
 .visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+
+/* Sole trader price marker */
+.star{font-size:.55em;vertical-align:super;margin-left:.05em;font-style:normal}
+.fn{margin:.2em 0 .6em;font:500 .9rem var(--label);color:var(--soft)}
+.t-fn{margin:-14px 0 20px;font:500 .88rem var(--label);color:var(--on-navy-soft)}
+.t-price .star{align-self:flex-start;margin:.12em 0 0 -8px;font-size:.38em;vertical-align:baseline}
+.ps-inner .fn{margin:0 0 .7em}
