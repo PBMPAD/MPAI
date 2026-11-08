@@ -20,8 +20,10 @@ Built from: the five jobs in the `mpai-lead-teaser` skill (the core offer), its 
 - it's a big build: a new system, an app, a website, or work across several pieces of software
 - Claude isn't sure. When in doubt, it's Let's talk.
 
+**Never suggested: high-liability work (decided 08/11/26).** The tool never puts these forward, not even as Let's talk, because a missed detail could make MPAI liable: reports or interpretation from CCTV, drainage or sewer surveys; underground services and utility location reports; structural, building, asbestos or site investigation surveys; gas, electrical, fire, health-and-safety certificates and risk assessments; allergen, food safety and hygiene records; medical, dental or clinical notes; legal advice, contracts and compliance sign-off; tax returns, accounts, payroll and financial advice. The tool suggests the admin around that work instead (booking the survey, chasing the invoice, updating the client, sending the report the owner wrote). If a visitor types one in as their own job, it shows as Let's talk with: "This needs your professional judgement, so it stays with you. I can help with the admin around it." The page also filters suggestions against a keyword list as a backstop.
+
 **Rules for every result.**
-- Never say how it's done (no tool names, no "connector", no "skill").
+- Never say how it's done (no tool names, no "connector", no "skill"). Never name Claude to visitors: the solutions are Matthew's, built using AI. "AI" is fine; "Claude" is not (decided 08/11/26).
 - Never mention price or timescale.
 - Never promise a result or a saving ("saves 10 hours" is out until it's real).
 - Sentence case, short sentences, plain English, first person ("I set this up…").
@@ -30,16 +32,16 @@ Built from: the five jobs in the `mpai-lead-teaser` skill (the core offer), its 
 **Wording for Let's talk** (pick the one that fits):
 - "This one's possible, but it depends on the software you use. Worth a quick chat so I can look."
 - "This is a bespoke build rather than a standard set-up. It's the kind of thing I'd want to talk through first."
-- "This needs your professional judgement in the loop, so I'd want to understand how you work before saying more."
+- "This needs your professional judgement, so it stays with you. I can help with the admin around it."
 
 ---
 
-## Always included: Claude knows your business
+## Always included: Your business, on file
 
 Not one of the five. It's the foundation of every set-up.
 - **Matches:** "I'm always explaining the same things", "it doesn't sound like me", getting Claude up to speed.
 - **Doesn't match:** training staff, or writing an operations manual from scratch. That's Let's talk.
-- **What we show them:** "Your team, clients and suppliers, what you do and how you like things written, kept in one place so Claude never needs telling twice. This comes first in every set-up."
+- **What we show them:** "Your team, clients and suppliers, what you do and how you like things written, kept in one place so nothing needs explaining twice. This comes first in every set-up."
 
 ---
 
@@ -49,7 +51,7 @@ These are the standard offer. If a visitor's job matches one, it's always Ready 
 
 ### 1. Your inbox, handled
 - **Matches:** too much email, slow replies, missing important emails, wanting to reply by voice.
-- **What we show them:** "Claude sorts your email into what needs a reply, what's just for your information and what can be ignored, and drafts replies in your style for you to check and send."
+- **What we show them:** "Your email is sorted into what needs a reply, what's just for your information and what can be ignored, with replies drafted in your style for you to check and send."
 - **Their example (for Claude to fit):** café: "supplier emails and catering enquiries sorted from the newsletters"; dentist: "patient emails sorted from sales pitches"; drainage: "job enquiries and supplier replies at the top".
 
 ### 2. Invoices chased
@@ -65,7 +67,7 @@ These are the standard offer. If a visitor's job matches one, it's always Ready 
 
 ### 4. Clients kept updated
 - **Matches:** weekly or monthly updates on live jobs, "clients keep asking where we're up to".
-- **What we show them:** "On a set day, Claude gathers where each live job is up to and drafts an update for each client, ready for you to check."
+- **What we show them:** "On a set day, an update is drafted for each client on where their job is up to, ready for you to check."
 
 ### 5. Enquiries answered fast
 - **Matches:** new enquiries going cold, contact-form emails, slow first replies.
@@ -81,12 +83,12 @@ These are Ready now, but they count as one of the "up to two jobs of your own", 
 ### 6. Your day, briefed
 - **Matches:** "I don't know what needs me today", missing things, end-of-day handover, "what did I miss".
 - **Doesn't match:** briefs built from software other than email and diary (till systems, booking systems). That's Let's talk.
-- **What we show them:** "Every morning, midday and end of day, Claude reads your inbox and diary and tells you what needs you, what can wait and what's coming up."
+- **What we show them:** "Every morning, midday and end of day, you get a short brief from your inbox and diary: what needs you, what can wait and what's coming up."
 
 ### 7. Meetings and calls turned into actions
 - **Matches:** writing up calls, meeting notes, forgetting what was agreed, follow-up emails after a visit.
 - **Doesn't match:** recording or transcribing phone calls automatically through a phone system. That's Let's talk.
-- **What we show them:** "Record a meeting or call with a recorder app or pocket device. Claude writes the summary, drafts the follow-up and lists what needs doing. If you record a call, tell the other person."
+- **What we show them:** "Record a meeting or call with a recorder app or pocket device. The summary, the follow-up email and a list of what needs doing are written for you. If you record a call, tell the other person."
 
 ### 8. Booking confirmations and reminders by email
 - **Matches:** confirming appointments or bookings by email, reminder emails the day before, "people forget their appointment".
@@ -122,7 +124,7 @@ These are Ready now, but they count as one of the "up to two jobs of your own", 
 - Replying to Google or other online reviews.
 - Staff rotas and scheduling.
 - Anything inside booking, practice, till or accounts software.
-- Reports from video, CCTV or images that need expert reading.
+- Reports from video or images that need expert reading (CCTV and survey reports are never suggested at all; see above).
 - Text messages and phone answering.
 
 ---
@@ -133,7 +135,7 @@ At step 2 the tool suggests 8–10 jobs a business like theirs probably has, so 
 
 - **Café or restaurant:** supplier emails, catering and event enquiries, booking confirmations by email, invoices for events, staff rotas (Let's talk), replying to reviews (Let's talk).
 - **Dentist or clinic:** patient emails, new patient enquiries, appointment reminders by email, referral letters from notes, recall messages through practice software (Let's talk).
-- **Trades and drainage:** quotes from site visits, chasing invoices, job updates for clients, new enquiries, job sheets to PDF, survey or CCTV reports (Let's talk).
+- **Trades and drainage:** quotes from site visits, chasing invoices, job updates for clients, new enquiries, job sheets to PDF, loss adjusters kept updated on claims. Never survey or CCTV reports.
 - **Professional services (accountants, solicitors, consultants):** inbox, client updates, meeting write-ups, document checks, chasing documents from clients.
 - **Anything else:** the five core jobs, then whatever their website suggests.
 
