@@ -608,3 +608,15 @@ header.site nav a{white-space:nowrap}
 .calc-result b{font-weight:400}
 .calc-note{margin:0;color:var(--soft);font-size:.9rem}
 @media (max-width:700px){.calc-row{grid-template-columns:1fr auto}.calc-row label{grid-column:1/-1}.payback{padding:22px 18px}}
+
+/* Get started under the Monday card */
+.hero-after{margin:6px 0 0;text-align:center}
+/* "Now try yours" lands near the top when the Your business button is tapped */
+#your-business{scroll-margin-top:calc(4px - clamp(88px,11vw,148px))}
+/* Hidden send buttons stay hidden (the .btn display rule was overriding [hidden]) */
+.mb-open[hidden],.mb-tickbar[hidden]{display:none}
+/* Phones: no Off your desk panel; a send bar under the ticked list instead */
+.mb-tickbar{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap;padding:12px 0 0;border-top:1px solid var(--line)}
+.mb-tickbar span{font:600 .95rem var(--label);color:var(--navy);font-variant-numeric:tabular-nums}
+.mb-tickbar .btn{border:0;cursor:pointer}
+@media (max-width:900px){.mb-right{padding:0;background:none;box-shadow:none;min-height:0}.mb-right>:not(dialog){display:none}}

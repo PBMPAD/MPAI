@@ -174,6 +174,7 @@ function draw(fresh){
  e.hidden=off.length>=5;
  e.textContent=off.length===0?(narrow.matches?"Tick five jobs, and see which ones I can take.":"Move five jobs across, and see which ones I can take."):(left===1?"One more to go":["","","Two","Three","Four"][left]+" more to go");
  var ob=$("mb-open"); ob.hidden=off.length===0;
+ var tb=$("mb-tickbar"); if(tb){ tb.hidden=!narrow.matches||off.length===0; $("mb-tickcount").textContent=off.length+" of 5 ticked"; $("mb-tickopen").textContent=off.length>=5?"Send me my five":"Send me "+(off.length===1?"this one":"these "+["","","two","three","four"][off.length]); }
  ob.textContent=off.length>=5?"Send me my five":"Send me "+(off.length===1?"this one":"these "+["","","two","three","four"][off.length]);
  $("mb-addbtn").disabled=ownCount>=2;
  $("mb-own").disabled=ownCount>=2;
@@ -207,6 +208,7 @@ function addOwn(){
  if(off.length<5){off.push(s); draw(s.key); if(off.length===5){openSend(); return;}} else {desk.unshift(s); draw();}
 }
 $("mb-addbtn").addEventListener("click",addOwn);
+if($("mb-tickopen")) $("mb-tickopen").addEventListener("click",function(){openSend();});
 if(narrow.addEventListener) narrow.addEventListener("change",function(){draw();});
 $("mb-own").addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault(); addOwn();}});
 
