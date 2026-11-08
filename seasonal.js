@@ -67,7 +67,7 @@
     if((m=q.match(/[?&]season=([a-z]+)/)))force=m[1];
     var y=Math.floor(t/10000),brand=document.querySelector('header.site .brand');
     if(!brand)return;
-    var css='.brand{position:relative}.season-badge{position:absolute;left:21px;top:-9px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px var(--paper,#F4F7FA),0 2px 5px rgba(15,27,45,.28);display:grid;place-items:center;pointer-events:auto}.season-badge svg{width:18px;height:18px}'+
+    var css='.brand{position:relative}.season-badge{position:absolute;right:-22px;top:-10px;width:24px;height:24px;border-radius:50%;background:#fff;box-shadow:0 0 0 2px var(--paper,#F4F7FA),0 2px 5px rgba(15,27,45,.28);display:grid;place-items:center;pointer-events:auto}.season-badge svg{width:18px;height:18px}'+
       '.season-line{margin:0;padding:7px 16px;text-align:center;font-family:var(--label,system-ui);font-size:.86rem;letter-spacing:.06em;color:var(--soft,#4F5D6E)}';
     var st=document.createElement('style');st.textContent=css;document.head.appendChild(st);
     if(force==='remembrance'||(!force&&remembrance(t,y))){
