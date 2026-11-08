@@ -127,6 +127,8 @@ function sortOwn(text){
 }
 
 var biz={pick:"",other:""}, desk=[], off=[], ownCount=0;
+/* On phones the two columns stack, so jobs are ticked in place instead of moving across */
+var order=[], narrow=window.matchMedia("(max-width:900px)");
 function $(id){return document.getElementById(id);}
 function esc(s){return String(s==null?"":s).replace(/[<>&"]/g,function(c){return {"<":"&lt;",">":"&gt;","&":"&amp;",'"':"&quot;"}[c];});}
 function clip(s,n){return String(s==null?"":s).trim().slice(0,n);}
@@ -147,12 +149,18 @@ $("mb-other").addEventListener("input",function(){biz.other=clip(this.value,80);
 $("mb-addown").hidden=false;
 
 function load(){
- desk=fromLib(biz.pick||"Other"); off=[]; ownCount=0;
+ desk=fromLib(biz.pick||"Other"); off=[]; ownCount=0; order=desk.slice();
  $("mb-lefttag").textContent=biz.pick&&biz.pick!=="Other"?NAMES[biz.pick]:(biz.other?"For "+biz.other:"Jobs most businesses carry");
  draw();
 }
 function draw(fresh){
  var full=off.length>=5;
+ if(narrow.matches){
+  $("mb-left").innerHTML=order.map(function(j){
+   var on=off.indexOf(j)>-1, talk=j.id==="talk";
+   return '<li class="mb-slip mb-tickrow'+(on?" on":"")+(on&&fresh===j.key?" new":"")+'"><button type="button" class="mb-tick" data-key="'+esc(j.key)+'" aria-pressed="'+on+'"'+(!on&&full?" disabled":"")+'><span class="mb-box" aria-hidden="true"></span><span class="mb-ticktext"><b>'+esc(j.job)+'</b><small>'+esc(on?lineFor(j):j.why)+'</small></span></button>'+(on?'<span class="mb-verdict'+(talk?" talk":"")+'">'+(talk?"Let&rsquo;s talk":"Can do")+'</span>':'')+'</li>';
+  }).join("");
+ } else
  $("mb-left").innerHTML=desk.length?desk.map(function(j,i){
   return '<li class="mb-slip"><span><b>'+esc(j.job)+'</b><small>'+esc(j.why)+'</small></span><button type="button" class="mb-move" data-i="'+i+'"'+(full?" disabled":"")+' aria-label="Move '+esc(j.job)+' off your desk">Move across &rarr;</button></li>';
  }).join(""):'<li class="mb-empty">Everything&rsquo;s off your desk.</li>';
@@ -164,7 +172,7 @@ function draw(fresh){
  $("mb-count").textContent=off.length+" of 5";
  var e=$("mb-empty");
  e.hidden=off.length>=5;
- e.textContent=off.length===0?"Move five jobs across, and see which ones I can take.":(left===1?"One more to go":["","","Two","Three","Four"][left]+" more to go");
+ e.textContent=off.length===0?(narrow.matches?"Tick five jobs, and see which ones I can take.":"Move five jobs across, and see which ones I can take."):(left===1?"One more to go":["","","Two","Three","Four"][left]+" more to go");
  var ob=$("mb-open"); ob.hidden=off.length===0;
  ob.textContent=off.length>=5?"Send me my five":"Send me "+(off.length===1?"this one":"these "+["","","two","three","four"][off.length]);
  $("mb-addbtn").disabled=ownCount>=2;
@@ -172,6 +180,17 @@ function draw(fresh){
  $("mb-own").placeholder=ownCount>=2?"That's two of your own":"e.g. writing our weekly newsletter";
 }
 $("mb-left").addEventListener("click",function(e){
+ var t=e.target.closest(".mb-tick");
+ if(t){
+  var j=order.filter(function(x){return x.key===t.dataset.key;})[0]; if(!j) return;
+  var at=off.indexOf(j);
+  if(at>-1){off.splice(at,1); desk.push(j);}
+  else{ if(off.length>=5) return; desk.splice(desk.indexOf(j),1); off.push(j); }
+  draw(j.key);
+  var again=$("mb-left").querySelector('.mb-tick[data-key="'+j.key+'"]'); if(again) again.focus();
+  if(at<0&&off.length===5) openSend();
+  return;
+ }
  var b=e.target.closest(".mb-move"); if(!b||off.length>=5) return;
  var j=desk.splice(+b.dataset.i,1)[0]; off.push(j); draw(j.key);
  if(off.length===5){openSend(); return;}
@@ -184,10 +203,11 @@ $("mb-right").addEventListener("click",function(e){
 function addOwn(){
  var t=clip($("mb-own").value,80); if(!t||ownCount>=2) return;
  var s=sortOwn(t); s.key="own"+Date.now(); s.why="Your own job";
- ownCount++; $("mb-own").value="";
+ ownCount++; $("mb-own").value=""; order.push(s);
  if(off.length<5){off.push(s); draw(s.key); if(off.length===5){openSend(); return;}} else {desk.unshift(s); draw();}
 }
 $("mb-addbtn").addEventListener("click",addOwn);
+if(narrow.addEventListener) narrow.addEventListener("change",function(){draw();});
 $("mb-own").addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault(); addOwn();}});
 
 /* The pop-up: the list, then the details */

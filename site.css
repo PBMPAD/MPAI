@@ -352,7 +352,7 @@ a.post-card .meta{margin:0}
   .scene-sky{padding:28px 10px 22px}
   .deskcard{padding:20px 16px 16px;border-radius:20px}
   .dc-num{font-size:2.8rem}
-  .job s{font-size:1rem;background:none}
+  .job s{font-size:1rem}
   .ticket{border-radius:20px}
   .t-main{padding:30px 22px 26px}
   .t-side{padding:26px 22px 20px}
@@ -555,3 +555,19 @@ header.site nav a{white-space:nowrap}
   .mb-dialog .mb-fields{gap:10px}
   .mb-dialog .btn,.mb-open{align-self:stretch}
 }
+
+/* "On your desk" on phones: tick jobs in place instead of moving them across */
+.mb-tickrow{padding:0;align-items:center;gap:10px;padding-right:14px;transition:background-color .25s var(--ease),border-color .25s var(--ease)}
+.mb-tick{all:unset;box-sizing:border-box;flex:1;min-width:0;display:flex;align-items:flex-start;gap:12px;padding:13px 4px 13px 14px;cursor:pointer;border-radius:14px}
+.mb-tick:focus-visible{outline:3px solid var(--teal-ink);outline-offset:2px}
+.mb-tick[disabled]{cursor:default;opacity:.55}
+.mb-box{flex:none;width:24px;height:24px;margin-top:1px;border-radius:7px;border:2px solid var(--teal-ink);background:var(--white);position:relative;transition:background-color .2s var(--ease),border-color .2s var(--ease)}
+.mb-box::after{content:"";position:absolute;left:6.5px;top:2.5px;width:6px;height:11px;border:solid var(--navy);border-width:0 2.5px 2.5px 0;transform:rotate(45deg) scale(.3);opacity:0;transition:transform .3s var(--ease),opacity .2s}
+.mb-ticktext{min-width:0}
+.mb-tickrow.on{background:var(--white);border-color:var(--teal)}
+.mb-tickrow.on .mb-box{background:var(--mint);border-color:var(--mint)}
+.mb-tickrow.on .mb-box::after{transform:rotate(45deg) scale(1);opacity:1}
+.mb-tickrow .mb-verdict{flex:none;align-self:center}
+@media (max-width:900px){.mb-right .mb-slips{display:none}.mb-right{gap:10px}}
+@media (prefers-reduced-motion:no-preference){.mb-tickrow.on.new .mb-verdict{animation:mb-stamp .5s var(--ease) .1s both}}
+@media (prefers-reduced-motion:reduce){.mb-tickrow,.mb-box,.mb-box::after{transition:none}}
