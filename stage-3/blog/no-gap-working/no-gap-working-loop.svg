@@ -1,0 +1,39 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800" width="800" height="800" role="img" aria-labelledby="title desc">
+  <title id="title">The No Gap Working improvement loop</title>
+  <desc id="desc">A circular diagram with four steps: briefs run morning, afternoon and evening; Claude checks what was missed; the skill is improved; a new, more accurate version runs. In the centre: around 80% to start, then 90%, then 95%.</desc>
+  <rect width="800" height="800" fill="#ffffff"/>
+  <circle cx="400" cy="400" r="260" fill="none" stroke="#19A39A" stroke-width="6"/>
+  <g fill="#19A39A">
+    <path d="M -16 -14 L 12 0 L -16 14 Z" transform="translate(583.8 216.2) rotate(45)"/>
+    <path d="M -16 -14 L 12 0 L -16 14 Z" transform="translate(583.8 583.8) rotate(135)"/>
+    <path d="M -16 -14 L 12 0 L -16 14 Z" transform="translate(216.2 583.8) rotate(225)"/>
+    <path d="M -16 -14 L 12 0 L -16 14 Z" transform="translate(216.2 216.2) rotate(315)"/>
+  </g>
+  <g font-family="Helvetica, Arial, sans-serif" text-anchor="middle">
+    <g>
+      <rect x="260" y="88" width="280" height="104" rx="16" fill="#0F1B2D"/>
+      <text x="400" y="132" font-size="29" font-weight="700" fill="#ffffff">1. Briefs run</text>
+      <text x="400" y="162" font-size="23" fill="#cfe6e8">Three times a day</text>
+    </g>
+    <g>
+      <rect x="515" y="348" width="280" height="104" rx="16" fill="#0F1B2D"/>
+      <text x="655" y="392" font-size="29" font-weight="700" fill="#ffffff">2. Check</text>
+      <text x="655" y="422" font-size="23" fill="#cfe6e8">What was missed?</text>
+    </g>
+    <g>
+      <rect x="260" y="608" width="280" height="104" rx="16" fill="#0F1B2D"/>
+      <text x="400" y="652" font-size="29" font-weight="700" fill="#ffffff">3. Improve the skill</text>
+      <text x="400" y="682" font-size="23" fill="#cfe6e8">Fix what needs fixing</text>
+    </g>
+    <g>
+      <rect x="5" y="348" width="280" height="104" rx="16" fill="#0F1B2D"/>
+      <text x="145" y="392" font-size="29" font-weight="700" fill="#ffffff">4. New version</text>
+      <text x="145" y="422" font-size="23" fill="#cfe6e8">More accurate each time</text>
+    </g>
+    <text x="400" y="336" font-size="32" font-weight="700" fill="#0F1B2D">No Gap</text>
+    <text x="400" y="374" font-size="32" font-weight="700" fill="#0F1B2D">Working</text>
+    <text x="400" y="420" font-size="22" fill="#0F1B2D">Gets more accurate</text>
+    <text x="400" y="447" font-size="22" fill="#0F1B2D">every time round</text>
+    <text x="400" y="494" font-size="24" font-weight="700" fill="#0F1B2D">80% → 90% → 95%</text>
+  </g>
+</svg>
