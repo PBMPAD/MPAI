@@ -179,6 +179,17 @@
 <p><a class="textlink" href="about.html">More about me</a></p>
 </div>
 </div>
+<div class="results" aria-labelledby="results-title">
+<h3 id="results-title">What it changed in my own day</h3>
+<ul class="results-list">
+<li><b>Whole days back</b><span>Days carved out of my workload, now spent on planning, outreach and networking.</span></li>
+<li><b>Same-day replies</b><span>Emails that used to wait until the next day now go the same day.</span></li>
+<li><b>Nothing slips</b><span>Follow-ups and chasers no longer get forgotten.</span></li>
+<li><b>Drafts, not blank pages</b><span>Quotes and reports start from a draft that&rsquo;s already most of the way there.</span></li>
+<li><b>Fewer chasers</b><span>Clients chase me far less than they used to.</span></li>
+</ul>
+<p class="results-note">My own results, at the surveying practice where I work. Client results will go here as they come in.</p>
+</div>
 </div>
 </section>
 
@@ -199,8 +210,19 @@
 <dl class="t-side">
 <div><dt>Jobs of your own</dt><dd>Send me up to two. Each is quoted once I&rsquo;ve seen it, and never added to the <span class="num">&pound;1,000</span>.</dd></div>
 <div><dt>Care plan</dt><dd>Optional, after set-up, to keep it all running. From <span class="num">&pound;100</span> a month. <a href="care-plans.html">See the care plans</a></dd></div>
-<div><dt>Your Claude plan</dt><dd>You&rsquo;ll need your own paid Claude plan. It&rsquo;s separate from my fee.</dd></div>
+<div><dt>Your Claude plan</dt><dd>You&rsquo;ll need your own Claude Pro plan, about <span class="num">&pound;18</span> a month, or less if you pay yearly. It&rsquo;s paid to Anthropic, separate from my fee.</dd></div>
 </dl>
+</div>
+<div class="payback" aria-labelledby="payback-title">
+<h3 id="payback-title">Does it pay for itself?</h3>
+<p class="payback-eg">Save two hours a week, and if your time is worth <span class="num">&pound;40</span> an hour, the <span class="num">&pound;1,000</span> pays for itself in about three months, even after your Claude Pro plan.</p>
+<div class="calc" id="calc" hidden>
+<p class="calc-intro">Try your own numbers:</p>
+<div class="calc-row"><label for="calc-hours">Hours saved a week</label><input type="range" id="calc-hours" min="1" max="10" step="1" value="2"><output for="calc-hours" id="calc-hours-out">2 hours</output></div>
+<div class="calc-row"><label for="calc-rate">What an hour of your time is worth</label><input type="range" id="calc-rate" min="15" max="150" step="5" value="40"><output for="calc-rate" id="calc-rate-out">&pound;40</output></div>
+<p class="calc-result" id="calc-result" aria-live="polite"></p>
+<p class="calc-note">Your numbers, not a promise. Allows about <span class="num">&pound;18</span> a month for Claude Pro.</p>
+</div>
 </div>
 <p class="center more"><a class="textlink" href="how-it-works.html#set-up">Full pricing and what&rsquo;s included</a></p>
 </div>
@@ -232,5 +254,20 @@
 </div>
 <script src="home.js" defer></script>
 <script src="mybusiness.js" defer></script>
+<script>
+(function(){
+ var c=document.getElementById("calc"); if(!c) return; c.hidden=false;
+ var hs=document.getElementById("calc-hours"),rs=document.getElementById("calc-rate"),ho=document.getElementById("calc-hours-out"),ro=document.getElementById("calc-rate-out"),out=document.getElementById("calc-result");
+ var SETUP=1000, CLAUDE_WEEK=18*12/52;
+ function upd(){
+  var hrs=+hs.value, rate=+rs.value, week=hrs*rate-CLAUDE_WEEK;
+  ho.textContent=hrs+(hrs===1?" hour":" hours"); ro.textContent="£"+rate;
+  if(week<=0){out.textContent="At these numbers it wouldn’t pay for itself.";return;}
+  var weeks=Math.ceil(SETUP/week), months=Math.max(1,Math.round(weeks/4.33));
+  out.innerHTML="The <b>£1,000</b> pays for itself in about <b>"+weeks+" weeks</b>"+(weeks>=6?" (about "+months+(months===1?" month":" months")+")":"")+".";
+ }
+ hs.addEventListener("input",upd); rs.addEventListener("input",upd); upd();
+})();
+</script>
 </body>
 </html>
