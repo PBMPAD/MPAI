@@ -198,7 +198,7 @@ $("mb-send").addEventListener("click",function(){
  b.disabled=true; b.textContent="Sending…";
  var fd=new FormData();
  fd.append("_subject","Your business: "+(bname||type)); fd.append("name",n); fd.append("email",em); fd.append("business",bname); fd.append("type",type);
- fd.append("website",clip($("mb-site").value,200)); fd.append("jobs",list); fd.append("source","Home: Your business");
+ fd.append("website",clip($("mb-site").value,200)); fd.append("jobs",list); fd.append("source",/contact/.test(location.pathname)?"Contact page":"Home page");
  fetch(FORM_ACTION,{method:"POST",body:fd,headers:{"Accept":"application/json"}}).then(function(r){
   if(!r.ok) throw 0; msg("Sent. I'll email you your five and how we'd start.","ok"); b.textContent="Sent";
  }).catch(function(){b.disabled=false; b.textContent="Email me my five"; msg("That didn't send. Please email matthew@mpai.site instead.","err");});

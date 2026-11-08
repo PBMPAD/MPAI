@@ -3,8 +3,8 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Get started: MPAI</title>
-<meta name="description" content="Tell me about your business and any extra jobs, and I will reply by email.">
+<title>Your business: MPAI</title>
+<meta name="description" content="Pick what you run, move five jobs off your desk, and see which ones I can take. I reply by email.">
 <link rel="icon" href="logo.svg" type="image/svg+xml">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -19,54 +19,57 @@
 <header class="site"><div class="wrap">
 <a class="brand" href="index.html" aria-label="MPAI home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>MPAI</a>
 <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
-<nav aria-label="Main" id="site-nav"><ul><li><a href="index.html#your-business">Your business</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="index.html#offer">Price</a></li><li><a href="about.html">About</a></li><li><a href="blog/">Blog</a></li><li><a href="contact.html" aria-current="page">Contact</a></li></ul></nav>
-<a class="btn btn-dark nav-cta" href="contact.html">Get started</a>
+<nav aria-label="Main" id="site-nav"><ul><li><a href="contact.html" aria-current="page">Your business</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="index.html#offer">Price</a></li><li><a href="about.html">About</a></li><li><a href="blog/">Blog</a></li></ul></nav>
+<a class="btn btn-dark nav-cta" href="#your-business">Get started</a>
 </div></header>
 
 <main id="main">
-<section class="page-head page-end" aria-labelledby="page-title"><div class="wrap">
-<h1 id="page-title">Get started, <em>tell me about your business</em></h1>
-<p class="lead">Set-up is from <span class="num">&pound;1,000</span> and covers all five jobs. Add up to two more of your own that aren't on the list, and I'll quote for them once I've seen them. I'll reply by email.</p>
-<form class="five formcard" method="POST" action="https://formspree.io/f/xpppejjl"> 
-<script>document.addEventListener('DOMContentLoaded',function(){var f=document.querySelector('form.five');f.addEventListener('submit',function(e){e.preventDefault();var b=f.querySelector('button');if(b){b.disabled=true;b.textContent='Sending...';}fetch(f.action,{method:'POST',body:new FormData(f),headers:{'Accept':'application/json'}}).then(function(r){if(r.ok){window.location.href='thanks.html';}else{throw new Error();}}).catch(function(){if(b){b.disabled=false;b.textContent='Send my jobs';}alert('Sorry, that did not send. Please email matthew@mpai.site instead.');});});});</script>  
-<input type="hidden" name="_next" value="https://mpai.site/thanks.html"> 
-<p class="hidden"><label>Leave this empty <input name="company-website"></label></p>
-<div class="row2">
-<div class="field"><label for="name">Your name</label><input id="name" name="name" autocomplete="name" required></div>
-<div class="field"><label for="business">Business name</label><input id="business" name="business" autocomplete="organization" required></div>
-</div>
-<div class="row2">
-<div class="field"><label for="email">Email</label><input id="email" name="email" type="email" autocomplete="email" required></div>
-<div class="field"><label for="phone">Phone <span class="hint">(optional)</span></label><input id="phone" name="phone" type="tel" autocomplete="tel"></div>
-</div>
-<div class="row2">
-<div class="field"><label for="website">Website <span class="hint">(optional)</span></label><input id="website" name="website" type="url" placeholder="https://"></div>
-<div class="field"><label for="system">Email and files</label><select id="system" name="system"><option>Microsoft 365 / Outlook</option><option>Google / Gmail</option><option>Not sure</option></select></div>
-</div>
-<section class="included" aria-labelledby="included-title">
-<h2 id="included-title">All five jobs are included</h2>
-<p class="hint">You don't need to choose. I set up all five, starting with your business notes.</p>
-<ul class="included-list">
-<li><strong>Your day, briefed</strong><br><span class="hint">Every morning, midday and end of day, a summary of what needs you, what can wait and what's coming up.</span></li>
-<li><strong>Your business, on file</strong><br><span class="hint">Your team, clients, suppliers and the way you write, kept in one place.</span></li>
-<li><strong>Paperwork ready to go</strong><br><span class="hint">Your letters, quote styles and terms, drafted for each job.</span></li>
-<li><strong>Invoices sent and chased</strong><br><span class="hint">Invoices sent, overdue reminders and thank-yous, with a delay the client has explained left alone.</span></li>
-<li><strong>Meetings and calls turned into actions</strong><br><span class="hint">A summary, a follow-up email or site notes, and a list of actions from each meeting or call.</span></li>
-</ul>
-</section>
-<fieldset>
-<legend>Up to two more <em>of your own</em></legend>
-<p class="hint">Jobs that aren't on the list above. Short is fine, like "booking site visits". Each extra job is quoted once I've seen it, and never added to the <span class="num">&pound;1,000</span>.</p>
-<div class="jobs">
-<div class="job"><span aria-hidden="true">1</span><input name="custom-1" aria-label="Your own job 1"></div>
-<div class="job"><span aria-hidden="true">2</span><input name="custom-2" aria-label="Your own job 2"></div>
-</div>
-</fieldset>
-<div class="field"><label for="notes">Anything else? <span class="hint">(optional)</span></label><textarea id="notes" name="notes" rows="3"></textarea></div>
-<p><button class="btn btn-dark" type="submit">Send my jobs</button></p>
-<p class="hint">I'll only use your details to reply to you.</p>
-</form>
+<section class="page-head" aria-labelledby="page-title"><div class="wrap">
+<h1 id="page-title">Tell me about <em>your business</em></h1>
+<p class="lead">Pick what you run, then move five jobs off your desk. You&rsquo;ll see which ones I can take, and I&rsquo;ll reply by email with how we&rsquo;d start.</p>
 </div></section>
+<section class="mybiz" id="your-business" aria-label="Your business">
+<div class="wrap">
+<fieldset class="mb-bar" id="mb-bar" hidden>
+<legend>What do you run?</legend>
+<div class="mb-types" id="mb-types"></div>
+<input type="text" class="mb-other" id="mb-other" aria-label="What type of business do you run?" placeholder="e.g. drainage company, florist, dog groomer" autocomplete="off" hidden>
+</fieldset>
+<div class="mb-cols">
+<div class="mb-col mb-left">
+<div class="mb-colhead"><h3>On your desk</h3><span id="mb-lefttag">Jobs most businesses carry</span></div>
+<ul class="mb-slips" id="mb-left">
+<li class="mb-slip"><span><b>Your day, briefed</b><small>Knowing what needs you first thing</small></span></li>
+<li class="mb-slip"><span><b>Paperwork ready to go</b><small>Quotes and letters written from scratch</small></span></li>
+<li class="mb-slip"><span><b>Invoices sent and chased</b><small>Late payers and awkward reminders</small></span></li>
+<li class="mb-slip"><span><b>Meetings and calls into actions</b><small>What was agreed gets forgotten</small></span></li>
+</ul>
+<div class="mb-addown" id="mb-addown" hidden>
+<label for="mb-own">Something else? Add a job of your own</label>
+<div class="mb-addrow"><input type="text" id="mb-own" placeholder="e.g. writing our weekly newsletter" autocomplete="off"><button type="button" class="mb-addbtn" id="mb-addbtn">Add</button></div>
+</div>
+</div>
+<div class="mb-col mb-right">
+<div class="mb-colhead"><h3>Off your desk</h3><span id="mb-count">0 of 5</span></div>
+<ul class="mb-slips" id="mb-right" aria-live="polite"></ul>
+<p class="mb-empty" id="mb-empty">Tell me what you run, and I&rsquo;ll reply by email with the five jobs I&rsquo;d take off your desk. <a class="textlink" href="mailto:matthew@mpai.site">matthew@mpai.site</a></p>
+<div class="mb-send" id="mb-sendbox" hidden>
+<h4>Send me my five</h4>
+<p class="mb-hint">I&rsquo;ll email you this list and how we&rsquo;d start. No obligation.</p>
+<div class="mb-fields">
+<div class="mb-field"><label for="mb-cname">Your name</label><input type="text" id="mb-cname" autocomplete="name"></div>
+<div class="mb-field"><label for="mb-cemail">Email</label><input type="email" id="mb-cemail" autocomplete="email"></div>
+<div class="mb-field"><label for="mb-bname">Business name <span class="mb-opt">(optional)</span></label><input type="text" id="mb-bname" autocomplete="organization"></div>
+<div class="mb-field"><label for="mb-site">Website <span class="mb-opt">(optional)</span></label><input type="url" id="mb-site" placeholder="yourbusiness.co.uk"></div>
+</div>
+<p class="mb-msg" id="mb-msg" role="status"></p>
+<button class="btn btn-dark" id="mb-send" type="button">Email me my five</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+<div class="wrap mb-after"><p>Prefer to just write? Email <a href="mailto:matthew@mpai.site">matthew@mpai.site</a>. I&rsquo;ll only use your details to reply to you.</p></div>
 </main>
 
 <footer class="site"><div class="wrap">
@@ -84,5 +87,6 @@
 <p><a href="mailto:matthew@mpai.site">matthew@mpai.site</a></p>
 </div></footer>
 </div>
+<script src="mybusiness.js" defer></script>
 </body>
 </html>

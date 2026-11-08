@@ -521,3 +521,8 @@ section.close{padding-top:clamp(72px,9vw,120px)}
 /* Six menu items: keep each label on one line, and tighten between tablet and desktop */
 header.site nav a{white-space:nowrap}
 @media (min-width:821px) and (max-width:1060px){header.site nav ul{gap:0}header.site nav a{padding-left:8px;padding-right:8px;font-size:.92rem}.nav-cta{padding:0 18px}}
+/* Contact page: the selector without the homepage lead-in */
+.page-head + .mybiz{padding-top:0}
+.page-head + .mybiz .mb-bar{margin-top:8px}
+.mb-after{margin-top:24px;padding-bottom:clamp(72px,9vw,120px)}
+.mb-after p{margin:0;color:var(--soft);font-size:1rem}
