@@ -530,3 +530,28 @@ header.site nav a{white-space:nowrap}
 .cta-short{display:none}
 @media (max-width:480px){.nav-cta .cta-full{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.nav-cta .cta-short{display:inline}}
 .mb-colhead{flex-wrap:wrap}.mb-colhead h3{white-space:nowrap}
+/* Send pop-up: centred card on desktop, bottom sheet on phones */
+.mb-open{align-self:flex-start;border:0;cursor:pointer;margin-top:4px}
+.mb-dialog{border:0;padding:24px 24px 26px;border-radius:24px;width:min(560px,calc(100% - 32px));max-height:calc(100dvh - 48px);overflow:auto;background:var(--white);color:var(--ink);box-shadow:0 40px 80px -36px rgba(8,18,32,.75);display:none;flex-direction:column;gap:14px}
+.mb-dialog[open]{display:flex}
+.mb-dialog::backdrop{background:rgba(15,27,45,.55);backdrop-filter:blur(3px)}
+.mb-dhead{display:flex;justify-content:space-between;align-items:center;gap:12px}
+.mb-dhead h3{font:300 clamp(1.7rem,3vw,2.1rem)/1.1 var(--serif);color:var(--navy);margin:0;letter-spacing:-.01em}
+.mb-close{flex:none;width:44px;height:44px;border-radius:999px;border:0;background:var(--paper);color:var(--navy);display:grid;place-items:center;cursor:pointer}
+.mb-close:hover{background:var(--mint-wash)}
+.mb-close svg{width:20px;height:20px}
+.mb-summary{list-style:none;margin:0;padding:0;display:grid}
+.mb-summary li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:9px 0;border-top:1px solid var(--line);font:600 .95rem/1.35 var(--label);color:var(--navy)}
+.mb-summary li:last-child{border-bottom:1px solid var(--line)}
+.mb-dialog .mb-hint{margin:0}
+.mb-dialog .btn{border:0;cursor:pointer;align-self:flex-start}
+.mb-dialog .btn:disabled{opacity:.6;cursor:default;transform:none}
+@media (prefers-reduced-motion:no-preference){.mb-dialog[open]{animation:mb-pop .35s var(--ease)}.mb-dialog[open]::backdrop{animation:mb-fade .35s ease}}
+@keyframes mb-pop{from{opacity:0;transform:translateY(18px)}to{opacity:1;transform:none}}
+@keyframes mb-fade{from{opacity:0}to{opacity:1}}
+@media (max-width:560px){
+  .mb-dialog{position:fixed;inset:auto 0 0 0;margin:0;width:100%;max-width:100%;border-radius:22px 22px 0 0;padding:18px 18px calc(20px + env(safe-area-inset-bottom,0px));max-height:90dvh;gap:12px}
+  .mb-summary li{padding:7px 0;font-size:.9rem}
+  .mb-dialog .mb-fields{gap:10px}
+  .mb-dialog .btn,.mb-open{align-self:stretch}
+}

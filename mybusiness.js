@@ -165,7 +165,8 @@ function draw(fresh){
  var e=$("mb-empty");
  e.hidden=off.length>=5;
  e.textContent=off.length===0?"Move five jobs across, and see which ones I can take.":(left===1?"One more to go":["","","Two","Three","Four"][left]+" more to go");
- $("mb-sendbox").hidden=off.length===0;
+ var ob=$("mb-open"); ob.hidden=off.length===0;
+ ob.textContent=off.length>=5?"Send me my five":"Send me "+(off.length===1?"this one":"these "+["","","two","three","four"][off.length]);
  $("mb-addbtn").disabled=ownCount>=2;
  $("mb-own").disabled=ownCount>=2;
  $("mb-own").placeholder=ownCount>=2?"That's two of your own":"e.g. writing our weekly newsletter";
@@ -173,6 +174,7 @@ function draw(fresh){
 $("mb-left").addEventListener("click",function(e){
  var b=e.target.closest(".mb-move"); if(!b||off.length>=5) return;
  var j=desk.splice(+b.dataset.i,1)[0]; off.push(j); draw(j.key);
+ if(off.length===5){openSend(); return;}
  var nb=$("mb-left").querySelector(".mb-move"); if(nb&&!nb.disabled) nb.focus(); else $("mb-right").querySelector("li:last-child .mb-back").focus();
 });
 $("mb-right").addEventListener("click",function(e){
@@ -183,10 +185,24 @@ function addOwn(){
  var t=clip($("mb-own").value,80); if(!t||ownCount>=2) return;
  var s=sortOwn(t); s.key="own"+Date.now(); s.why="Your own job";
  ownCount++; $("mb-own").value="";
- if(off.length<5){off.push(s); draw(s.key);} else {desk.unshift(s); draw();}
+ if(off.length<5){off.push(s); draw(s.key); if(off.length===5){openSend(); return;}} else {desk.unshift(s); draw();}
 }
 $("mb-addbtn").addEventListener("click",addOwn);
 $("mb-own").addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault(); addOwn();}});
+
+/* The pop-up: the list, then the details */
+var dlg=$("mb-dialog"), sent=false;
+function openSend(){
+ $("mb-dtitle").textContent=off.length>=5?"Send me my five":"Send me your list";
+ $("mb-summary").innerHTML=off.map(function(r){var t=r.id==="talk";return '<li><span>'+esc(r.job)+'</span><span class="mb-verdict'+(t?" talk":"")+'">'+(t?"Let&rsquo;s talk":"Can do")+'</span></li>';}).join("");
+ if(!sent){msg("");}
+ if(dlg.showModal){ if(!dlg.open) dlg.showModal(); } else dlg.setAttribute("open","");
+ setTimeout(function(){ (sent?$("mb-close"):$("mb-cname")).focus(); },60);
+}
+function closeSend(){ if(dlg.close) dlg.close(); else dlg.removeAttribute("open"); var o=$("mb-open"); if(o&&!o.hidden) o.focus(); }
+$("mb-open").addEventListener("click",openSend);
+$("mb-close").addEventListener("click",closeSend);
+dlg.addEventListener("click",function(e){ if(e.target===dlg) closeSend(); });
 
 /* Send the five to Matthew */
 $("mb-send").addEventListener("click",function(){
@@ -200,7 +216,7 @@ $("mb-send").addEventListener("click",function(){
  fd.append("_subject","Your business: "+(bname||type)); fd.append("name",n); fd.append("email",em); fd.append("business",bname); fd.append("type",type);
  fd.append("website",clip($("mb-site").value,200)); fd.append("jobs",list); fd.append("source",/contact/.test(location.pathname)?"Contact page":"Home page");
  fetch(FORM_ACTION,{method:"POST",body:fd,headers:{"Accept":"application/json"}}).then(function(r){
-  if(!r.ok) throw 0; msg("Sent. I'll email you your five and how we'd start.","ok"); b.textContent="Sent";
+  if(!r.ok) throw 0; sent=true; msg("Sent. I'll email you your five and how we'd start.","ok"); b.textContent="Sent";
  }).catch(function(){b.disabled=false; b.textContent="Email me my five"; msg("That didn't send. Please email matthew@mpai.site instead.","err");});
 });
 
