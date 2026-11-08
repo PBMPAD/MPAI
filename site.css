@@ -72,6 +72,10 @@ nav a:hover{background:color-mix(in srgb,var(--teal) 13%,transparent)}
 .pill-arrow{width:16px;height:16px;color:var(--teal-ink)}
 .num{font-family:var(--label);font-weight:600;letter-spacing:-.01em}
 .pill:hover{border-color:var(--teal)}
+.hero-meta{display:flex;justify-content:center;align-items:center;gap:10px;flex-wrap:wrap;margin-bottom:18px}
+.hero-meta .pill{margin-bottom:0}
+.pill.person img{width:30px;height:30px;object-fit:cover;object-position:50% 22%;border-radius:50%}
+.pill .dot{color:var(--teal-ink)}
 .actions{display:flex;justify-content:center;align-items:center;gap:28px;flex-wrap:wrap;margin-top:20px}
 
 .scene{position:relative}
@@ -420,10 +424,10 @@ section.close{padding-top:clamp(72px,9vw,120px)}
 .inv li:first-child{border-top:0}
 .inv-what{display:grid;font-size:.86rem;color:var(--soft)}
 .inv-what b{font-family:var(--label);font-weight:600;font-size:.95rem;color:var(--navy)}
-.pills{display:grid;justify-items:end;flex:none}
-.pill{grid-area:1/1;padding:3px 10px;border-radius:999px;font-family:var(--label);font-weight:600;font-size:.78rem;white-space:nowrap;background:var(--mint-wash);color:var(--teal-ink)}
-.pill.was{background:#FBE9E4;color:#8A3B26;opacity:0}
-.pill.now.hold{background:var(--paper);color:var(--soft);border:1px solid var(--line)}
+.sts{display:grid;justify-items:end;flex:none}
+.st{grid-area:1/1;padding:3px 10px;border-radius:999px;font-family:var(--label);font-weight:600;font-size:.78rem;white-space:nowrap;background:var(--mint-wash);color:var(--teal-ink)}
+.st.was{background:#FBE9E4;color:#8A3B26;opacity:0}
+.st.now.hold{background:var(--paper);color:var(--soft);border:1px solid var(--line)}
 /* calls: recording, then the write-up */
 .rec{display:flex;align-items:center;gap:10px;margin:0 0 10px;padding:8px 12px;border-radius:12px;background:var(--navy)}
 .rec-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);flex:none}
