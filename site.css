@@ -620,3 +620,18 @@ header.site nav a{white-space:nowrap}
 .mb-tickbar span{font:600 .95rem var(--label);color:var(--navy);font-variant-numeric:tabular-nums}
 .mb-tickbar .btn{border:0;cursor:pointer}
 @media (max-width:900px){.mb-right{padding:0;background:none;box-shadow:none;min-height:0}.mb-right>:not(dialog){display:none}}
+
+/* Home: short founder strip and price strip (detail lives on About and Pricing) */
+.fs-inner{display:grid;grid-template-columns:auto minmax(0,1fr);gap:clamp(20px,4vw,48px);align-items:center;max-width:900px}
+.fs-photo{width:clamp(120px,16vw,180px);aspect-ratio:1;object-fit:cover;object-position:50% 22%;border-radius:50%;border:6px solid var(--white);box-shadow:0 20px 40px -24px rgba(8,18,32,.5)}
+.fs-title{font:300 clamp(1.8rem,3.4vw,2.6rem)/1.1 var(--serif);color:var(--navy);margin:0 0 .4em;letter-spacing:-.01em}
+.fs-title em{display:block;font-style:italic}
+.fs-inner p{color:var(--soft);max-width:52ch}
+.ps-inner{display:flex;justify-content:space-between;align-items:center;gap:20px 40px;flex-wrap:wrap;max-width:1000px;margin:0 auto;background:var(--white);border:1px solid var(--line);border-radius:24px;padding:clamp(24px,4vw,40px);box-shadow:0 30px 70px -48px rgba(8,18,32,.5)}
+.ps-inner .display{margin:0 0 .3em;max-width:none}
+.ps-inner p{color:var(--soft);max-width:52ch;margin:0}
+.ps-actions{flex:none}
+@media (max-width:640px){.fs-inner{grid-template-columns:1fr;justify-items:center;text-align:center}.fs-inner p{margin-inline:auto}.ps-actions .btn{width:100%}}
+
+.results-h{font:600 1.15rem/1.25 var(--label);letter-spacing:-.01em;color:var(--navy);text-align:center;margin:0 0 18px}
+.visually-hidden{position:absolute!important;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
