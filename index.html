@@ -20,7 +20,7 @@
 <header class="site"><div class="wrap">
 <a class="brand" href="index.html" aria-label="MPAI home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>MPAI</a>
 <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
-<nav aria-label="Main" id="site-nav"><ul><li><a href="#my-business">My business</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="#offer">Price</a></li><li><a href="about.html">About</a></li><li><a href="blog/">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
+<nav aria-label="Main" id="site-nav"><ul><li><a href="#your-business">Your business</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="#offer">Price</a></li><li><a href="about.html">About</a></li><li><a href="blog/">Blog</a></li><li><a href="contact.html">Contact</a></li></ul></nav>
 <a class="btn btn-dark nav-cta" href="contact.html">Get started</a>
 </div></header>
 
@@ -120,30 +120,46 @@
 </div>
 </section>
 
-<section class="mybiz" id="my-business" aria-labelledby="mybiz-title">
-<div class="scene scene-sky2">
-<div class="wrap mybiz-grid">
-<div class="mybiz-intro">
+<section class="mybiz" id="your-business" aria-labelledby="mybiz-title">
+<div class="wrap">
+<div class="mb-top">
 <h2 class="display" id="mybiz-title">That&rsquo;s a typical week. <em>Now try yours.</em></h2>
-<p class="sub">Tell me what you run. Using AI, I suggest the admin a business like yours usually carries. Pick five, and see which ones I can take off your desk.</p>
-<p class="mybiz-small">About a minute. Nothing is sent until you ask.</p>
+<p class="sub">Pick your type of business, then move five jobs off your desk and see which ones I can take.</p>
 </div>
-<div class="mb-ticket rest" id="mb-ticket">
-<div class="mb-main" id="mb-main" aria-live="polite" aria-label="Your ticket">
-<div class="mb-head"><span>YOUR TOP FIVE</span><span class="mb-ex">EXAMPLE</span></div>
-<p class="mb-biz">The Corner Caf&eacute;, <em>Brentwood</em></p>
-<ul class="mb-rows">
-<li class="mb-row"><b>Catering enquiries answered</b><span class="mb-stamp">Can do</span></li>
-<li class="mb-row"><b>Weekly specials menu</b><span class="mb-stamp">Can do</span></li>
-<li class="mb-row"><b>Supplier invoices chased</b><span class="mb-stamp">Can do</span></li>
-<li class="mb-row"><b>Staff rota each week</b><span class="mb-stamp talk">Let&rsquo;s talk</span></li>
-<li class="mb-row"><b>Table bookings confirmed</b><span class="mb-stamp">Can do</span></li>
+<fieldset class="mb-bar" id="mb-bar" hidden>
+<legend>What do you run?</legend>
+<div class="mb-types" id="mb-types"></div>
+<input type="text" class="mb-other" id="mb-other" aria-label="What type of business do you run?" placeholder="e.g. drainage company, florist, dog groomer" autocomplete="off" hidden>
+</fieldset>
+<div class="mb-cols">
+<div class="mb-col mb-left">
+<div class="mb-colhead"><h3>On your desk</h3><span id="mb-lefttag">Jobs most businesses carry</span></div>
+<ul class="mb-slips" id="mb-left">
+<li class="mb-slip"><span><b>Your day, briefed</b><small>Knowing what needs you first thing</small></span></li>
+<li class="mb-slip"><span><b>Paperwork ready to go</b><small>Quotes and letters written from scratch</small></span></li>
+<li class="mb-slip"><span><b>Invoices sent and chased</b><small>Late payers and awkward reminders</small></span></li>
+<li class="mb-slip"><span><b>Meetings and calls into actions</b><small>What was agreed gets forgotten</small></span></li>
 </ul>
+<div class="mb-addown" id="mb-addown" hidden>
+<label for="mb-own">Something else? Add a job of your own</label>
+<div class="mb-addrow"><input type="text" id="mb-own" placeholder="e.g. writing our weekly newsletter" autocomplete="off"><button type="button" class="mb-addbtn" id="mb-addbtn">Add</button></div>
 </div>
-<div class="mb-stub" id="mb-stub">
-<h3>Your business</h3>
-<p class="mb-hint">Tell me what you run, and I&rsquo;ll reply by email with the five jobs I&rsquo;d take off your desk.</p>
-<a class="btn btn-dark" href="contact.html">Tell me about my business</a>
+</div>
+<div class="mb-col mb-right">
+<div class="mb-colhead"><h3>Off your desk</h3><span id="mb-count">0 of 5</span></div>
+<ul class="mb-slips" id="mb-right" aria-live="polite"></ul>
+<p class="mb-empty" id="mb-empty">Tell me what you run, and I&rsquo;ll reply by email with the five jobs I&rsquo;d take off your desk. <a class="textlink" href="contact.html">Tell me about your business</a></p>
+<div class="mb-send" id="mb-sendbox" hidden>
+<h4>Send me my five</h4>
+<p class="mb-hint">I&rsquo;ll email you this list and how we&rsquo;d start. No obligation.</p>
+<div class="mb-fields">
+<div class="mb-field"><label for="mb-cname">Your name</label><input type="text" id="mb-cname" autocomplete="name"></div>
+<div class="mb-field"><label for="mb-cemail">Email</label><input type="email" id="mb-cemail" autocomplete="email"></div>
+<div class="mb-field"><label for="mb-bname">Business name <span class="mb-opt">(optional)</span></label><input type="text" id="mb-bname" autocomplete="organization"></div>
+<div class="mb-field"><label for="mb-site">Website <span class="mb-opt">(optional)</span></label><input type="url" id="mb-site" placeholder="yourbusiness.co.uk"></div>
+</div>
+<p class="mb-msg" id="mb-msg" role="status"></p>
+<button class="btn btn-dark" id="mb-send" type="button">Email me my five</button>
 </div>
 </div>
 </div>
