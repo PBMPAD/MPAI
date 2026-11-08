@@ -2,6 +2,7 @@ document.documentElement.classList.add('js');
 (function(){
   var s=document.currentScript;
   var base=s?(s.getAttribute('src')||'').replace(/nav\.js.*$/,''):'';
+  var sj=document.createElement('script');sj.src=base+'seasonal.js';document.head.appendChild(sj);
   document.addEventListener('DOMContentLoaded',function(){
     var ul=document.querySelector('#site-nav ul');
     if(ul&&!ul.querySelector('a[href$="blog/"]')){
