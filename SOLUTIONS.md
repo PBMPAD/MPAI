@@ -10,7 +10,7 @@ Built from: the five jobs in the `mpai-lead-teaser` skill (the core offer), its 
 
 ## How the tool decides
 
-**Ready now.** The job clearly fits one solution below, or a small variation of one, and it only needs the visitor's email, diary, files or spreadsheets.
+**Can do.** (Visitors see this stamp; it replaced "Ready now" on 08/11/26 as less of a promise.) The job clearly fits one solution below, or a small variation of one, and it only needs the visitor's email, diary, files or spreadsheets.
 
 **Let's talk.** Anything else, and always when:
 - no solution below fits, or the job is vague
@@ -47,7 +47,9 @@ Not one of the five. It's the foundation of every set-up.
 
 ## The five core jobs
 
-These are the standard offer. If a visitor's job matches one, it's always Ready now.
+> **Changed 08/11/26 (later): the core five are the homepage five again**: Your day, briefed; Your business, on file; Paperwork ready to go; Invoices sent and chased; Meetings and calls turned into actions. The five below are kept as extras the tool can still offer.
+
+These are the standard offer. If a visitor's job matches one, it's always Can do.
 
 ### 1. Your inbox, handled
 - **Matches:** too much email, slow replies, missing important emails, wanting to reply by voice.
@@ -76,9 +78,9 @@ These are the standard offer. If a visitor's job matches one, it's always Ready 
 
 ---
 
-## Other jobs I've built before (Ready now, quoted extra)
+## Other jobs I've built before (Can do, quoted extra)
 
-These are Ready now, but they count as one of the "up to two jobs of your own", quoted once you've seen them. The tool should say: "I've set this up before. It's quoted separately from the five."
+These are Can do, but they count as one of the "up to two jobs of your own", quoted once you've seen them. The tool should say: "I've set this up before. It's quoted separately from the five."
 
 ### 6. Your day, briefed
 - **Matches:** "I don't know what needs me today", missing things, end-of-day handover, "what did I miss".
