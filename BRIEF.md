@@ -60,3 +60,9 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 - Mobile: tabs sit in a burger menu (nav.js, no-JS fallback shows a plain list). Home was cut from about 9,100px to about 4,400px on a phone: the seven job descriptions are tap-to-open on phones, and the repeated "how it works", "what I set up underneath" and care plan blocks were removed from Home (they live on How it works). Page spacing tightened on phones.
 - Video: "MPAI in 60 seconds" redrawn for the seven jobs, new headline and "from £1,000"; same music bed; drawn in Inter because Space Grotesk was not available when it was made. Poster refreshed. The video still says "A 30-minute call" to match the site.
 - Home CTA heading is now "Ready to get your time back?".
+
+## Update (08/11/26): hero video
+- The hero panel behind the desk card now has a looping video: mint sky, drifting clouds, Essex hills with a church spire and cloud shadows. Brand colours only, no people or text. Inspired by the Bankyz, Voxai and Apogee heroes.
+- Files: images/video/hero-sky.mp4 (20-second seamless loop, 960x540, about 260 KB) and images/video/hero-sky-poster.jpg (about 20 KB, shows straight away).
+- Loads after the rest of the page, only on screens 700px and wider, never with reduced motion or data saver, and pauses when scrolled out of view.
+- To change it, edit tools/render_hero.py and re-run it (instructions at the top of the file).

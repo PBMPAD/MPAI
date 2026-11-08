@@ -89,6 +89,14 @@ nav a:hover{background:color-mix(in srgb,var(--teal) 13%,transparent)}
     linear-gradient(to bottom,#BFE6E0,#8FCFC6 55%,#3E8E8A);
 }
 
+/* Hero video: drifting sky over Essex hills. Poster shows at once; the 260 KB loop loads after the page. */
+.scene-sky{isolation:isolate;overflow:clip;background:#BFE6E0 url(images/video/hero-sky-poster.jpg) center bottom/cover no-repeat}
+.scene-video{position:absolute;inset:0;z-index:-1;width:100%;height:100%;object-fit:cover;object-position:center bottom;pointer-events:none;opacity:0;transition:opacity .8s ease}
+.scene-video.is-on{opacity:1}
+.scene-sky .hero-after .btn-dark{background:var(--mint);color:var(--navy)}
+.scene-sky .hero-after .btn-dark:hover{background:var(--white)}
+@media (prefers-reduced-motion:reduce){.scene-video{display:none}}
+
 /* Desk card: the one memorable moment */
 .deskcard{width:min(100%,520px);background:var(--navy);color:var(--on-navy);border-radius:26px;padding:26px 26px 22px;box-shadow:0 40px 80px -36px rgba(8,18,32,.75),0 2px 0 rgba(255,255,255,.04) inset}
 .dc-head{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:18px}

@@ -70,4 +70,21 @@
     items.forEach(function(li,i){li.querySelector('button').addEventListener('click',function(){open(li.classList.contains('is-open')?-1:i)})});
   }
 
+  /* Hero video. Loads only after the page has finished, never on phones, reduced motion or data saver,
+     and only plays while the hero is on screen. The poster image covers everything else. */
+  var vid=document.querySelector('.scene-video');
+  var saver=navigator.connection&&navigator.connection.saveData;
+  var wide=window.matchMedia&&matchMedia('(min-width: 700px)').matches; /* on phones the card covers the sky, so the still is enough */
+  if(vid&&wide&&root.classList.contains('play')&&!saver){
+    var start=function(){
+      vid.src=vid.getAttribute('data-src');
+      vid.addEventListener('playing',function(){vid.classList.add('is-on')},{once:true});
+      var go=function(on){if(on){var p=vid.play();if(p&&p.catch)p.catch(function(){})}else{vid.pause()}};
+      if('IntersectionObserver' in window){
+        new IntersectionObserver(function(es){go(es[0].isIntersecting)}).observe(vid);
+      }else{go(true)}
+    };
+    if(document.readyState==='complete')start();else window.addEventListener('load',start,{once:true});
+  }
+
 })();
