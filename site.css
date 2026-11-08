@@ -392,3 +392,64 @@ section.close{padding-top:clamp(72px,9vw,120px)}
 .faq details[open]::details-content{block-size:auto}
 .faq details p{opacity:0;transform:translateY(-8px);transition:opacity .25s ease,transform .5s var(--ease)}
 .faq details[open] p{opacity:1;transform:none;transition-delay:.12s,.05s}
+
+/* ---------- Job examples: each one acts out its job when opened ---------- */
+.scene-desk{position:relative}
+.scene-tag{position:absolute;top:14px;left:16px;margin:0;padding:3px 10px;border-radius:999px;background:rgba(255,255,255,.72);font-family:var(--label);font-weight:600;font-size:.74rem;letter-spacing:.06em;text-transform:uppercase;color:var(--navy)}
+.joblist .scene-tag{top:10px;left:12px}
+.joblist .scene-desk{padding-top:44px}
+.mini-foot{margin:14px 0 0;font-family:var(--serif);font-style:italic;font-size:1.1rem;color:var(--navy)}
+/* brief: reading bar */
+.scan{display:grid;gap:6px;margin:0 0 10px}
+.scan-label{font-family:var(--label);font-size:.8rem;color:var(--soft)}
+.scan-bar{display:block;height:4px;border-radius:2px;background:var(--mint-wash);overflow:hidden}
+.scan-bar i{display:block;height:100%;background:var(--teal);transform-origin:left}
+/* paperwork: a quote filling in, then saved */
+.doc{margin:0;border:1px solid var(--line);border-radius:12px;padding:4px 14px;background:var(--paper)}
+.doc div{display:grid;grid-template-columns:4.2em 1fr;gap:10px;padding:9px 0;border-top:1px dashed var(--line);font-size:.95rem}
+.doc div:first-child{border-top:0}
+.doc dt{font-family:var(--label);font-weight:600;font-size:.84rem;color:var(--teal-ink);padding-top:2px}
+.doc dd{margin:0;color:var(--navy);font-weight:700}
+.saved{display:grid;grid-template-columns:auto 1fr;column-gap:12px;align-items:center;margin:12px 0 0;padding:10px 12px;border-radius:12px;background:var(--mint-wash)}
+.saved .file-ico{grid-row:span 2;width:20px;height:24px;border-radius:3px;background:var(--white);border:1.5px solid var(--teal-ink)}
+.saved b{color:var(--navy);font-size:.95rem}
+.saved span:last-child{color:var(--teal-ink);font-size:.84rem;font-family:var(--label);font-weight:600}
+/* invoices: each status flips */
+.inv{list-style:none;margin:0;padding:0}
+.inv li{display:flex;justify-content:space-between;align-items:center;gap:12px;padding:10px 0;border-top:1px solid var(--line)}
+.inv li:first-child{border-top:0}
+.inv-what{display:grid;font-size:.86rem;color:var(--soft)}
+.inv-what b{font-family:var(--label);font-weight:600;font-size:.95rem;color:var(--navy)}
+.pills{display:grid;justify-items:end;flex:none}
+.pill{grid-area:1/1;padding:3px 10px;border-radius:999px;font-family:var(--label);font-weight:600;font-size:.78rem;white-space:nowrap;background:var(--mint-wash);color:var(--teal-ink)}
+.pill.was{background:#FBE9E4;color:#8A3B26;opacity:0}
+.pill.now.hold{background:var(--paper);color:var(--soft);border:1px solid var(--line)}
+/* calls: recording, then the write-up */
+.rec{display:flex;align-items:center;gap:10px;margin:0 0 10px;padding:8px 12px;border-radius:12px;background:var(--navy)}
+.rec-dot{width:8px;height:8px;border-radius:50%;background:var(--mint);flex:none}
+.wave{display:flex;align-items:center;gap:3px;height:22px;flex:1}
+.wave i{flex:1;height:100%;border-radius:2px;background:var(--mint);transform:scaleY(.18)}
+.swap{display:grid}.swap>span{grid-area:1/1}.swap .s1{opacity:0}
+.rec-label{font-family:var(--label);font-weight:600;font-size:.78rem;color:var(--on-navy-soft)}
+
+/* motion: only with JS, and never with reduced motion; the resting state is the finished example */
+.js .mini:not([hidden]) .a-rise{animation:ex-rise .55s var(--ease) both;animation-delay:var(--d,0s)}
+.js .mini:not([hidden]) .a-pop{animation:ex-pop .5s var(--ease) both;animation-delay:var(--d,0s)}
+.js .mini:not([hidden]) .a-fill{animation:ex-fill .55s steps(14,end) both;animation-delay:var(--d,0s)}
+.js .mini:not([hidden]) .a-slide{animation:ex-slide .6s var(--ease) both;animation-delay:var(--d,0s)}
+.js .mini:not([hidden]) .a-was{animation:ex-was .5s ease both;animation-delay:var(--d,0s)}
+.js .mini:not([hidden]) .a-bar{animation:ex-bar 1.1s cubic-bezier(.45,0,.2,1) .2s both}
+.js .mini:not([hidden]) .wave i{animation:ex-wave .5s ease-in-out 3 alternate both}
+.js .mini:not([hidden]) .wave i:nth-child(3n){animation-duration:.42s}
+.js .mini:not([hidden]) .wave i:nth-child(4n+1){animation-duration:.58s}
+.js .mini:not([hidden]) .wave i:nth-child(5n+2){animation-duration:.36s}
+.js .mini:not([hidden]) .rec-dot{animation:ex-blink .5s ease 3 alternate}
+@keyframes ex-rise{from{opacity:0;transform:translateY(10px)}}
+@keyframes ex-pop{from{opacity:0;transform:scale(.7) translateY(-8px)}}
+@keyframes ex-fill{from{clip-path:inset(0 100% 0 0)}to{clip-path:inset(0 0 0 0)}}
+@keyframes ex-slide{from{opacity:0;transform:translateX(24px)}}
+@keyframes ex-was{0%{opacity:1;transform:none}100%{opacity:0;transform:scale(.85)}}
+@keyframes ex-bar{from{transform:scaleX(0)}}
+@keyframes ex-wave{from{transform:scaleY(.2)}to{transform:scaleY(1)}}
+@keyframes ex-blink{to{opacity:.2}}
+@media (prefers-reduced-motion:reduce){.js .mini *{animation:none !important}}
