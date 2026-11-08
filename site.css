@@ -526,3 +526,7 @@ header.site nav a{white-space:nowrap}
 .page-head + .mybiz .mb-bar{margin-top:8px}
 .mb-after{margin-top:24px;padding-bottom:clamp(72px,9vw,120px)}
 .mb-after p{margin:0;color:var(--soft);font-size:1rem}
+/* Header button: full wording on wider screens, short on small phones */
+.cta-short{display:none}
+@media (max-width:480px){.nav-cta .cta-full{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.nav-cta .cta-short{display:inline}}
+.mb-colhead{flex-wrap:wrap}.mb-colhead h3{white-space:nowrap}
