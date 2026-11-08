@@ -1,0 +1,131 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Care plans: MPAI</title>
+<meta name="description" content="Optional monthly care plans after your MPAI set-up: Maintenance from &pound;100 a month, Growth at &pound;250 a month with two new jobs off your desk each month, and Bespoke for bigger projects.">
+<link rel="icon" href="logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap">
+<link rel="stylesheet" href="site.css">
+<script src="nav.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sheet">
+
+<header class="site"><div class="wrap">
+<a class="brand" href="index.html" aria-label="MPAI home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>MPAI</a>
+<button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+<nav aria-label="Main" id="site-nav"><ul><li><a href="contact.html">Your business</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="care-plans.html" aria-current="page">Care plans</a></li><li><a href="about.html">About</a></li><li><a href="blog/">Blog</a></li></ul></nav>
+<a class="btn btn-dark nav-cta" href="contact.html"><span class="cta-full">Tell me about your business</span><span class="cta-short" aria-hidden="true">Your business</span></a>
+</div></header>
+
+<main id="main">
+<section class="page-head" aria-labelledby="page-title"><div class="wrap">
+<h1 id="page-title">Care plans, <em>after your set-up</em></h1>
+<p class="lead">Optional monthly support once you&rsquo;re up and running. You keep your own AI account; I look after what&rsquo;s built on it.</p>
+<p class="note">Care plans start after your set-up, from <span class="num">&pound;750</span>. They&rsquo;re optional. <a class="textlink" href="how-it-works.html#set-up">See the set-up</a></p>
+</div></section>
+
+<section aria-label="The three care plans"><div class="wrap">
+<div class="plans plans-3">
+<div class="plan">
+<h3>Maintenance</h3>
+<p class="price">&pound;100 <span>a month</span></p>
+<p class="plan-sum">Keeps your set-up working.</p>
+<ul class="ticks">
+<li>Fixes when something stops working</li>
+<li>Small tweaks to wording, contacts and templates</li>
+<li>Email support</li>
+</ul>
+</div>
+<div class="plan featured">
+<h3>Growth</h3>
+<p class="price">&pound;250 <span>a month</span></p>
+<p class="plan-sum">Two more admin jobs off your desk, every month.</p>
+<ul class="ticks">
+<li>Everything in Maintenance</li>
+<li>Two new jobs built for you each month</li>
+<li>Each one up to about an hour to build</li>
+</ul>
+</div>
+<div class="plan plan-bespoke">
+<h3>Bespoke</h3>
+<p class="price"><span>Price on request</span></p>
+<p class="plan-sum">For larger projects, or jobs of greater scope or frequency.</p>
+<ul class="ticks">
+<li>Bigger builds than a one-hour job</li>
+<li>Linking several jobs together</li>
+<li>Connecting other software you use</li>
+</ul>
+<button type="button" class="btn btn-dark" id="bs-open">Price on request</button>
+</div>
+</div>
+<p class="note">Maintenance and Growth are paid monthly with 14 days&rsquo; notice to cancel, or pay for a year up front and get 12 months for the price of 10. Anything bigger than a one-hour job is quoted before any work starts. Your AI subscription is separate and paid by you.</p>
+</div></section>
+
+<section class="close wrap" aria-labelledby="close-title">
+<span class="close-mark" aria-hidden="true"></span>
+<h2 class="display center" id="close-title">Not set up yet? <em>Start with your business.</em></h2>
+<p class="sub center">Tell me what you run and which jobs eat your week, and I&rsquo;ll reply by email.</p>
+<p class="center"><a class="btn btn-dark" href="contact.html">Tell me about your business</a></p>
+</section>
+
+<dialog class="mb-dialog" id="bs-dialog" aria-labelledby="bs-title">
+<div class="mb-dhead"><h3 id="bs-title">Bespoke, <em>price on request</em></h3><button type="button" class="mb-close" id="bs-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
+<p class="mb-hint">Tell me about the project and I&rsquo;ll reply by email with a price. No obligation.</p>
+<form id="bs-form" class="bs-form" novalidate>
+<p class="hidden"><label>Leave this empty <input name="company-website" tabindex="-1" autocomplete="off"></label></p>
+<div class="mb-fields">
+<div class="mb-field"><label for="bs-name">Your name</label><input type="text" id="bs-name" name="name" autocomplete="name" required></div>
+<div class="mb-field"><label for="bs-email">Email</label><input type="email" id="bs-email" name="email" autocomplete="email" required></div>
+<div class="mb-field bs-wide"><label for="bs-biz">Business name <span class="mb-opt">(optional)</span></label><input type="text" id="bs-biz" name="business" autocomplete="organization"></div>
+<div class="mb-field bs-wide"><label for="bs-project">What&rsquo;s the project?</label><textarea id="bs-project" name="project" rows="4" required placeholder="e.g. connect our booking system to the diary and send reminders"></textarea></div>
+</div>
+<p class="mb-msg" id="bs-msg" role="status"></p>
+<button class="btn btn-dark" id="bs-send" type="submit">Send my enquiry</button>
+</form>
+</dialog>
+</main>
+
+<footer class="site"><div class="wrap">
+<div class="f-brand">
+<p class="brand-word">MPAI</p>
+<p>AI, set up for small businesses in Brentwood and surrounding areas.</p>
+</div>
+<ul class="f-links">
+<li><a href="how-it-works.html">How it works</a></li>
+<li><a href="care-plans.html">Care plans</a></li>
+<li><a href="about.html">About</a></li>
+<li><a href="blog/">Blog</a></li>
+<li><a href="contact.html">Contact</a></li>
+</ul>
+<p class="foot-badge"><a href="badges/">Claude Academy trained</a></p>
+<p><a href="mailto:matthew@mpai.site">matthew@mpai.site</a></p>
+</div></footer>
+</div>
+<script>
+(function(){
+ var d=document.getElementById("bs-dialog"),f=document.getElementById("bs-form"),m=document.getElementById("bs-msg"),b=document.getElementById("bs-send");
+ if(!d||!f) return;
+ var say=function(t,k){m.textContent=t;m.className="mb-msg"+(k?" "+k:"");};
+ document.getElementById("bs-open").addEventListener("click",function(){ if(d.showModal){ if(!d.open) d.showModal(); } else d.setAttribute("open",""); setTimeout(function(){document.getElementById("bs-name").focus();},60); });
+ var close=function(){ if(d.close) d.close(); else d.removeAttribute("open"); };
+ document.getElementById("bs-close").addEventListener("click",close);
+ d.addEventListener("click",function(e){ if(e.target===d) close(); });
+ f.addEventListener("submit",function(e){
+  e.preventDefault();
+  if(!f.checkValidity()){ say("Please add your name, a working email and a line about the project.","err"); var bad=f.querySelector(":invalid"); if(bad) bad.focus(); return; }
+  var data=new FormData(f); data.append("_subject","Bespoke enquiry from mpai.site"); data.append("enquiry","Bespoke care plan");
+  b.disabled=true; b.textContent="Sending…"; say("");
+  fetch("https://formspree.io/f/xpppejjl",{method:"POST",body:data,headers:{"Accept":"application/json"}})
+   .then(function(r){ if(!r.ok) throw new Error(); f.reset(); b.textContent="Sent"; say("Thanks, it’s with me. I’ll reply by email.","ok"); })
+   .catch(function(){ b.disabled=false; b.textContent="Send my enquiry"; say("Sorry, that didn’t send. Please email matthew@mpai.site instead.","err"); });
+ });
+})();
+</script>
+</body>
+</html>
