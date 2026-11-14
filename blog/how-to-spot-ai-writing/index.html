@@ -1,0 +1,92 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>How to spot AI writing, and how I fixed mine: MPAI</title>
+<meta name="description" content="The tells that give AI writing away, and the Claude skill I built so my drafts, and MPAI clients' drafts, sound like a person wrote them.">
+<link rel="icon" href="../../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap">
+<link rel="stylesheet" href="../../site.css">
+<script src="../../nav.js"></script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sheet">
+
+<header class="site"><div class="wrap">
+<a class="brand" href="../../index.html" aria-label="MPAI home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>MPAI</a>
+<button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
+<nav aria-label="Main" id="site-nav"><ul><li><a href="../../contact.html">Your business</a></li><li><a href="../../how-it-works.html">How it works</a></li><li><a href="../../pricing.html">Pricing</a></li><li><a href="../../about.html">About</a></li><li><a href="../../blog/" aria-current="page">Blog</a></li></ul></nav>
+<a class="btn btn-dark nav-cta" href="../../contact.html"><span class="cta-full">Tell me about your business</span><span class="cta-short" aria-hidden="true">Your business</span></a>
+</div></header>
+
+<main id="main">
+<section class="page-head page-end" style="text-align:left"><div class="wrap prose">
+<article>
+<p class="crumb"><a href="../">Blog</a></p>
+<h1>How to spot AI writing, and how I stopped my own drafts sounding like it</h1>
+<p class="meta">Matthew Price · 14/11/26</p>
+
+<p>Most AI writing is easy to spot once you know the signs. It's vague, it makes small things sound important and it keeps using the same few words. I got tired of reading it in my inbox, so I built a Claude skill that checks everything Claude drafts for me before it goes out. It now comes as standard in every MPAI set-up.</p>
+
+<h2>Why is AI writing so easy to spot?</h2>
+<p>In my day job as a director in a busy firm, I read a lot of email. Over the past year, more and more of our clients have started writing to us with AI. They use it to ask for quotes, and they use it to challenge our reports.</p>
+<p>You can usually tell within a line or two. Once you've seen a few, it changes how you read the rest of the message. If an email sounds like nobody wrote it, I find it hard to believe anyone thought much about what it says. That made me look hard at my own emails, because Claude was drafting a lot of them too.</p>
+
+<h2>The tells I look for</h2>
+<p>Wikipedia's editors keep a field guide to the signs of AI writing, and it matched what was landing in our inbox. These are the ones I see most:</p>
+<ul>
+<li>Openers like "I hope this message finds you well".</li>
+<li>Words nobody says out loud: delve, leverage, seamless, robust, pivotal.</li>
+<li>"It's not just X, it's Y" sentences.</li>
+<li>Small things blown up: "plays a vital role", "a testament to our commitment".</li>
+<li>Lots of long dashes.</li>
+<li>Leftovers from the chat, like "Let me know if you'd like me to..." or an unfilled [Your Name].</li>
+</ul>
+
+<h2>What I built</h2>
+<p>I still wanted Claude to write my first drafts, because it saves me a lot of time. I just didn't want my emails to read like the ones I was getting. So I built an anti-AI writing skill. A <a href="../what-are-claude-skills/">skill</a> is a set of written instructions Claude follows every time it does a certain job.</p>
+<p>Mine is based on the Wikipedia guide, adapted for business writing. It checks a draft in order: the content first (vague claims, inflated importance, neat endings), then the words and sentences, then the formatting, then anything left over from the chat. It fixes each problem with the smallest change it can and keeps my British English and the way I write.</p>
+<p>There are two rules I care about most. It never adds facts or made-up examples to make something sound human. If a sentence is empty once the padding is gone, it cuts the sentence or asks me for the real detail. And it isn't there to hide that AI helped. It's there to make the writing clearer and more specific.</p>
+
+<h2>Where does it run?</h2>
+<p>In my day job it runs on everything Claude drafts for me: emails, reports and letters, and posts and blogs. This post went through it straight after my blog writing skill.</p>
+
+<h2>What it means for MPAI clients</h2>
+<p>Every MPAI set-up includes it as standard. When Claude drafts a reply to a customer, a cover letter for a quote or a client update, the draft goes through the same check before you see it.</p>
+<p>It works alongside your second brain, which is the file Claude keeps about your business, including how you write. So the drafts start out in your voice, and the check removes the chatbot habits that creep in anyway.</p>
+<p>Your customers are starting to notice AI writing too. By default, drafts come to you to check before anything is sent, and the minute you spend on each one goes on a quick read, because it already sounds like you.</p>
+
+<h2>Check for yourself</h2>
+<p>Wikipedia's guide is public: <a href="https://en.wikipedia.org/wiki/Wikipedia:Signs_of_AI_writing">Signs of AI writing</a>. If you'd like Claude drafting your emails in your own voice, get in touch.</p>
+<p><a class="btn btn-dark" href="../../contact.html">Get in touch</a></p>
+</article>
+</div></section>
+</main>
+
+<footer class="site"><div class="wrap">
+<div class="f-brand">
+<p class="brand-word">MPAI</p>
+<p>Claude, set up for small businesses in Brentwood and surrounding areas.</p>
+</div>
+<ul class="f-links">
+<li><a href="../../how-it-works.html">How it works</a></li>
+<li><a href="../../jobs.html">The five jobs</a></li>
+<li><a href="../../pricing.html">Pricing</a></li>
+<li><a href="../../about.html">About</a></li>
+<li><a href="../../blog/">Blog</a></li>
+<li><a href="../../contact.html">Contact</a></li>
+<li><a href="../../privacy.html">Privacy</a></li>
+</ul>
+<p class="foot-badge"><a href="../../badges/">Claude Academy trained</a></p>
+<p><a href="mailto:matthew@mpai.site">matthew@mpai.site</a></p>
+</div></footer>
+</div>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Article","headline":"How to spot AI writing, and how I stopped my own drafts sounding like it","description":"The tells that give AI writing away, and the Claude skill I built so my drafts, and MPAI clients' drafts, sound like a person wrote them.","datePublished":"2026-11-14","author":{"@type":"Person","name":"Matthew Price"},"publisher":{"@type":"Organization","name":"MPAI","url":"https://mpai.site/"},"mainEntityOfPage":"https://mpai.site/blog/how-to-spot-ai-writing/"}
+</script>
+</body>
+</html>
