@@ -650,3 +650,6 @@ header.site nav a{white-space:nowrap}
 .t-fn{margin:-14px 0 20px;font:500 .88rem var(--label);color:var(--on-navy-soft)}
 .t-price .star{align-self:flex-start;margin:.12em 0 0 -8px;font-size:.38em;vertical-align:baseline}
 .ps-inner .fn{margin:0 0 .7em}
+.listen{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:14px 18px 16px;margin:0 0 1.8em}
+.listen-label{font-family:var(--label);font-weight:600;font-size:.95rem;color:var(--navy);margin:0 0 .5em}
+.listen audio{display:block;width:100%}
