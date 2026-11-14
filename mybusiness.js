@@ -92,7 +92,7 @@ var LIB={
   ["Your business, on file","Explaining the same things again and again","can","Your team, clients and suppliers, and how you like things written, kept in one place so nothing needs explaining twice."],
   ["Paperwork ready to go","Quotes and letters written from scratch","can","Your letters, quotes and terms in one place, so the right version is drafted for each job."],
   ["Invoices sent and chased","Late payers and awkward reminders","can","Invoices go out, polite reminders follow when overdue, and a thank-you when you're paid."],
-  ["Meetings and calls into actions","What was agreed gets forgotten","can","Record a meeting or call; the summary, follow-up email and actions are written for you."],
+  ["Meetings and calls turned into actions","What was agreed gets forgotten","can","Record a meeting or call; the summary, follow-up email and actions are written for you."],
   ["New enquiries answered fast","Leads go cold while you're busy","can","New enquiries get a first reply drafted straight away, with the right next step."],
   ["Your inbox, handled","Too much email","can","Your email is sorted into what needs a reply, what's for information and what to ignore."],
   ["Clients kept updated","Customers asking where things are","can","On a set day, each client gets an update drafted from your notes."]]
