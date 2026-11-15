@@ -1,0 +1,455 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>MPAI home, concept B: your trade first</title>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap">
+<style>
+/* Concept B: your trade first. Navy hero asks one question; the answer fills a ready-made list of five jobs that can be sent as it stands. */
+:root{
+  --navy:#0F1B2D;--navy-2:#1A2C45;--teal:#19A39A;--teal-ink:#0A6F69;--mint:#7FD8CF;--mint-wash:#DDF3EF;
+  --paper:#F4F7FA;--white:#FFFFFF;--ink:#16202C;--soft:#4F5D6E;--line:#D9E1EA;
+  --on-navy:#EEF3F8;--on-navy-soft:#A9C2CF;--amber-wash:#FFF4DC;--amber-ink:#6B4A00;
+  --serif:"Spectral",Georgia,serif;--label:"Space Grotesk",system-ui,sans-serif;--body:"Atkinson Hyperlegible",system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);--frame:14px;--radius:28px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:100px;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--navy);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.6;padding:var(--frame);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto}
+a{color:var(--teal-ink);text-underline-offset:4px}
+:focus-visible{outline:3px solid var(--teal-ink);outline-offset:3px;border-radius:6px}
+.hero :focus-visible,footer :focus-visible{outline-color:var(--mint)}
+p{margin:0 0 1em}
+.wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+.skip{position:absolute;left:-999px;z-index:20}.skip:focus{left:28px;top:24px;background:var(--white);color:var(--navy);padding:10px 16px;border-radius:10px}
+
+h1,.display{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;line-height:1.05;margin:0 0 .4em;text-wrap:balance}
+h1 em,.display em{font-style:italic}
+h1{font-size:clamp(2.7rem,5.4vw,4.6rem);color:var(--on-navy)}
+h1 em{color:var(--mint)}
+.display{font-size:clamp(2rem,3.6vw,3rem);color:var(--navy)}
+h3{font-family:var(--label);font-weight:600;font-size:1.1rem;letter-spacing:-.01em;line-height:1.25;margin:0 0 .35em;color:var(--navy)}
+.num{font-family:var(--label);font-weight:600}
+.small{font-size:.95rem;color:var(--soft)}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border:0;border-radius:999px;font-family:var(--label);font-weight:600;font-size:1.02rem;text-decoration:none;cursor:pointer;transition:background-color .25s var(--ease),transform .25s var(--ease)}
+.btn-dark{background:var(--navy);color:var(--on-navy)}
+.btn-dark:hover{background:var(--teal-ink);transform:translateY(-1px)}
+.btn-mint{background:var(--mint);color:var(--navy)}
+.btn-mint:hover{background:var(--white)}
+.textlink{font-family:var(--label);font-weight:600;color:var(--navy);text-decoration:underline;text-decoration-color:var(--teal);text-decoration-thickness:2px;text-underline-offset:6px}
+
+header.site{position:sticky;top:0;z-index:10;padding:14px 16px 0}
+header.site .bar{display:flex;align-items:center;gap:24px;min-height:64px;max-width:1120px;margin:0 auto;padding:0 10px 0 22px;border-radius:999px;background:color-mix(in srgb,var(--paper) 94%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 12px 30px -20px rgba(0,0,0,.6)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font-family:var(--label);font-weight:700;font-size:1.35rem;letter-spacing:.05em;margin-right:auto}
+.brand svg{width:34px;height:34px}
+header nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0}
+header nav a{display:block;padding:10px 14px;border-radius:999px;color:var(--ink);text-decoration:none;font-family:var(--label);font-weight:500;font-size:.98rem}
+header nav a:hover{background:color-mix(in srgb,var(--teal) 13%,transparent)}
+.nav-cta{min-height:46px;padding:0 22px}
+.cta-short{display:none}
+
+/* Hero: one question */
+.hero{color:var(--on-navy);padding:clamp(40px,5vw,72px) 0 150px}
+.eyebrow{font-family:var(--label);font-weight:600;font-size:.92rem;letter-spacing:.04em;color:var(--mint);margin:0 0 18px}
+.lead{font-size:clamp(1.15rem,1.5vw,1.3rem);color:var(--on-navy-soft);max-width:50ch;margin-bottom:30px}
+.lead .num{color:var(--on-navy)}
+fieldset{border:0;margin:0;padding:0;min-width:0}
+legend{font-family:var(--label);font-weight:600;font-size:1.1rem;color:var(--on-navy);padding:0;margin-bottom:12px}
+.chips{display:flex;flex-wrap:wrap;gap:10px}
+.chip{position:relative}
+.chip input{position:absolute;opacity:0;inset:0;width:100%;height:100%;margin:0;cursor:pointer}
+.chip span{display:inline-flex;align-items:center;min-height:50px;padding:0 20px;border-radius:999px;border:1.5px solid rgba(238,243,248,.4);font-family:var(--label);font-weight:600;font-size:1.02rem;color:var(--on-navy);transition:background-color .2s,border-color .2s,color .2s}
+.chip input:hover+span{border-color:var(--mint)}
+.chip input:checked+span{background:var(--mint);border-color:var(--mint);color:var(--navy)}
+.chip input:focus-visible+span{outline:3px solid var(--mint);outline-offset:3px}
+
+/* Sheet and ticket */
+.sheet{position:relative;background:var(--paper);border-radius:var(--radius)}
+.ticket{position:relative;top:-110px;margin-bottom:-110px;background:var(--white);border:1px solid var(--line);border-radius:26px;box-shadow:0 40px 80px -40px rgba(15,27,45,.55);padding:clamp(20px,3vw,36px)}
+.t-head{display:flex;align-items:flex-end;justify-content:space-between;gap:20px;flex-wrap:wrap;margin-bottom:18px}
+.t-tag{display:inline-block;font-family:var(--label);font-weight:600;font-size:.82rem;letter-spacing:.07em;text-transform:uppercase;color:var(--teal-ink);background:var(--mint-wash);border-radius:999px;padding:4px 12px;margin:0 0 10px}
+.t-head .display{margin:0}
+.t-count{font-family:var(--label);font-weight:600;color:var(--soft);margin:0;white-space:nowrap}
+.t-count b{font-family:var(--serif);font-weight:300;font-size:2.2rem;color:var(--navy);margin-right:6px}
+.t-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:start}
+
+.chosen{list-style:none;margin:0;padding:0}
+.chosen li{display:grid;grid-template-columns:26px minmax(0,1fr) auto;gap:4px 14px;align-items:start;padding:16px 0;border-top:1px solid var(--line)}
+.chosen li:last-child{border-bottom:1px solid var(--line)}
+.tick{width:24px;height:24px;margin-top:2px;border-radius:50%;background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.3l2.6 2.6L13 6.4' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+.talk .tick{background-color:#D99A00}
+.j-name{font-family:var(--label);font-weight:600;font-size:1.12rem;line-height:1.3;color:var(--navy);display:block}
+.j-why{display:block;font-size:.95rem;color:var(--soft)}
+.j-what{margin:6px 0 0;font-size:1.02rem;line-height:1.5;max-width:58ch}
+.j-side{display:flex;flex-direction:column;align-items:flex-end;gap:8px}
+.stamp{font-family:var(--label);font-weight:600;font-size:.8rem;letter-spacing:.05em;text-transform:uppercase;border-radius:999px;padding:3px 11px;white-space:nowrap}
+.stamp.can{background:var(--mint-wash);color:var(--teal-ink)}
+.stamp.talk{background:var(--amber-wash);color:var(--amber-ink)}
+.linkbtn{background:none;border:0;padding:6px 0;min-height:32px;font-family:var(--label);font-weight:600;font-size:.92rem;color:var(--soft);text-decoration:underline;text-underline-offset:4px;cursor:pointer}
+.linkbtn:hover{color:var(--navy)}
+html.play .chosen li{animation:rise .5s var(--ease) both}
+@keyframes rise{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:none}}
+
+.more{background:var(--paper);border-radius:20px;padding:20px 22px}
+.more-title{font-family:var(--label);font-weight:600;font-size:1.05rem;color:var(--navy);margin:0 0 2px}
+.more ul{list-style:none;margin:10px 0 0;padding:0}
+.more li{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:2px 12px;align-items:center;padding:12px 0;border-top:1px solid var(--line)}
+.more .j-name{font-size:1rem}
+.addbtn{min-height:40px;padding:0 16px;border-radius:999px;border:1.5px solid var(--navy);background:var(--white);font-family:var(--label);font-weight:600;font-size:.92rem;color:var(--navy);cursor:pointer}
+.addbtn:hover{background:var(--navy);color:var(--on-navy)}
+.addbtn[disabled]{border-color:var(--line);color:#8B97A6;cursor:not-allowed;background:var(--paper)}
+.own{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
+label{font-family:var(--label);font-weight:600;font-size:.98rem;color:var(--navy);display:block;margin-bottom:6px}
+input[type=text],input[type=email]{width:100%;font:inherit;color:var(--ink);background:var(--white);border:1px solid #B9C5D2;border-radius:12px;padding:10px 14px;min-height:50px}
+.own-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
+.own-list{list-style:none;margin:10px 0 0;padding:0}
+.own-list li{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:8px 0;font-size:1rem;border-top:0}
+
+.t-send{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr) auto;gap:14px;align-items:end;margin-top:26px;padding:22px;border-radius:20px;background:var(--mint-wash)}
+.t-send input{background:var(--white)}
+.t-msg{grid-column:1/-1;margin:0;font-size:.98rem;color:var(--teal-ink)}
+
+/* After you send it */
+.next{padding:clamp(56px,7vw,104px) 0 clamp(40px,5vw,72px)}
+.next ol{list-style:none;counter-reset:s;margin:30px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px}
+.next li{counter-increment:s;border-top:2px solid var(--teal);padding-top:14px}
+.next li::before{content:counter(s);font-family:var(--serif);font-weight:300;font-size:2rem;line-height:1;color:var(--teal-ink);display:block;margin-bottom:8px}
+.next li p{font-size:1rem;color:var(--soft);margin:0}
+
+.facts{padding:0 0 clamp(48px,6vw,88px)}
+.facts-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.fact{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:24px 26px}
+.fact p{margin:0 0 .7em;font-size:1.03rem}
+.fact p:last-child{margin:0}
+.fact .big{font-family:var(--serif);font-weight:300;font-size:2.3rem;line-height:1.1;color:var(--navy);margin-bottom:.3em}
+
+.about{background:var(--mint-wash);padding:clamp(48px,6vw,88px) 0}
+.about-grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:start}
+.about img{border-radius:50%;display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 20%;border:6px solid var(--white)}
+.about .sub{font-size:1.15rem;max-width:56ch}
+.results{list-style:none;margin:24px 0 12px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}
+.results li{padding:14px 0;border-top:1px solid rgba(10,111,105,.25)}
+.results b{display:block;font-family:var(--label);font-weight:600;color:var(--navy)}
+.results span{font-size:1rem}
+.about .small{color:var(--ink)}
+
+.close{padding:clamp(48px,6vw,88px) 0;text-align:center;border-radius:0 0 var(--radius) var(--radius)}
+.close .display{max-width:22ch;margin-inline:auto}
+.close .display em{display:block}
+
+footer{color:var(--on-navy);padding:40px 0 30px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-end;justify-content:space-between}
+footer p{margin:0;font-size:.98rem;color:var(--on-navy-soft)}
+footer .word{font-family:var(--label);font-weight:700;letter-spacing:.05em;font-size:1.2rem;color:var(--on-navy)}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px}
+footer a{color:var(--on-navy);font-family:var(--label);font-weight:500;font-size:.98rem}
+
+@media (max-width:980px){
+  header nav{display:none}
+  .t-grid{grid-template-columns:minmax(0,1fr)}
+  .next ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .facts-grid{grid-template-columns:minmax(0,1fr)}
+  .t-send{grid-template-columns:minmax(0,1fr) minmax(0,1fr)}
+  .t-send .btn{grid-column:1/-1}
+}
+@media (max-width:640px){
+  :root{--frame:6px;--radius:20px}
+  body{font-size:1.06rem}
+  .wrap{padding:0 14px}
+  header.site{padding:8px 8px 0}
+  header.site .bar{padding:0 8px 0 14px;min-height:56px;gap:10px}
+  .brand{font-size:1.15rem}.brand svg{width:30px;height:30px}
+  .cta-full{display:none}.cta-short{display:inline}
+  .nav-cta{min-height:42px;padding:0 16px;font-size:.95rem}
+  .hero{padding-bottom:130px}
+  .hero .wrap{padding:0 18px}
+  .chip span{min-height:46px;padding:0 16px;font-size:.98rem}
+  .ticket{border-radius:20px;padding:18px 16px}
+  .chosen li{grid-template-columns:24px minmax(0,1fr)}
+  .j-side{grid-column:2;flex-direction:row;align-items:center;justify-content:space-between;margin-top:6px}
+  .t-send{grid-template-columns:minmax(0,1fr);padding:18px 16px}
+  .next ol,.results{grid-template-columns:minmax(0,1fr)}
+  .about-grid{grid-template-columns:minmax(0,1fr)}
+  .about img{max-width:140px}
+  .next{padding:44px 0 32px}
+  .next ol{gap:0;margin-top:20px}
+  .next li{display:grid;grid-template-columns:34px minmax(0,1fr);align-items:baseline;border-top:1px solid var(--line);padding:12px 0}
+  .next li::before{font-size:1.5rem;margin:0}
+  .next li h3{margin:0}
+  .next li p{display:none}
+  .fact{padding:20px}
+  .fact .big{font-size:1.9rem}
+  .about,.close{padding-block:40px}
+  .j-why{display:none}
+}
+</style>
+<script>if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('play');</script>
+</head>
+<body>
+<a class="skip" href="#ticket">Skip to your five jobs</a>
+
+<header class="site"><div class="bar">
+<a class="brand" href="#main" aria-label="MPAI home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>MPAI</a>
+<nav aria-label="Main"><ul><li><a href="#ticket">Your business</a></li><li><a href="#next">How it works</a></li><li><a href="#facts">Pricing</a></li><li><a href="#about">About</a></li><li><a href="https://mpai.site/blog/">Blog</a></li></ul></nav>
+<a class="btn btn-dark nav-cta" href="#ticket"><span class="cta-full">Pick your five jobs</span><span class="cta-short" aria-hidden="true">Your five</span></a>
+</div></header>
+
+<main id="main">
+<section class="hero" aria-labelledby="hero-title">
+<div class="wrap">
+<p class="eyebrow">AI, set up for small businesses in and around Brentwood</p>
+<h1 id="hero-title">More time for <em>the work that matters</em></h1>
+<p class="lead">Tell me what you run and I&rsquo;ll show you five jobs I&rsquo;d take off your desk, in your own email and files. All five, from <span class="num">&pound;1,000</span> for one person.</p>
+<fieldset>
+<legend>What do you run?</legend>
+<div class="chips" id="b-types"></div>
+</fieldset>
+</div>
+</section>
+
+<div class="sheet">
+<section id="ticket" aria-labelledby="t-title">
+<div class="wrap">
+<div class="ticket">
+<div class="t-head">
+<div>
+<p class="t-tag" id="t-tag">Most small businesses</p>
+<h2 class="display" id="t-title">Five jobs I&rsquo;d take <em>off your desk</em></h2>
+</div>
+<p class="t-count" aria-live="polite"><b id="t-num">5</b><span id="t-of">of 5 chosen</span></p>
+</div>
+
+<div class="t-grid">
+<ol class="chosen" id="b-chosen">
+<li><span class="tick" aria-hidden="true"></span><div><span class="j-name">Your day, briefed</span><span class="j-why">Knowing what needs you first thing</span><p class="j-what">Every morning, one short note from your inbox and diary: what needs you, what can wait and what&rsquo;s coming up.</p></div><div class="j-side"><span class="stamp can">Can do</span></div></li>
+<li><span class="tick" aria-hidden="true"></span><div><span class="j-name">Your business, on file</span><span class="j-why">Explaining the same things again and again</span><p class="j-what">Your team, clients and suppliers, and how you like things written, kept in one place so nothing needs explaining twice.</p></div><div class="j-side"><span class="stamp can">Can do</span></div></li>
+<li><span class="tick" aria-hidden="true"></span><div><span class="j-name">Paperwork ready to go</span><span class="j-why">Quotes and letters written from scratch</span><p class="j-what">Your letters, quotes and terms in one place, so the right version is drafted for each job.</p></div><div class="j-side"><span class="stamp can">Can do</span></div></li>
+<li><span class="tick" aria-hidden="true"></span><div><span class="j-name">Invoices sent and chased</span><span class="j-why">Late payers and awkward reminders</span><p class="j-what">Invoices go out, polite reminders follow when overdue, and a thank-you when you&rsquo;re paid.</p></div><div class="j-side"><span class="stamp can">Can do</span></div></li>
+<li><span class="tick" aria-hidden="true"></span><div><span class="j-name">Meetings and calls turned into actions</span><span class="j-why">What was agreed gets forgotten</span><p class="j-what">Record a meeting or call; the summary, follow-up email and actions are written for you.</p></div><div class="j-side"><span class="stamp can">Can do</span></div></li>
+</ol>
+
+<aside class="more" aria-labelledby="more-title">
+<p class="more-title" id="more-title">Not quite your five?</p>
+<p class="small" id="more-hint" style="margin:0">Take one off, then add one of these.</p>
+<ul id="b-more"></ul>
+<div class="own">
+<label for="b-own">Add a job of your own <span style="font-weight:500;color:var(--soft)">(up to two)</span></label>
+<div class="own-row"><input type="text" id="b-own" placeholder="e.g. writing our weekly newsletter" autocomplete="off"><button type="button" class="addbtn" id="b-ownadd">Add</button></div>
+<ul class="own-list" id="b-ownlist" aria-live="polite"></ul>
+</div>
+</aside>
+</div>
+
+<form class="t-send" id="b-form" novalidate>
+<div><label for="b-name">Your name</label><input type="text" id="b-name" autocomplete="name"></div>
+<div><label for="b-email">Email</label><input type="email" id="b-email" autocomplete="email"></div>
+<button class="btn btn-dark" type="submit">Email me my five</button>
+<p class="t-msg" id="b-msg" role="status">I&rsquo;ll email you this list and how we&rsquo;d start. No obligation.</p>
+</form>
+</div>
+</div>
+</section>
+
+<section class="next" id="next" aria-labelledby="next-title">
+<div class="wrap">
+<h2 class="display" id="next-title">What happens <em>after you send it</em></h2>
+<ol>
+<li><h3>I reply by email</h3><p>With your list and a time for us to meet.</p></li>
+<li><h3>An hour together</h3><p>At your place of work or on Teams. I show you a mock set-up of your business.</p></li>
+<li><h3>I build your set-up</h3><p>For your own email, calendar and files, on Microsoft 365 or Google.</p></li>
+<li><h3>Sent to you, step by step</h3><p>With instructions, so you can get it running on your own computer.</p></li>
+<li><h3>An hour of support</h3><p>Up to another hour of remote support, including any tweaks.</p></li>
+</ol>
+</div>
+</section>
+
+<section class="facts" id="facts" aria-label="Price, sending and what you need">
+<div class="wrap facts-grid">
+<div class="fact">
+<h3>What it costs</h3>
+<p class="big">from &pound;1,000</p>
+<p>All five jobs, for one person. Each extra team member is <span class="num">&pound;250</span>. Care plans from <span class="num">&pound;100</span> a month are optional.</p>
+<p><a class="textlink" href="https://mpai.site/pricing.html">See pricing</a></p>
+</div>
+<div class="fact">
+<h3>Who presses send</h3>
+<p class="big">You decide</p>
+<p>Simple, low-risk emails such as invoices, invoice chasers and invites go out on their own. Anything higher-risk waits for your OK. You can change that in your settings.</p>
+</div>
+<div class="fact">
+<h3>What you need</h3>
+<p class="big">An email account</p>
+<p>Microsoft 365 or Google, and your own Claude Pro plan, about <span class="num">&pound;18</span> a month, paid to Anthropic. No AI experience: if you can write an email, you can use this.</p>
+</div>
+</div>
+</section>
+
+<section class="about" id="about" aria-labelledby="about-title">
+<div class="wrap about-grid">
+<img src="../matthew.webp" alt="Matthew Price, founder of MPAI" width="700" height="617">
+<div>
+<h2 class="display" id="about-title">Hello, I&rsquo;m Matthew. <em>A chartered surveyor, not a tech company.</em></h2>
+<p class="sub">I live in Brentwood. I started using AI to take the repetitive work off my own desk, and it worked well enough that I now help other small businesses do the same.</p>
+<ul class="results">
+<li><b>Whole days back</b><span>Now spent on planning, outreach and networking.</span></li>
+<li><b>Same-day replies</b><span>Emails that used to wait until the next day.</span></li>
+<li><b>Nothing slips</b><span>Follow-ups and chasers no longer get forgotten.</span></li>
+<li><b>Drafts, not blank pages</b><span>Quotes and reports start most of the way there.</span></li>
+</ul>
+<p class="small">My own results, at the surveying practice where I work. Client results will go here as they come in.</p>
+<p style="margin:0"><a class="textlink" href="https://mpai.site/about.html">More about me, and what it changed</a></p>
+</div>
+</div>
+</section>
+
+<section class="close" aria-labelledby="close-title">
+<div class="wrap">
+<h2 class="display" id="close-title">Ready to get your time back? <em>Your five jobs are waiting.</em></h2>
+<p><a class="btn btn-dark" href="#ticket">Pick your five jobs</a></p>
+</div>
+</section>
+</div>
+</main>
+
+<footer><div class="wrap">
+<div><p class="word">MPAI</p><p>AI, set up for small businesses in Brentwood and surrounding areas.</p></div>
+<ul>
+<li><a href="https://mpai.site/how-it-works.html">How it works</a></li>
+<li><a href="https://mpai.site/jobs.html">The five jobs</a></li>
+<li><a href="https://mpai.site/pricing.html">Pricing</a></li>
+<li><a href="https://mpai.site/about.html">About</a></li>
+<li><a href="https://mpai.site/blog/">Blog</a></li>
+<li><a href="https://mpai.site/privacy.html">Privacy</a></li>
+</ul>
+</div></footer>
+
+<script>
+/* Concept B. The lists are the ones already on the live site (mybusiness.js): [job, why, verdict, what changes]. */
+(function(){
+var TALK={software:"Possible, but it depends on the software you use. Worth a quick chat so I can look."};
+var LIB={
+ "Café or restaurant":[
+  ["Catering enquiries answered","Office and party orders arrive by email","can","Every catering enquiry gets a first reply drafted straight away, with your menu and two times you're free."],
+  ["Weekly specials menu","The board changes, the menu has to follow","can","Your notes become this week's specials, laid out in your own menu template."],
+  ["Supplier invoices chased","Credit notes and wrong deliveries get lost","can","Supplier queries and missing credit notes get a polite chaser, and you see what's still open."],
+  ["Table and party bookings confirmed","Bookings come in by email and get missed","can","Email bookings get a confirmation straight back and a reminder the day before."],
+  ["Your day, briefed","Deliveries, bookings and emails all at once","can","Each morning, one short note: today's bookings, deliveries and the emails that need you."],
+  ["Monthly takings summary","Figures sit in the till export","can","Your till export becomes a one-page monthly summary of what sold and what didn't."],
+  ["Staff rota each week","Usually lives in a rota app","software"],
+  ["Replying to online reviews","Depends on the review sites you use","software"]],
+ "Hair or beauty salon":[
+  ["Booking enquiries answered","Messages come in while you're with a client","can","New booking enquiries by email get a friendly reply drafted, with times you're actually free."],
+  ["Appointment confirmations by email","Missed appointments cost you","can","Email bookings get a confirmation, and a reminder goes the day before."],
+  ["Price list and treatment menu","Prices change, the leaflet doesn't","can","Your notes become an up-to-date price list or treatment menu in your own style."],
+  ["Supplier orders and invoices","Product orders and bills pile up","can","Supplier invoices are sorted and chased, and you see what's still to pay."],
+  ["Your day, briefed","Who's in today and what needs you","can","Each morning, one short note: today's clients, what needs a reply and what's coming up."],
+  ["Your business, on file","New staff keep asking the same things","can","Your services, prices and how you like things written, kept in one place so nothing needs explaining twice."],
+  ["Bookings in your booking app","Depends on the booking software","software"],
+  ["Social media posts","Depends on the accounts and apps you use","software"]],
+ "Builder or tradesperson":[
+  ["Quotes from site-visit notes","Evenings lost writing quotes","can","Your site notes and photos become a quote in your template, using your own prices, ready to check."],
+  ["Invoices sent and chased","Late payers on finished jobs","can","Invoices go out, polite reminders follow when they're overdue, and a thank-you when you're paid."],
+  ["New enquiries answered fast","Leads go cold while you're on site","can","New enquiries get a first reply drafted straight away, offering two times you can visit."],
+  ["Clients kept updated","Customers keep asking where you're up to","can","Once a week, each live job's client gets an update drafted from your notes."],
+  ["Site visits and calls written up","What was agreed on site gets forgotten","can","Record the chat on site; the summary and follow-up email are written for you to send."],
+  ["Job sheets as tidy PDFs","Rough lists and photos at the end of a job","can","Your rough list and photos become a tidy, branded job sheet or snagging list as a PDF."],
+  ["Receipts and mileage","Receipts in the van, mileage in your head","can","Your diary and receipts folder become your mileage and expenses in the format you use."],
+  ["Ordering materials from merchants","Depends on each merchant's system","software"]],
+ "Shop or retailer":[
+  ["Customer emails answered","Stock questions and returns by email","can","Customer emails get a reply drafted in your style, ready for you to check and send."],
+  ["Supplier invoices and orders","Bills and order confirmations pile up","can","Supplier invoices are sorted and chased, and you see what's due and what's still open."],
+  ["Price lists and window cards","Prices change every season","can","Your notes become price lists, offers and window cards in your own style."],
+  ["Monthly sales summary","Figures sit in the till export","can","Your till export becomes a one-page monthly summary of what's selling."],
+  ["Your day, briefed","Deliveries, staff and emails","can","Each morning, one short note: deliveries due, emails that need you and what's coming up."],
+  ["Special orders confirmed","Customers waiting on orders","can","Customers who've placed special orders get an email confirmation and an update when it arrives."],
+  ["Stock levels and reordering","Depends on your till or stock system","software"],
+  ["Online shop updates","Depends on your website platform","software"]],
+ "Something else":[
+  ["Your day, briefed","Knowing what needs you first thing","can","Every morning, one short note from your inbox and diary: what needs you, what can wait and what's coming up."],
+  ["Your business, on file","Explaining the same things again and again","can","Your team, clients and suppliers, and how you like things written, kept in one place so nothing needs explaining twice."],
+  ["Paperwork ready to go","Quotes and letters written from scratch","can","Your letters, quotes and terms in one place, so the right version is drafted for each job."],
+  ["Invoices sent and chased","Late payers and awkward reminders","can","Invoices go out, polite reminders follow when overdue, and a thank-you when you're paid."],
+  ["Meetings and calls turned into actions","What was agreed gets forgotten","can","Record a meeting or call; the summary, follow-up email and actions are written for you."],
+  ["New enquiries answered fast","Leads go cold while you're busy","can","New enquiries get a first reply drafted straight away, with the right next step."],
+  ["Your inbox, handled","Too much email","can","Your email is sorted into what needs a reply, what's for information and what to ignore."],
+  ["Clients kept updated","Customers asking where things are","can","On a set day, each client gets an update drafted from your notes."]]
+};
+var TYPES=Object.keys(LIB),MAX=5;
+var $=function(id){return document.getElementById(id)};
+var el=function(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
+var type="Something else",chosen=[],own=[],picked=false;
+
+/* Start from a list that is already full: the first five jobs I can do for that kind of business. */
+function fill(){chosen=LIB[type].filter(function(j){return j[2]==="can"}).slice(0,MAX)}
+
+function render(animate){
+  var list=$("b-chosen");list.textContent="";
+  chosen.forEach(function(j,i){
+    var talk=j[2]!=="can",li=el("li",talk?"talk":"");
+    if(animate)li.style.animationDelay=(i*70)+"ms";else li.style.animation="none";
+    var t=el("span","tick");t.setAttribute("aria-hidden","true");li.appendChild(t);
+    var mid=el("div");mid.appendChild(el("span","j-name",j[0]));mid.appendChild(el("span","j-why",j[1]));
+    mid.appendChild(el("p","j-what",talk?TALK[j[2]]:j[3]));li.appendChild(mid);
+    var side=el("div","j-side");side.appendChild(el("span","stamp "+(talk?"talk":"can"),talk?"Let’s talk":"Can do"));
+    var rm=el("button","linkbtn","Take off");rm.type="button";rm.setAttribute("aria-label","Take "+j[0]+" off the list");
+    rm.addEventListener("click",function(){chosen.splice(chosen.indexOf(j),1);render(false)});
+    side.appendChild(rm);li.appendChild(side);list.appendChild(li);
+  });
+  var more=$("b-more");more.textContent="";var full=chosen.length>=MAX;
+  LIB[type].filter(function(j){return chosen.indexOf(j)<0}).forEach(function(j){
+    var talk=j[2]!=="can",li=el("li");
+    var mid=el("div");mid.appendChild(el("span","j-name",j[0]));mid.appendChild(el("span","j-why",j[1]));
+    if(talk){var s=el("span","stamp talk","Let’s talk");s.style.display="inline-block";s.style.marginTop="6px";mid.appendChild(s)}
+    li.appendChild(mid);
+    var b=el("button","addbtn","Add");b.type="button";b.disabled=full;b.setAttribute("aria-label","Add "+j[0]);
+    b.addEventListener("click",function(){if(chosen.length<MAX){chosen.push(j);render(false)}});
+    li.appendChild(b);more.appendChild(li);
+  });
+  $("more-hint").textContent=full?"Take one off, then add one of these.":"Add one of these, or a job of your own.";
+  $("t-num").textContent=String(chosen.length);
+  $("t-tag").textContent=picked?type:"Most small businesses";
+  var ol=$("b-ownlist");ol.textContent="";
+  own.forEach(function(text,i){
+    var li=el("li");li.appendChild(el("span","",text));
+    var rm=el("button","linkbtn","Remove");rm.type="button";rm.setAttribute("aria-label","Remove "+text);
+    rm.addEventListener("click",function(){own.splice(i,1);render(false)});li.appendChild(rm);ol.appendChild(li);
+  });
+  $("b-ownadd").disabled=own.length>=2;
+}
+
+var box=$("b-types");
+TYPES.forEach(function(t,i){
+  var lab=el("label","chip"),inp=el("input"),sp=el("span","",t);
+  inp.type="radio";inp.name="b-type";inp.value=t;inp.id="b-type-"+i;
+  inp.addEventListener("change",function(){type=t;picked=true;fill();render(true);
+    $("b-msg").textContent="I’ll email you this list and how we’d start. No obligation.";});
+  lab.appendChild(inp);lab.appendChild(sp);box.appendChild(lab);
+});
+
+function addOwn(){var v=$("b-own").value.trim();if(!v||own.length>=2)return;own.push(v.slice(0,120));$("b-own").value="";render(false)}
+$("b-ownadd").addEventListener("click",addOwn);
+$("b-own").addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();addOwn()}});
+
+/* Concept page: the form checks the fields but sends nothing. */
+$("b-form").addEventListener("submit",function(e){
+  e.preventDefault();
+  var n=$("b-name").value.trim(),m=$("b-email").value.trim(),msg=$("b-msg");
+  if(!chosen.length&&!own.length){msg.textContent="Pick at least one job first.";return}
+  if(!n||!/^\S+@\S+\.\S+$/.test(m)){msg.textContent="Add your name and an email address so I can reply.";return}
+  msg.textContent="This is a concept page, so nothing was sent. On the live site this would email Matthew your list.";
+});
+
+fill();render(false);
+})();
+</script>
+</body>
+</html>

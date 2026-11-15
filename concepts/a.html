@@ -1,0 +1,458 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<title>MPAI home, concept A: one working day</title>
+<link rel="icon" href="../logo.svg" type="image/svg+xml">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap">
+<style>
+/* Concept A: one working day. Left-aligned hero with a real morning brief, then a timeline of one Monday. */
+:root{
+  --navy:#0F1B2D;--navy-2:#1A2C45;--teal:#19A39A;--teal-ink:#0A6F69;--mint:#7FD8CF;--mint-wash:#DDF3EF;
+  --paper:#F4F7FA;--white:#FFFFFF;--ink:#16202C;--soft:#4F5D6E;--line:#D9E1EA;
+  --on-navy:#EEF3F8;--on-navy-soft:#A9C2CF;
+  --serif:"Spectral",Georgia,serif;--label:"Space Grotesk",system-ui,sans-serif;--body:"Atkinson Hyperlegible",system-ui,sans-serif;
+  --ease:cubic-bezier(.16,1,.3,1);--frame:14px;--radius:28px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-padding-top:100px;scroll-behavior:smooth}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}}
+body{margin:0;background:var(--navy);color:var(--ink);font-family:var(--body);font-size:1.125rem;line-height:1.6;padding:var(--frame);-webkit-font-smoothing:antialiased}
+img{max-width:100%;height:auto}
+a{color:var(--teal-ink);text-underline-offset:4px}
+:focus-visible{outline:3px solid var(--teal-ink);outline-offset:3px;border-radius:6px}
+.on-navy :focus-visible,footer :focus-visible{outline-color:var(--mint)}
+p{margin:0 0 1em}
+.wrap{max-width:1160px;margin:0 auto;padding:0 32px}
+.skip{position:absolute;left:-999px;z-index:20}.skip:focus{left:28px;top:24px;background:var(--white);color:var(--navy);padding:10px 16px;border-radius:10px}
+.sheet{border-radius:var(--radius);overflow:clip;background:var(--paper)}
+
+h1,.display{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;line-height:1.05;color:var(--navy);margin:0 0 .4em;text-wrap:balance}
+h1 em,.display em{font-style:italic}
+h1{font-size:clamp(2.6rem,4.5vw,3.8rem)}
+h1 em{display:block}
+.display{font-size:clamp(2.1rem,3.8vw,3.2rem)}
+h3{font-family:var(--label);font-weight:600;font-size:1.2rem;letter-spacing:-.01em;line-height:1.25;margin:0 0 .35em;color:var(--navy)}
+.sub{font-size:1.15rem;color:var(--soft);max-width:52ch}
+.num{font-family:var(--label);font-weight:600}
+.eyebrow{font-family:var(--label);font-weight:600;font-size:.92rem;letter-spacing:.04em;color:var(--teal-ink);margin:0 0 18px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:52px;padding:0 28px;border:0;border-radius:999px;font-family:var(--label);font-weight:600;font-size:1.02rem;text-decoration:none;cursor:pointer;transition:background-color .25s var(--ease),transform .25s var(--ease)}
+.btn-dark{background:var(--navy);color:var(--on-navy);box-shadow:0 10px 24px -12px rgba(15,27,45,.6)}
+.btn-dark:hover{background:var(--teal-ink);transform:translateY(-1px)}
+.textlink{font-family:var(--label);font-weight:600;color:var(--navy);text-decoration:underline;text-decoration-color:var(--teal);text-decoration-thickness:2px;text-underline-offset:6px}
+.textlink:hover{color:var(--teal-ink)}
+
+header.site{position:sticky;top:0;z-index:10;padding:14px 16px 0}
+header.site .bar{display:flex;align-items:center;gap:24px;min-height:64px;max-width:1120px;margin:0 auto;padding:0 10px 0 22px;border-radius:999px;background:color-mix(in srgb,var(--paper) 90%,transparent);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);box-shadow:0 1px 0 rgba(15,27,45,.06),0 12px 30px -24px rgba(15,27,45,.5)}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--navy);font-family:var(--label);font-weight:700;font-size:1.35rem;letter-spacing:.05em;margin-right:auto}
+.brand svg{width:34px;height:34px}
+header nav ul{list-style:none;display:flex;gap:4px;margin:0;padding:0}
+header nav a{display:block;padding:10px 14px;border-radius:999px;color:var(--ink);text-decoration:none;font-family:var(--label);font-weight:500;font-size:.98rem}
+header nav a:hover{background:color-mix(in srgb,var(--teal) 13%,transparent)}
+.nav-cta{min-height:46px;padding:0 22px}
+.cta-short{display:none}
+
+/* Hero */
+.hero{padding:clamp(40px,5vw,76px) 0 clamp(56px,6vw,88px)}
+.hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);gap:clamp(28px,4vw,64px);align-items:center}
+.lead{font-size:clamp(1.15rem,1.5vw,1.3rem);color:var(--soft);max-width:46ch}
+.facts{list-style:none;margin:22px 0 28px;padding:0;display:flex;flex-wrap:wrap;gap:8px 10px}
+.facts li{font-family:var(--label);font-weight:500;font-size:.95rem;color:var(--navy);background:var(--white);border:1px solid var(--line);border-radius:999px;padding:6px 14px}
+.actions{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin:0}
+
+.scene{position:relative;border-radius:var(--radius);overflow:hidden;padding:clamp(20px,3vw,40px);background:linear-gradient(to bottom,#CFEDE8,#8FD3CB 60%,#2C6E6C) center/cover;isolation:isolate}
+.scene img.sky,.scene video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+.scene video{opacity:0;transition:opacity .8s}
+.scene video.is-on{opacity:1}
+.brief{background:var(--navy);color:var(--on-navy);border-radius:22px;padding:24px 26px 22px;box-shadow:0 30px 60px -30px rgba(15,27,45,.8)}
+.brief-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:6px}
+.brief-title{font-family:var(--label);font-weight:600;font-size:1.05rem;margin:0}
+.tag{font-family:var(--label);font-weight:500;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;border:1px solid rgba(238,243,248,.35);border-radius:999px;padding:3px 10px;color:var(--on-navy-soft);white-space:nowrap}
+.brief-time{font-family:var(--serif);font-weight:300;font-size:2.6rem;line-height:1;margin:0 0 16px}
+.brief-time small{font-family:var(--label);font-weight:500;font-size:.95rem;color:var(--on-navy-soft);margin-left:8px}
+.brief dl{margin:0;display:grid;gap:0}
+.brief dl>div{padding:13px 0;border-top:1px solid rgba(238,243,248,.14)}
+.brief dt{font-family:var(--label);font-weight:600;font-size:.82rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mint);margin-bottom:3px}
+.brief dd{margin:0;font-size:1.02rem;line-height:1.45}
+.brief-foot{margin:14px 0 0;font-size:.92rem;color:var(--on-navy-soft)}
+
+/* The day */
+.day{padding:clamp(48px,6vw,96px) 0;background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.day-grid{display:grid;grid-template-columns:320px minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start;margin-top:clamp(28px,4vw,52px)}
+.tally{position:sticky;top:104px;background:var(--navy);color:var(--on-navy);border-radius:22px;padding:22px 22px 18px}
+.tally-title{font-family:var(--label);font-weight:600;font-size:1rem;margin:0 0 4px}
+.tally-count{margin:0 0 12px;color:var(--on-navy-soft);font-size:.95rem}
+.tally-count b{font-family:var(--serif);font-weight:300;font-size:2.2rem;color:var(--on-navy);margin-right:6px}
+.tally ol{list-style:none;margin:0;padding:0}
+.tally li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid rgba(238,243,248,.14);font-family:var(--label);font-weight:500;font-size:.95rem;line-height:1.3;color:var(--on-navy-soft);transition:color .4s}
+.tally .tick{flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;border:1.5px solid rgba(238,243,248,.4);transition:background-color .4s,border-color .4s}
+.tally li.done{color:var(--on-navy)}
+.tally li.done span:last-child{text-decoration:line-through;text-decoration-color:var(--mint)}
+.tally li.done .tick{border-color:var(--teal);background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.3l2.6 2.6L13 6.4' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+
+.line{list-style:none;margin:0;padding:0;position:relative}
+.line::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.line>li{position:relative;padding:0 0 clamp(26px,3vw,40px) 44px}
+.line>li:last-child{padding-bottom:0}
+.line>li::before{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;border-radius:50%;background:var(--white);border:3px solid var(--teal)}
+.when{font-family:var(--label);font-weight:600;font-size:.95rem;color:var(--teal-ink);font-variant-numeric:tabular-nums;margin:0 0 4px;letter-spacing:.02em}
+.line h3{font-size:1.45rem}
+.line p{max-width:60ch;color:var(--ink)}
+.out{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:6px 18px;margin:14px 0 14px;max-width:560px}
+.out .row{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:10px 0;border-top:1px solid var(--line);font-size:1rem}
+.out .row:first-child{border-top:0}
+.out .row b{font-family:var(--label);font-weight:600;color:var(--navy)}
+.out .row span{color:var(--soft);text-align:right}
+.who{display:inline-flex;align-items:center;gap:8px;font-family:var(--label);font-weight:600;font-size:.88rem;border-radius:999px;padding:5px 13px;margin:0}
+.who::before{content:"";width:8px;height:8px;border-radius:50%}
+.who.auto{background:var(--mint-wash);color:var(--teal-ink)}.who.auto::before{background:var(--teal)}
+.who.ok{background:#FFF4DC;color:#6B4A00}.who.ok::before{background:#D99A00}
+.who.you{background:var(--paper);color:var(--soft);border:1px solid var(--line)}.who.you::before{background:var(--soft)}
+.small{font-size:.95rem;color:var(--soft)}
+.line>li.rest::before{background:var(--teal)}
+.rest p{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.25;color:var(--navy);margin:0}
+
+/* Who presses send */
+.send{padding:clamp(48px,6vw,96px) 0}
+.send-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:28px}
+.send-card{border-radius:22px;padding:26px 28px}
+.send-card.auto{background:var(--mint-wash)}
+.send-card.ok{background:var(--white);border:1px solid var(--line)}
+.send-card p{margin:0;max-width:44ch}
+.send-note{margin:22px 0 0;color:var(--soft);max-width:70ch}
+
+/* About */
+.about{padding:0 0 clamp(48px,6vw,96px)}
+.about-grid{display:grid;grid-template-columns:260px minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:start}
+.about img{border-radius:22px;display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 20%}
+.results{list-style:none;margin:26px 0 12px;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:0 36px}
+.results li{padding:14px 0;border-top:1px solid var(--line)}
+.results b{display:block;font-family:var(--label);font-weight:600;color:var(--navy)}
+.results span{color:var(--soft);font-size:1rem}
+
+/* Steps and price */
+.steps{padding:clamp(48px,6vw,96px) 0;background:var(--navy);color:var(--on-navy)}
+.steps .display{color:var(--on-navy)}
+.steps ol{list-style:none;counter-reset:s;margin:34px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px}
+.steps li{counter-increment:s;border-top:2px solid var(--teal);padding-top:16px}
+.steps li::before{content:counter(s);font-family:var(--serif);font-weight:300;font-size:2rem;line-height:1;color:var(--mint);display:block;margin-bottom:10px}
+.steps h3{color:var(--on-navy);font-size:1.08rem}
+.steps li p{font-size:1rem;color:var(--on-navy-soft);margin:0}
+
+.price{padding:clamp(48px,6vw,96px) 0}
+.price-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+.fn{font-size:.98rem;color:var(--soft)}
+.price ul{list-style:none;margin:0;padding:0}
+.price ul li{padding:14px 0;border-top:1px solid var(--line)}
+.price ul li:last-child{border-bottom:1px solid var(--line)}
+details{border-top:1px solid var(--line);padding:14px 0}
+details:last-of-type{border-bottom:1px solid var(--line)}
+summary{font-family:var(--label);font-weight:600;color:var(--navy);cursor:pointer}
+details p{margin:8px 0 0;color:var(--soft)}
+.qa-title{font-family:var(--label);font-weight:600;font-size:1.2rem;color:var(--navy);margin:0 0 14px}
+
+/* Start */
+.start{padding:clamp(48px,6vw,88px) 0 clamp(56px,7vw,104px);background:linear-gradient(to bottom,var(--paper),var(--mint-wash))}
+.start-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:clamp(28px,5vw,72px);align-items:start}
+form.card{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:26px;display:grid;gap:16px}
+label{font-family:var(--label);font-weight:600;font-size:.98rem;color:var(--navy);display:block;margin-bottom:6px}
+.opt{font-weight:500;color:var(--soft)}
+input,textarea{width:100%;font:inherit;color:var(--ink);background:var(--paper);border:1px solid #B9C5D2;border-radius:12px;padding:12px 14px;min-height:50px}
+textarea{min-height:92px;resize:vertical}
+.msg{margin:0;font-size:.98rem;color:var(--teal-ink);min-height:1.4em}
+
+footer{background:var(--navy);color:var(--on-navy);padding:44px 0 36px}
+footer .wrap{display:flex;flex-wrap:wrap;gap:20px 40px;align-items:flex-end;justify-content:space-between}
+footer p{margin:0;font-size:.98rem;color:var(--on-navy-soft)}
+footer .word{font-family:var(--label);font-weight:700;letter-spacing:.05em;font-size:1.2rem;color:var(--on-navy)}
+footer ul{list-style:none;margin:0;padding:0;display:flex;flex-wrap:wrap;gap:6px 22px}
+footer a{color:var(--on-navy);font-family:var(--label);font-weight:500;font-size:.98rem}
+
+@media (max-width:980px){
+  header nav{display:none}
+  .hero-grid,.day-grid,.price-grid,.start-grid{grid-template-columns:minmax(0,1fr)}
+  .tally{display:none}
+  .steps ol{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .about-grid{grid-template-columns:180px minmax(0,1fr)}
+}
+@media (max-width:640px){
+  :root{--frame:6px;--radius:20px}
+  body{font-size:1.06rem}
+  .wrap{padding:0 18px}
+  header.site{padding:8px 8px 0}
+  header.site .bar{padding:0 8px 0 14px;min-height:56px;gap:10px}
+  .brand{font-size:1.15rem}.brand svg{width:30px;height:30px}
+  .cta-full{display:none}.cta-short{display:inline}
+  .nav-cta{min-height:42px;padding:0 16px;font-size:.95rem}
+  .scene{padding:14px}
+  .brief{padding:20px 20px 18px}
+  .actions .btn{width:100%}
+  .send-grid,.results,.steps ol{grid-template-columns:minmax(0,1fr)}
+  .about-grid{grid-template-columns:minmax(0,1fr)}
+  .about img{max-width:150px;border-radius:50%}
+  .out .row{flex-direction:column;gap:2px}.out .row span{text-align:left}
+  .line>li{padding-left:34px}
+  .facts{display:none}
+  .lead{margin-bottom:24px}
+  .steps ol{gap:0;margin-top:22px}
+  .steps li{display:grid;grid-template-columns:34px minmax(0,1fr);align-items:baseline;border-top:1px solid rgba(238,243,248,.18);padding:12px 0}
+  .steps li::before{font-size:1.5rem;margin:0}
+  .steps li h3{margin:0}
+  .steps li p{display:none}
+  .day,.send,.steps,.price,.start{padding-block:40px}
+  .about{padding-bottom:40px}
+}
+</style>
+<script>if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('play');</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+<div class="sheet">
+
+<header class="site"><div class="bar">
+<a class="brand" href="#main" aria-label="MPAI home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>MPAI</a>
+<nav aria-label="Main"><ul><li><a href="#day">A day with it</a></li><li><a href="#steps">How it works</a></li><li><a href="#price">Pricing</a></li><li><a href="#about">About</a></li><li><a href="https://mpai.site/blog/">Blog</a></li></ul></nav>
+<a class="btn btn-dark nav-cta" href="#start"><span class="cta-full">Tell me about your business</span><span class="cta-short" aria-hidden="true">Your business</span></a>
+</div></header>
+
+<main id="main">
+
+<section class="hero" aria-labelledby="hero-title">
+<div class="wrap hero-grid">
+<div>
+<p class="eyebrow">AI, set up for small businesses in and around Brentwood</p>
+<h1 id="hero-title">More time for <em>the work that matters</em></h1>
+<p class="lead">I set up AI in your own email, diary and files, so the admin is already done when you sit down. This is what Monday morning looks like.</p>
+<ul class="facts" aria-label="At a glance">
+<li>Five jobs off your desk</li>
+<li>From <span class="num">&pound;1,000</span> for one person</li>
+<li>No AI experience needed</li>
+</ul>
+<p class="actions"><a class="btn btn-dark" href="#start">Tell me about your business</a><a class="textlink" href="#day">See the rest of Monday</a></p>
+</div>
+
+<div class="scene">
+<img class="sky" src="../images/video/hero-sky-poster.jpg" alt="" width="960" height="540">
+<video data-src="../images/video/hero-sky.mp4" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
+<div class="brief on-navy" role="group" aria-labelledby="brief-title">
+<div class="brief-head"><p class="brief-title" id="brief-title">Your morning brief</p><span class="tag">Example</span></div>
+<p class="brief-time">07:30<small>Monday</small></p>
+<dl>
+<div><dt>Needs you</dt><dd>Reply to a quote question. Approve one invoice.</dd></div>
+<div><dt>Can wait</dt><dd>Four newsletters and a supplier update.</dd></div>
+<div><dt>Coming up</dt><dd>Site visit at 2pm. Directions are in your diary.</dd></div>
+</dl>
+<p class="brief-foot">Written from your inbox and diary before you sit down.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section class="day" id="day" aria-labelledby="day-title">
+<div class="wrap">
+<h2 class="display" id="day-title">The rest of Monday, <em>with it running</em></h2>
+<p class="sub">An example day. Every job runs in your own email, diary and files, and each one shows who presses send.</p>
+
+<div class="day-grid">
+<aside class="tally on-navy" id="tally" aria-label="Jobs off your desk today">
+<p class="tally-title">Off your desk today</p>
+<p class="tally-count"><b id="tally-num">5</b>of 5 jobs done</p>
+<ol>
+<li class="done"><span class="tick" aria-hidden="true"></span><span>Your business, on file</span></li>
+<li class="done"><span class="tick" aria-hidden="true"></span><span>Your day, briefed</span></li>
+<li class="done"><span class="tick" aria-hidden="true"></span><span>Paperwork ready to go</span></li>
+<li class="done"><span class="tick" aria-hidden="true"></span><span>Meetings and calls turned into actions</span></li>
+<li class="done"><span class="tick" aria-hidden="true"></span><span>Invoices sent and chased</span></li>
+</ol>
+</aside>
+
+<ol class="line">
+<li data-job="0">
+<p class="when">Set up once, before Monday</p>
+<h3>Your business, on file</h3>
+<p>Your team, clients and suppliers, what you charge and how you like things written, kept in one place so nothing needs explaining twice. I set this up first, so everything after it sounds like you.</p>
+<p class="who you">Yours to read and change</p>
+</li>
+<li data-job="1">
+<p class="when">07:30</p>
+<h3>Your day, briefed</h3>
+<p>AI reads your inbox and diary and tells you what needs you, what can wait and what&rsquo;s coming up. It does the same at midday and at the end of the day.</p>
+<div class="out"><div class="row"><b>Brief ready</b><span>Two things need you today</span></div></div>
+<p class="who you">Just for you</p>
+</li>
+<li data-job="2">
+<p class="when">09:20</p>
+<h3>Paperwork ready to go</h3>
+<p>A new client asks for a price on a kitchen refit. The quote is drafted from your own template and price list, with your latest terms attached.</p>
+<div class="out"><div class="row"><b>Quote, kitchen refit.docx</b><span>Saved in your Quotes folder</span></div></div>
+<p class="who ok">Waits for your OK</p>
+</li>
+<li data-job="3">
+<p class="when">11:45</p>
+<h3>Meetings and calls turned into actions</h3>
+<p>You record an 18-minute call with a new client. The summary, the follow-up and the list of what needs doing are written for you.</p>
+<div class="out">
+<div class="row"><b>Summary</b><span>Written and saved with the client&rsquo;s file</span></div>
+<div class="row"><b>Follow-up</b><span>Email drafted, waiting for your OK</span></div>
+<div class="row"><b>Actions</b><span>Three added to your list</span></div>
+</div>
+<p class="who ok">Follow-up waits for your OK</p>
+<p class="small" style="margin-top:10px">If you record a call, tell the other person.</p>
+</li>
+<li data-job="4">
+<p class="when">15:10</p>
+<h3>Invoices sent and chased</h3>
+<p>Invoices go out and polite reminders follow when they go overdue, but not if the client has already explained a delay. A thank-you goes back when you&rsquo;re paid.</p>
+<div class="out">
+<div class="row"><b>Invoice 1042</b><span>Two weeks overdue: polite reminder sent</span></div>
+<div class="row"><b>Invoice 1039</b><span>Client explained a delay: no chaser</span></div>
+<div class="row"><b>Invoice 1037</b><span>Paid today: thank-you sent</span></div>
+</div>
+<p class="who auto">Goes out on its own</p>
+</li>
+<li class="rest">
+<p>The rest of Monday was yours.</p>
+</li>
+</ol>
+</div>
+</div>
+</section>
+
+<section class="send" id="send" aria-labelledby="send-title">
+<div class="wrap">
+<h2 class="display" id="send-title">You decide <em>what goes out</em></h2>
+<div class="send-grid">
+<div class="send-card auto"><p class="who auto" style="background:var(--white);margin-bottom:12px">Goes out on its own</p><p>Simple, low-risk emails, such as invoices, invoice chasers and invites.</p></div>
+<div class="send-card ok"><p class="who ok" style="margin-bottom:12px">Waits for your OK</p><p>Anything higher-risk. AI drafts it and you approve it before it goes.</p></div>
+</div>
+<p class="send-note">You can change what goes out on its own in your settings. Your emails and files stay in your own accounts, and AI reads them only when you ask it to do something.</p>
+</div>
+</section>
+
+<section class="about" id="about" aria-labelledby="about-title">
+<div class="wrap about-grid">
+<img src="../matthew.webp" alt="Matthew Price, founder of MPAI" width="700" height="617">
+<div>
+<h2 class="display" id="about-title">I&rsquo;m a chartered surveyor. <em>I automated my own day first.</em></h2>
+<p class="sub">I live in Brentwood and started using AI to take the repetitive work off my own desk. MPAI is me doing the same for small businesses nearby, with no jargon.</p>
+<ul class="results">
+<li><b>Whole days back</b><span>Now spent on planning, outreach and networking.</span></li>
+<li><b>Same-day replies</b><span>Emails that used to wait until the next day.</span></li>
+<li><b>Nothing slips</b><span>Follow-ups and chasers no longer get forgotten.</span></li>
+<li><b>Drafts, not blank pages</b><span>Quotes and reports start most of the way there.</span></li>
+</ul>
+<p class="small">My own results, at the surveying practice where I work. Client results will go here as they come in.</p>
+<p><a class="textlink" href="https://mpai.site/about.html">More about me, and what it changed</a></p>
+</div>
+</div>
+</section>
+
+<section class="steps on-navy" id="steps" aria-labelledby="steps-title">
+<div class="wrap">
+<h2 class="display" id="steps-title">From your first message <em>to a working set-up</em></h2>
+<ol>
+<li><h3>Tell me your jobs</h3><p>Say what you run and which jobs eat your week. I reply by email to book a time.</p></li>
+<li><h3>An hour together</h3><p>At your place of work or on Teams. I show you a mock set-up of your business.</p></li>
+<li><h3>I build your set-up</h3><p>For your own email, calendar and files, on Microsoft 365 or Google.</p></li>
+<li><h3>Sent to you, step by step</h3><p>With instructions, so you can get it running on your own computer.</p></li>
+<li><h3>An hour of support</h3><p>Up to another hour of remote support, including any tweaks.</p></li>
+</ol>
+</div>
+</section>
+
+<section class="price" id="price" aria-labelledby="price-title">
+<div class="wrap price-grid">
+<div>
+<h2 class="display" id="price-title">All five jobs, <em>from &pound;1,000*</em></h2>
+<p class="fn">*For one person. Each extra team member is &pound;250.</p>
+<ul>
+<li>Save two hours a week at <span class="num">&pound;40</span> an hour and it pays for itself in about three months.</li>
+<li>Care plans from <span class="num">&pound;100</span> a month are optional.</li>
+<li>Your Claude Pro plan is separate, about <span class="num">&pound;18</span> a month, paid to Anthropic.</li>
+</ul>
+<p style="margin-top:22px"><a class="textlink" href="https://mpai.site/pricing.html">See pricing and care plans</a></p>
+</div>
+<div>
+<p class="qa-title">Questions people ask</p>
+<details><summary>Do I need to know anything about AI?</summary><p>No. If you can write an email, you can use this. You ask for things in plain English.</p></details>
+<details><summary>Microsoft or Google?</summary><p>Either. It connects to Microsoft 365 work accounts and to Google accounts.</p></details>
+<details><summary>Can I add jobs of my own?</summary><p>Yes. Send me up to two. Each is quoted once I&rsquo;ve seen it, and never added to the &pound;1,000.</p></details>
+</div>
+</div>
+</section>
+
+<section class="start" id="start" aria-labelledby="start-title">
+<div class="wrap start-grid">
+<div>
+<h2 class="display" id="start-title">Ready to get your time back? <em>Tell me about your business.</em></h2>
+<p class="sub">Tell me what you run, and I&rsquo;ll reply by email with the five jobs I&rsquo;d take off your desk. No obligation.</p>
+</div>
+<form class="card" id="start-form" novalidate>
+<div><label for="a-run">What do you run?</label><input type="text" id="a-run" placeholder="e.g. caf&eacute;, building firm, florist" autocomplete="off"></div>
+<div><label for="a-name">Your name</label><input type="text" id="a-name" autocomplete="name"></div>
+<div><label for="a-email">Email</label><input type="email" id="a-email" autocomplete="email"></div>
+<button class="btn btn-dark" type="submit">Send it to Matthew</button>
+<p class="msg" id="a-msg" role="status"></p>
+<p class="small" style="margin:0">I&rsquo;ll only use your details to reply.</p>
+</form>
+</div>
+</section>
+</main>
+
+<footer><div class="wrap">
+<div><p class="word">MPAI</p><p>AI, set up for small businesses in Brentwood and surrounding areas.</p></div>
+<ul>
+<li><a href="https://mpai.site/how-it-works.html">How it works</a></li>
+<li><a href="https://mpai.site/jobs.html">The five jobs</a></li>
+<li><a href="https://mpai.site/pricing.html">Pricing</a></li>
+<li><a href="https://mpai.site/about.html">About</a></li>
+<li><a href="https://mpai.site/blog/">Blog</a></li>
+<li><a href="https://mpai.site/privacy.html">Privacy</a></li>
+</ul>
+</div></footer>
+</div>
+
+<script>
+(function(){
+  var root=document.documentElement,play=root.classList.contains('play');
+
+  /* Tally: each job is ticked off as its part of the day is reached. With no JS or reduced motion it rests fully ticked. */
+  var rows=[].slice.call(document.querySelectorAll('#tally li')),num=document.getElementById('tally-num');
+  var items=[].slice.call(document.querySelectorAll('.line [data-job]'));
+  if(play&&'IntersectionObserver' in window&&rows.length){
+    var done=0;
+    rows.forEach(function(r){r.classList.remove('done')});num.textContent='0';
+    var io=new IntersectionObserver(function(es){es.forEach(function(e){
+      if(!e.isIntersecting)return;
+      var i=+e.target.getAttribute('data-job');
+      for(var k=0;k<=i;k++){if(!rows[k].classList.contains('done')){rows[k].classList.add('done');done++}}
+      num.textContent=String(done);io.unobserve(e.target);
+    })},{rootMargin:'0px 0px -35% 0px'});
+    items.forEach(function(el){io.observe(el)});
+  }
+
+  /* Sky video: only on wider screens, after the page has loaded, never with reduced motion or data saver. */
+  var vid=document.querySelector('.scene video'),saver=navigator.connection&&navigator.connection.saveData;
+  if(vid&&play&&!saver&&window.matchMedia&&matchMedia('(min-width:700px)').matches){
+    var start=function(){vid.src=vid.getAttribute('data-src');vid.addEventListener('playing',function(){vid.classList.add('is-on')},{once:true});var p=vid.play();if(p&&p.catch)p.catch(function(){})};
+    if(document.readyState==='complete')start();else window.addEventListener('load',start,{once:true});
+  }
+
+  /* Concept page: the form checks the fields but sends nothing. */
+  var f=document.getElementById('start-form'),msg=document.getElementById('a-msg');
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var n=document.getElementById('a-name').value.trim(),m=document.getElementById('a-email').value.trim();
+    if(!n||!/^\S+@\S+\.\S+$/.test(m)){msg.textContent='Add your name and an email address so I can reply.';return}
+    msg.textContent='This is a concept page, so nothing was sent. On the live site this would email Matthew.';
+  });
+})();
+</script>
+</body>
+</html>
