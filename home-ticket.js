@@ -11,7 +11,7 @@ var MAX=5, OWN_MAX=2;
 var SHOW=Object.keys(M.LIB);
 var $=function(id){return document.getElementById(id)};
 var el=function(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
-var type="Other", picked=false, other="", jobs=[], chosen=[], own=[], sent=false;
+var type="Other", picked=false, other="", jobs=[], chosen=[], own=[], sent=false, swapped="";
 var HINT="I’ll email you this list and how we’d start. No obligation.";
 
 function label(t){return t==="Other"?"Something else":t}
@@ -35,7 +35,7 @@ function render(animate){
     mid.appendChild(el("p","hb-what",M.lineFor(j)));li.appendChild(mid);
     var side=el("div","hb-side");side.appendChild(stamp(j));
     var rm=el("button","hb-link","Take off");rm.type="button";rm.setAttribute("aria-label","Take "+j.job+" off the list");
-    rm.addEventListener("click",function(){chosen.splice(chosen.indexOf(j),1);render(false);var a=$("hb-more-list").querySelector("button");if(a)a.focus()});
+    rm.addEventListener("click",function(){j.mine=false;chosen.splice(chosen.indexOf(j),1);render(false);var a=$("hb-more-list").querySelector("button");if(a)a.focus()});
     side.appendChild(rm);li.appendChild(side);list.appendChild(li);
   });
   if(!chosen.length)list.appendChild(el("li","hb-none","Nothing on the list yet. Add a job from the box alongside."));
@@ -46,11 +46,22 @@ function render(animate){
     mid.appendChild(el("span","hb-name",j.job));mid.appendChild(el("span","hb-why",j.why));
     if(j.id==="talk")mid.appendChild(stamp(j));
     li.appendChild(mid);
-    var b=el("button","hb-add","Add");b.type="button";b.disabled=full;b.setAttribute("aria-label","Add "+j.job+" to the list");
-    b.addEventListener("click",function(){if(chosen.length<MAX){chosen.push(j);render(false)}});
+    var b=el("button","hb-add","Add");b.type="button";b.setAttribute("aria-label","Add "+j.job+" to the list");
+    b.addEventListener("click",function(){
+      /* A full list still takes a new job: the last one comes off to make room, and can be added back */
+      var out=null;
+      if(chosen.length>=MAX){
+        /* Never knock off a job the visitor added themselves while one of the starting jobs is left */
+        var at=-1;chosen.forEach(function(c,i){if(!c.mine)at=i});
+        out=chosen.splice(at<0?0:at,1)[0];out.mine=false;
+      }
+      j.mine=true;chosen.push(j);swapped=out?"Added. “"+out.job+"” came off to make room.":"";
+      render(false);swapped="";
+      var a=$("hb-more-list").querySelector("button");if(a)a.focus({preventScroll:true});
+    });
     li.appendChild(b);more.appendChild(li);
   });
-  $("hb-more-hint").textContent=full?"Take one off, then add one of these.":"Add one of these, or a job of your own.";
+  $("hb-more-hint").textContent=swapped||(full?"Add one of these and it takes the place of a job on your list.":"Add one of these, or a job of your own.");
   $("hb-num").textContent=String(chosen.length);
   $("hb-tag").textContent=tag();
 
@@ -85,9 +96,11 @@ $("hb-other").addEventListener("input",function(){other=M.clip(this.value,80);$(
 $("hb-ask-set").hidden=false;
 
 function addOwn(){
-  var t=M.clip($("hb-own").value,80);if(!t||own.length>=OWN_MAX)return;
+  var t=M.clip($("hb-own").value,80);if(own.length>=OWN_MAX)return;
+  if(!t){$("hb-own").focus();return}
   own.push(M.sortOwn(t));$("hb-own").value="";render(false);
 }
+function addOwnQuiet(){if(M.clip($("hb-own").value,80))addOwn()}
 $("hb-own-add").addEventListener("click",addOwn);
 $("hb-own").addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();addOwn()}});
 
@@ -95,6 +108,8 @@ $("hb-own").addEventListener("keydown",function(e){if(e.key==="Enter"){e.prevent
 form.addEventListener("submit",function(e){
   e.preventDefault();
   if(sent)return;
+  /* A job typed in but not yet added still goes on the list */
+  addOwnQuiet();
   var n=M.clip($("hb-cname").value,80),em=M.clip($("hb-cemail").value,200),b=$("hb-submit");
   if(!chosen.length&&!own.length){say("Add at least one job to the list first.","err");return}
   if(!n){say("Add your name.","err");$("hb-cname").focus();return}
