@@ -1,0 +1,91 @@
+/* MPAI "The five jobs" page: one Monday. Loaded after site.css, which supplies the header, footer, buttons and type.
+   A finished morning brief beside the heading, then a timeline with each job shown as the thing it produces. */
+:root{--amber-wash:#FFF4DC;--amber-ink:#6B4A00;--amber:#D99A00}
+
+main>section.jd-hero{padding:clamp(40px,5vw,76px) 0 clamp(56px,6vw,88px)}
+.jd-hero-grid{display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.9fr);gap:clamp(28px,4vw,64px);align-items:center}
+.jd-hero h1{font-size:clamp(2.6rem,4.5vw,3.8rem)}
+.jd-lead{font-size:clamp(1.15rem,1.5vw,1.3rem);color:var(--soft);max-width:46ch;margin-bottom:28px}
+.jd-actions{display:flex;align-items:center;gap:26px;flex-wrap:wrap;margin:0}
+
+.jd-scene{position:relative;border-radius:var(--radius);overflow:hidden;padding:clamp(20px,3vw,40px);background:linear-gradient(to bottom,#CFEDE8,#8FD3CB 60%,#2C6E6C) center/cover;isolation:isolate}
+.jd-scene img,.jd-scene video{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-1}
+.jd-scene video{opacity:0;transition:opacity .8s}
+.jd-scene video.is-on{opacity:1}
+.jd-brief{background:var(--navy);color:var(--on-navy);border-radius:22px;padding:24px 26px 22px;box-shadow:0 30px 60px -30px rgba(15,27,45,.8)}
+.jd-brief-head{display:flex;align-items:baseline;justify-content:space-between;gap:12px;margin-bottom:6px}
+.jd-brief-title{font-family:var(--label);font-weight:600;font-size:1.05rem;margin:0}
+.jd-tag{font-family:var(--label);font-weight:500;font-size:.72rem;letter-spacing:.09em;text-transform:uppercase;border:1px solid rgba(238,243,248,.35);border-radius:999px;padding:3px 10px;color:var(--on-navy-soft);white-space:nowrap}
+.jd-brief-time{font-family:var(--serif);font-weight:300;font-size:2.6rem;line-height:1;margin:0 0 16px}
+.jd-brief-time small{font-family:var(--label);font-weight:500;font-size:.95rem;color:var(--on-navy-soft);margin-left:8px}
+.jd-brief dl{margin:0}
+.jd-brief dl>div{padding:13px 0;border-top:1px solid rgba(238,243,248,.14)}
+.jd-brief dt{font-family:var(--label);font-weight:600;font-size:.82rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mint);margin-bottom:3px}
+.jd-brief dd{margin:0;font-size:1.02rem;line-height:1.45}
+.jd-brief-foot{margin:14px 0 0;font-size:.92rem;color:var(--on-navy-soft)}
+
+/* The day */
+main>section.jd-day{padding:clamp(48px,6vw,96px) 0;background:var(--white);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.jd-h2{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;line-height:1.05;color:var(--navy);font-size:clamp(2.1rem,3.8vw,3.2rem);margin:0 0 .4em;text-wrap:balance}
+.jd-h2 em{font-style:italic}
+.jd-sub{font-size:1.15rem;color:var(--soft);max-width:52ch;margin:0}
+.jd-grid{display:grid;grid-template-columns:320px minmax(0,1fr);gap:clamp(32px,5vw,80px);align-items:start;margin-top:clamp(28px,4vw,52px)}
+.jd-tally{position:sticky;top:104px;background:var(--navy);color:var(--on-navy);border-radius:22px;padding:22px 22px 18px}
+.jd-tally-title{font-family:var(--label);font-weight:600;font-size:1rem;margin:0 0 4px}
+.jd-tally-count{margin:0 0 12px;color:var(--on-navy-soft);font-size:.95rem}
+.jd-tally-count b{font-family:var(--serif);font-weight:300;font-size:2.2rem;color:var(--on-navy);margin-right:6px}
+.jd-tally ol{list-style:none;margin:0;padding:0}
+.jd-tally li{display:flex;gap:10px;align-items:flex-start;padding:10px 0;border-top:1px solid rgba(238,243,248,.14);font-family:var(--label);font-weight:500;font-size:.95rem;line-height:1.3;color:var(--on-navy-soft);transition:color .4s}
+.jd-tick{flex:none;width:18px;height:18px;margin-top:1px;border-radius:50%;border:1.5px solid rgba(238,243,248,.4);transition:background-color .4s,border-color .4s}
+.jd-tally li.done{color:var(--on-navy)}
+.jd-tally li.done span:last-child{text-decoration:line-through;text-decoration-color:var(--mint)}
+.jd-tally li.done .jd-tick{border-color:var(--teal);background:var(--teal) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 18 18'%3E%3Cpath d='M5 9.3l2.6 2.6L13 6.4' fill='none' stroke='%23fff' stroke-width='1.8' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") center/100% no-repeat}
+
+.jd-line{list-style:none;margin:0;padding:0;position:relative}
+.jd-line::before{content:"";position:absolute;left:7px;top:10px;bottom:10px;width:2px;background:var(--line)}
+.jd-line>li{position:relative;padding:0 0 clamp(26px,3vw,40px) 44px}
+.jd-line>li:last-child{padding-bottom:0}
+.jd-line>li::before{content:"";position:absolute;left:0;top:7px;width:16px;height:16px;border-radius:50%;background:var(--white);border:3px solid var(--teal)}
+.jd-when{font-family:var(--label);font-weight:600;font-size:.95rem;color:var(--teal-ink);font-variant-numeric:tabular-nums;margin:0 0 4px;letter-spacing:.02em}
+.jd-line h3{font-size:1.45rem}
+.jd-line p{max-width:60ch}
+.jd-out{background:var(--paper);border:1px solid var(--line);border-radius:16px;padding:6px 18px;margin:14px 0;max-width:560px}
+.jd-row{display:flex;justify-content:space-between;gap:16px;align-items:baseline;padding:10px 0;border-top:1px solid var(--line);font-size:1rem}
+.jd-row:first-child{border-top:0}
+.jd-row b{font-family:var(--label);font-weight:600;color:var(--navy)}
+.jd-row span{color:var(--soft);text-align:right}
+.jd-who{display:inline-flex;align-items:center;gap:8px;font-family:var(--label);font-weight:600;font-size:.88rem;border-radius:999px;padding:5px 13px;margin:0}
+.jd-who::before{content:"";width:8px;height:8px;border-radius:50%}
+.jd-who.auto{background:var(--mint-wash);color:var(--teal-ink)}.jd-who.auto::before{background:var(--teal)}
+.jd-who.ok{background:var(--amber-wash);color:var(--amber-ink)}.jd-who.ok::before{background:var(--amber)}
+.jd-who.you{background:var(--paper);color:var(--soft);border:1px solid var(--line)}.jd-who.you::before{background:var(--soft)}
+.jd-small{font-size:.95rem;color:var(--soft);margin:10px 0 0}
+.jd-line>li.jd-rest::before{background:var(--teal)}
+.jd-rest p{font-family:var(--serif);font-weight:300;font-style:italic;font-size:clamp(1.5rem,2.4vw,2rem);line-height:1.25;color:var(--navy);margin:0}
+
+/* Who presses send */
+main>section.jd-send{padding:clamp(48px,6vw,96px) 0 0}
+.jd-send-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:20px;margin-top:28px}
+.jd-card{border-radius:22px;padding:26px 28px}
+.jd-card.auto{background:var(--mint-wash)}
+.jd-card.auto .jd-who{background:var(--white)}
+.jd-card.ok{background:var(--white);border:1px solid var(--line)}
+.jd-card p{margin:0;max-width:44ch}
+.jd-card .jd-who{margin-bottom:12px}
+.jd-note{margin:22px 0 0;color:var(--soft);max-width:70ch}
+
+@media (max-width:980px){
+  .jd-hero-grid,.jd-grid{grid-template-columns:minmax(0,1fr)}
+  .jd-tally{display:none}
+}
+@media (max-width:640px){
+  .jd-scene{padding:14px}
+  .jd-brief{padding:20px 20px 18px}
+  .jd-actions .btn{width:100%}
+  .jd-send-grid{grid-template-columns:minmax(0,1fr)}
+  .jd-row{flex-direction:column;gap:2px}.jd-row span{text-align:left}
+  .jd-line>li{padding-left:34px}
+  main>section.jd-day{padding:40px 0}
+  main>section.jd-send{padding-top:40px}
+}
+@media (prefers-reduced-motion:reduce){.jd-scene video{display:none}.jd-tally li,.jd-tick{transition:none}}

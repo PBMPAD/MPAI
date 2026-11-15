@@ -10,10 +10,11 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap">
 <link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="home.css">
 <script>if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('play');</script>
 <script src="nav.js"></script>
 </head>
-<body>
+<body class="home">
 <a class="skip" href="#main">Skip to content</a>
 <div class="sheet">
 
@@ -21,119 +22,136 @@
 <a class="brand" href="index.html" aria-label="MPAI home"><svg aria-hidden="true" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><rect x="2" y="2" width="96" height="96" rx="22" fill="#0F1B2D"/><polyline points="24,72 24,30 50,58 76,30 76,72" fill="none" stroke="#FFFFFF" stroke-width="7" stroke-linejoin="round" stroke-linecap="round"/><circle cx="24" cy="30" r="7" fill="#19A39A"/><circle cx="50" cy="58" r="7" fill="#19A39A"/><circle cx="76" cy="30" r="7" fill="#19A39A"/></svg>MPAI</a>
 <button class="burger" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Menu"><span></span><span></span><span></span></button>
 <nav aria-label="Main" id="site-nav"><ul><li><a href="#your-business">Your business</a></li><li><a href="how-it-works.html">How it works</a></li><li><a href="pricing.html">Pricing</a></li><li><a href="about.html">About</a></li><li><a href="blog/">Blog</a></li></ul></nav>
-<a class="btn btn-dark nav-cta" href="#your-business"><span class="cta-full">Tell me about your business</span><span class="cta-short" aria-hidden="true">Your business</span></a>
+<a class="btn btn-dark nav-cta" href="#your-business"><span class="cta-full">Pick your five jobs</span><span class="cta-short" aria-hidden="true">Your five</span></a>
 </div></header>
 
 <main id="main">
 
-<section class="hero" aria-labelledby="hero-title">
-<div class="wrap hero-copy">
+<section class="hb-hero" aria-labelledby="hero-title">
+<div class="wrap">
+<p class="hb-eyebrow">AI, set up for small businesses in and around Brentwood</p>
 <h1 id="hero-title">More time for <em>the work that matters</em></h1>
-<p class="lead">Evenings lost to emails, quotes and chasing invoices? I set up AI for sole traders and small businesses in and around Brentwood to do it for you, in your own email and files. All five jobs, from <span class="num">&pound;1,000</span> for one person.</p>
-<p class="actions"><a class="btn btn-dark" href="#your-business">Get started</a><a class="textlink" href="jobs.html">See what each job does</a></p>
-</div>
-
-<div class="scene scene-sky">
-<video class="scene-video" data-src="images/video/hero-sky.mp4" poster="images/video/hero-sky-poster.jpg" muted loop playsinline preload="none" aria-hidden="true" tabindex="-1"></video>
-<div class="deskcard" id="deskcard" role="group" aria-labelledby="deskcard-title">
-<div class="dc-head">
-<p class="dc-title" id="deskcard-title"><span class="dc-mark" aria-hidden="true"></span>Your desk, Monday</p>
-<p class="dc-tag">Example day</p>
-</div>
-<p class="dc-count"><span class="dc-num" data-count>5</span> of 5 jobs done</p>
-<div class="dc-bar" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></div>
-<ol class="dc-jobs">
-<li class="done"><span class="tick" aria-hidden="true"></span><span class="job"><s>Your day, briefed</s><span class="state"><span class="wait" aria-hidden="true">Reading your inbox and diary&hellip;</span><span class="did">Brief ready: two things need you today</span></span></span></li>
-<li class="done"><span class="tick" aria-hidden="true"></span><span class="job"><s>Your business, on file</s><span class="state"><span class="wait" aria-hidden="true">Checking your business notes&hellip;</span><span class="did">Your team, clients and writing style, on file</span></span></span></li>
-<li class="done"><span class="tick" aria-hidden="true"></span><span class="job"><s>Paperwork ready to go</s><span class="state"><span class="wait" aria-hidden="true">Opening your quote template&hellip;</span><span class="did">Quote drafted and saved in your Quotes folder</span></span></span></li>
-<li class="done"><span class="tick" aria-hidden="true"></span><span class="job"><s>Invoices sent and chased</s><span class="state"><span class="wait" aria-hidden="true">Checking what&rsquo;s overdue&hellip;</span><span class="did">Polite reminder sent on an overdue invoice</span></span></span></li>
-<li class="done"><span class="tick" aria-hidden="true"></span><span class="job"><s>Meetings and calls turned into actions</s><span class="state"><span class="wait" aria-hidden="true">Writing up this morning&rsquo;s call&hellip;</span><span class="did">Summary written, follow-up waiting for your OK</span></span></span></li>
-</ol>
-<p class="dc-note">Simple chasers and invoices go out on their own. Anything important waits for your OK.</p>
-</div>
-<p class="hero-after"><a class="btn btn-dark" href="#your-business">Get started</a></p>
-</div>
-</section>
-
-
-<section class="mybiz" id="your-business" aria-labelledby="mybiz-title">
-<div class="wrap">
-<div class="mb-top">
-<h2 class="display" id="mybiz-title">That&rsquo;s a typical week. <em>Now try yours.</em></h2>
-<p class="sub">Pick your type of business, then move five jobs off your desk and see which ones I can take.</p>
-</div>
-<fieldset class="mb-bar" id="mb-bar" hidden>
+<p class="hb-lead">Tell me what you run and I&rsquo;ll show you five jobs I&rsquo;d take off your desk, in your own email and files. All five, from <span class="num">&pound;1,000</span> for one person.</p>
+<div class="hb-ask" id="your-business">
+<fieldset id="hb-ask-set" hidden>
 <legend>What do you run?</legend>
-<div class="mb-types" id="mb-types"></div>
-<input type="text" class="mb-other" id="mb-other" aria-label="What type of business do you run?" placeholder="e.g. drainage company, florist, dog groomer" autocomplete="off" hidden>
+<div class="hb-chips" id="hb-types"></div>
+<input type="text" class="hb-other" id="hb-other" aria-label="What type of business do you run?" placeholder="e.g. drainage company, florist, dog groomer" autocomplete="off" hidden>
 </fieldset>
-<div class="mb-cols">
-<div class="mb-col mb-left">
-<div class="mb-colhead"><h3>On your desk</h3><span id="mb-lefttag">Jobs most businesses carry</span></div>
-<ul class="mb-slips" id="mb-left">
-<li class="mb-slip"><span><b>Your day, briefed</b><small>Knowing what needs you first thing</small></span></li>
-<li class="mb-slip"><span><b>Paperwork ready to go</b><small>Quotes and letters written from scratch</small></span></li>
-<li class="mb-slip"><span><b>Invoices sent and chased</b><small>Late payers and awkward reminders</small></span></li>
-<li class="mb-slip"><span><b>Meetings and calls turned into actions</b><small>What was agreed gets forgotten</small></span></li>
-</ul>
-<div class="mb-tickbar" id="mb-tickbar" hidden><span id="mb-tickcount" aria-live="polite">0 of 5 ticked</span><button type="button" class="btn btn-dark" id="mb-tickopen">Send me these</button></div>
-<div class="mb-addown" id="mb-addown" hidden>
-<label for="mb-own">Something else? Add a job of your own</label>
-<div class="mb-addrow"><input type="text" id="mb-own" placeholder="e.g. writing our weekly newsletter" autocomplete="off"><button type="button" class="mb-addbtn" id="mb-addbtn">Add</button></div>
 </div>
-</div>
-<div class="mb-col mb-right">
-<div class="mb-colhead"><h3>Off your desk</h3><span id="mb-count">0 of 5</span></div>
-<ul class="mb-slips" id="mb-right" aria-live="polite"></ul>
-<p class="mb-empty" id="mb-empty">Tell me what you run, and I&rsquo;ll reply by email with the five jobs I&rsquo;d take off your desk. <a class="textlink" href="contact.html">Tell me about your business</a></p>
-<button class="btn btn-dark mb-open" id="mb-open" type="button" hidden>Send me my five</button>
-<dialog class="mb-dialog" id="mb-dialog" aria-labelledby="mb-dtitle">
-<div class="mb-dhead"><h3 id="mb-dtitle">Send me my five</h3><button type="button" class="mb-close" id="mb-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
-<ul class="mb-summary" id="mb-summary"></ul>
-<p class="mb-hint">I&rsquo;ll email you this list and how we&rsquo;d start. No obligation.</p>
-<div class="mb-fields">
-<div class="mb-field"><label for="mb-cname">Your name</label><input type="text" id="mb-cname" autocomplete="name"></div>
-<div class="mb-field"><label for="mb-cemail">Email</label><input type="email" id="mb-cemail" autocomplete="email"></div>
-<div class="mb-field"><label for="mb-bname">Business name <span class="mb-opt">(optional)</span></label><input type="text" id="mb-bname" autocomplete="organization"></div>
-<div class="mb-field"><label for="mb-site">Website <span class="mb-opt">(optional)</span></label><input type="url" id="mb-site" placeholder="yourbusiness.co.uk"></div>
-</div>
-<p class="mb-msg" id="mb-msg" role="status"></p>
-<button class="btn btn-dark" id="mb-send" type="button">Email me my five</button>
-</dialog>
-</div>
-</div>
+<p class="hb-see"><a href="jobs.html">See a Monday with all five running</a></p>
 </div>
 </section>
 
-<section class="founder-strip" aria-labelledby="founder-title">
-<div class="wrap fs-inner">
-<img class="fs-photo" src="matthew.webp" alt="Matthew Price, founder of MPAI" width="700" height="617">
-<div>
-<h2 class="fs-title" id="founder-title">I&rsquo;m a chartered surveyor. <em>I automated my own day first.</em></h2>
-<p>It freed up whole days in my week. MPAI is me doing the same for small businesses in Brentwood and surrounding areas, with no jargon.</p>
-<p><a class="textlink" href="about.html">More about me, and what it changed</a></p>
-</div>
-</div>
-</section>
-
-<section class="price-strip" id="offer" aria-labelledby="offer-title">
+<section class="hb-zone" aria-labelledby="hb-title">
 <div class="wrap">
-<div class="ps-inner">
+<div class="hb-ticket">
+<div class="hb-head">
 <div>
-<h2 class="display" id="offer-title">All five jobs, <em>from &pound;1,000<span class="star" aria-hidden="true">*</span></em></h2>
-<p class="fn">*For one person. Each extra team member is &pound;250.</p>
-<p>Save two hours a week at <span class="num">&pound;40</span> an hour and it pays for itself in about three months. Care plans from <span class="num">&pound;100</span> a month are optional.</p>
+<p class="hb-tag" id="hb-tag">Most small businesses</p>
+<h2 class="hb-h2" id="hb-title">Five jobs I&rsquo;d take <em>off your desk</em></h2>
 </div>
-<p class="ps-actions"><a class="btn btn-dark" href="pricing.html">See pricing</a></p>
+<p class="hb-count" aria-live="polite"><b id="hb-num">5</b>of 5 chosen</p>
+</div>
+
+<div class="hb-grid">
+<ol class="hb-chosen" id="hb-chosen">
+<li><span class="hb-tick" aria-hidden="true"></span><div><span class="hb-name">Your day, briefed</span><span class="hb-why">Knowing what needs you first thing</span><p class="hb-what">Every morning, one short note from your inbox and diary: what needs you, what can wait and what&rsquo;s coming up.</p></div><div class="hb-side"><span class="hb-stamp can">Can do</span></div></li>
+<li><span class="hb-tick" aria-hidden="true"></span><div><span class="hb-name">Your business, on file</span><span class="hb-why">Explaining the same things again and again</span><p class="hb-what">Your team, clients and suppliers, and how you like things written, kept in one place so nothing needs explaining twice.</p></div><div class="hb-side"><span class="hb-stamp can">Can do</span></div></li>
+<li><span class="hb-tick" aria-hidden="true"></span><div><span class="hb-name">Paperwork ready to go</span><span class="hb-why">Quotes and letters written from scratch</span><p class="hb-what">Your letters, quotes and terms in one place, so the right version is drafted for each job.</p></div><div class="hb-side"><span class="hb-stamp can">Can do</span></div></li>
+<li><span class="hb-tick" aria-hidden="true"></span><div><span class="hb-name">Invoices sent and chased</span><span class="hb-why">Late payers and awkward reminders</span><p class="hb-what">Invoices go out, polite reminders follow when overdue, and a thank-you when you&rsquo;re paid.</p></div><div class="hb-side"><span class="hb-stamp can">Can do</span></div></li>
+<li><span class="hb-tick" aria-hidden="true"></span><div><span class="hb-name">Meetings and calls turned into actions</span><span class="hb-why">What was agreed gets forgotten</span><p class="hb-what">Record a meeting or call; the summary, follow-up email and actions are written for you.</p></div><div class="hb-side"><span class="hb-stamp can">Can do</span></div></li>
+</ol>
+
+<aside class="hb-more" aria-labelledby="hb-more-title">
+<p class="hb-more-title" id="hb-more-title">Not quite your five?</p>
+<p class="hb-small" id="hb-more-hint">Take one off, then add one of these.</p>
+<ul class="hb-more-list" id="hb-more-list"></ul>
+<div class="hb-own">
+<label for="hb-own">Add a job of your own <span class="hb-opt">(up to two)</span></label>
+<div class="hb-own-row"><input type="text" id="hb-own" placeholder="e.g. writing our weekly newsletter" autocomplete="off"><button type="button" class="hb-add" id="hb-own-add">Add</button></div>
+<ul class="hb-own-list" id="hb-own-list" aria-live="polite"></ul>
+</div>
+</aside>
+</div>
+
+<form class="hb-send" id="hb-form" novalidate>
+<p class="hb-hp" aria-hidden="true"><label>Leave this empty <input type="text" id="hb-hp" name="company-website" tabindex="-1" autocomplete="off"></label></p>
+<div><label for="hb-cname">Your name</label><input type="text" id="hb-cname" autocomplete="name"></div>
+<div><label for="hb-cemail">Email</label><input type="email" id="hb-cemail" autocomplete="email"></div>
+<button class="btn btn-dark" id="hb-submit" type="submit">Email me my five</button>
+<details class="hb-extra hb-wide">
+<summary>Add your business name and website (optional)</summary>
+<div class="hb-extra-grid">
+<div><label for="hb-bname">Business name</label><input type="text" id="hb-bname" autocomplete="organization"></div>
+<div><label for="hb-site">Website</label><input type="url" id="hb-site" placeholder="yourbusiness.co.uk"></div>
+</div>
+</details>
+<p class="hb-msg hb-wide" id="hb-msg" role="status">I&rsquo;ll email you this list and how we&rsquo;d start. No obligation.</p>
+<p class="hb-privacy hb-wide">I&rsquo;ll only use your details to reply. See the <a class="textlink" href="privacy.html">privacy policy</a>.</p>
+<noscript><p class="hb-wide">To send me this list, or your own, email <a href="mailto:matthew@mpai.site">matthew@mpai.site</a>.</p></noscript>
+</form>
+</div>
+</div>
+</section>
+
+<section class="hb-next" id="next" aria-labelledby="next-title">
+<div class="wrap">
+<h2 class="hb-h2" id="next-title">What happens <em>after you send it</em></h2>
+<ol>
+<li><h3>I reply by email</h3><p>With your list and a time for us to meet.</p></li>
+<li><h3>An hour together</h3><p>At your place of work or on Teams. I show you a mock set-up of your business.</p></li>
+<li><h3>I build your set-up</h3><p>For your own email, calendar and files, on Microsoft 365 or Google.</p></li>
+<li><h3>Sent to you, step by step</h3><p>With instructions, so you can get it running on your own computer.</p></li>
+<li><h3>An hour of support</h3><p>Up to another hour of remote support, including any tweaks.</p></li>
+</ol>
+<p class="hb-next-more"><a class="textlink" href="how-it-works.html">How it works, in plain steps</a></p>
+</div>
+</section>
+
+<section class="hb-facts" id="offer" aria-label="Price, sending and what you need">
+<div class="wrap hb-facts-grid">
+<div class="hb-fact">
+<h3>What it costs</h3>
+<p class="hb-big">from &pound;1,000</p>
+<p>All five jobs, for one person. Each extra team member is <span class="num">&pound;250</span>. Care plans from <span class="num">&pound;100</span> a month are optional.</p>
+<p><a class="textlink" href="pricing.html">See pricing</a></p>
+</div>
+<div class="hb-fact">
+<h3>Who presses send</h3>
+<p class="hb-big">You decide</p>
+<p>Simple, low-risk emails such as invoices, invoice chasers and invites go out on their own. Anything higher-risk waits for your OK. You can change that in your settings.</p>
+</div>
+<div class="hb-fact">
+<h3>What you need</h3>
+<p class="hb-big">An email account</p>
+<p>Microsoft 365 or Google, and your own Claude Pro plan, about <span class="num">&pound;18</span> a month, paid to Anthropic. No AI experience: if you can write an email, you can use this.</p>
+</div>
+</div>
+</section>
+
+<section class="hb-about" aria-labelledby="founder-title">
+<div class="wrap hb-about-grid">
+<img src="matthew.webp" alt="Matthew Price, founder of MPAI" width="700" height="617" loading="lazy">
+<div>
+<h2 class="hb-h2" id="founder-title">Hello, I&rsquo;m Matthew. <em>A chartered surveyor, not a tech company.</em></h2>
+<p class="hb-about-lead">I live in Brentwood. I started using AI to take the repetitive work off my own desk, and it worked well enough that I now help other small businesses do the same.</p>
+<ul class="hb-results">
+<li><b>Whole days back</b><span>Now spent on planning, outreach and networking.</span></li>
+<li><b>Same-day replies</b><span>Emails that used to wait until the next day.</span></li>
+<li><b>Nothing slips</b><span>Follow-ups and chasers no longer get forgotten.</span></li>
+<li><b>Drafts, not blank pages</b><span>Quotes and reports start most of the way there.</span></li>
+</ul>
+<p class="hb-small">My own results, at the surveying practice where I work. Client results will go here as they come in.</p>
+<p style="margin:0"><a class="textlink" href="about.html">More about me, and what it changed</a></p>
 </div>
 </div>
 </section>
 
 <section class="close wrap" aria-labelledby="close-title">
 <span class="close-mark" aria-hidden="true"></span>
-<h2 class="display center" id="close-title">Ready to get your time back? <em>Tell me about your business.</em></h2>
-<p class="sub center">Send the form with your business and any extra jobs, and I&rsquo;ll reply by email.</p>
-<p class="center"><a class="btn btn-dark" href="#your-business">Get started</a></p>
+<h2 class="display center" id="close-title">Ready to get your time back? <em>Your five jobs are waiting.</em></h2>
+<p class="hb-close-links"><a class="btn btn-dark" href="#your-business">Pick your five jobs</a><a class="textlink" href="jobs.html">See what each job does</a></p>
 </section>
 </main>
 
@@ -155,7 +173,7 @@
 <p><a href="mailto:matthew@mpai.site">matthew@mpai.site</a></p>
 </div></footer>
 </div>
-<script src="home.js" defer></script>
-<script src="mybusiness.js" defer></script>
+<script src="solutions.js" defer></script>
+<script src="home-ticket.js" defer></script>
 </body>
 </html>
