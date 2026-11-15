@@ -93,3 +93,7 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 - The enquiry email has a new "extra jobs" line. The figures and wording are in solutions.js (BASE_JOBS, MAX_JOBS, EXTRA_PRICE, extraLine).
 - The pricing page has a new "A sixth or seventh job" line, and linking software is now "from £500 per person".
 - The contact page has its send bar back on phones (count and send button under the list), so a phone visitor can send fewer or more than five.
+
+## Update (15/11/26, night): the £200 is for a simple job only
+- The extra £200 applies only to a sixth or seventh job marked "Can do" from the ready-made list. A "Let's talk" job, or a job the visitor types in, is always priced separately, and the list and the pricing page both say so.
+- The enquiry email's "extra jobs" line now splits the two: how many extra Can do jobs at £200, and how many jobs to price separately.

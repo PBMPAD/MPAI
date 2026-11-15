@@ -53,10 +53,10 @@ function render(animate){
     li.appendChild(b);more.appendChild(li);
   });
   var n=chosen.length, extra=n-BASE, note=$("hb-extra-note");
-  $("hb-more-hint").textContent=full?"That\u2019s "+(WORD[MAX]||MAX)+". Take one off, then add one of these.":n>=BASE?extraLine(BASE):"Add one of these, or a job of your own.";
+  $("hb-more-hint").textContent=full?"That\u2019s "+(WORD[MAX]||MAX)+". Take one off, then add one of these.":n>=BASE?(M.EXTRA_PROMPT||""):"Add one of these, or a job of your own.";
   $("hb-num").textContent=String(n);
   $("hb-of").textContent=extra>0?"chosen, "+extra+" extra":"of "+BASE+" chosen";
-  if(note){note.textContent=extra>0?extraLine(n):"";note.hidden=extra<=0}
+  if(note){note.textContent=extra>0?extraLine(chosen):"";note.hidden=extra<=0}
   $("hb-tag").textContent=tag();
 
   var ol=$("hb-own-list");ol.textContent="";
@@ -117,7 +117,7 @@ form.addEventListener("submit",function(e){
   b.disabled=true;b.textContent="Sending…";
   var fd=new FormData();
   fd.append("_subject","Your business: "+(bname||kind));fd.append("name",n);fd.append("email",em);fd.append("business",bname);fd.append("type",kind);
-  fd.append("website",M.clip($("hb-site").value,200));fd.append("software",soft.value());fd.append("extra jobs",extraNote(chosen.length));fd.append("jobs",list);fd.append("source","Home page");
+  fd.append("website",M.clip($("hb-site").value,200));fd.append("software",soft.value());fd.append("extra jobs",extraNote(chosen));fd.append("jobs",list);fd.append("source","Home page");
   fetch(M.FORM_ACTION,{method:"POST",body:fd,headers:{"Accept":"application/json"}}).then(function(r){
     if(!r.ok)throw 0;sent=true;b.textContent="Sent";say("Sent. I’ll email you your list and how we’d start.");
   }).catch(function(){b.disabled=false;render(false);say("That didn’t send. Please email matthew@mpai.site instead.","err")});
