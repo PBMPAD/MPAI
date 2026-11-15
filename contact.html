@@ -48,6 +48,8 @@
 <label for="mb-own">Something else? Add a job of your own</label>
 <div class="mb-addrow"><input type="text" id="mb-own" placeholder="e.g. writing our weekly newsletter" autocomplete="off"><button type="button" class="mb-addbtn" id="mb-addbtn">Add</button></div>
 </div>
+<p class="mb-extra" id="mb-tickextra" aria-live="polite" hidden></p>
+<div class="mb-tickbar" id="mb-tickbar" hidden><span id="mb-tickcount" aria-live="polite">0 of 5 ticked</span><button type="button" class="btn btn-dark" id="mb-tickopen">Send me these</button></div>
 </div>
 <div class="mb-col mb-right">
 <div class="mb-colhead"><h3>Off your desk</h3><span id="mb-count">0 of 5</span></div>
@@ -57,6 +59,7 @@
 <dialog class="mb-dialog" id="mb-dialog" aria-labelledby="mb-dtitle">
 <div class="mb-dhead"><h3 id="mb-dtitle">Send me my five</h3><button type="button" class="mb-close" id="mb-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>
 <ul class="mb-summary" id="mb-summary"></ul>
+<p class="mb-extra" id="mb-extra" hidden></p>
 <p class="mb-hint">I&rsquo;ll email you this list and how we&rsquo;d start. No obligation.</p>
 <div class="mb-fields">
 <div class="mb-field"><label for="mb-cname">Your name</label><input type="text" id="mb-cname" autocomplete="name"></div>

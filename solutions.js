@@ -205,9 +205,23 @@ function softPicker(box,id,cls){
  return {fill:fill,value:function(){var out=[one(a),one(b)].filter(function(x){return x;}); return out.length?out.join("; "):"Not given";}};
 }
 
+/* Five jobs come with the set-up. A sixth and a seventh can be added, each at a fixed extra price for one person.
+   These are the only prices the list ever shows (Matthew's decision, 15/11/26). Change the figures here and both pages follow. */
+var BASE_JOBS=5, MAX_JOBS=7, EXTRA_PRICE=200;
+var COUNT_WORD=["","one","two","three","four","five","six","seven"];
+/* The line shown beside the list once five or more jobs are chosen */
+function extraLine(n){
+ if(n<BASE_JOBS) return "";
+ if(n===BASE_JOBS) return "Want a sixth or seventh? Each one is an extra \u00a3"+EXTRA_PRICE+", for one person.";
+ var x=n-BASE_JOBS;
+ return (x===1?"One extra job":"Two extra jobs")+": \u00a3"+(x*EXTRA_PRICE)+" on top of the \u00a31,000, for one person."+(n<MAX_JOBS?" You can add one more.":"");
+}
+/* The same thing for the email to Matthew */
+function extraNote(n){var x=Math.max(0,n-BASE_JOBS); return x?x+" extra at \u00a3"+EXTRA_PRICE+" each (\u00a3"+(x*EXTRA_PRICE)+", for one person)":"None";}
+
 function clip(s,n){return String(s==null?"":s).trim().slice(0,n);}
 function lineFor(r){return r.id==="talk"?(TALK[r.reason]||TALK.bespoke):r.fit;}
 var NAMES={"Café or restaurant":"For a café or restaurant","Hair or beauty salon":"For a salon","Builder or tradesperson":"For a builder or tradesperson","Estate or letting agent":"For an estate or letting agent","Dentist or clinic":"For a practice or clinic","Shop or retailer":"For a shop"};
 function fromLib(key){return LIB[key].map(function(r,i){return r[2]==="can"?{key:key+i,job:r[0],why:r[1],id:"can",fit:r[3]}:{key:key+i,job:r[0],why:r[1],id:"talk",reason:r[2]};});}
-return {FORM_ACTION:FORM_ACTION,TALK:TALK,LIB:LIB,NAMES:NAMES,sortOwn:sortOwn,lineFor:lineFor,fromLib:fromLib,clip:clip,SYSTEMS:SYSTEMS,softPicker:softPicker};
+return {FORM_ACTION:FORM_ACTION,TALK:TALK,LIB:LIB,NAMES:NAMES,sortOwn:sortOwn,lineFor:lineFor,fromLib:fromLib,clip:clip,SYSTEMS:SYSTEMS,softPicker:softPicker,BASE_JOBS:BASE_JOBS,MAX_JOBS:MAX_JOBS,COUNT_WORD:COUNT_WORD,extraLine:extraLine,extraNote:extraNote};
 })();

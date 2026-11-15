@@ -509,6 +509,8 @@ section.close{padding-top:clamp(72px,9vw,120px)}
 .mb-addbtn{flex:none;font:600 .95rem var(--label);background:var(--mint-wash);color:var(--navy);border:0;border-radius:999px;padding:0 20px;cursor:pointer}
 .mb-addbtn:hover{background:#C8ECE6}
 /* What software do you use? Built by solutions.js on Home and the contact page. Its parts sit straight in the form's own grid. */
+.mb-extra{margin:0;padding:10px 14px;border-radius:12px;background:var(--mint-wash);color:var(--navy);font:600 .95rem var(--label)}
+.mb-extra[hidden]{display:none}
 .sw{display:contents}
 .sw-pick{grid-column-start:1;min-width:0}
 .sw-pick[hidden],.sw-other[hidden],.sw-line[hidden],.sw-more[hidden]{display:none}

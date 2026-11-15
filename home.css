@@ -36,6 +36,8 @@ main>section.hb-zone{position:relative;margin-top:calc(-1*var(--radius));padding
 .hb-h2{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;line-height:1.05;color:var(--navy);font-size:clamp(2rem,3.6vw,3rem);margin:0;text-wrap:balance}
 .hb-h2 em{font-style:italic}
 .hb-count{font-family:var(--label);font-weight:600;color:var(--soft);margin:0;white-space:nowrap}
+.hb-extra-note{margin:18px 0 0;padding:12px 16px;border-radius:14px;background:var(--mint-wash);color:var(--navy);font-family:var(--label);font-weight:600}
+.hb-extra-note[hidden]{display:none}
 .hb-count b{font-family:var(--serif);font-weight:300;font-size:2.2rem;color:var(--navy);margin-right:6px}
 .hb-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:start}
 
