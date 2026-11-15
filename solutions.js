@@ -106,9 +106,122 @@ function sortOwn(text){
  return {job:t,id:"talk",reason:"bespoke"};
 }
 
+/* The software each kind of business most often runs on, and how I'd work with it (see CRM.md for the research).
+   connect: there is a ready-made link to it. setup: it can be linked, with extra work. beside: no way in for outsiders,
+   so I work from the emails and reports it sends. private: it holds patient records, so I stay outside it. check: not confirmed yet.
+   Visitors only ever see the plain lines in SOFT_LINE: never a price, and nothing about how the link is made. */
+var SOFT_ASK={
+ "Café or restaurant":"Your till or booking system",
+ "Hair or beauty salon":"Your booking system",
+ "Builder or tradesperson":"Your job or quoting software",
+ "Estate or letting agent":"Your property software",
+ "Dentist or clinic":"Your practice software",
+ "Shop or retailer":"Your till or online shop",
+ "Other":"Software you use for customers"
+};
+var SYSTEMS={
+ "Café or restaurant":[["Square","connect"],["SumUp","setup"],["Zettle","setup"],["Epos Now","setup"],["Lightspeed","setup"],["ResDiary","beside"],["OpenTable","beside"],["SevenRooms","beside"]],
+ "Hair or beauty salon":[["Fresha","beside"],["Phorest","check"],["Booksy","beside"],["Treatwell","beside"],["Timely","setup"],["Square Appointments","connect"]],
+ "Builder or tradesperson":[["Tradify","beside"],["ServiceM8","setup"],["Jobber","connect"],["Commusoft","check"],["Powered Now","check"],["Fergus","setup"],["Simpro","check"]],
+ "Estate or letting agent":[["Alto","beside"],["Reapit","setup"],["Street","setup"],["Jupix","beside"],["Dezrez","check"],["Expert Agent","check"],["Loop","check"]],
+ "Dentist or clinic":[["Dentally","private"],["EXACT (Software of Excellence)","private"],["R4 or Sensei","private"],["Cliniko","private"],["Pabau","private"],["Semble","private"]],
+ "Shop or retailer":[["Shopify","connect"],["Square","connect"],["Lightspeed","setup"],["Epos Now","setup"],["Zettle","setup"],["SumUp","setup"],["WooCommerce","check"],["Wix","connect"]],
+ "Other":[["HubSpot","connect"],["Pipedrive","connect"],["Zoho","connect"],["Salesforce","connect"],["Capsule","setup"],["Airtable","connect"]]
+};
+var SOFT_LINE={
+ connect:"I can usually link straight to this one, so your jobs work from what's already in it. I'll confirm when I reply.",
+ setup:"This one can often be linked up, with some extra set-up. I'll check and tell you when I reply.",
+ beside:"I work alongside this one, using the emails and reports it already sends you. Nothing changes in the software itself.",
+ "private":"Patient records stay inside your practice software. I work on the admin around it.",
+ check:"I'll check this one and tell you what's possible when I reply.",
+ other:"Tell me which, and I'll check it before I reply.",
+ none:"That's fine. Everything runs from your email, diary and files."
+};
+/* What Matthew sees in the email, next to the name of the software */
+var SOFT_NOTE={connect:"ready-made link",setup:"extra set-up",beside:"works alongside",check:"to check","private":"patient records, stays outside"};
+/* The heading over each trade's own systems in the drop-down. To-do and project tools are offered to everyone. */
+var SOFT_GROUP={
+ "Café or restaurant":"Tills and booking systems",
+ "Hair or beauty salon":"Booking systems",
+ "Builder or tradesperson":"Job and quoting software",
+ "Estate or letting agent":"Property software",
+ "Dentist or clinic":"Practice software",
+ "Shop or retailer":"Tills and online shops",
+ "Other":"Customer systems"
+};
+var PROJECT_TOOLS=[["Asana","connect"],["monday.com","connect"],["Trello","connect"],["ClickUp","connect"],["Notion","connect"],["Microsoft Planner","check"]];
+
+/* The "what software do you use?" question, shared by both pages. It builds itself inside the box it is given.
+   It is optional and nothing is chosen to begin with. Once one system is named, a second can be added,
+   because many businesses run a customer system and a to-do or project tool side by side.
+   box: the empty element to build in. id: a name to start the field ids with. cls: the page's own class names for a field and for "(optional)". */
+function softPicker(box,id,cls){
+ cls=cls||{};
+ var key="Other";
+ function el(tag,c,text){var n=document.createElement(tag);if(c)n.className=c;if(text!=null)n.textContent=text;return n;}
+ function opt(to,value,text){var o=el("option","",text);o.value=value;to.appendChild(o);}
+ function make(n,askText){
+  var p={list:[]}, lab=el("label");
+  p.wrap=el("div","sw-pick"+(cls.field?" "+cls.field:"")); p.ask=el("span","",askText); p.sel=el("select"); p.other=el("input","sw-other"); p.line=el("p","sw-line");
+  p.sel.id=id+n; lab.htmlFor=p.sel.id;
+  lab.appendChild(p.ask); lab.appendChild(document.createTextNode(" ")); lab.appendChild(el("span",cls.opt||"","(optional)"));
+  p.other.type="text"; p.other.autocomplete="off"; p.other.placeholder="e.g. the name of your booking system"; p.other.setAttribute("aria-label","Which software do you use?");
+  p.line.setAttribute("aria-live","polite"); p.other.hidden=true; p.line.hidden=true;
+  p.wrap.appendChild(lab); p.wrap.appendChild(p.sel);
+  p.sel.addEventListener("change",function(){show(p); if(p.sel.value==="other") p.other.focus(); sync();});
+  return p;
+ }
+ function show(p){
+  var v=p.sel.value, t=v===""?"":v==="other"?SOFT_LINE.other:v==="none"?SOFT_LINE.none:SOFT_LINE[p.list[+v][1]];
+  p.other.hidden=p.wrap.hidden||v!=="other"; p.line.textContent=t; p.line.hidden=p.wrap.hidden||!t;
+ }
+ function options(p,first){
+  var own=SYSTEMS[key], g1=el("optgroup"), g2=el("optgroup");
+  p.list=own.concat(PROJECT_TOOLS); p.sel.textContent=""; p.other.value="";
+  opt(p.sel,"","Choose one, or leave this blank");
+  g1.label=SOFT_GROUP[key]; g2.label="To-do and project tools";
+  p.list.forEach(function(s,i){opt(i<own.length?g1:g2,String(i),s[0]);});
+  p.sel.appendChild(g1); p.sel.appendChild(g2);
+  opt(p.sel,"other","Something else"); if(first) opt(p.sel,"none","Nothing, just email and spreadsheets");
+ }
+ /* The "add another" link only shows once a first system has been named */
+ function sync(){var v=a.sel.value; more.hidden=!b.wrap.hidden||v===""||v==="none";}
+ function one(p){
+  var v=p.sel.value;
+  if(p.wrap.hidden||v==="") return "";
+  if(v==="none") return "Nothing: email and spreadsheets";
+  if(v==="other") return "Something else: "+(clip(p.other.value,80)||"not named");
+  return p.list[+v][0]+" ("+SOFT_NOTE[p.list[+v][1]]+")";
+ }
+ var a=make(1,""), b=make(2,"Anything else you use"), more=el("button","sw-more","Use something else as well?");
+ more.type="button";
+ more.addEventListener("click",function(){b.wrap.hidden=false; show(b); sync(); b.sel.focus();});
+ [a.wrap,a.other,a.line,more,b.wrap,b.other,b.line].forEach(function(n){box.appendChild(n);});
+ function fill(type){
+  key=SYSTEMS[type]?type:"Other"; a.ask.textContent=SOFT_ASK[key];
+  options(a,true); options(b,false); b.wrap.hidden=true; show(a); show(b); sync();
+ }
+ fill("Other");
+ return {fill:fill,value:function(){var out=[one(a),one(b)].filter(function(x){return x;}); return out.length?out.join("; "):"Not given";}};
+}
+
+/* Five jobs come with the set-up. A sixth and a seventh can be added, each at a fixed extra price for one person.
+   These are the only prices the list ever shows (Matthew's decision, 15/11/26). Change the figures here and both pages follow. */
+var BASE_JOBS=5, MAX_JOBS=7, EXTRA_PRICE=200;
+var COUNT_WORD=["","one","two","three","four","five","six","seven"];
+/* The line shown beside the list once five or more jobs are chosen */
+function extraLine(n){
+ if(n<BASE_JOBS) return "";
+ if(n===BASE_JOBS) return "Want a sixth or seventh? Each one is an extra \u00a3"+EXTRA_PRICE+", for one person.";
+ var x=n-BASE_JOBS;
+ return (x===1?"One extra job":"Two extra jobs")+": \u00a3"+(x*EXTRA_PRICE)+" on top of the \u00a31,000, for one person."+(n<MAX_JOBS?" You can add one more.":"");
+}
+/* The same thing for the email to Matthew */
+function extraNote(n){var x=Math.max(0,n-BASE_JOBS); return x?x+" extra at \u00a3"+EXTRA_PRICE+" each (\u00a3"+(x*EXTRA_PRICE)+", for one person)":"None";}
+
 function clip(s,n){return String(s==null?"":s).trim().slice(0,n);}
 function lineFor(r){return r.id==="talk"?(TALK[r.reason]||TALK.bespoke):r.fit;}
 var NAMES={"Café or restaurant":"For a café or restaurant","Hair or beauty salon":"For a salon","Builder or tradesperson":"For a builder or tradesperson","Estate or letting agent":"For an estate or letting agent","Dentist or clinic":"For a practice or clinic","Shop or retailer":"For a shop"};
 function fromLib(key){return LIB[key].map(function(r,i){return r[2]==="can"?{key:key+i,job:r[0],why:r[1],id:"can",fit:r[3]}:{key:key+i,job:r[0],why:r[1],id:"talk",reason:r[2]};});}
-return {FORM_ACTION:FORM_ACTION,TALK:TALK,LIB:LIB,NAMES:NAMES,sortOwn:sortOwn,lineFor:lineFor,fromLib:fromLib,clip:clip};
+return {FORM_ACTION:FORM_ACTION,TALK:TALK,LIB:LIB,NAMES:NAMES,sortOwn:sortOwn,lineFor:lineFor,fromLib:fromLib,clip:clip,SYSTEMS:SYSTEMS,softPicker:softPicker,BASE_JOBS:BASE_JOBS,MAX_JOBS:MAX_JOBS,COUNT_WORD:COUNT_WORD,extraLine:extraLine,extraNote:extraNote};
 })();

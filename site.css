@@ -508,7 +508,16 @@ section.close{padding-top:clamp(72px,9vw,120px)}
 .mb-addrow{display:flex;gap:8px}
 .mb-addbtn{flex:none;font:600 .95rem var(--label);background:var(--mint-wash);color:var(--navy);border:0;border-radius:999px;padding:0 20px;cursor:pointer}
 .mb-addbtn:hover{background:#C8ECE6}
-.mybiz input[type=text],.mybiz input[type=url],.mybiz input[type=email]{font:1rem/1.4 var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:11px 13px;width:100%;min-width:0;caret-color:var(--teal-ink);transition:border-color .2s var(--ease)}
+/* What software do you use? Built by solutions.js on Home and the contact page. Its parts sit straight in the form's own grid. */
+.mb-extra{margin:0;padding:10px 14px;border-radius:12px;background:var(--mint-wash);color:var(--navy);font:600 .95rem var(--label)}
+.mb-extra[hidden]{display:none}
+.sw{display:contents}
+.sw-pick{grid-column-start:1;min-width:0}
+.sw-pick[hidden],.sw-other[hidden],.sw-line[hidden],.sw-more[hidden]{display:none}
+.sw-other{align-self:end}
+.sw-line{grid-column:1/-1;margin:-4px 0 0;font-size:.97rem;color:var(--ink)}
+.sw-more{grid-column:1/-1;justify-self:start;background:none;border:0;padding:6px 0;font:600 .98rem var(--label);color:var(--teal-ink);text-decoration:underline;text-underline-offset:3px;cursor:pointer}
+.mybiz input[type=text],.mybiz input[type=url],.mybiz input[type=email],.mybiz select{font:1rem/1.4 var(--body);color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:12px;padding:11px 13px;width:100%;min-width:0;caret-color:var(--teal-ink);transition:border-color .2s var(--ease)}
 .mybiz input::placeholder{color:#66737F}
 .mybiz input:hover{border-color:#B9C6D3}
 .mb-send{background:var(--white);border-radius:18px;padding:22px;display:grid;gap:14px;margin-top:6px;box-shadow:0 30px 60px -30px rgba(8,18,32,.55)}

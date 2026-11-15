@@ -76,3 +76,20 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 - Business types: "Accountant or bookkeeper" and "Consultant or adviser" were removed from the lists (MPAI does not sell to professional services). Estate or letting agents and dentists or clinics stay, on both Home and the contact page.
 - The header button on Home reads "Pick your five jobs"; other pages keep "Tell me about your business".
 - The form on Home sends to the same form service as before, with the same fields, marked "Home page". Without JavaScript the list still shows, with the email address in place of the form.
+
+## Update (15/11/26, later): what software do you use?
+- Home and the contact page now ask, optionally, what software the visitor runs their business on. The question and the list follow the business type, and every list ends with "Something else" and "Nothing, just email and spreadsheets".
+- Picking one shows one plain line about how I'd work with it. No prices, nothing about how a link is made.
+- The answer arrives in the enquiry email as a "software" line with its level beside it.
+- The lists and wording are in solutions.js (SYSTEMS, SOFT_ASK, SOFT_LINE). The research, the four levels and the suggested prices are in CRM.md. The prices in CRM.md are not on the site.
+
+## Update (15/11/26, evening): project tools and the linking price
+- The software question now also offers to-do and project tools (Asana, monday.com, Trello, ClickUp, Notion, Microsoft Planner), and a second answer can be added with "Use something else as well?".
+- New price on the pricing page, under set-up: linking software the client already uses is from £500, priced once Matthew has seen how they use it, and keeping a link working is from £100 a month on top of a care plan. The tool on Home and the contact page still never shows a price.
+- The question builds itself from solutions.js (softPicker) and is styled by the .sw rules in site.css.
+
+## Update (15/11/26, late): a sixth and seventh job, and linking priced per person
+- Five jobs still come with the set-up. On Home and the contact page a visitor can now add a sixth and a seventh. Once five are chosen the list says each extra one is £200, for one person, and shows the running extra (£200 or £400 on top of the £1,000). This is the only price the list shows.
+- The enquiry email has a new "extra jobs" line. The figures and wording are in solutions.js (BASE_JOBS, MAX_JOBS, EXTRA_PRICE, extraLine).
+- The pricing page has a new "A sixth or seventh job" line, and linking software is now "from £500 per person".
+- The contact page has its send bar back on phones (count and send button under the list), so a phone visitor can send fewer or more than five.

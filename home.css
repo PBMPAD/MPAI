@@ -36,6 +36,8 @@ main>section.hb-zone{position:relative;margin-top:calc(-1*var(--radius));padding
 .hb-h2{font-family:var(--serif);font-weight:300;letter-spacing:-.02em;line-height:1.05;color:var(--navy);font-size:clamp(2rem,3.6vw,3rem);margin:0;text-wrap:balance}
 .hb-h2 em{font-style:italic}
 .hb-count{font-family:var(--label);font-weight:600;color:var(--soft);margin:0;white-space:nowrap}
+.hb-extra-note{margin:18px 0 0;padding:12px 16px;border-radius:14px;background:var(--mint-wash);color:var(--navy);font-family:var(--label);font-weight:600}
+.hb-extra-note[hidden]{display:none}
 .hb-count b{font-family:var(--serif);font-weight:300;font-size:2.2rem;color:var(--navy);margin-right:6px}
 .hb-grid{display:grid;grid-template-columns:minmax(0,1.5fr) minmax(0,1fr);gap:clamp(20px,3vw,40px);align-items:start}
 
@@ -70,7 +72,7 @@ html.play .hb-chosen li.hb-in{animation:hb-rise .5s var(--ease) both}
 .hb-own{margin-top:16px;padding-top:16px;border-top:1px solid var(--line)}
 .hb-ticket label{font-family:var(--label);font-weight:600;font-size:.98rem;color:var(--navy);display:block;margin-bottom:6px}
 .hb-opt{font-weight:500;color:var(--soft)}
-.hb-ticket input[type=text],.hb-ticket input[type=email],.hb-ticket input[type=url]{width:100%;font:inherit;color:var(--ink);background:var(--white);border:1px solid #B9C5D2;border-radius:12px;padding:10px 14px;min-height:50px}
+.hb-ticket input[type=text],.hb-ticket input[type=email],.hb-ticket input[type=url],.hb-ticket select{width:100%;font:inherit;color:var(--ink);background:var(--white);border:1px solid #B9C5D2;border-radius:12px;padding:10px 14px;min-height:50px}
 .hb-own-row{display:grid;grid-template-columns:minmax(0,1fr) auto;gap:8px}
 .hb-own-list li{padding:12px 0 0}
 .hb-own-top{display:flex;justify-content:space-between;gap:10px;align-items:baseline}
@@ -80,6 +82,8 @@ html.play .hb-chosen li.hb-in{animation:hb-rise .5s var(--ease) both}
 .hb-send .btn{border:0;cursor:pointer;min-height:52px}
 .hb-send .btn[disabled]{opacity:.7;cursor:default;transform:none}
 .hb-wide{grid-column:1/-1}
+/* The name and email start a new row under the software question (styled in site.css) */
+.hb-newrow{grid-column-start:1}
 .hb-extra summary{font-family:var(--label);font-weight:600;font-size:.98rem;color:var(--teal-ink);cursor:pointer}
 .hb-extra-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:12px}
 .hb-msg{margin:0;font-size:.98rem;color:var(--teal-ink)}

@@ -6,7 +6,9 @@
 (function(){
 var M=window.MPAI, form=document.getElementById("hb-form");
 if(!M||!form) return;
-var MAX=5, OWN_MAX=2;
+/* Five jobs come with the set-up; a sixth and seventh can be added (the rules and wording are in solutions.js) */
+var BASE=M.BASE_JOBS||5, MAX=M.MAX_JOBS||5, OWN_MAX=2;
+var WORD=M.COUNT_WORD||[], extraLine=M.extraLine||function(){return ""}, extraNote=M.extraNote||function(){return "None"};
 /* Home shows every business type in solutions.js. "Other" is shown as "Something else". */
 var SHOW=Object.keys(M.LIB);
 var $=function(id){return document.getElementById(id)};
@@ -21,7 +23,7 @@ function tag(){
   return M.NAMES[type]||type;
 }
 /* Start from a list that is already full */
-function fill(){jobs=M.fromLib(type);chosen=jobs.filter(function(j){return j.id==="can"}).slice(0,MAX)}
+function fill(){jobs=M.fromLib(type);chosen=jobs.filter(function(j){return j.id==="can"}).slice(0,BASE)}
 function stamp(j){var t=j.id==="talk";return el("span","hb-stamp "+(t?"talk":"can"),t?"Let’s talk":"Can do")}
 function say(text,kind){var m=$("hb-msg");m.textContent=text;m.className="hb-msg hb-wide"+(kind?" "+kind:"")}
 
@@ -50,8 +52,11 @@ function render(animate){
     b.addEventListener("click",function(){if(chosen.length<MAX){chosen.push(j);render(false)}});
     li.appendChild(b);more.appendChild(li);
   });
-  $("hb-more-hint").textContent=full?"Take one off, then add one of these.":"Add one of these, or a job of your own.";
-  $("hb-num").textContent=String(chosen.length);
+  var n=chosen.length, extra=n-BASE, note=$("hb-extra-note");
+  $("hb-more-hint").textContent=full?"That\u2019s "+(WORD[MAX]||MAX)+". Take one off, then add one of these.":n>=BASE?extraLine(BASE):"Add one of these, or a job of your own.";
+  $("hb-num").textContent=String(n);
+  $("hb-of").textContent=extra>0?"chosen, "+extra+" extra":"of "+BASE+" chosen";
+  if(note){note.textContent=extra>0?extraLine(n):"";note.hidden=extra<=0}
   $("hb-tag").textContent=tag();
 
   var ol=$("hb-own-list");ol.textContent="";
@@ -66,8 +71,12 @@ function render(animate){
   var fullOwn=own.length>=OWN_MAX;
   $("hb-own-add").disabled=fullOwn;$("hb-own").disabled=fullOwn;
   $("hb-own").placeholder=fullOwn?"That’s two of your own":"e.g. writing our weekly newsletter";
-  if(!sent){var b=$("hb-submit");b.textContent=chosen.length>=MAX?"Email me my five":"Email me my list"}
+  if(!sent){var b=$("hb-submit");b.textContent=chosen.length>=BASE&&WORD[chosen.length]?"Email me my "+WORD[chosen.length]:"Email me my list"}
 }
+
+/* What software do you use? The choices follow the business type */
+/* A visitor with an older copy of solutions.js saved simply doesn't see the question */
+var soft=M.softPicker?M.softPicker($("hb-soft"),"hb-soft",{opt:"hb-opt"}):{fill:function(){},value:function(){return "Not given"}};
 
 /* What do you run? */
 var box=$("hb-types");
@@ -75,7 +84,7 @@ SHOW.forEach(function(t,i){
   var lab=el("label","hb-chip"),inp=el("input"),sp=el("span","",label(t));
   inp.type="radio";inp.name="hb-type";inp.value=t;inp.id="hb-type-"+i;
   inp.addEventListener("change",function(){
-    type=t;picked=true;fill();render(true);
+    type=t;picked=true;fill();render(true);soft.fill(t);
     var o=$("hb-other");o.hidden=t!=="Other";if(t==="Other")o.focus();
     if(!sent)say(HINT);
   });
@@ -108,7 +117,7 @@ form.addEventListener("submit",function(e){
   b.disabled=true;b.textContent="Sending…";
   var fd=new FormData();
   fd.append("_subject","Your business: "+(bname||kind));fd.append("name",n);fd.append("email",em);fd.append("business",bname);fd.append("type",kind);
-  fd.append("website",M.clip($("hb-site").value,200));fd.append("jobs",list);fd.append("source","Home page");
+  fd.append("website",M.clip($("hb-site").value,200));fd.append("software",soft.value());fd.append("extra jobs",extraNote(chosen.length));fd.append("jobs",list);fd.append("source","Home page");
   fetch(M.FORM_ACTION,{method:"POST",body:fd,headers:{"Accept":"application/json"}}).then(function(r){
     if(!r.ok)throw 0;sent=true;b.textContent="Sent";say("Sent. I’ll email you your list and how we’d start.");
   }).catch(function(){b.disabled=false;render(false);say("That didn’t send. Please email matthew@mpai.site instead.","err")});
