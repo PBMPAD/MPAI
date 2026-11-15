@@ -55,9 +55,9 @@ function draw(fresh){
  $("mb-count").textContent=left<0?BASE+" + "+(-left)+" extra":off.length+" of "+BASE;
  var e=$("mb-empty");
  e.hidden=false;
- e.textContent=left<=0?extraLine(off.length):off.length===0?(narrow.matches?"Tick five jobs, and see which ones I can take.":"Move five jobs across, and see which ones I can take."):(left===1?"One more to go":["","","Two","Three","Four"][left]+" more to go");
+ e.textContent=left<=0?extraLine(off):off.length===0?(narrow.matches?"Tick five jobs, and see which ones I can take.":"Move five jobs across, and see which ones I can take."):(left===1?"One more to go":["","","Two","Three","Four"][left]+" more to go");
  var ob=$("mb-open"); ob.hidden=off.length===0;
- var te=$("mb-tickextra"); if(te){ var tx=extraLine(off.length); te.textContent=tx; te.hidden=!narrow.matches||!tx; }
+ var te=$("mb-tickextra"); if(te){ var tx=extraLine(off); te.textContent=tx; te.hidden=!narrow.matches||!tx; }
  var tb=$("mb-tickbar"); if(tb){ tb.hidden=!narrow.matches||off.length===0; $("mb-tickcount").textContent=(left<0?BASE+" + "+(-left)+" extra":off.length+" of "+BASE)+" ticked"; $("mb-tickopen").textContent=sendWord(); }
  ob.textContent=sendWord();
  $("mb-addbtn").disabled=ownCount>=2;
@@ -87,7 +87,7 @@ $("mb-right").addEventListener("click",function(e){
 });
 function addOwn(){
  var t=clip($("mb-own").value,80); if(!t||ownCount>=2) return;
- var s=sortOwn(t); s.key="own"+Date.now(); s.why="Your own job";
+ var s=sortOwn(t); s.key="own"+Date.now(); s.why="Your own job"; s.own=true;
  ownCount++; $("mb-own").value=""; order.push(s);
  if(off.length<MAX){off.push(s); draw(s.key); if(off.length===BASE){openSend(); return;}} else {desk.unshift(s); draw();}
 }
@@ -100,7 +100,7 @@ $("mb-own").addEventListener("keydown",function(e){if(e.key==="Enter"){e.prevent
 var dlg=$("mb-dialog"), sent=false;
 function openSend(){
  $("mb-dtitle").textContent=off.length>=BASE&&WORD[off.length]?"Send me my "+WORD[off.length]:"Send me your list";
- var ex=$("mb-extra"); if(ex){ex.textContent=off.length>BASE?extraLine(off.length):""; ex.hidden=off.length<=BASE;}
+ var ex=$("mb-extra"); if(ex){ex.textContent=off.length>BASE?extraLine(off):""; ex.hidden=off.length<=BASE;}
  if(!sent) $("mb-send").textContent=off.length>=BASE&&WORD[off.length]?"Email me my "+WORD[off.length]:"Email me my list";
  $("mb-summary").innerHTML=off.map(function(r){var t=r.id==="talk";return '<li><span>'+esc(r.job)+'</span><span class="mb-verdict'+(t?" talk":"")+'">'+(t?"Let&rsquo;s talk":"Can do")+'</span></li>';}).join("");
  if(!sent){msg("");}
@@ -122,7 +122,7 @@ $("mb-send").addEventListener("click",function(){
  b.disabled=true; b.textContent="Sending…";
  var fd=new FormData();
  fd.append("_subject","Your business: "+(bname||type)); fd.append("name",n); fd.append("email",em); fd.append("business",bname); fd.append("type",type);
- fd.append("website",clip($("mb-site").value,200)); fd.append("software",soft.value()); fd.append("extra jobs",extraNote(off.length)); fd.append("jobs",list); fd.append("source",/contact/.test(location.pathname)?"Contact page":"Home page");
+ fd.append("website",clip($("mb-site").value,200)); fd.append("software",soft.value()); fd.append("extra jobs",extraNote(off)); fd.append("jobs",list); fd.append("source",/contact/.test(location.pathname)?"Contact page":"Home page");
  fetch(FORM_ACTION,{method:"POST",body:fd,headers:{"Accept":"application/json"}}).then(function(r){
   if(!r.ok) throw 0; sent=true; msg("Sent. I'll email you your list and how we'd start.","ok"); b.textContent="Sent";
  }).catch(function(){b.disabled=false; b.textContent=off.length>=BASE&&WORD[off.length]?"Email me my "+WORD[off.length]:"Email me my list"; msg("That didn't send. Please email matthew@mpai.site instead.","err");});
