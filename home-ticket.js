@@ -7,8 +7,8 @@
 var M=window.MPAI, form=document.getElementById("hb-form");
 if(!M||!form) return;
 var MAX=5, OWN_MAX=2;
-/* The business types shown on Home. "Other" is shown as "Something else". */
-var SHOW=["Café or restaurant","Hair or beauty salon","Builder or tradesperson","Shop or retailer","Other"].filter(function(t){return M.LIB[t]});
+/* Home shows every business type in solutions.js. "Other" is shown as "Something else". */
+var SHOW=Object.keys(M.LIB);
 var $=function(id){return document.getElementById(id)};
 var el=function(tag,cls,text){var n=document.createElement(tag);if(cls)n.className=cls;if(text!=null)n.textContent=text;return n};
 var type="Other", picked=false, other="", jobs=[], chosen=[], own=[], sent=false;

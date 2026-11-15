@@ -68,11 +68,11 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 - To change it, edit tools/render_hero.py and re-run it (instructions at the top of the file).
 
 ## Update (15/11/26): Home and The five jobs rebuilt
-- Home is now "your trade first". A navy first screen asks "What do you run?" (café or restaurant, hair or beauty salon, builder or tradesperson, shop or retailer, something else). One tap fills a list of five jobs that is already full, with name and email directly below. Sending a five-job list takes two taps, down from seven.
+- Home is now "your trade first". A navy first screen asks "What do you run?", with the same business types as the contact page. One tap fills a list of five jobs that is already full, with name and email directly below. Sending a five-job list takes two taps, down from seven.
 - Under the list: what happens after you send it (five steps), three boxes (what it costs, who presses send, what you need), Matthew's own results, then the close.
 - The five jobs page (jobs.html) is now one Monday: a finished 07:30 morning brief on the sky video, then a timeline with each job shown as what it produces and who presses send. The tap-to-open list has gone.
 - Files: home.css and home-ticket.js (Home), jobs.css and jobs-day.js (The five jobs). home.js has gone. site.css still supplies the header, footer, buttons and type for every page.
 - The job lists and the rules for typed-in jobs now live in one file, solutions.js, shared by Home and the contact page (mybusiness.js). Change a job there and both pages change.
-- Business types: "Accountant or bookkeeper" and "Consultant or adviser" were removed from the lists (MPAI does not sell to professional services). The contact page still lists estate or letting agents and dentists or clinics; Home does not. Decide whether those two stay.
+- Business types: "Accountant or bookkeeper" and "Consultant or adviser" were removed from the lists (MPAI does not sell to professional services). Estate or letting agents and dentists or clinics stay, on both Home and the contact page.
 - The header button on Home reads "Pick your five jobs"; other pages keep "Tell me about your business".
 - The form on Home sends to the same form service as before, with the same fields, marked "Home page". Without JavaScript the list still shows, with the email address in place of the form.
