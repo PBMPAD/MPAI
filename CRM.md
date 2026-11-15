@@ -8,7 +8,7 @@ Written 15/11/26. Covers the six business types on the site: café or restaurant
 - What decides the offer and the price is not which system is most popular. It is whether the system lets an outsider in. That splits every system into four levels (below).
 - The most used systems in several trades are closed: Fresha and Booksy (salons), Tradify (trades), Alto (agents), every dental system. For those the offer is unchanged: I work from the emails and reports the system sends. That is already what MPAI sells.
 - Where a system does open up (Square, Shopify, Jobber, ServiceM8, Reapit, Street, HubSpot, Xero, QuickBooks), linking it is a paid extra on top of the £1,000.
-- Recommended prices: Level 1 included; Level 2 £250 per system; Level 3 quoted, from £500, with a care plan required; Level 4 (patient records and client money) never linked.
+- Prices (revised 15/11/26 after Matthew's review): every linking price is a "from" price, set once the client's own use of the system has been seen. Level 1 included; Level 2 from £500 per system; Level 3 from £1,000, with a care plan required; Level 4 (patient records and client money) never linked.
 
 ## The four levels
 
@@ -133,23 +133,25 @@ Rules for every linked system:
 
 ## The offer and what it costs
 
-Recommended. The existing prices stay as they are.
+Revised 15/11/26 after Matthew's review: the first figures were about half what they should be, and every linking price is now a "from" price. The existing set-up and care plan prices stay as they are.
 
 | | What the client gets | One-off | Each month |
 |---|---|---|---|
 | Level 1: works alongside | The standard five jobs, working from what the system sends | Included in the £1,000 | Nothing extra |
-| Level 2: plugs in | The system linked, tested, rules written, and wired into their five jobs | £250 per system | Covered by Maintenance (£100) |
-| Level 3: linked with extra set-up | As Level 2, but built and tested for them | Quoted, from £500 | Maintenance required, plus £50 per linked system |
+| Level 2: plugs in | The system linked, tested, rules written, and wired into their five jobs | From £500 per system | From £100 on top of Maintenance |
+| Level 3: linked with extra set-up | As Level 2, but built and tested for them | From £1,000 | Maintenance required, plus from £100 per linked system |
 | Level 4: stays outside | The admin around it | Included | Nothing extra |
 | No system, wants one | A simple customer list built for them | Bespoke quote (custom CRM) | By quote |
 
-Why these numbers:
-- **£250 for Level 2** is the same figure as an extra team member, so the price list stays simple. My estimate is two to three hours: sign-in, checking what it can see, writing the rules, adding it to five skills and testing.
-- **From £500 for Level 3** because the time is uncertain (my estimate: four to twelve hours) and it should be seen before it is priced. It fits the existing "jobs of your own" and Bespoke wording.
-- **A care plan is required at Level 3** because a hand-built link breaks when the software company changes something, and without a plan that becomes unpaid work. The extra £50 pays for the checking.
+Why "from", and what moves the price:
+- **The system is not the cost. How the client uses it is.** Two businesses on Asana can be an hour apart or a week apart. The price is fixed only after looking at their own set-up.
+- **What to look at before quoting:** how many boards, pipelines or projects are live; how many people use it; whether I only read from it or also add and change things; how many of their five jobs it feeds; and how tidy it is (custom fields, their own rules and automations, old clutter).
+- **The "from" figure is the smallest case:** one person, one board or pipeline, reading plus adding simple notes and tasks, tidy data.
+- **The look is part of the hour together**, so the quote is fixed before any work starts, as with jobs of their own.
+- **A care plan is required at Level 3** because a hand-built link breaks when the software company changes something, and without a plan that becomes unpaid work.
 - **Other companies' charges are the client's**, paid direct, like the Claude plan: for example Zapier, or a higher plan of their own software.
 
-On the website this is one extra line on the pricing page, for example: "Use Square, Shopify, Jobber or similar? Linking it is £250. Others are quoted once I've seen them." The tool itself still never shows a price.
+On the website this is one extra line on the pricing page, for example: "Use Square, Shopify, Jobber or similar? Linking it is from £500, priced once I've seen how you use it." The tool itself still never shows a price.
 
 ## The option on the website (built, on the branch, not live)
 
@@ -169,7 +171,7 @@ On the website this is one extra line on the pricing page, for example: "Use Squ
 
 ## For Matthew to decide
 
-- The prices above: £250, from £500, and the £50 a month.
+- The "from" figures above: £500, £1,000, and £100 a month.
 - Whether a care plan is required or only recommended at Level 3.
 - Whether to add the pricing-page line now or after the first linked client.
 - Whether to send Phorest one access request, to learn how hard it is.
