@@ -20,10 +20,14 @@ bar.hidden=false;
 $("mb-types").innerHTML=TYPES.map(function(t){return '<label class="mb-type"><input type="radio" name="mb-btype" value="'+t+'"><span>'+t+'</span></label>';}).join("");
 $("mb-types").addEventListener("change",function(e){
  var isO=e.target.value==="Other"; $("mb-other").hidden=!isO; if(isO) $("mb-other").focus();
- biz.pick=e.target.value; load();
+ biz.pick=e.target.value; load(); soft.fill(biz.pick);
 });
 $("mb-other").addEventListener("input",function(){biz.other=clip(this.value,80); $("mb-lefttag").textContent=biz.other?"For "+biz.other:"Jobs most businesses carry";});
 $("mb-addown").hidden=false;
+/* What software do you use? The choices follow the business type */
+/* A visitor with an older copy of solutions.js saved simply doesn't see the question */
+var soft=M.softPicker?M.softPicker($("mb-soft-ask"),$("mb-soft"),$("mb-soft-other"),$("mb-soft-line")):{fill:function(){},value:function(){return "Not given"}};
+if(!M.softPicker)$("mb-soft").parentNode.hidden=true;
 
 function load(){
  desk=fromLib(biz.pick||"Other"); off=[]; ownCount=0; order=desk.slice();
@@ -113,7 +117,7 @@ $("mb-send").addEventListener("click",function(){
  b.disabled=true; b.textContent="Sending…";
  var fd=new FormData();
  fd.append("_subject","Your business: "+(bname||type)); fd.append("name",n); fd.append("email",em); fd.append("business",bname); fd.append("type",type);
- fd.append("website",clip($("mb-site").value,200)); fd.append("jobs",list); fd.append("source",/contact/.test(location.pathname)?"Contact page":"Home page");
+ fd.append("website",clip($("mb-site").value,200)); fd.append("software",soft.value()); fd.append("jobs",list); fd.append("source",/contact/.test(location.pathname)?"Contact page":"Home page");
  fetch(FORM_ACTION,{method:"POST",body:fd,headers:{"Accept":"application/json"}}).then(function(r){
   if(!r.ok) throw 0; sent=true; msg("Sent. I'll email you your five and how we'd start.","ok"); b.textContent="Sent";
  }).catch(function(){b.disabled=false; b.textContent="Email me my five"; msg("That didn't send. Please email matthew@mpai.site instead.","err");});

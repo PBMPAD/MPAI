@@ -106,9 +106,71 @@ function sortOwn(text){
  return {job:t,id:"talk",reason:"bespoke"};
 }
 
+/* The software each kind of business most often runs on, and how I'd work with it (see CRM.md for the research).
+   connect: there is a ready-made link to it. setup: it can be linked, with extra work. beside: no way in for outsiders,
+   so I work from the emails and reports it sends. private: it holds patient records, so I stay outside it. check: not confirmed yet.
+   Visitors only ever see the plain lines in SOFT_LINE: never a price, and nothing about how the link is made. */
+var SOFT_ASK={
+ "Café or restaurant":"Your till or booking system",
+ "Hair or beauty salon":"Your booking system",
+ "Builder or tradesperson":"Your job or quoting software",
+ "Estate or letting agent":"Your property software",
+ "Dentist or clinic":"Your practice software",
+ "Shop or retailer":"Your till or online shop",
+ "Other":"Software you use for customers"
+};
+var SYSTEMS={
+ "Café or restaurant":[["Square","connect"],["SumUp","setup"],["Zettle","setup"],["Epos Now","setup"],["Lightspeed","setup"],["ResDiary","beside"],["OpenTable","beside"],["SevenRooms","beside"]],
+ "Hair or beauty salon":[["Fresha","beside"],["Phorest","check"],["Booksy","beside"],["Treatwell","beside"],["Timely","setup"],["Square Appointments","connect"]],
+ "Builder or tradesperson":[["Tradify","beside"],["ServiceM8","setup"],["Jobber","connect"],["Commusoft","check"],["Powered Now","check"],["Fergus","setup"],["Simpro","check"]],
+ "Estate or letting agent":[["Alto","beside"],["Reapit","setup"],["Street","setup"],["Jupix","beside"],["Dezrez","check"],["Expert Agent","check"],["Loop","check"]],
+ "Dentist or clinic":[["Dentally","private"],["EXACT (Software of Excellence)","private"],["R4 or Sensei","private"],["Cliniko","private"],["Pabau","private"],["Semble","private"]],
+ "Shop or retailer":[["Shopify","connect"],["Square","connect"],["Lightspeed","setup"],["Epos Now","setup"],["Zettle","setup"],["SumUp","setup"],["WooCommerce","check"],["Wix","connect"]],
+ "Other":[["HubSpot","connect"],["Pipedrive","connect"],["Zoho","connect"],["monday.com","connect"],["Salesforce","connect"],["Capsule","setup"],["Airtable","connect"]]
+};
+var SOFT_LINE={
+ connect:"I can usually link straight to this one, so your jobs work from what's already in it. I'll confirm when I reply.",
+ setup:"This one can often be linked up, with some extra set-up. I'll check and tell you when I reply.",
+ beside:"I work alongside this one, using the emails and reports it already sends you. Nothing changes in the software itself.",
+ "private":"Patient records stay inside your practice software. I work on the admin around it.",
+ check:"I'll check this one and tell you what's possible when I reply.",
+ other:"Tell me which, and I'll check it before I reply.",
+ none:"That's fine. Everything runs from your email, diary and files."
+};
+/* What Matthew sees in the email, next to the name of the software */
+var SOFT_NOTE={connect:"ready-made link",setup:"extra set-up",beside:"works alongside",check:"to check","private":"patient records, stays outside"};
+
+/* The "what software do you use?" box, shared by both pages. It is optional and nothing is chosen to begin with.
+   ask: the element holding the question. sel: the drop-down. other: the box for a name that isn't listed. line: where the plain answer shows. */
+function softPicker(ask,sel,other,line){
+ var list=[];
+ function opt(value,text){var o=document.createElement("option");o.value=value;o.textContent=text;sel.appendChild(o);}
+ function show(){
+  var v=sel.value, t=v===""?"":v==="other"?SOFT_LINE.other:v==="none"?SOFT_LINE.none:SOFT_LINE[list[+v][1]];
+  other.hidden=v!=="other"; line.textContent=t; line.hidden=!t;
+ }
+ function fill(type){
+  var key=SYSTEMS[type]?type:"Other";
+  list=SYSTEMS[key]; ask.textContent=SOFT_ASK[key]; sel.textContent=""; other.value="";
+  opt("","Choose one, or leave this blank");
+  list.forEach(function(s,i){opt(String(i),s[0]);});
+  opt("other","Something else"); opt("none","Nothing, just email and spreadsheets");
+  show();
+ }
+ sel.addEventListener("change",function(){show(); if(sel.value==="other") other.focus();});
+ fill("Other");
+ return {fill:fill,value:function(){
+  var v=sel.value;
+  if(v==="") return "Not given";
+  if(v==="none") return "Nothing: email and spreadsheets";
+  if(v==="other") return "Something else: "+(clip(other.value,80)||"not named");
+  return list[+v][0]+" ("+SOFT_NOTE[list[+v][1]]+")";
+ }};
+}
+
 function clip(s,n){return String(s==null?"":s).trim().slice(0,n);}
 function lineFor(r){return r.id==="talk"?(TALK[r.reason]||TALK.bespoke):r.fit;}
 var NAMES={"Café or restaurant":"For a café or restaurant","Hair or beauty salon":"For a salon","Builder or tradesperson":"For a builder or tradesperson","Estate or letting agent":"For an estate or letting agent","Dentist or clinic":"For a practice or clinic","Shop or retailer":"For a shop"};
 function fromLib(key){return LIB[key].map(function(r,i){return r[2]==="can"?{key:key+i,job:r[0],why:r[1],id:"can",fit:r[3]}:{key:key+i,job:r[0],why:r[1],id:"talk",reason:r[2]};});}
-return {FORM_ACTION:FORM_ACTION,TALK:TALK,LIB:LIB,NAMES:NAMES,sortOwn:sortOwn,lineFor:lineFor,fromLib:fromLib,clip:clip};
+return {FORM_ACTION:FORM_ACTION,TALK:TALK,LIB:LIB,NAMES:NAMES,sortOwn:sortOwn,lineFor:lineFor,fromLib:fromLib,clip:clip,SYSTEMS:SYSTEMS,softPicker:softPicker};
 })();

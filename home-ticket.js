@@ -69,13 +69,18 @@ function render(animate){
   if(!sent){var b=$("hb-submit");b.textContent=chosen.length>=MAX?"Email me my five":"Email me my list"}
 }
 
+/* What software do you use? The choices follow the business type */
+/* A visitor with an older copy of solutions.js saved simply doesn't see the question */
+var soft=M.softPicker?M.softPicker($("hb-soft-ask"),$("hb-soft"),$("hb-soft-other"),$("hb-soft-line")):{fill:function(){},value:function(){return "Not given"}};
+if(!M.softPicker)$("hb-soft").parentNode.hidden=true;
+
 /* What do you run? */
 var box=$("hb-types");
 SHOW.forEach(function(t,i){
   var lab=el("label","hb-chip"),inp=el("input"),sp=el("span","",label(t));
   inp.type="radio";inp.name="hb-type";inp.value=t;inp.id="hb-type-"+i;
   inp.addEventListener("change",function(){
-    type=t;picked=true;fill();render(true);
+    type=t;picked=true;fill();render(true);soft.fill(t);
     var o=$("hb-other");o.hidden=t!=="Other";if(t==="Other")o.focus();
     if(!sent)say(HINT);
   });
@@ -108,7 +113,7 @@ form.addEventListener("submit",function(e){
   b.disabled=true;b.textContent="Sending…";
   var fd=new FormData();
   fd.append("_subject","Your business: "+(bname||kind));fd.append("name",n);fd.append("email",em);fd.append("business",bname);fd.append("type",kind);
-  fd.append("website",M.clip($("hb-site").value,200));fd.append("jobs",list);fd.append("source","Home page");
+  fd.append("website",M.clip($("hb-site").value,200));fd.append("software",soft.value());fd.append("jobs",list);fd.append("source","Home page");
   fetch(M.FORM_ACTION,{method:"POST",body:fd,headers:{"Accept":"application/json"}}).then(function(r){
     if(!r.ok)throw 0;sent=true;b.textContent="Sent";say("Sent. I’ll email you your list and how we’d start.");
   }).catch(function(){b.disabled=false;render(false);say("That didn’t send. Please email matthew@mpai.site instead.","err")});

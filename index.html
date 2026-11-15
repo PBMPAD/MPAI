@@ -77,7 +77,10 @@
 
 <form class="hb-send" id="hb-form" novalidate>
 <p class="hb-hp" aria-hidden="true"><label>Leave this empty <input type="text" id="hb-hp" name="company-website" tabindex="-1" autocomplete="off"></label></p>
-<div><label for="hb-cname">Your name</label><input type="text" id="hb-cname" autocomplete="name"></div>
+<div><label for="hb-soft"><span id="hb-soft-ask">Software you use for customers</span> <span class="hb-opt">(optional)</span></label><select id="hb-soft"></select></div>
+<input type="text" id="hb-soft-other" aria-label="Which software do you use?" placeholder="e.g. the name of your booking system" autocomplete="off" hidden>
+<p class="hb-soft-line hb-wide" id="hb-soft-line" aria-live="polite" hidden></p>
+<div class="hb-newrow"><label for="hb-cname">Your name</label><input type="text" id="hb-cname" autocomplete="name"></div>
 <div><label for="hb-cemail">Email</label><input type="email" id="hb-cemail" autocomplete="email"></div>
 <button class="btn btn-dark" id="hb-submit" type="submit">Email me my five</button>
 <details class="hb-extra hb-wide">

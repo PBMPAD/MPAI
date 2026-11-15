@@ -76,3 +76,9 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 - Business types: "Accountant or bookkeeper" and "Consultant or adviser" were removed from the lists (MPAI does not sell to professional services). Estate or letting agents and dentists or clinics stay, on both Home and the contact page.
 - The header button on Home reads "Pick your five jobs"; other pages keep "Tell me about your business".
 - The form on Home sends to the same form service as before, with the same fields, marked "Home page". Without JavaScript the list still shows, with the email address in place of the form.
+
+## Update (15/11/26, later): what software do you use?
+- Home and the contact page now ask, optionally, what software the visitor runs their business on. The question and the list follow the business type, and every list ends with "Something else" and "Nothing, just email and spreadsheets".
+- Picking one shows one plain line about how I'd work with it. No prices, nothing about how a link is made.
+- The answer arrives in the enquiry email as a "software" line with its level beside it.
+- The lists and wording are in solutions.js (SYSTEMS, SOFT_ASK, SOFT_LINE). The research, the four levels and the suggested prices are in CRM.md. The prices in CRM.md are not on the site.
