@@ -99,6 +99,14 @@ Shops are the strongest trade for linking: the two most recommended systems both
 ### Any other business (a general CRM)
 HubSpot, Pipedrive, Zoho (including Bigin), monday.com, Airtable and Salesforce are in Claude's directory (Level 2; Salesforce's is marked as a trial version). Capsule, the UK one, has only community-made links (Level 3).
 
+## To-do and project tools (added 15/11/26)
+
+Asana, monday.com, Trello, ClickUp, Notion and Todoist are all in Claude's directory, so they are Level 2. Microsoft Planner was not checked.
+
+- **Two questions, not one.** A customer system answers "where do your customers live?". A project tool answers "where is the work tracked?". A business can have one, both, or one tool doing both.
+- **Complement first.** The owner's system stays the place of record. Claude reads from it (what is due and overdue), writes to it (call actions become tasks, a new enquiry becomes a card) and tidies it (a weekly list of stale and unassigned items).
+- **Replacing a system is the last resort.** If they have a system, complement it. If they have nothing, set up an off-the-shelf tool that plugs in. A Claude-built CRM or project manager is only for when nothing off the shelf fits: paid scoping first, a bespoke quote, a care plan as a condition, and the data kept in a plain spreadsheet the client owns. It is not offered on the site.
+
 ## What changes for the owner when the system is linked
 
 The aim is that the owner never opens the system for routine admin, and never types the same thing twice.
@@ -151,15 +159,16 @@ Why "from", and what moves the price:
 - **A care plan is required at Level 3** because a hand-built link breaks when the software company changes something, and without a plan that becomes unpaid work.
 - **Other companies' charges are the client's**, paid direct, like the Claude plan: for example Zapier, or a higher plan of their own software.
 
-On the website this is one extra line on the pricing page, for example: "Use Square, Shopify, Jobber or similar? Linking it is from £500, priced once I've seen how you use it." The tool itself still never shows a price.
+The pricing page now carries this as one line under set-up: "Use Asana, Square, Jobber or similar? Linking it to your set-up is from £500, priced once I've seen how you use it. Keeping a link working is from £100 a month, on top of a care plan." The tool itself still never shows a price.
 
 ## The option on the website (built, on the branch, not live)
 
 - Home and the contact page now ask what software the visitor uses. It is optional, and nothing is chosen to begin with.
-- The question and the list follow the business type: "Your booking system" for a salon, "Your property software" for an agent, and so on. Every list ends with "Something else" (with a box to type the name) and "Nothing, just email and spreadsheets".
+- The question and the list follow the business type: "Your booking system" for a salon, "Your property software" for an agent, and so on. Every list also offers the to-do and project tools, then "Something else" (with a box to type the name) and "Nothing, just email and spreadsheets".
+- Once one system is named, "Use something else as well?" adds a second answer, for a business that runs a customer system and a project tool side by side.
 - Picking one shows a single plain line, by level. It never names a price, never says how the link is made, and says nothing negative about the software.
 - The answer arrives in the enquiry email as a new "software" line, with the level beside it, for example "Jobber (ready-made link)" or "Fresha (works alongside)".
-- The lists and wording are in solutions.js (SYSTEMS, SOFT_ASK, SOFT_LINE), shared by both pages.
+- The lists and wording are in solutions.js (SYSTEMS, PROJECT_TOOLS, SOFT_ASK, SOFT_LINE), shared by both pages.
 - The privacy policy's list of enquiry details now includes "the software you use".
 
 ## Where to start
@@ -173,7 +182,6 @@ On the website this is one extra line on the pricing page, for example: "Use Squ
 
 - The "from" figures above: £500, £1,000, and £100 a month.
 - Whether a care plan is required or only recommended at Level 3.
-- Whether to add the pricing-page line now or after the first linked client.
 - Whether to send Phorest one access request, to learn how hard it is.
 - Customer data: linking a system means the client's customer records pass through their Claude account. Check that the Claude plan each client is on has data terms that suit this, and add a line to the client agreement and the risk register. This is the reason dental and clinic systems stay outside.
 - The lead-teaser and quote-builder skills should read the new "software" line. They are not in this folder, so they are not changed.

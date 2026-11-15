@@ -80,9 +80,8 @@ html.play .hb-chosen li.hb-in{animation:hb-rise .5s var(--ease) both}
 .hb-send .btn{border:0;cursor:pointer;min-height:52px}
 .hb-send .btn[disabled]{opacity:.7;cursor:default;transform:none}
 .hb-wide{grid-column:1/-1}
-/* What software do you use? Optional, and sits above the name and email */
+/* The name and email start a new row under the software question (styled in site.css) */
 .hb-newrow{grid-column-start:1}
-.hb-soft-line{margin:-4px 0 0;font-size:.98rem;color:var(--ink)}
 .hb-extra summary{font-family:var(--label);font-weight:600;font-size:.98rem;color:var(--teal-ink);cursor:pointer}
 .hb-extra-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;margin-top:12px}
 .hb-msg{margin:0;font-size:.98rem;color:var(--teal-ink)}

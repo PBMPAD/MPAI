@@ -71,8 +71,7 @@ function render(animate){
 
 /* What software do you use? The choices follow the business type */
 /* A visitor with an older copy of solutions.js saved simply doesn't see the question */
-var soft=M.softPicker?M.softPicker($("hb-soft-ask"),$("hb-soft"),$("hb-soft-other"),$("hb-soft-line")):{fill:function(){},value:function(){return "Not given"}};
-if(!M.softPicker)$("hb-soft").parentNode.hidden=true;
+var soft=M.softPicker?M.softPicker($("hb-soft"),"hb-soft",{opt:"hb-opt"}):{fill:function(){},value:function(){return "Not given"}};
 
 /* What do you run? */
 var box=$("hb-types");

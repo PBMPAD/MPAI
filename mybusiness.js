@@ -26,8 +26,7 @@ $("mb-other").addEventListener("input",function(){biz.other=clip(this.value,80);
 $("mb-addown").hidden=false;
 /* What software do you use? The choices follow the business type */
 /* A visitor with an older copy of solutions.js saved simply doesn't see the question */
-var soft=M.softPicker?M.softPicker($("mb-soft-ask"),$("mb-soft"),$("mb-soft-other"),$("mb-soft-line")):{fill:function(){},value:function(){return "Not given"}};
-if(!M.softPicker)$("mb-soft").parentNode.hidden=true;
+var soft=M.softPicker?M.softPicker($("mb-soft"),"mb-soft",{field:"mb-field",opt:"mb-opt"}):{fill:function(){},value:function(){return "Not given"}};
 
 function load(){
  desk=fromLib(biz.pick||"Other"); off=[]; ownCount=0; order=desk.slice();

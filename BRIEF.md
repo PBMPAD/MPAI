@@ -82,3 +82,8 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 - Picking one shows one plain line about how I'd work with it. No prices, nothing about how a link is made.
 - The answer arrives in the enquiry email as a "software" line with its level beside it.
 - The lists and wording are in solutions.js (SYSTEMS, SOFT_ASK, SOFT_LINE). The research, the four levels and the suggested prices are in CRM.md. The prices in CRM.md are not on the site.
+
+## Update (15/11/26, evening): project tools and the linking price
+- The software question now also offers to-do and project tools (Asana, monday.com, Trello, ClickUp, Notion, Microsoft Planner), and a second answer can be added with "Use something else as well?".
+- New price on the pricing page, under set-up: linking software the client already uses is from £500, priced once Matthew has seen how they use it, and keeping a link working is from £100 a month on top of a care plan. The tool on Home and the contact page still never shows a price.
+- The question builds itself from solutions.js (softPicker) and is styled by the .sw rules in site.css.
