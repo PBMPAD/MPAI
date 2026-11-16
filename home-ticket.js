@@ -100,6 +100,25 @@ function addOwn(){
 $("hb-own-add").addEventListener("click",addOwn);
 $("hb-own").addEventListener("keydown",function(e){if(e.key==="Enter"){e.preventDefault();addOwn()}});
 
+/* Thank-you pop-up once the list has sent (same look as the contact and pricing forms) */
+function thanks(name){
+  var first=String(name||"").trim().split(/\s+/)[0];
+  var d=document.createElement("dialog");d.className="mb-dialog";d.setAttribute("aria-labelledby","hb-thanks-h");
+  d.innerHTML='<div class="mb-dhead"><h3>Sent</h3><button type="button" class="mb-close" aria-label="Close"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 6l12 12M18 6L6 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg></button></div>'+
+    '<div class="bs-thanks"><span class="bs-tick" aria-hidden="true"></span><h4 id="hb-thanks-h" tabindex="-1"></h4>'+
+    '<p>I&rsquo;ll be in touch by email with your list and how we&rsquo;d start. No obligation.</p>'+
+    '<button class="btn btn-dark" type="button">Close</button></div>';
+  d.querySelector("h4").innerHTML='Thank you'+(first?", <span></span>":"")+', <em>I&rsquo;ve received your jobs.</em>';
+  if(first)d.querySelector("h4 span").textContent=first;
+  document.body.appendChild(d);
+  var close=function(){if(d.close)d.close();else d.removeAttribute("open");$("hb-submit").focus()};
+  d.querySelector(".mb-close").addEventListener("click",close);
+  d.querySelector(".bs-thanks .btn").addEventListener("click",close);
+  d.addEventListener("click",function(e){if(e.target===d)close()});
+  if(d.showModal)d.showModal();else d.setAttribute("open","");
+  d.querySelector("h4").focus();
+}
+
 /* Send the list to Matthew */
 form.addEventListener("submit",function(e){
   e.preventDefault();
@@ -119,7 +138,7 @@ form.addEventListener("submit",function(e){
   fd.append("_subject","Your business: "+(bname||kind));fd.append("name",n);fd.append("email",em);fd.append("business",bname);fd.append("type",kind);
   fd.append("website",M.clip($("hb-site").value,200));fd.append("software",soft.value());fd.append("extra jobs",extraNote(chosen));fd.append("jobs",list);fd.append("source","Home page");
   fetch(M.FORM_ACTION,{method:"POST",body:fd,headers:{"Accept":"application/json"}}).then(function(r){
-    if(!r.ok)throw 0;sent=true;b.textContent="Sent";say("Sent. I’ll email you your list and how we’d start.");
+    if(!r.ok)throw 0;sent=true;b.textContent="Sent";say("Sent. I’ll email you your list and how we’d start.");thanks(n);
   }).catch(function(){b.disabled=false;render(false);say("That didn’t send. Please email matthew@mpai.site instead.","err")});
 });
 
