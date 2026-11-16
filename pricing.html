@@ -9,7 +9,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap">
-<link rel="stylesheet" href="site.css">
+<link rel="stylesheet" href="site.css?v=20261116">
 <script src="nav.js"></script>
 </head>
 <body>
@@ -175,7 +175,8 @@
  if(!d||!f) return;
  var say=function(t,k){m.textContent=t;m.className="mb-msg"+(k?" "+k:"");};
  var t=document.getElementById("bs-thanks"),hint=d.querySelector(".mb-dhead+.mb-hint");
- var reset=function(){ if(t.hidden) return; t.hidden=true; f.hidden=false; if(hint) hint.hidden=false; b.disabled=false; b.textContent="Send my enquiry"; say(""); };
+ var vis=function(el,on){ if(!el) return; el.hidden=!on; el.style.display=on?"":"none"; };
+ var reset=function(){ if(t.hidden) return; vis(t,false); vis(f,true); vis(hint,true); b.disabled=false; b.textContent="Send my enquiry"; say(""); };
  document.getElementById("bs-open").addEventListener("click",function(){ reset(); if(d.showModal){ if(!d.open) d.showModal(); } else d.setAttribute("open",""); setTimeout(function(){document.getElementById("bs-name").focus();},60); });
  var close=function(){ if(d.close) d.close(); else d.removeAttribute("open"); };
  document.getElementById("bs-close").addEventListener("click",close);
@@ -190,7 +191,7 @@
    .then(function(r){ if(!r.ok) throw new Error();
     var first=(data.get("name")||"").trim().split(/\s+/)[0];
     document.getElementById("bs-thanks-name").textContent=first?", "+first:"";
-    f.reset(); f.hidden=true; if(hint) hint.hidden=true; t.hidden=false;
+    f.reset(); vis(f,false); vis(hint,false); vis(t,true);
     document.getElementById("bs-thanks-h").focus(); })
    .catch(function(){ b.disabled=false; b.textContent="Send my enquiry"; say("Sorry, that didn’t send. Please email matthew@mpai.site instead.","err"); });
  });

@@ -120,7 +120,7 @@ function showThanks(name){
   '<h4 id="mb-thanks-h" tabindex="-1">Thank you'+(first?", "+esc(first):"")+', <em>I&rsquo;ve received your jobs.</em></h4>'+
   '<p>I&rsquo;ll be in touch by email with your list and how we&rsquo;d start. No obligation.</p>'+
   '<button class="btn btn-dark" type="button" id="mb-done">Close</button>';
- Array.prototype.forEach.call(dlg.children,function(c){ if(!c.classList.contains("mb-dhead")) c.hidden=true; });
+ Array.prototype.forEach.call(dlg.children,function(c){ if(!c.classList.contains("mb-dhead")){ c.hidden=true; c.style.display="none"; } });
  dlg.appendChild(t);
  $("mb-done").addEventListener("click",closeSend);
  $("mb-thanks-h").focus();
