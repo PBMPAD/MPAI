@@ -105,12 +105,26 @@ function openSend(){
  $("mb-summary").innerHTML=off.map(function(r){var t=r.id==="talk";return '<li><span>'+esc(r.job)+'</span><span class="mb-verdict'+(t?" talk":"")+'">'+(t?"Let&rsquo;s talk":"Can do")+'</span></li>';}).join("");
  if(!sent){msg("");}
  if(dlg.showModal){ if(!dlg.open) dlg.showModal(); } else dlg.setAttribute("open","");
- setTimeout(function(){ (sent?$("mb-close"):$("mb-cname")).focus(); },60);
+ setTimeout(function(){ (sent?$("mb-thanks-h"):$("mb-cname")).focus(); },60);
 }
 function closeSend(){ if(dlg.close) dlg.close(); else dlg.removeAttribute("open"); var o=$("mb-open"); if(o&&!o.hidden) o.focus(); }
 $("mb-open").addEventListener("click",openSend);
 $("mb-close").addEventListener("click",closeSend);
 dlg.addEventListener("click",function(e){ if(e.target===dlg) closeSend(); });
+
+/* Thank-you screen, shown in place of the form once it has sent */
+function showThanks(name){
+ var first=String(name||"").trim().split(/\s+/)[0], t=document.createElement("div");
+ t.className="bs-thanks"; t.id="mb-thanks";
+ t.innerHTML='<span class="bs-tick" aria-hidden="true"></span>'+
+  '<h4 id="mb-thanks-h" tabindex="-1">Thank you'+(first?", "+esc(first):"")+', <em>I&rsquo;ve received your jobs.</em></h4>'+
+  '<p>I&rsquo;ll be in touch by email with your list and how we&rsquo;d start. No obligation.</p>'+
+  '<button class="btn btn-dark" type="button" id="mb-done">Close</button>';
+ Array.prototype.forEach.call(dlg.children,function(c){ if(!c.classList.contains("mb-dhead")) c.hidden=true; });
+ dlg.appendChild(t);
+ $("mb-done").addEventListener("click",closeSend);
+ $("mb-thanks-h").focus();
+}
 
 /* Send the five to Matthew */
 $("mb-send").addEventListener("click",function(){
@@ -124,7 +138,7 @@ $("mb-send").addEventListener("click",function(){
  fd.append("_subject","Your business: "+(bname||type)); fd.append("name",n); fd.append("email",em); fd.append("business",bname); fd.append("type",type);
  fd.append("website",clip($("mb-site").value,200)); fd.append("software",soft.value()); fd.append("extra jobs",extraNote(off)); fd.append("jobs",list); fd.append("source",/contact/.test(location.pathname)?"Contact page":"Home page");
  fetch(FORM_ACTION,{method:"POST",body:fd,headers:{"Accept":"application/json"}}).then(function(r){
-  if(!r.ok) throw 0; sent=true; msg("Sent. I'll email you your list and how we'd start.","ok"); b.textContent="Sent";
+  if(!r.ok) throw 0; sent=true; showThanks(n);
  }).catch(function(){b.disabled=false; b.textContent=off.length>=BASE&&WORD[off.length]?"Email me my "+WORD[off.length]:"Email me my list"; msg("That didn't send. Please email matthew@mpai.site instead.","err");});
 });
 

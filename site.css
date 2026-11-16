@@ -600,6 +600,13 @@ header.site nav a{white-space:nowrap}
 .bs-form textarea,.bs-form input{font:inherit;color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:11px 13px;min-height:48px;width:100%}
 .bs-form textarea:focus,.bs-form input:focus{border-color:var(--teal-ink)}
 .bs-wide{grid-column:1/-1}
+.bs-form[hidden],.bs-thanks[hidden],.mb-dialog [hidden]{display:none}
+.bs-thanks{display:flex;flex-direction:column;gap:14px;padding:8px 0 4px}
+.bs-thanks h4{font:300 clamp(1.5rem,2.6vw,1.9rem)/1.15 var(--serif);color:var(--navy);margin:0;outline:none}
+.bs-thanks h4 em{font-style:italic;color:var(--teal-ink)}
+.bs-thanks p{margin:0;color:var(--soft)}
+.bs-tick{position:relative;width:48px;height:48px;border-radius:999px;background:var(--mint-wash)}
+.bs-tick::after{content:"";position:absolute;left:19px;top:12px;width:9px;height:18px;border:solid var(--teal-ink);border-width:0 3px 3px 0;transform:rotate(45deg)}
 .mb-dhead h3 em{font-style:italic}
 @media (max-width:980px){.plans-3{grid-template-columns:1fr;max-width:560px}}
 

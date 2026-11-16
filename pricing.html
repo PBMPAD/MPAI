@@ -127,6 +127,12 @@
 <p class="mb-msg" id="bs-msg" role="status"></p>
 <button class="btn btn-dark" id="bs-send" type="submit">Send my enquiry</button>
 </form>
+<div class="bs-thanks" id="bs-thanks" hidden>
+<span class="bs-tick" aria-hidden="true"></span>
+<h4 id="bs-thanks-h" tabindex="-1">Thank you<span id="bs-thanks-name"></span>, <em>I&rsquo;ve received your request.</em></h4>
+<p>I&rsquo;ll look over the project and be in touch by email with a price. No obligation.</p>
+<button class="btn btn-dark" id="bs-done" type="button">Close</button>
+</div>
 </dialog>
 </main>
 
@@ -168,9 +174,12 @@
  var d=document.getElementById("bs-dialog"),f=document.getElementById("bs-form"),m=document.getElementById("bs-msg"),b=document.getElementById("bs-send");
  if(!d||!f) return;
  var say=function(t,k){m.textContent=t;m.className="mb-msg"+(k?" "+k:"");};
- document.getElementById("bs-open").addEventListener("click",function(){ if(d.showModal){ if(!d.open) d.showModal(); } else d.setAttribute("open",""); setTimeout(function(){document.getElementById("bs-name").focus();},60); });
+ var t=document.getElementById("bs-thanks"),hint=d.querySelector(".mb-dhead+.mb-hint");
+ var reset=function(){ if(t.hidden) return; t.hidden=true; f.hidden=false; if(hint) hint.hidden=false; b.disabled=false; b.textContent="Send my enquiry"; say(""); };
+ document.getElementById("bs-open").addEventListener("click",function(){ reset(); if(d.showModal){ if(!d.open) d.showModal(); } else d.setAttribute("open",""); setTimeout(function(){document.getElementById("bs-name").focus();},60); });
  var close=function(){ if(d.close) d.close(); else d.removeAttribute("open"); };
  document.getElementById("bs-close").addEventListener("click",close);
+ document.getElementById("bs-done").addEventListener("click",close);
  d.addEventListener("click",function(e){ if(e.target===d) close(); });
  f.addEventListener("submit",function(e){
   e.preventDefault();
@@ -178,7 +187,11 @@
   var data=new FormData(f); data.append("_subject","Bespoke enquiry from mpai.site"); data.append("enquiry","Bespoke care plan");
   b.disabled=true; b.textContent="Sending…"; say("");
   fetch("https://formspree.io/f/xpppejjl",{method:"POST",body:data,headers:{"Accept":"application/json"}})
-   .then(function(r){ if(!r.ok) throw new Error(); f.reset(); b.textContent="Sent"; say("Thanks, it’s with me. I’ll reply by email.","ok"); })
+   .then(function(r){ if(!r.ok) throw new Error();
+    var first=(data.get("name")||"").trim().split(/\s+/)[0];
+    document.getElementById("bs-thanks-name").textContent=first?", "+first:"";
+    f.reset(); f.hidden=true; if(hint) hint.hidden=true; t.hidden=false;
+    document.getElementById("bs-thanks-h").focus(); })
    .catch(function(){ b.disabled=false; b.textContent="Send my enquiry"; say("Sorry, that didn’t send. Please email matthew@mpai.site instead.","err"); });
  });
 })();
