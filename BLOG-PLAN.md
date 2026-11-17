@@ -4,7 +4,7 @@ Agreed 17/11/26. Each post is 500 to 800 words, written with the mpai-blog-write
 
 ## How it works
 
-1. Matthew does a brain dump on every post in one go (Thursday 19/11/26, afternoon). The prompts below say what each one needs.
+1. Matthew does a brain dump on every post in one go (voice chat, 18/11/26). The prompts below say what each one needs.
 2. Claude writes each post from his brain dump and the skill it covers, runs the anti-ai-writing check, and shows each draft for approval.
 3. On each publish date, the scheduled check asks Matthew whether to put that day's approved post live. Only after he says yes: build `blog/<slug>/index.html`, add the card to the top of `blog/index.html`, commit, and ask before it goes onto the live site.
 4. Nothing is published, uploaded or sent without Matthew saying yes.
@@ -38,7 +38,7 @@ Status: planned, drafted, approved, live.
 
 Already covered by earlier posts, so not repeated: the daily briefs and reminders (No Gap Working, What are Claude skills), call summaries and the meetings wrap (phone calls, recording meetings).
 
-## Brain dump prompts (Thursday)
+## Brain dump prompts
 
 For every post, a minute or two on: what you did or saw yourself, what didn't work at first, one real example (clients anonymised), and who it helps most.
 
