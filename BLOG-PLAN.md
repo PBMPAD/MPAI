@@ -17,11 +17,11 @@ Status: planned, drafted, approved, live.
 
 | Publish | Skill(s) | Working title | Status |
 | --- | --- | --- | --- |
-| 20/11/26 | business-inbox-scan, business-interview | How does Claude learn who's who in my business? | first draft done, waiting on brain dump |
-| 23/11/26 | invoices-chase | How I get invoices out and chased without thinking about it | planned |
-| 26/11/26 | paperwork-library, paperwork-draft | Turning the documents you already have into templates Claude fills in | planned |
-| 29/11/26 | enquiry-reply | How fast should you answer a new enquiry? | planned |
-| 02/12/26 | knowledge-bank-setup | One set of folders for you, your team and Claude | planned |
+| 20/11/26 | business-inbox-scan, business-interview, knowledge-bank-setup | Your second brain: how Claude learns your business, and where it keeps it | first draft done, waiting on brain dump |
+| 23/11/26 | report builder (bespoke, per client) | Write your reports: from your notes to a draft in your own template | planned |
+| 26/11/26 | invoices-chase | How I get invoices out and chased without thinking about it | planned |
+| 29/11/26 | paperwork-library, paperwork-draft | Turning the documents you already have into templates Claude fills in | planned |
+| 02/12/26 | enquiry-reply | How fast should you answer a new enquiry? | planned |
 | 05/12/26 | job-photo-sort | How do you get job photos off your phone and into the right folder? | planned |
 | 08/12/26 | staff-expenses | Working out expenses and mileage from receipt photos | planned |
 | 11/12/26 | presentation-builder | A pitch built for each customer, in Claude | planned |
@@ -42,11 +42,11 @@ Already covered by earlier posts, so not repeated: the daily briefs and reminder
 
 For every post, a minute or two on: what you did or saw yourself, what didn't work at first, one real example (clients anonymised), and who it helps most.
 
-- 20/11 Second brain: a time Claude got someone wrong before you set this up; what you tried first and dropped; running it on your own inbox, how long and what surprised you.
-- 23/11 Invoices: how you chased before; which messages you'd let send on their own and why; a late payer story.
-- 26/11 Paperwork: which documents people already have lying around; one you turned into a template; letterhead and footer.
-- 29/11 Enquiries: why speed matters to you; offering two real free times; a lead you lost or won on speed.
-- 02/12 Knowledge bank: how files were organised before; why a folder per person.
+- 20/11 Second brain and knowledge bank: a time Claude got someone wrong before you set this up; what you tried first and dropped; running it on your own inbox, how long and what surprised you; how files were organised before, and why a folder per person.
+- 23/11 Write your reports: how you wrote reports before; notes, dictation and photos in, your own template out; what you always check yourself; which reports stay with the owner (never CCTV, survey or other expert reports).
+- 26/11 Invoices: how you chased before; which messages you'd let send on their own and why; a late payer story.
+- 29/11 Paperwork: which documents people already have lying around; one you turned into a template; letterhead and footer.
+- 02/12 Enquiries: why speed matters to you; offering two real free times; a lead you lost or won on speed.
 - 05/12 Job photos: the camera roll mess; why the calendar address is the key; the iPhone upload catch.
 - 08/12 Expenses: how claims are done now; receipt photos; mileage between appointments.
 - 11/12 Presentations: pitching the same deck to everyone; tailoring to who it's for.
