@@ -669,3 +669,18 @@ header.site nav a{white-space:nowrap}
 .listen{background:var(--white);border:1px solid var(--line);border-radius:18px;padding:14px 18px 16px;margin:0 0 1.8em}
 .listen-label{font-family:var(--label);font-weight:600;font-size:.95rem;color:var(--navy);margin:0 0 .5em}
 .listen audio{display:block;width:100%}
+
+/* Blog: author box, related posts, local line; areas page */
+.area-line{color:var(--soft)}
+.author-box{display:flex;gap:18px;align-items:center;margin:2.4em 0 0;padding:20px 22px;background:var(--white);border:1px solid var(--line);border-radius:20px}
+.author-box img{width:72px;height:72px;object-fit:cover;border-radius:50%;flex:none}
+.author-box p{margin:0 0 .3em}
+.author-name{font-family:var(--label);font-weight:600}
+.author-name a{color:var(--navy)}
+.author-bio{color:var(--soft)}
+.related{margin-top:2.4em}
+.related h2{margin-top:0}
+.related ul{padding-left:1.2em}
+.related li{margin:.35em 0}
+.related-svc{margin-top:1em}
+.area-towns{columns:2;max-width:28ch}
