@@ -9,7 +9,7 @@ var FORM_ACTION = "https://formspree.io/f/xpppejjl";
 var TALK={
  software:"Possible, but it depends on the software you use. Worth a quick chat so I can look.",
  bespoke:"A bigger or more bespoke job. I'd want to talk it through first.",
- judgement:"This needs your professional judgement, so it stays with you. I can help with the admin around it."
+ judgement:"This needs your professional judgement, so it stays with you. I can help with the emails and paperwork around it."
 };
 
 /* Ready-made jobs per type: [job, why, verdict ("can" or a TALK reason), what changes for them] */
@@ -132,7 +132,7 @@ var SOFT_LINE={
  connect:"I can usually link straight to this one, so your jobs work from what's already in it. I'll confirm when I reply.",
  setup:"This one can often be linked up, with some extra set-up. I'll check and tell you when I reply.",
  beside:"I work alongside this one, using the emails and reports it already sends you. Nothing changes in the software itself.",
- "private":"Patient records stay inside your practice software. I work on the admin around it.",
+ "private":"Patient records stay inside your practice software. I work on the emails and paperwork around it.",
  check:"I'll check this one and tell you what's possible when I reply.",
  other:"Tell me which, and I'll check it before I reply.",
  none:"That's fine. Everything runs from your email, diary and files."
