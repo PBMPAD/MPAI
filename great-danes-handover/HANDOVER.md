@@ -21,6 +21,7 @@ Prepared 19/11/26. Upload this file and `great-danes-concept.html` to a new Clau
   - **Wildcats (girls, school Years 2–3):** Saturdays 08:45–10:00.
   - **U15 Girls:** recruiting.
   - **U16s:** need 2–3 players including a goalkeeper; train Thursdays, play Sundays in the Brentwood League.
+- Kit is supplied once a child joins a team. Parents do not need to buy it.
 - Contacts: info@greatdanesyfc.uk; Paul Thompson (Secretary); Andrew Mitchell (Registration Secretary); Mike Dunning (Great Danes Womens FC manager).
 - Club Documents: Astro Schedule 2026–2027, Matchday Information 26–27, Club Honours, Club Code of Conduct.
 - Kit sponsors: Cape Electrical & Mechanical, Pangaea, Agilion, Leyton Linen, Buckingham James, Superior Group, Envirotek Construction, WL Developments, Bongow, Bakers.
