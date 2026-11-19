@@ -93,6 +93,17 @@ The method comes from github.com/pbakaus/impeccable (`skill/reference/critique.m
 
 Earlier versions (navy and gold, then red and black with cards) were dropped for looking AI-generated.
 
+## Version 4 (great-danes-concept-v4.html)
+
+Built from the Brighton & Hove Albion home page screenshots in `reference-screenshots/`. Ideas only; no Brighton assets, text or fonts were copied. Arsenal's site blocked the screenshot tool, so none of it comes from Arsenal.
+
+- **One colour owns the page:** a full crest-red header with white type, over a dark full-bleed opening.
+- **Two-tier header** with a thin rule (Join, Shop and Parent login above; the main links below) and the crest as a white badge hanging over the edge.
+- **One big typographic moment:** "Since 1971" in large Caslon italic, used once.
+- **"This week" rail** of tall solid-colour tiles with big times and relative days ("In 2 days"). It is live text, so it fixes the old problem of facts locked inside poster images. No gradients or shadows.
+- **Sponsors as a ruled lockup** in the display face, ready for logos.
+- **Still needed:** a real club photograph. Set `--hero-photo` at the top of the file. Until then the opening shows a pitch-markings drawing.
+
 ## Eva recommendation
 
 - Build one help centre with AI search, with Eva as a button that opens it. Don't start with a separate chatbot.
