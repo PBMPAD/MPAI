@@ -242,26 +242,19 @@ footer p{color:var(--soft)}
   <p class="intro">Sawyers Hall Lane, Brentwood CM15 9BY. Pitch numbers are in the Astro Schedule 2026&ndash;27. Swipe for more.</p>
   <div class="rail" tabindex="0" role="region" aria-label="This week's sessions and fixtures">
     <article class="tile t-red">
-      <div><span class="when">Saturday 21/11/26 &middot; In 2 days</span><span class="clock">08:45</span></div>
+      <div><span class="when" data-dow="6">Saturday</span><span class="clock">08:45</span></div>
       <div><h3>Wildcats</h3><p>Girls in school Years 2 and 3. Relaxed, no pressure to win. New girls can just turn up.</p><a href="#places">Details</a></div>
     </article>
     <article class="tile t-ink">
-      <div><span class="when">Saturday 21/11/26 &middot; In 2 days</span><span class="clock">09:00</span></div>
+      <div><span class="when" data-dow="6">Saturday</span><span class="clock">09:00</span></div>
       <div><h3>New intake, Under 5 and Under 6</h3><p>Boys and girls. £5 on the day, pay as you go.</p><a href="#places">Book a first session</a></div>
     </article>
-    <article class="tile t-white">
-      <div><span class="when">Saturday 21/11/26 &middot; In 2 days</span><span class="clock">[09:30]</span></div>
-      <div><h3>U8 Tigers v [opposition]</h3><p>Pitch 1. Fixture times come from FA Full-Time.</p><a href="#saturday">Fixture</a></div>
-    </article>
-    <article class="tile t-white">
-      <div><span class="when">Saturday 21/11/26 &middot; In 2 days</span><span class="clock">[10:00]</span></div>
-      <div><h3>U10 Jaguars v [opposition]</h3><p>[Pitch]</p><a href="#saturday">Fixture</a></div>
-    </article>
-    <article class="tile t-tint">
-      <div><span class="when">Thursday training &middot; Today</span><span class="clock">Wanted</span></div>
+    <article class="tile t-tint" id="u16tile">
+      <div><span class="when" data-dow="4">Thursday training</span><span class="clock">Wanted</span></div>
       <div><h3>Under 16s need 2 to 3 players</h3><p>Including a goalkeeper. Train Thursdays, play Sundays in the Brentwood League.</p><a href="#places">Register interest</a></div>
     </article>
   </div>
+  <p class="railnote" id="fxnote"></p>
 </section>
 
 <section id="places">
@@ -339,6 +332,40 @@ footer p{color:var(--soft)}
 </div></footer>
 
 <script>
+let FIXTURES=[];
+const WD=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
+const pd=x=>{const [y,m,d]=x.split('-').map(Number);return new Date(y,m-1,d)};
+const today=()=>{const n=new Date();return new Date(n.getFullYear(),n.getMonth(),n.getDate())};
+const p2=n=>String(n).padStart(2,'0');
+const dmy=d=>p2(d.getDate())+'/'+p2(d.getMonth()+1)+'/'+String(d.getFullYear()).slice(2);
+const daysTo=d=>Math.round((d-today())/864e5);
+const inDays=n=>n===0?'Today':n===1?'Tomorrow':'In '+n+' days';
+const upcoming=()=>FIXTURES.filter(f=>f&&f.date&&f.team&&pd(f.date)>=today()).sort((a,b)=>a.date.localeCompare(b.date));
+const nextDow=w=>{const t=today();t.setDate(t.getDate()+((w-t.getDay()+7)%7));return t};
+const venue=f=>f.home===true?' (home)':f.home===false?' (away)':'';
+function stampDays(){document.querySelectorAll('[data-dow]').forEach(e=>{const w=+e.dataset.dow,d=nextDow(w);const base=e.dataset.base||(e.dataset.base=e.textContent);e.textContent=base+' '+dmy(d)+' \u00b7 '+inDays(daysTo(d))})}
+function tile(cls,when,clock,h,txt){
+  const a=document.createElement('article');a.className='tile fxtile '+cls;
+  const top=document.createElement('div'),w=document.createElement('span'),c=document.createElement('span');
+  w.className='when';w.textContent=when;c.className='clock';c.textContent=clock;top.append(w,c);
+  const bot=document.createElement('div'),hh=document.createElement('h3'),pp=document.createElement('p');
+  hh.textContent=h;pp.textContent=txt;bot.append(hh,pp);a.append(top,bot);return a;
+}
+function renderFixtures(){
+  document.querySelectorAll('.fxtile').forEach(e=>e.remove());
+  const anchor=document.getElementById('u16tile');
+  const soon=upcoming().filter(f=>daysTo(pd(f.date))<=7).slice(0,8);
+  if(!soon.length)anchor.before(tile('t-white','This weekend','Soon','Fixtures to follow','Opponents and days are added as soon as the league confirms them.'));
+  soon.forEach(f=>{const d=pd(f.date);
+    anchor.before(tile('t-white',WD[d.getDay()]+' '+dmy(d)+' \u00b7 '+inDays(daysTo(d)),f.home===false?'Away':'Home',f.team+' v '+(f.opponent||'[opposition]'),'Kick-off time to be confirmed. Pitch numbers are in the Astro Schedule.'))});
+  const ex=FIXTURES.some(f=>f&&f.example);
+  document.getElementById('fxnote').textContent=(ex?'Example fixtures for the demo. ':'')+'Opponents and days are shown first. Kick-off times are added when the league confirms them.';
+}
+function weekendAnswer(){
+  const u=upcoming();if(!u.length)return null;
+  const day=u[0].date,d=pd(day),list=u.filter(f=>f.date===day).map(f=>f.team+' v '+(f.opponent||'[opposition]')+venue(f)).join('; ');
+  return {q:"Next fixtures",a:WD[d.getDay()]+' '+dmy(d)+': '+list+'. Kick-off times are added when the league confirms them.',s:'Home page › This week',who:'team manager'};
+}
 const QA=[
  {g:"Joining",k:"join register registration sign up new player membership apply",q:"How do I join?",a:"Under 5s and 6s can come to the Saturday new intake session at 09:00. For older age groups, register interest for the team in your child's school year. The manager will invite you to a training session, and membership is then applied for online.",s:"Help › Joining",who:"Registration Secretary"},
  {g:"Joining",k:"young age youngest under five six reception nursery too",q:"Is my child too young?",a:"Our youngest players start in the new intake for Under 5s and 6s, on Saturdays from 09:00 to 10:00. Boys and girls are welcome.",s:"Teams › New intake",who:"Registration Secretary"},
@@ -371,17 +398,21 @@ function teamAnswer(text){
   const prefix=TEAMS.filter(x=>nameWords(x[0]).some(w=>toks.some(k=>k.slice(0,3)===w.slice(0,3))));
   const girls=/\bgirls?\b/.test(t);
   const byAge=age?TEAMS.filter(x=>x[1]===age):[];
-  if(!toks.length&&!age)return null;
+  if(!toks.length&&!age)return weekendAnswer();
   let hit;
   if(toks.length&&(exact.length||prefix.length)){
     hit=exact.length?exact:prefix;
     if(age){let f=hit.filter(x=>x[1]===age);if(!f.length&&hit===exact)f=prefix.filter(x=>x[1]===age);hit=f}
   }else if(age)hit=byAge;
-  else return null;
+  else return weekendAnswer();
   if(girls){const g=hit.filter(x=>x[2]);if(g.length)hit=g}
   const base={who:"team manager"};
   if(hit.length===1){const n=hit[0][0];const loose=!t.includes(n.toLowerCase())&&!nameWords(n).some(w=>toks.some(k=>sing(k)===sing(w)));
-    return {...base,q:"Next match for "+n,a:(loose?"I took that to mean "+n+". ":"")+"Fixtures for "+n+" are on the team's page, fed from FA Full-Time. This Saturday's fixtures are on the home page under This week. I can't see kick-off times from here, so please check there for the latest.",s:"Teams › "+n};}
+    const lead=loose?"I took that to mean "+n+". ":"";
+    if(FIXTURES.length){const nf=upcoming().find(f=>f.team.toLowerCase()===n.toLowerCase());
+      if(nf){const d=pd(nf.date);return {...base,q:"Next match for "+n,a:lead+"The next match for "+n+" is "+WD[d.getDay()]+" "+dmy(d)+(nf.opponent?" against "+nf.opponent:"")+venue(nf)+". Kick-off times are added when the league confirms them.",s:"Home page › This week"};}
+      return {...base,q:"Next match for "+n,a:lead+"I don't have a fixture for "+n+" yet. Fixtures are added once the league confirms them.",s:"Home page › This week"};}
+    return {...base,q:"Next match for "+n,a:lead+"Fixtures for "+n+" are on the team's page, fed from FA Full-Time. This Saturday's fixtures are on the home page under This week.",s:"Teams › "+n};}
   if(hit.length>1)return {...base,q:"Which team do you mean?",a:"I found "+nameList(hit)+". Tell me which one and I'll point you to their fixtures.",s:"Teams"};
   if(age&&!byAge.length)return {...base,q:"I can't find that team",a:"I don't have a team listed for Under "+age+" yet. If your child is in that age group, email info@greatdanesyfc.uk.",s:"Teams"};
   return {...base,q:"I can't find that team",a:"I couldn't match that to a team. The Under "+age+" teams are "+nameList(byAge)+". Which did you mean?",s:"Teams"};
@@ -430,6 +461,11 @@ function render(){const g=groups[yr.value];list.innerHTML='';fmt.textContent=g[1
   g[3].forEach(t=>{const li=document.createElement('li');const b=document.createElement('b');b.textContent=t[0];const s=document.createElement('span');s.textContent=t[1];li.append(b,s);list.appendChild(li)});
   const li=document.createElement('li');const a=document.createElement('a');a.href='#places';a.textContent='Register interest for '+g[1];li.appendChild(a);list.appendChild(li);}
 yr.value=2;render();yr.addEventListener('change',render);
+stampDays();renderFixtures();
+(async()=>{try{
+  const db=window.claude&&claude.use?await claude.use('db'):null;if(!db)return;
+  db.collection('fixtures').onSnapshot(snap=>{FIXTURES=snap.docs.map(d=>d.data()).filter(Boolean);renderFixtures()},e=>console.warn('fixtures',e&&e.code));
+}catch(e){console.warn(e)}})();
 </script>
 </body>
 </html>
