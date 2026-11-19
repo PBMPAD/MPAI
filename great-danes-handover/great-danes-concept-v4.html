@@ -354,19 +354,39 @@ const QA=[
  {g:"Joining",k:"under 16 u16 goalkeeper keeper thursday",q:"Are the Under 16s looking for players?",a:"Yes, 2 to 3 players including a goalkeeper. They train on Thursdays and play on Sundays in the Brentwood League.",s:"News › U16 players wanted",who:"Under 16s manager"}
 ];
 const reply=document.getElementById('reply'),q=document.getElementById('q');
-const words=t=>t.toLowerCase().replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>2);
+const STOP=new Set("for the and are was were what when where how can does did there this that with have has you your our not but who which would could should any some from about into please tell".split(" "));
+const words=t=>t.toLowerCase().replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>2&&!STOP.has(w));
+const TEAMS=[["Under 7s",7],["U8 Tigers",8],["U8 Lionesses",8],["U8 Tigresses",8],["U9 Lions",9],["U10 Jaguars",10],["U10 Girls",10],["U12 Tigers",12],["U12 Girls",12],["U15 Jaguars",15],["U15 Girls",15],["Under 16s",16],["U17 Leopards",17]];
+const FIX=/\b(next|match|matches|game|games|fixture|fixtures|kick|playing)\b/;
+const sing=w=>w.replace(/s$/,'');
+function teamAnswer(text){
+  const t=text.toLowerCase().replace(/[^a-z0-9 ]/g,' ');
+  if(!FIX.test(t))return null;
+  const am=t.match(/\bu(?:nder)?\s?(\d{1,2})s?\b/),age=am?+am[1]:null;
+  const qn=new Set(t.split(/\s+/).map(sing));
+  const named=TEAMS.filter(x=>x[0].toLowerCase().split(' ').some(w=>!/^(u\d+|under|girls|\d.*)$/.test(w)&&qn.has(sing(w))));
+  const byAge=age?TEAMS.filter(x=>x[1]===age):[];
+  if(!named.length&&!byAge.length)return null;
+  const both=age&&named.length?named.filter(x=>x[1]===age):(named.length?named:byAge);
+  const names=l=>l.map(x=>x[0]).join(', ').replace(/, ([^,]*)$/,' and $1');
+  const base={s:"Teams",who:"team manager"};
+  if(both.length===1)return {...base,q:"Next match for "+both[0][0],a:"Fixtures for "+both[0][0]+" are on the team's page, fed from FA Full-Time. This Saturday's fixtures are on the home page under This week. I can't see kick-off times from here, so please check there for the latest.",s:"Teams › "+both[0][0]};
+  if(both.length>1)return {...base,q:"Which team do you mean?",a:"I found "+names(both)+". Tell me which one and I'll point you to their fixtures."};
+  return {...base,q:"I can't find that team",a:"There isn't a team with that age and name. "+(named.length?"The "+names(named)+(named.length>1?" teams":" team")+" play"+(named.length>1?"":"s")+" at a different age. ":"")+"The U"+age+" teams are "+names(byAge)+". Which did you mean?"};
+}
 function show(item){
   reply.innerHTML='';
   const h=document.createElement('p');h.className='q';
   const body=document.createElement('p');const from=document.createElement('p');from.className='from';
   if(!item){h.textContent="I couldn't find that one";body.textContent="I've passed your question to the committee so they can add an answer. In the meantime, email info@greatdanesyfc.uk and a volunteer will reply.";from.textContent='';}
-  else{h.textContent=item.q;body.textContent=item.a;from.textContent='From '+item.s+'. Still stuck? Contact the '+item.who+'.';}
+  else{h.textContent=item.q;body.textContent=item.a;from.textContent=item.s?'From '+item.s+'. Still stuck? Contact the '+item.who+'.':'';}
   reply.append(h,body,from);
   reply.classList.add('flash');setTimeout(()=>reply.classList.remove('flash'),350);
 }
 function ask(text){
+  const t=teamAnswer(text);if(t){show(t);return}
   const w=words(text);let best=null,score=0;
-  QA.forEach(f=>{const keys=words(f.k+' '+f.q);let s=0;w.forEach(x=>{if(keys.some(k=>k.startsWith(x)||x.startsWith(k)))s++});if(s>score){score=s;best=f}});
+  QA.forEach(f=>{const keys=words(f.k+' '+f.q);let s=0;w.forEach(x=>{if(keys.some(k=>k===x||(x.length>3&&(k.startsWith(x)||x.startsWith(k)))))s++});if(s>score){score=s;best=f}});
   show(best);
 }
 document.getElementById('askForm').addEventListener('submit',e=>{e.preventDefault();if(q.value.trim())ask(q.value)});
