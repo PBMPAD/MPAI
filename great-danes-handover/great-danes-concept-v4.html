@@ -154,6 +154,11 @@ details p{padding:0 0 16px;color:var(--soft);max-width:62ch}
 .welfare dd{margin:0;opacity:.85}
 @media (max-width:760px){.welfare{grid-template-columns:1fr;padding:22px}}
 
+.docs{list-style:none;margin:20px 0 0;padding:0;display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));border-top:2px solid var(--ink)}
+.docs li{padding:14px 16px 14px 0;border-bottom:1px solid var(--rule)}
+.docs b{display:block}.docs span{font-size:14px;color:var(--soft)}
+html{scroll-behavior:smooth}
+section{scroll-margin-top:12px}
 /* Sponsors: a ruled lockup, names set in the display face, logos to follow */
 .sp{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));margin-top:20px;border-top:2px solid var(--ink)}
 .sp div{padding:18px 16px 18px 0;border-bottom:1px solid var(--rule)}
@@ -295,7 +300,7 @@ footer p{color:var(--soft)}
     <div>
       <h2>Safeguarding</h2>
       <p>Every coach is DBS checked and has FA safeguarding training. If you're worried about a child, talk to the Club Welfare Officer. If a child is in immediate danger, call 999.</p>
-      <p style="margin-top:14px"><a href="#welfare">Safeguarding policy</a> &middot; <a href="#welfare">Photos and consent</a> &middot; <a href="#help">Code of conduct</a></p>
+      <p style="margin-top:14px"><a href="#welfare">Safeguarding policy</a> &middot; <a href="#welfare">Photos and consent</a> &middot; <a href="#docs">Code of conduct</a></p>
     </div>
     <dl>
       <div><dt>Club Welfare Officer</dt><dd>[Name] &middot; welfare@greatdanesyfc.uk</dd></div>
@@ -303,6 +308,18 @@ footer p{color:var(--soft)}
       <div><dt>Club Secretary</dt><dd>Paul Thompson &middot; info@greatdanesyfc.uk</dd></div>
     </dl>
   </div>
+</section>
+
+<section id="docs">
+  <h2>Club documents</h2>
+  <p class="intro">Schedules, match day information and the club's rules, kept in one place.</p>
+  <ul class="docs">
+    <li><b>Astro Schedule 2026&ndash;27</b><span>Which pitch and when</span></li>
+    <li><b>Matchday Information 26&ndash;27</b><span>Arrival, parking and match day rules</span></li>
+    <li><b>Club Code of Conduct</b><span>For players, parents and coaches</span></li>
+    <li><b>Club Honours</b><span>Trophies and winners since 1971</span></li>
+  </ul>
+  <p class="spnote">[Links to the club's documents go here.]</p>
 </section>
 
 <section>
@@ -327,8 +344,8 @@ footer p{color:var(--soft)}
 
 <footer><div class="wrap">
   <div><p><b style="color:var(--ink)">Great Danes Youth Football Club</b><br>Sawyers Hall Lane, Brentwood, Essex CM15 9BY<br>Club colours: white shirts, black shorts</p></div>
-  <ul><li><a href="#places">Join</a></li><li><a href="#teams">Teams</a></li><li><a href="#saturday">Match day</a></li><li><a href="#help">Help</a></li></ul>
-  <ul><li><a href="#welfare">Safeguarding</a></li><li><a href="#top">Privacy policy</a></li><li><a href="#help">Code of conduct</a></li><li><a href="#top">Facebook</a> &middot; <a href="#top">Instagram</a></li></ul>
+  <ul><li><a href="#places">Join</a></li><li><a href="#teams">Teams</a></li><li><a href="#saturday">Match day</a></li><li><a href="#help">Help</a></li><li><a href="#docs">Club documents</a></li></ul>
+  <ul><li><a href="#welfare">Safeguarding</a></li><li><a href="#top">Privacy policy</a></li><li><a href="#docs">Code of conduct</a></li><li><a href="#top">Facebook</a> &middot; <a href="#top">Instagram</a></li></ul>
 </div></footer>
 
 <script>
@@ -364,22 +381,32 @@ function renderFixtures(){
 function weekendAnswer(){
   const u=upcoming();if(!u.length)return null;
   const day=u[0].date,d=pd(day),list=u.filter(f=>f.date===day).map(f=>f.team+' v '+(f.opponent||'[opposition]')+venue(f)).join('; ');
-  return {q:"Next fixtures",a:WD[d.getDay()]+' '+dmy(d)+': '+list+'. Kick-off times are added when the league confirms them.',s:'Home page › This week',who:'team manager'};
+  return {q:"Next fixtures",a:WD[d.getDay()]+' '+dmy(d)+': '+list+'. Kick-off times are added when the league confirms them. See them all in [[This week|#saturday]].',s:'This week',h:'#saturday',who:'team manager'};
 }
 const QA=[
- {g:"Joining",k:"join register registration sign up new player membership apply",q:"How do I join?",a:"Under 5s and 6s can come to the Saturday new intake session at 09:00. For older age groups, register interest for the team in your child's school year. The manager will invite you to a training session, and membership is then applied for online.",s:"Help › Joining",who:"Registration Secretary"},
- {g:"Joining",k:"young age youngest under five six reception nursery too",q:"Is my child too young?",a:"Our youngest players start in the new intake for Under 5s and 6s, on Saturdays from 09:00 to 10:00. Boys and girls are welcome.",s:"Teams › New intake",who:"Registration Secretary"},
- {g:"Joining",k:"daughter girl girls year two three wildcats",q:"Can my daughter play?",a:"Yes. Wildcats is for girls in school Years 2 and 3, on Saturday mornings from 08:45 to 10:00, and new girls can just turn up. Older girls can join our girls' teams, from Under 8 to Under 15.",s:"Teams › Wildcats",who:"girls' section lead"},
- {g:"Joining",k:"disability soccability additional needs sen inclusive disabled",q:"Is there football for disabled players?",a:"Yes. Our Soccability teams play football for players with disabilities. Speak to the Soccability lead before the first session so the coaches can plan.",s:"Teams › Soccability",who:"Soccability lead"},
- {g:"Match day",k:"pitch where astro venue address parking which",q:"Which pitch are we on?",a:"Home games and training are at Sawyers Hall Lane, Brentwood CM15 9BY. Pitch numbers are on each fixture and in the Astro Schedule 2026–27.",s:"Club Documents › Astro Schedule",who:"team manager"},
- {g:"Match day",k:"training cancelled tonight weather on off rain frost",q:"Is training on tonight?",a:"Your team manager posts any cancellation in the team chat. If nothing has been posted, training is on.",s:"Help › Training",who:"team manager"},
- {g:"Match day",k:"fixtures match game saturday sunday league kick off time",q:"Where are this weekend's fixtures?",a:"On the home page and your team's page, fed from FA Full-Time. Matchday Information 26–27 explains arrival and parking.",s:"Club Documents › Matchday Information",who:"team manager"},
- {g:"Fees and kit",k:"cost price fees subs much pay money",q:"How much does it cost?",a:"New intake sessions are £5 each, paid on the day. Annual subs for team players are [£ amount], paid online when you apply for membership.",s:"Help › Fees",who:"Registration Secretary"},
- {g:"Fees and kit",k:"kit shop buy order size shirt colours uniform strip shorts socks",q:"Do I need to buy kit?",a:"No. Your child is given their kit once they join a team. Club colours are white shirts, black shorts and black socks.",s:"Help › Kit",who:"team manager"},
- {g:"Welfare",k:"welfare safeguarding worried concern bullying",q:"I'm worried about a child",a:"Please contact the Club Welfare Officer directly. Eva doesn't handle welfare concerns. If a child is in immediate danger, call 999.",s:"Safeguarding",who:"Club Welfare Officer"},
- {g:"Welfare",k:"photo photos pictures consent social media",q:"Will my child's photo go online?",a:"Only with your consent, given at registration. You can withdraw it at any time by emailing the Club Welfare Officer.",s:"Safeguarding › Photos and consent",who:"Club Welfare Officer"},
- {g:"Joining",k:"under 16 u16 goalkeeper keeper thursday",q:"Are the Under 16s looking for players?",a:"Yes, 2 to 3 players including a goalkeeper. They train on Thursdays and play on Sundays in the Brentwood League.",s:"News › U16 players wanted",who:"Under 16s manager"}
+ {g:"Joining",k:"join register registration sign up new player membership apply",q:"How do I join?",a:"Under 5s and 6s can come to the [[Saturday new intake session|#places]] at 09:00. For older age groups, [[register interest|#places]] for the team in your child's [[school year|#teams]]. The manager will invite you to a training session, and membership is then applied for online.",s:"Teams with places",h:"#places",who:"Registration Secretary"},
+ {g:"Joining",k:"young age youngest under five six reception nursery too",q:"Is my child too young?",a:"Our youngest players start in the [[new intake|#places]] for Under 5s and 6s, on Saturdays from 09:00 to 10:00. Boys and girls are welcome.",s:"Teams with places",h:"#places",who:"Registration Secretary"},
+ {g:"Joining",k:"daughter girl girls year two three wildcats",q:"Can my daughter play?",a:"Yes. [[Wildcats|#places]] is for girls in school Years 2 and 3, on Saturday mornings from 08:45 to 10:00, and new girls can just turn up. Older girls can join our [[girls' teams|#teams]], from Under 8 to Under 15.",s:"Teams with places",h:"#places",who:"girls' section lead"},
+ {g:"Joining",k:"disability soccability additional needs sen inclusive disabled",q:"Is there football for disabled players?",a:"Yes. Our Soccability teams play football for players with disabilities. Speak to the Soccability lead before the first session so the coaches can plan.",s:"Find your child's team",h:"#teams",who:"Soccability lead"},
+ {g:"Match day",k:"pitch where astro venue address parking which",q:"Which pitch are we on?",a:"Home games and training are at Sawyers Hall Lane, Brentwood CM15 9BY. Pitch numbers are on each fixture under [[This week|#saturday]] and in the [[Astro Schedule 2026–27|#docs]].",s:"Club documents",h:"#docs",who:"team manager"},
+ {g:"Match day",k:"training cancelled tonight weather on off rain frost",q:"Is training on tonight?",a:"Your team manager posts any cancellation in the team chat. If nothing has been posted, training is on.",s:"Questions parents ask most",h:"#help",who:"team manager"},
+ {g:"Match day",k:"fixtures match game saturday sunday league kick off time",q:"Where are this weekend's fixtures?",a:"They're in the [[This week|#saturday]] row on the home page. [[Matchday Information 26–27|#docs]] explains arrival and parking.",s:"This week",h:"#saturday",who:"team manager"},
+ {g:"Fees and kit",k:"cost price fees subs much pay money",q:"How much does it cost?",a:"[[New intake|#places]] sessions are £5 each, paid on the day. Annual subs for team players are [£ amount], paid online when you apply for membership.",s:"Teams with places",h:"#places",who:"Registration Secretary"},
+ {g:"Fees and kit",k:"kit shop buy order size shirt colours uniform strip shorts socks",q:"Do I need to buy kit?",a:"No. Your child is given their kit once they join a team. Club colours are white shirts, black shorts and black socks.",s:"Questions parents ask most",h:"#help",who:"team manager"},
+ {g:"Welfare",k:"welfare safeguarding worried concern bullying",q:"I'm worried about a child",a:"Please contact the [[Club Welfare Officer|#welfare]] directly. Eva doesn't handle welfare concerns. If a child is in immediate danger, call 999.",s:"Safeguarding",h:"#welfare",who:"Club Welfare Officer"},
+ {g:"Welfare",k:"photo photos pictures consent social media",q:"Will my child's photo go online?",a:"Only with your consent, given at registration. You can withdraw it at any time by emailing the [[Club Welfare Officer|#welfare]].",s:"Safeguarding",h:"#welfare",who:"Club Welfare Officer"},
+ {g:"Joining",k:"under 16 u16 goalkeeper keeper thursday",q:"Are the Under 16s looking for players?",a:"Yes, 2 to 3 players including a goalkeeper. They train on Thursdays and play on Sundays in the Brentwood League. [[Register interest|#places]].",s:"Teams with places",h:"#places",who:"Under 16s manager"}
 ];
+const WHOH={"Registration Secretary":"#welfare","Club Welfare Officer":"#welfare","Club Secretary":"#welfare"};
+function rich(text,parent){
+  text.split(/(\[\[.+?\|#[a-z0-9-]+\]\])/).forEach(part=>{
+    const m=part.match(/^\[\[(.+?)\|(#[a-z0-9-]+)\]\]$/);
+    if(m){const a=document.createElement('a');a.href=m[2];a.textContent=m[1];parent.appendChild(a)}
+    else if(part)parent.appendChild(document.createTextNode(part));
+  });
+  return parent;
+}
+function link(text,href){const a=document.createElement('a');a.href=href;a.textContent=text;return a}
 const reply=document.getElementById('reply'),q=document.getElementById('q');
 const STOP=new Set("for the and are was were what when where how can does did there this that with have has you your our not but who which would could should any some from about into please tell".split(" "));
 const words=t=>t.toLowerCase().replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>2&&!STOP.has(w));
@@ -410,19 +437,21 @@ function teamAnswer(text){
   if(hit.length===1){const n=hit[0][0];const loose=!t.includes(n.toLowerCase())&&!nameWords(n).some(w=>toks.some(k=>sing(k)===sing(w)));
     const lead=loose?"I took that to mean "+n+". ":"";
     if(FIXTURES.length){const nf=upcoming().find(f=>f.team.toLowerCase()===n.toLowerCase());
-      if(nf){const d=pd(nf.date);return {...base,q:"Next match for "+n,a:lead+"The next match for "+n+" is "+WD[d.getDay()]+" "+dmy(d)+(nf.opponent?" against "+nf.opponent:"")+venue(nf)+". Kick-off times are added when the league confirms them.",s:"Home page › This week"};}
-      return {...base,q:"Next match for "+n,a:lead+"I don't have a fixture for "+n+" yet. Fixtures are added once the league confirms them.",s:"Home page › This week"};}
-    return {...base,q:"Next match for "+n,a:lead+"Fixtures for "+n+" are on the team's page, fed from FA Full-Time. This Saturday's fixtures are on the home page under This week.",s:"Teams › "+n};}
-  if(hit.length>1)return {...base,q:"Which team do you mean?",a:"I found "+nameList(hit)+". Tell me which one and I'll point you to their fixtures.",s:"Teams"};
-  if(age&&!byAge.length)return {...base,q:"I can't find that team",a:"I don't have a team listed for Under "+age+" yet. If your child is in that age group, email info@greatdanesyfc.uk.",s:"Teams"};
-  return {...base,q:"I can't find that team",a:"I couldn't match that to a team. The Under "+age+" teams are "+nameList(byAge)+". Which did you mean?",s:"Teams"};
+      if(nf){const d=pd(nf.date);return {...base,q:"Next match for "+n,a:lead+"The next match for "+n+" is "+WD[d.getDay()]+" "+dmy(d)+(nf.opponent?" against "+nf.opponent:"")+venue(nf)+". Kick-off times are added when the league confirms them. See [[This week|#saturday]].",s:"This week",h:"#saturday"};}
+      return {...base,q:"Next match for "+n,a:lead+"I don't have a fixture for "+n+" yet. Fixtures are added once the league confirms them. Check [[This week|#saturday]] for the latest.",s:"This week",h:"#saturday"};}
+    return {...base,q:"Next match for "+n,a:lead+"Fixtures for "+n+" are on the club's fixtures list, fed from FA Full-Time. This Saturday's fixtures are in [[This week|#saturday]] on the home page.",s:"This week",h:"#saturday"};}
+  if(hit.length>1)return {...base,q:"Which team do you mean?",a:"I found "+nameList(hit)+". Tell me which one and I'll point you to their fixtures, or [[find your child's team|#teams]].",s:"Find your child's team",h:"#teams"};
+  if(age&&!byAge.length)return {...base,q:"I can't find that team",a:"I don't have a team listed for Under "+age+" yet. You can [[find your child's team|#teams]] by school year, or email info@greatdanesyfc.uk.",s:"Find your child's team",h:"#teams"};
+  return {...base,q:"I can't find that team",a:"I couldn't match that to a team. The Under "+age+" teams are "+nameList(byAge)+". Which did you mean? You can also [[find your child's team|#teams]].",s:"Find your child's team",h:"#teams"};
 }
 function show(item){
   reply.innerHTML='';
   const h=document.createElement('p');h.className='q';
   const body=document.createElement('p');const from=document.createElement('p');from.className='from';
-  if(!item){h.textContent="I couldn't find that one";body.textContent="I've passed your question to the committee so they can add an answer. In the meantime, email info@greatdanesyfc.uk and a volunteer will reply.";from.textContent='';}
-  else{h.textContent=item.q;body.textContent=item.a;from.textContent=item.s?'From '+item.s+'. Still stuck? Contact the '+item.who+'.':'';}
+  if(!item){h.textContent="I couldn't find that one";body.textContent="I've passed your question to the committee so they can add an answer. In the meantime, email info@greatdanesyfc.uk and a volunteer will reply.";}
+  else{h.textContent=item.q;rich(item.a,body);
+    if(item.s){from.append('From ',link(item.s,item.h||'#help'),'. Still stuck? Contact the ');
+      if(WHOH[item.who])from.appendChild(link(item.who,WHOH[item.who]));else from.append(item.who);from.append('.');}}
   reply.append(h,body,from);
   reply.classList.add('flash');setTimeout(()=>reply.classList.remove('flash'),350);
 }
@@ -439,7 +468,7 @@ show(QA[2]);
 const faq=document.getElementById('faq');
 ["Joining","Match day","Fees and kit","Welfare"].forEach(g=>{
   const col=document.createElement('div');const h=document.createElement('h3');h.textContent=g;col.appendChild(h);
-  QA.filter(x=>x.g===g).slice(0,4).forEach(x=>{const d=document.createElement('details');const s=document.createElement('summary');s.textContent=x.q;const p=document.createElement('p');p.textContent=x.a;d.append(s,p);col.appendChild(d)});
+  QA.filter(x=>x.g===g).slice(0,4).forEach(x=>{const d=document.createElement('details');const s=document.createElement('summary');s.textContent=x.q;const p=document.createElement('p');rich(x.a,p);d.append(s,p);col.appendChild(d)});
   faq.appendChild(col);
 });
 
