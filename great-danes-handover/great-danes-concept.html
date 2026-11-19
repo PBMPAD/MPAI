@@ -1,0 +1,321 @@
+<title>Great Danes Home Concept</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Public+Sans:wght@400;500;600;700&display=swap">
+<style>
+/* World: the club's own crest and pavilion noticeboard. Caslon caps like the crest lettering, crest red and black ink on cool pitch-side paper.
+   Use scene: a parent on a phone, outdoors, Saturday morning daylight, so one deliberate light theme.
+   Layout: text, lists and tables carry the content. No cards, no eyebrows, no side stripes. */
+:root{
+  color-scheme:light;
+  --paper:#f7f6f5; --white:#ffffff; --ink:#161314; --red:#cf2e26; --red-deep:#a3211b;
+  --soft:#5b4f4e; --rule:#d9d3d1; --tint:#f6e7e5;
+  --display:"Libre Caslon Text",Georgia,"Times New Roman",serif;
+  --body:"Public Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+}
+*{box-sizing:border-box}
+html{background:var(--paper)}
+body{background:var(--paper);color:var(--ink);font-family:var(--body);font-size:17px;line-height:1.6;caret-color:var(--red);accent-color:var(--red)}
+::selection{background:var(--red);color:#fff}
+a{color:var(--ink);text-decoration-color:var(--red);text-decoration-thickness:2px;text-underline-offset:4px}
+a:hover{color:var(--red-deep)}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px;border-radius:2px}
+.wrap{max-width:1080px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+h1,h2,h3{font-family:var(--display);font-weight:700;line-height:1.08;margin:0;text-wrap:balance;letter-spacing:-.01em}
+h2{font-size:clamp(28px,4.2vw,40px);margin-bottom:6px}
+p{margin:0}
+.intro{color:var(--soft);max-width:62ch}
+section{padding-block:56px 8px}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+
+.note{font-size:13px;color:var(--soft);border-bottom:1px solid var(--rule);background:var(--white)}
+.note .wrap{padding-block:7px}
+
+/* Header: crest left, five plain links that never hide behind a menu button */
+header{background:var(--ink);color:#fff}
+header .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;padding-block:12px;flex-wrap:wrap}
+.home{display:flex;align-items:center;gap:12px;color:#fff;text-decoration:none}
+.home b{font-family:var(--display);font-size:22px;letter-spacing:.02em}
+.home small{display:block;font-size:12.5px;opacity:.75}
+nav ul{display:flex;gap:4px 22px;list-style:none;margin:0;padding:0;flex-wrap:wrap}
+nav a{color:#fff;text-decoration:none;font-weight:600;font-size:15px;padding-block:6px;display:inline-block}
+nav a:hover{color:#fff;text-decoration:underline;text-decoration-color:var(--red)}
+
+/* Opening: the club's name and place, then the question box */
+.open{background:var(--white);border-bottom:1px solid var(--rule)}
+.open .wrap{display:grid;grid-template-columns:1fr auto;gap:32px;align-items:center;padding-block:44px 40px}
+.open h1{font-size:clamp(38px,6.4vw,68px);max-width:16ch}
+.open h1 em{font-style:italic;color:var(--red)}
+.open .intro{margin-top:16px;font-size:18px}
+.crest-big{width:clamp(120px,18vw,190px);height:auto}
+@media (max-width:700px){.open .wrap{grid-template-columns:1fr}.crest-big{order:-1;width:96px}}
+
+.ask{margin-top:28px;grid-column:1/-1;max-width:760px}
+.ask label{font-weight:700;display:block;margin-bottom:8px}
+.ask form{display:flex;border:2px solid var(--ink);border-radius:6px;background:var(--white);overflow:hidden}
+.ask input{flex:1;min-width:0;border:0;padding:15px 16px;font:500 17px var(--body);color:var(--ink);background:transparent}
+.ask input:focus{outline:none}
+.ask form:focus-within{outline:3px solid var(--red);outline-offset:2px}
+.ask button{border:0;background:var(--red);color:#fff;font:700 16px var(--body);padding:0 22px;cursor:pointer}
+.ask button:hover{background:var(--red-deep)}
+.tryline{margin-top:10px;font-size:15px;color:var(--soft)}
+.tryline button{background:none;border:0;padding:0;font:inherit;color:var(--ink);text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:4px;cursor:pointer}
+.reply{margin-top:18px;padding:16px 18px;background:var(--tint);border-radius:6px;transition:background-color .6s cubic-bezier(.16,1,.3,1)}
+.reply.flash{background:#f3d3cf}
+.reply .q{font-family:var(--display);font-size:20px;margin-bottom:6px}
+.reply .from{font-size:14px;color:var(--soft);margin-top:10px}
+.small{font-size:14px;color:var(--soft);margin-top:12px;max-width:70ch}
+@media (max-width:480px){.ask button{padding:0 16px}}
+
+/* Saturday noticeboard */
+.board{width:100%;border-collapse:collapse;margin-top:20px}
+.board td{padding:14px 12px 14px 0;border-top:1px solid var(--rule);vertical-align:top}
+.board tr:last-child td{border-bottom:1px solid var(--rule)}
+.board .t{font-family:var(--display);font-size:26px;width:5.5ch;font-variant-numeric:tabular-nums lining-nums;color:var(--red-deep)}
+.board b{display:block}
+.board span{color:var(--soft);font-size:15px}
+.board .go{text-align:right;white-space:nowrap;font-weight:600}
+@media (max-width:560px){.board .go{display:none}}
+
+/* Places available: one table, not a card per team */
+.tbl{overflow-x:auto;margin-top:20px;border-top:2px solid var(--ink)}
+table.places{width:100%;border-collapse:collapse;min-width:640px;font-size:16px}
+.places th{text-align:left;font-weight:600;font-size:14px;color:var(--soft);padding:10px 12px 10px 0;border-bottom:1px solid var(--rule)}
+.places td{padding:14px 12px 14px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+.places td:first-child{font-weight:700}
+
+/* Team finder */
+.finder{display:grid;grid-template-columns:minmax(0,320px) minmax(0,1fr);gap:32px;margin-top:20px;align-items:start}
+.finder label{font-weight:700;display:block;margin-bottom:8px}
+select{width:100%;font:500 17px var(--body);padding:12px;border:2px solid var(--ink);border-radius:6px;background:var(--white);color:var(--ink)}
+.teams{list-style:none;margin:0;padding:0}
+.teams li{display:flex;justify-content:space-between;gap:16px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.teams li:first-child{border-top:1px solid var(--rule)}
+.teams span{color:var(--soft);text-align:right}
+.format{margin-top:14px;color:var(--soft);font-size:15px}
+@media (max-width:700px){.finder{grid-template-columns:1fr}}
+
+/* Help centre */
+.help{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px 48px;margin-top:20px}
+.help h3{font-size:22px;padding-bottom:8px;border-bottom:2px solid var(--ink);margin-top:18px}
+details{border-bottom:1px solid var(--rule)}
+summary{cursor:pointer;padding:13px 28px 13px 0;font-weight:600;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:4px;top:21px;width:9px;height:9px;border-right:2px solid var(--red);border-bottom:2px solid var(--red);transform:rotate(45deg);transition:transform .3s cubic-bezier(.16,1,.3,1)}
+details[open] summary::after{transform:rotate(-135deg);top:25px}
+details p{padding:0 0 16px;color:var(--soft);max-width:62ch}
+@media (max-width:760px){.help{grid-template-columns:1fr}}
+
+/* Welfare */
+.welfare{margin-top:24px;background:var(--ink);color:#fff;border-radius:6px;padding:28px;display:grid;grid-template-columns:1.3fr 1fr;gap:28px}
+.welfare h2{color:#fff}
+.welfare p{opacity:.88;max-width:58ch}
+.welfare a{color:#fff}
+.welfare dl{margin:0;display:grid;gap:14px}
+.welfare dt{font-weight:700}
+.welfare dd{margin:0;opacity:.85}
+@media (max-width:760px){.welfare{grid-template-columns:1fr;padding:22px}}
+
+.sponsors{margin-top:14px;color:var(--soft);max-width:80ch}
+.sponsors b{color:var(--ink);font-weight:600}
+
+footer{margin-top:64px;border-top:2px solid var(--ink);background:var(--white);font-size:15px}
+footer .wrap{display:grid;grid-template-columns:1.4fr 1fr 1fr;gap:28px;padding-block:28px}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+footer p{color:var(--soft)}
+@media (max-width:700px){footer .wrap{grid-template-columns:1fr 1fr}}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <defs>
+    <symbol id="crest" viewBox="0 0 200 200">
+      <path id="arcTop" d="M30 100 A70 70 0 0 1 170 100" fill="none"/>
+      <path id="arcBot" d="M24 104 A76 76 0 0 0 176 104" fill="none"/>
+      <text font-family="Libre Caslon Text,Georgia,serif" font-size="34" font-weight="700" fill="currentColor" letter-spacing="3"><textPath href="#arcTop" startOffset="50%" text-anchor="middle">GREAT</textPath></text>
+      <text font-family="Libre Caslon Text,Georgia,serif" font-size="34" font-weight="700" fill="currentColor" letter-spacing="3"><textPath href="#arcBot" startOffset="50%" text-anchor="middle" dominant-baseline="hanging">DANES</textPath></text>
+      <text x="38" y="112" font-family="Libre Caslon Text,Georgia,serif" font-size="24" font-weight="700" fill="currentColor" text-anchor="middle">19</text>
+      <text x="162" y="112" font-family="Libre Caslon Text,Georgia,serif" font-size="24" font-weight="700" fill="currentColor" text-anchor="middle">71</text>
+      <text x="100" y="64" font-family="Libre Caslon Text,Georgia,serif" font-size="10" font-style="italic" fill="currentColor" text-anchor="middle">est.</text>
+      <clipPath id="shield"><path d="M62 68h76v52c0 22-18 34-38 44-20-10-38-22-38-44z"/></clipPath>
+      <g clip-path="url(#shield)">
+        <rect x="62" y="68" width="38" height="44" fill="#cf2e26"/><rect x="100" y="68" width="38" height="44" fill="#161314"/>
+        <rect x="62" y="112" width="38" height="54" fill="#161314"/><rect x="100" y="112" width="38" height="54" fill="#cf2e26"/>
+      </g>
+      <path d="M62 68h76v52c0 22-18 34-38 44-20-10-38-22-38-44z" fill="none" stroke="currentColor" stroke-width="2.5"/>
+      <g font-family="Libre Caslon Text,Georgia,serif" font-size="27" font-weight="700" text-anchor="middle">
+        <text x="81" y="101" fill="#161314">G</text><text x="119" y="101" fill="#fff">D</text>
+        <text x="81" y="141" fill="#fff">F</text><text x="119" y="141" fill="#161314">C</text>
+      </g>
+    </symbol>
+  </defs>
+</svg>
+
+<div class="note"><div class="wrap">Concept for discussion. Teams, sessions, venue, contacts and sponsors come from the current site. Anything in [brackets] still needs confirming. Eva's answers here come from a small built-in question list, not live AI.</div></div>
+
+<header><div class="wrap">
+  <a class="home" href="#top">
+    <svg width="54" height="54" style="color:#fff" aria-hidden="true"><use href="#crest"/></svg>
+    <span><b>Great Danes</b><small>Youth Football Club</small></span>
+  </a>
+  <nav aria-label="Main"><ul>
+    <li><a href="#places">Join</a></li><li><a href="#teams">Teams</a></li><li><a href="#saturday">Match day</a></li><li><a href="#help">Help</a></li><li><a href="#top">Shop</a></li>
+  </ul></nav>
+</div></header>
+
+<main id="top">
+<div class="open"><div class="wrap">
+  <div>
+    <h1>Football at Sawyers Hall Lane <em>since 1971</em></h1>
+    <p class="intro">Boys, girls, men, women and Soccability teams, from first kicks at Under 5 to adult football. Ask Eva anything about joining, training or match days.</p>
+  </div>
+  <svg class="crest-big" viewBox="0 0 200 200" style="color:var(--ink)" role="img" aria-label="Great Danes crest, established 1971"><use href="#crest"/></svg>
+
+  <div class="ask" id="ask">
+    <label for="q">What do you need to know?</label>
+    <form id="askForm" role="search">
+      <input id="q" type="search" autocomplete="off" placeholder="My daughter is in Year 2. Can she play?">
+      <button type="submit">Ask Eva</button>
+    </form>
+    <p class="tryline">Try: <button type="button" data-q="How do I join?">How do I join?</button> · <button type="button" data-q="Which pitch are we on?">Which pitch are we on?</button> · <button type="button" data-q="How much does it cost?">How much does it cost?</button></p>
+    <div class="reply" id="reply" aria-live="polite"></div>
+    <p class="small">Eva answers from the club's own pages and tells you which one. Please don't type your child's medical or personal details. Welfare concerns go straight to the Club Welfare Officer.</p>
+  </div>
+</div></div>
+
+<div class="wrap">
+<section id="saturday">
+  <h2>This Saturday at Sawyers Hall Lane</h2>
+  <p class="intro">Sawyers Hall Lane, Brentwood CM15 9BY. Pitch numbers are in the Astro Schedule 2026–27.</p>
+  <table class="board">
+    <tr><td class="t">08:45</td><td><b>Wildcats</b><span>Girls in school Years 2 and 3. Relaxed, no pressure to win. New girls can just turn up.</span></td><td class="go"><a href="#places">Details</a></td></tr>
+    <tr><td class="t">09:00</td><td><b>New intake, Under 5 and Under 6</b><span>Boys and girls. £5 on the day, pay as you go.</span></td><td class="go"><a href="#places">Details</a></td></tr>
+    <tr><td class="t">[09:30]</td><td><b>U8 Tigers v [opposition]</b><span>Pitch 1. Fixture times come from FA Full-Time.</span></td><td class="go"><a href="#saturday">Fixture</a></td></tr>
+    <tr><td class="t">[10:00]</td><td><b>U10 Jaguars v [opposition]</b><span>[Pitch]</span></td><td class="go"><a href="#saturday">Fixture</a></td></tr>
+  </table>
+</section>
+
+<section id="places">
+  <h2>Teams with places this season</h2>
+  <p class="intro">Updated by team managers. If your child's age group isn't listed, register interest and we'll add them to the waiting list.</p>
+  <div class="tbl"><table class="places">
+    <thead><tr><th>Team</th><th>Looking for</th><th>Trains</th><th>Plays</th><th><span class="sr">Action</span></th></tr></thead>
+    <tbody>
+      <tr><td>New intake, U5–U6</td><td>Boys and girls, any ability</td><td>Saturday 09:00–10:00</td><td>Sessions only</td><td><a href="#places">Book a first session</a></td></tr>
+      <tr><td>Wildcats</td><td>Girls in Years 2 and 3</td><td>Saturday 08:45–10:00</td><td>Sessions only</td><td><a href="#places">Come along</a></td></tr>
+      <tr><td>Under 15 Girls</td><td>New players</td><td>[day and time]</td><td>[league]</td><td><a href="#places">Register interest</a></td></tr>
+      <tr><td>Under 16s</td><td>2 to 3 players, including a goalkeeper</td><td>Thursdays</td><td>Sundays, Brentwood League</td><td><a href="#places">Register interest</a></td></tr>
+    </tbody>
+  </table></div>
+</section>
+
+<section id="teams">
+  <h2>Find your child's team</h2>
+  <p class="intro">Children play in the age group for their school year, not their age on the day.</p>
+  <div class="finder">
+    <div>
+      <label for="yr">School year in September 2026</label>
+      <select id="yr"></select>
+      <p class="format" id="fmt"></p>
+    </div>
+    <ul class="teams" id="teamlist" aria-live="polite"></ul>
+  </div>
+</section>
+
+<section id="help">
+  <h2>Questions parents ask most</h2>
+  <p class="intro">The same answers Eva uses. If yours isn't here, email info@greatdanesyfc.uk.</p>
+  <div class="help" id="faq"></div>
+</section>
+
+<section id="welfare">
+  <div class="welfare">
+    <div>
+      <h2>Safeguarding</h2>
+      <p>Every coach is DBS checked and has FA safeguarding training. If you're worried about a child, talk to the Club Welfare Officer. If a child is in immediate danger, call 999.</p>
+      <p style="margin-top:14px"><a href="#welfare">Safeguarding policy</a> · <a href="#welfare">Photos and consent</a> · <a href="#help">Code of conduct</a></p>
+    </div>
+    <dl>
+      <div><dt>Club Welfare Officer</dt><dd>[Name] · welfare@greatdanesyfc.uk</dd></div>
+      <div><dt>Registration Secretary</dt><dd>Andrew Mitchell · joining and payments</dd></div>
+      <div><dt>Club Secretary</dt><dd>Paul Thompson · info@greatdanesyfc.uk</dd></div>
+    </dl>
+  </div>
+</section>
+
+<section>
+  <h2>Thank you to our kit sponsors</h2>
+  <p class="sponsors"><b>Cape Electrical &amp; Mechanical</b> (Under 7s), <b>Pangaea</b> (U8 Tigers), <b>Agilion</b> (U9 Lions), <b>Leyton Linen</b> (U10 Jaguars), <b>Buckingham James</b> (U12 Tigers), <b>Superior Group</b> (U15 Jaguars), <b>Envirotek Construction</b> (U17 Leopards), <b>WL Developments</b> (U12 Girls), <b>Bongow</b> (Great Danes FC) and <b>Bakers</b> (Great Danes Womens FC). <a href="#top">Sponsor a team</a></p>
+</section>
+</div>
+</main>
+
+<footer><div class="wrap">
+  <div><p><b style="color:var(--ink)">Great Danes Youth Football Club</b><br>Sawyers Hall Lane, Brentwood, Essex CM15 9BY<br>Club colours: white shirts, black shorts</p></div>
+  <ul><li><a href="#places">Join</a></li><li><a href="#teams">Teams</a></li><li><a href="#saturday">Match day</a></li><li><a href="#help">Help</a></li></ul>
+  <ul><li><a href="#welfare">Safeguarding</a></li><li><a href="#top">Privacy policy</a></li><li><a href="#help">Code of conduct</a></li><li><a href="#top">Facebook</a> · <a href="#top">Instagram</a></li></ul>
+</div></footer>
+
+<script>
+const QA=[
+ {g:"Joining",k:"join register registration sign up new player membership apply",q:"How do I join?",a:"Under 5s and 6s can come to the Saturday new intake session at 09:00. For older age groups, register interest for the team in your child's school year. The manager will invite you to a training session, and membership is then applied for online.",s:"Help › Joining",who:"Registration Secretary"},
+ {g:"Joining",k:"young age youngest under five six reception nursery too",q:"Is my child too young?",a:"Our youngest players start in the new intake for Under 5s and 6s, on Saturdays from 09:00 to 10:00. Boys and girls are welcome.",s:"Teams › New intake",who:"Registration Secretary"},
+ {g:"Joining",k:"daughter girl girls year two three wildcats",q:"Can my daughter play?",a:"Yes. Wildcats is for girls in school Years 2 and 3, on Saturday mornings from 08:45 to 10:00, and new girls can just turn up. Older girls can join our girls' teams, from Under 8 to Under 15.",s:"Teams › Wildcats",who:"girls' section lead"},
+ {g:"Joining",k:"disability soccability additional needs sen inclusive disabled",q:"Is there football for disabled players?",a:"Yes. Our Soccability teams play football for players with disabilities. Speak to the Soccability lead before the first session so the coaches can plan.",s:"Teams › Soccability",who:"Soccability lead"},
+ {g:"Match day",k:"pitch where astro venue address parking which",q:"Which pitch are we on?",a:"Home games and training are at Sawyers Hall Lane, Brentwood CM15 9BY. Pitch numbers are on each fixture and in the Astro Schedule 2026–27.",s:"Club Documents › Astro Schedule",who:"team manager"},
+ {g:"Match day",k:"training cancelled tonight weather on off rain frost",q:"Is training on tonight?",a:"Your team manager posts any cancellation in the team chat. If nothing has been posted, training is on.",s:"Help › Training",who:"team manager"},
+ {g:"Match day",k:"fixtures match game saturday sunday league kick off time",q:"Where are this weekend's fixtures?",a:"On the home page and your team's page, fed from FA Full-Time. Matchday Information 26–27 explains arrival and parking.",s:"Club Documents › Matchday Information",who:"team manager"},
+ {g:"Fees and kit",k:"cost price fees subs much pay money",q:"How much does it cost?",a:"New intake sessions are £5 each, paid on the day. Annual subs for team players are [£ amount], paid online when you apply for membership.",s:"Help › Fees",who:"Registration Secretary"},
+ {g:"Fees and kit",k:"kit shop buy order size shirt colours",q:"Where do I buy kit?",a:"From the club shop. Club colours are white shirts, black shorts and black socks.",s:"Shop",who:"kit manager"},
+ {g:"Welfare",k:"welfare safeguarding worried concern bullying",q:"I'm worried about a child",a:"Please contact the Club Welfare Officer directly. Eva doesn't handle welfare concerns. If a child is in immediate danger, call 999.",s:"Safeguarding",who:"Club Welfare Officer"},
+ {g:"Welfare",k:"photo photos pictures consent social media",q:"Will my child's photo go online?",a:"Only with your consent, given at registration. You can withdraw it at any time by emailing the Club Welfare Officer.",s:"Safeguarding › Photos and consent",who:"Club Welfare Officer"},
+ {g:"Joining",k:"under 16 u16 goalkeeper keeper thursday",q:"Are the Under 16s looking for players?",a:"Yes, 2 to 3 players including a goalkeeper. They train on Thursdays and play on Sundays in the Brentwood League.",s:"News › U16 players wanted",who:"Under 16s manager"}
+];
+const reply=document.getElementById('reply'),q=document.getElementById('q');
+const words=t=>t.toLowerCase().replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>2);
+function show(item){
+  reply.innerHTML='';
+  const h=document.createElement('p');h.className='q';
+  const body=document.createElement('p');const from=document.createElement('p');from.className='from';
+  if(!item){h.textContent="I couldn't find that one";body.textContent="I've passed your question to the committee so they can add an answer. In the meantime, email info@greatdanesyfc.uk and a volunteer will reply.";from.textContent='';}
+  else{h.textContent=item.q;body.textContent=item.a;from.textContent='From '+item.s+'. Still stuck? Contact the '+item.who+'.';}
+  reply.append(h,body,from);
+  reply.classList.add('flash');setTimeout(()=>reply.classList.remove('flash'),350);
+}
+function ask(text){
+  const w=words(text);let best=null,score=0;
+  QA.forEach(f=>{const keys=words(f.k+' '+f.q);let s=0;w.forEach(x=>{if(keys.some(k=>k.startsWith(x)||x.startsWith(k)))s++});if(s>score){score=s;best=f}});
+  show(best);
+}
+document.getElementById('askForm').addEventListener('submit',e=>{e.preventDefault();if(q.value.trim())ask(q.value)});
+document.querySelectorAll('.tryline button').forEach(b=>b.addEventListener('click',()=>{q.value=b.dataset.q;ask(b.dataset.q)}));
+show(QA[2]);
+
+const faq=document.getElementById('faq');
+["Joining","Match day","Fees and kit","Welfare"].forEach(g=>{
+  const col=document.createElement('div');const h=document.createElement('h3');h.textContent=g;col.appendChild(h);
+  QA.filter(x=>x.g===g).slice(0,4).forEach(x=>{const d=document.createElement('details');const s=document.createElement('summary');s.textContent=x.q;const p=document.createElement('p');p.textContent=x.a;d.append(s,p);col.appendChild(d)});
+  faq.appendChild(col);
+});
+
+const groups=[
+ ["Nursery or Reception","U5–U6","Training sessions, no league matches",[["New intake","Saturday 09:00, £5 on the day"]]],
+ ["Year 1","U7","5-a-side",[["Under 7s","Mixed"]]],
+ ["Year 2","U8","5-a-side",[["U8 Tigers","Mixed"],["U8 Lionesses","Girls"],["U8 Tigresses","Girls"],["Wildcats","Girls, Saturday 08:45"]]],
+ ["Year 3","U9","7-a-side",[["U9 Lions","Mixed"],["Wildcats","Girls, Saturday 08:45"]]],
+ ["Year 4","U10","7-a-side",[["U10 Jaguars","Mixed"],["U10 Girls","Girls"]]],
+ ["Year 5","U11","9-a-side",[["[Under 11 team]","Mixed"]]],
+ ["Year 6","U12","9-a-side",[["U12 Tigers","Mixed"],["U12 Girls","Girls"]]],
+ ["Year 9","U15","11-a-side",[["U15 Jaguars","Mixed"],["U15 Girls","Girls, has places"]]],
+ ["Year 10","U16","11-a-side",[["Under 16s","Has places, including a goalkeeper"]]],
+ ["Year 11","U17","11-a-side",[["U17 Leopards","Mixed"]]]
+];
+const yr=document.getElementById('yr'),list=document.getElementById('teamlist'),fmt=document.getElementById('fmt');
+groups.forEach((g,i)=>{const o=document.createElement('option');o.value=i;o.textContent=g[0]+' ('+g[1]+')';yr.appendChild(o)});
+function render(){const g=groups[yr.value];list.innerHTML='';fmt.textContent=g[1]+' plays '+g[2]+'.';
+  g[3].forEach(t=>{const li=document.createElement('li');const b=document.createElement('b');b.textContent=t[0];const s=document.createElement('span');s.textContent=t[1];li.append(b,s);list.appendChild(li)});
+  const li=document.createElement('li');const a=document.createElement('a');a.href='#places';a.textContent='Register interest for '+g[1];li.appendChild(a);list.appendChild(li);}
+yr.value=2;render();yr.addEventListener('change',render);
+</script>
