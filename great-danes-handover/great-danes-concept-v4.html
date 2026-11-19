@@ -356,23 +356,35 @@ const QA=[
 const reply=document.getElementById('reply'),q=document.getElementById('q');
 const STOP=new Set("for the and are was were what when where how can does did there this that with have has you your our not but who which would could should any some from about into please tell".split(" "));
 const words=t=>t.toLowerCase().replace(/[^a-z0-9 ]/g,' ').split(/\s+/).filter(w=>w.length>2&&!STOP.has(w));
-const TEAMS=[["Under 7s",7],["U8 Tigers",8],["U8 Lionesses",8],["U8 Tigresses",8],["U9 Lions",9],["U10 Jaguars",10],["U10 Girls",10],["U12 Tigers",12],["U12 Girls",12],["U15 Jaguars",15],["U15 Girls",15],["Under 16s",16],["U17 Leopards",17]];
-const FIX=/\b(next|match|matches|game|games|fixture|fixtures|kick|playing)\b/;
+const TEAMS=[["Under 7s",7,0],["U8 Tigers",8,0],["U8 Lionesses",8,1],["U8 Tigresses",8,1],["U9 Lions",9,0],["U10 Jaguars",10,0],["U10 Girls",10,1],["U12 Tigers",12,0],["U12 Girls",12,1],["U15 Jaguars",15,0],["U15 Girls",15,1],["Under 16s",16,0],["U17 Leopards",17,0]];
+const FIX=/\b(next|match|matches|game|games|fixture|fixtures|kick|playing|play)\b/;
 const sing=w=>w.replace(/s$/,'');
+const nameWords=n=>n.toLowerCase().split(' ').filter(w=>!/^(u\d+|under|girls|\d.*)$/.test(w));
+const nameList=l=>l.map(x=>x[0]).join(', ').replace(/, ([^,]*)$/,' and $1');
 function teamAnswer(text){
-  const t=text.toLowerCase().replace(/[^a-z0-9 ]/g,' ');
+  const t=text.toLowerCase().replace(/[^a-z0-9 ]/g,' ').replace(/\s+/g,' ');
   if(!FIX.test(t))return null;
-  const am=t.match(/\bu(?:nder)?\s?(\d{1,2})s?\b/),age=am?+am[1]:null;
-  const qn=new Set(t.split(/\s+/).map(sing));
-  const named=TEAMS.filter(x=>x[0].toLowerCase().split(' ').some(w=>!/^(u\d+|under|girls|\d.*)$/.test(w)&&qn.has(sing(w))));
+  let age=null,m=t.match(/\b(?:u|under) ?(\d{1,2})s?\b/);
+  if(m)age=+m[1];else if(m=t.match(/\byear ?(\d{1,2})\b/))age=+m[1]+6;
+  const toks=t.split(' ').filter(w=>w.length>=4&&!/^(next|match|matches|game|games|fixture|fixtures|kick|playing|play|girls|girl|under|year|team|when|what|where|their|there|this|that|with|have)$/.test(w));
+  const exact=TEAMS.filter(x=>nameWords(x[0]).some(w=>toks.some(k=>sing(k)===sing(w))));
+  const prefix=TEAMS.filter(x=>nameWords(x[0]).some(w=>toks.some(k=>k.slice(0,3)===w.slice(0,3))));
+  const girls=/\bgirls?\b/.test(t);
   const byAge=age?TEAMS.filter(x=>x[1]===age):[];
-  if(!named.length&&!byAge.length)return null;
-  const both=age&&named.length?named.filter(x=>x[1]===age):(named.length?named:byAge);
-  const names=l=>l.map(x=>x[0]).join(', ').replace(/, ([^,]*)$/,' and $1');
-  const base={s:"Teams",who:"team manager"};
-  if(both.length===1)return {...base,q:"Next match for "+both[0][0],a:"Fixtures for "+both[0][0]+" are on the team's page, fed from FA Full-Time. This Saturday's fixtures are on the home page under This week. I can't see kick-off times from here, so please check there for the latest.",s:"Teams › "+both[0][0]};
-  if(both.length>1)return {...base,q:"Which team do you mean?",a:"I found "+names(both)+". Tell me which one and I'll point you to their fixtures."};
-  return {...base,q:"I can't find that team",a:"There isn't a team with that age and name. "+(named.length?"The "+names(named)+(named.length>1?" teams":" team")+" play"+(named.length>1?"":"s")+" at a different age. ":"")+"The U"+age+" teams are "+names(byAge)+". Which did you mean?"};
+  if(!toks.length&&!age)return null;
+  let hit;
+  if(toks.length&&(exact.length||prefix.length)){
+    hit=exact.length?exact:prefix;
+    if(age){let f=hit.filter(x=>x[1]===age);if(!f.length&&hit===exact)f=prefix.filter(x=>x[1]===age);hit=f}
+  }else if(age)hit=byAge;
+  else return null;
+  if(girls){const g=hit.filter(x=>x[2]);if(g.length)hit=g}
+  const base={who:"team manager"};
+  if(hit.length===1){const n=hit[0][0];const loose=!t.includes(n.toLowerCase())&&!nameWords(n).some(w=>toks.some(k=>sing(k)===sing(w)));
+    return {...base,q:"Next match for "+n,a:(loose?"I took that to mean "+n+". ":"")+"Fixtures for "+n+" are on the team's page, fed from FA Full-Time. This Saturday's fixtures are on the home page under This week. I can't see kick-off times from here, so please check there for the latest.",s:"Teams › "+n};}
+  if(hit.length>1)return {...base,q:"Which team do you mean?",a:"I found "+nameList(hit)+". Tell me which one and I'll point you to their fixtures.",s:"Teams"};
+  if(age&&!byAge.length)return {...base,q:"I can't find that team",a:"I don't have a team listed for Under "+age+" yet. If your child is in that age group, email info@greatdanesyfc.uk.",s:"Teams"};
+  return {...base,q:"I can't find that team",a:"I couldn't match that to a team. The Under "+age+" teams are "+nameList(byAge)+". Which did you mean?",s:"Teams"};
 }
 function show(item){
   reply.innerHTML='';
