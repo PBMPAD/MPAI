@@ -23,6 +23,7 @@ Set by Matthew Price, MPAI, 20/11/26. Follow these on every client site and demo
 - Set headlines at a calm size. Hierarchy comes from spacing and weight, not effects.
 - Plain English copy for business owners.
 - Never caption a hero photo or say which home or property it was taken from.
+- The sticky bar goes at the top, never the bottom: the header stays pinned while scrolling, and on phones the Call / main-action row appears just under it. Phone browsers put their own address bar at the bottom.
 
 ## Before showing Matthew anything
 1. Run `/impeccable critique` and fix what it finds.
