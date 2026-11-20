@@ -22,6 +22,7 @@ Set by Matthew Price, MPAI, 20/11/26. Follow these on every client site and demo
 - Let the photography lead. Light background, plain type, generous space.
 - Set headlines at a calm size. Hierarchy comes from spacing and weight, not effects.
 - Plain English copy for business owners.
+- Never caption a hero photo or say which home or property it was taken from.
 
 ## Before showing Matthew anything
 1. Run `/impeccable critique` and fix what it finds.
