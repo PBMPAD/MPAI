@@ -171,22 +171,33 @@ table.ages{min-width:720px}
 .sponsors b{color:var(--ink);font-weight:600}
 
 /* Help view */
-.help-cat{padding-top:34px}
-.help-cat h2{font-size:clamp(24px,3.4vw,32px);padding-bottom:8px;border-bottom:2px solid var(--ink)}
-.owner{font-size:14.5px;color:var(--soft);margin-top:8px}
+.help-cat{border-bottom:2px solid var(--ink)}
+.help-tools{display:flex;gap:18px;flex-wrap:wrap;padding-top:30px;padding-bottom:6px}
+.help-tools button,.close-a,.close-cat{background:none;border:0;padding:6px 0;font:600 15px var(--text);color:var(--ink);text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:4px;cursor:pointer}
+.close-a{margin-top:10px;font-size:14.5px}
+.close-cat{display:block;margin:14px 0 22px}
+summary.cat{display:flex;flex-wrap:wrap;align-items:baseline;gap:4px 14px;padding:22px 40px 18px 0}
+summary{-webkit-tap-highlight-color:transparent}
+summary:focus:not(:focus-visible){outline:none}
+summary.cat::after{top:30px;width:14px;height:14px;border-width:3px}
+.help-cat[open]>summary.cat::after{top:36px}
+.count{font-size:15px;color:var(--soft);font-weight:500;white-space:nowrap}
+details.help-cat > details.qa:first-of-type{border-top:1px solid var(--rule)}
+.help-cat h2{font-size:clamp(24px,3.4vw,32px)}
+.owner{font-size:14.5px;color:var(--soft);margin:0 0 6px}
 details{border-bottom:1px solid var(--rule)}
 summary{cursor:pointer;padding:14px 32px 14px 0;font-weight:600;list-style:none;position:relative}
 summary::-webkit-details-marker{display:none}
 summary::after{content:"";position:absolute;right:6px;top:22px;width:10px;height:10px;border-right:2.5px solid var(--red);border-bottom:2.5px solid var(--red);transform:rotate(45deg);transition:transform .25s var(--ease)}
-details[open] summary::after{transform:rotate(-135deg);top:26px}
+details[open]>summary::after{transform:rotate(-135deg);top:26px}
 details .a{padding:0 0 16px;max-width:68ch}
 details .a p + p{margin-top:8px}
 details.hit{background:#fff6f6}
 .help-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px}
-.help-nav{position:sticky;top:110px;align-self:start;display:grid;gap:2px;padding-top:34px}
+.help-nav{position:sticky;top:110px;align-self:start;display:grid;gap:2px;padding-top:72px}
 .help-nav a{color:var(--ink);text-decoration:none;padding:6px 0;font-weight:600}
 .help-nav a:hover{color:var(--red-ink)}
-@media (max-width:860px){.help-layout{grid-template-columns:1fr;gap:0}.help-nav{position:static;display:flex;flex-wrap:wrap;gap:4px 16px;padding-top:20px}}
+@media (max-width:860px){.help-layout{grid-template-columns:1fr;gap:0}.help-nav{display:none}}
 
 /* Join view */
 .steps{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:0;border-top:2px solid var(--ink)}
@@ -600,7 +611,15 @@ const HELP=[
  ]}
 ];
 document.getElementById('helpNav').innerHTML=HELP.map(c=>'<a href="#help-'+c.id+'">'+c.t+'</a>').join('');
-document.getElementById('helpBody').innerHTML=HELP.map(c=>'<div class="help-cat" id="help-'+c.id+'"><h2>'+c.t+'</h2><p class="owner">Looked after by '+OWN[c.owner]+'</p>'+c.qs.map((q,j)=>'<details id="q-'+c.id+'-'+j+'"><summary>'+q[0]+'</summary><div class="a"><p>'+q[1]+'</p></div></details>').join('')+'</div>').join('');
+document.getElementById('helpBody').innerHTML='<div class="help-tools"><button type="button" id="openAll">Open all topics</button><button type="button" id="closeAll">Close everything</button></div>'+HELP.map(c=>'<details class="help-cat" id="help-'+c.id+'"><summary class="cat"><h2>'+c.t+'</h2><span class="count">'+c.qs.length+' questions</span></summary><p class="owner">Looked after by '+OWN[c.owner]+'</p>'+c.qs.map((q,j)=>'<details class="qa" id="q-'+c.id+'-'+j+'"><summary>'+q[0]+'</summary><div class="a"><p>'+q[1]+'</p><button type="button" class="close-a">Close answer</button></div></details>').join('')+'<button type="button" class="close-cat">Close '+c.t+'</button></details>').join('');
+const helpBody=document.getElementById('helpBody');
+helpBody.addEventListener('click',e=>{
+  const a=e.target.closest('.close-a'),c=e.target.closest('.close-cat');
+  if(a){const d=a.closest('details.qa');d.open=false;d.classList.remove('hit');const sm=d.querySelector('summary');if(sm.getBoundingClientRect().top<0)sm.scrollIntoView({block:'center'});sm.focus()}
+  if(c){const d=c.closest('details.help-cat');d.open=false;d.querySelectorAll('details.qa').forEach(x=>x.open=false);const sm=d.querySelector('summary');if(sm.getBoundingClientRect().top<0)sm.scrollIntoView();sm.focus()}
+});
+document.getElementById('openAll').addEventListener('click',()=>helpBody.querySelectorAll('details.help-cat').forEach(d=>d.open=true));
+document.getElementById('closeAll').addEventListener('click',()=>helpBody.querySelectorAll('details').forEach(d=>{d.open=false;d.classList.remove('hit')}));
 
 // Eva demo: matches keywords against the help answers only, cites the source, hands welfare to a person.
 const WELFARE=['worried','abuse','safeguarding','bullying','bullied','unsafe','danger','hurt','concern'];
@@ -619,7 +638,7 @@ document.querySelectorAll('[data-eva]').forEach(box=>{
     if(r&&r.welfare){out.innerHTML='<div class="reply welfare"><p class="q">This needs a person, not Eva.</p><p>Please talk to our Welfare Officer, Kimberley Hall, at '+MAIL+' with "Welfare" in the subject. If a child is in danger now, call 999. The NSPCC helpline is 0808 800 5000.</p></div>';return}
     if(!r){out.innerHTML='<div class="reply"><p class="q">I can\'t find that in the club\'s help pages.</p><p>Email '+MAIL+' and the right volunteer will reply.</p><p class="from">In the real version, questions Eva can\'t answer would go on a list for the committee.</p></div>';return}
     out.innerHTML='<div class="reply"><p class="q">'+r.x[0]+'</p><p>'+r.x[1]+'</p><p class="from">From Help, '+r.c.t+'. Still stuck? Contact '+OWN[r.c.owner]+' through '+MAIL+'.</p></div>';
-    if(box.closest('[data-view="help"]')){document.querySelectorAll('details.hit').forEach(d=>d.classList.remove('hit'));const d=document.getElementById('q-'+r.c.id+'-'+r.j);if(d){d.open=true;d.classList.add('hit')}}
+    if(box.closest('[data-view="help"]')){document.querySelectorAll('details.hit').forEach(d=>d.classList.remove('hit'));const d=document.getElementById('q-'+r.c.id+'-'+r.j);if(d){d.closest('.help-cat').open=true;d.open=true;d.classList.add('hit')}}
   }
   form.addEventListener('submit',e=>{e.preventDefault();answer()});
   box.querySelectorAll('.tries button').forEach(b=>b.addEventListener('click',()=>{inp.value=b.textContent;answer()}));
@@ -638,7 +657,7 @@ function route(){
   if(!v)v=views[0];
   views.forEach(x=>x.hidden=x!==v);
   const cur=h==='weekend'?'weekend':v.dataset.view;document.querySelectorAll('[data-nav]').forEach(a=>{if(a.dataset.nav===cur)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
-  if(target){if(target.tagName==='DETAILS')target.open=true;requestAnimationFrame(()=>target.scrollIntoView())}else window.scrollTo(0,0);
+  if(target){if(target.tagName==='DETAILS'){target.open=true;const pc=target.parentElement.closest('details');if(pc)pc.open=true}requestAnimationFrame(()=>target.scrollIntoView())}else window.scrollTo(0,0);
 }
 addEventListener('hashchange',()=>{route();showChosen()});route();
 })();
