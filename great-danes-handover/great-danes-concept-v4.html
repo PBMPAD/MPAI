@@ -1,0 +1,648 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<style>body{margin:0}img{max-width:100%}[hidden]{display:none!important}</style>
+<title>Great Danes YFC</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&display=swap">
+<style>
+/* Layout: the kit. White shirt ground, black panel bands top and bottom, red squad numbers for age groups. Deliberately light only: parents read this outdoors on a phone. */
+:root{
+  --shirt:#ffffff; --mist:#f1f2f4; --ink:#111214; --soft:#4a4d55; --rule:#d5d8dd;
+  --red:#d21f2b; --red-ink:#b0141f; --panel:#111214; --on-panel:#ffffff; --on-panel-soft:#c9ccd2;
+  --display:"Archivo","Arial Narrow",system-ui,sans-serif; --text:"Archivo",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --gut:max(16px,env(safe-area-inset-left,0px)); --gut-r:max(16px,env(safe-area-inset-right,0px));
+  --max:1180px; --ease:cubic-bezier(.16,1,.3,1);
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{background:var(--shirt);color:var(--ink);font-family:var(--text);font-size:17px;line-height:1.55;caret-color:var(--red);accent-color:var(--red)}
+::selection{background:var(--red);color:#fff}
+a{color:var(--red-ink);text-decoration:underline;text-decoration-thickness:1.5px;text-underline-offset:3px}
+a:hover{color:var(--ink)}
+:focus-visible{outline:3px solid var(--red);outline-offset:3px}
+h1,h2,h3{font-family:var(--display);font-stretch:112%;font-weight:800;line-height:1.05;letter-spacing:-.02em;margin:0;text-wrap:balance}
+h2{font-size:clamp(28px,4.4vw,44px)}
+h3{font-size:20px;letter-spacing:-.01em}
+p{margin:0}
+.wrap{max-width:var(--max);margin-inline:auto;padding-left:var(--gut);padding-right:var(--gut-r)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.ph{background:#fff3c4;color:#5c4400;padding:0 .25em;border-radius:2px;white-space:nowrap}
+.visually-hidden{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+section{padding-block:56px}
+[id]{scroll-margin-top:130px}
+section + section{border-top:1px solid var(--rule)}
+.lede{color:var(--soft);max-width:62ch;margin-top:10px}
+
+/* Header: white, crest, five links that never hide behind a menu button */
+header.site{background:var(--shirt);border-bottom:4px solid var(--panel);position:sticky;top:env(safe-area-inset-top,0px);z-index:20}
+body::before{content:"";position:fixed;inset:0 0 auto;height:env(safe-area-inset-top,0px);z-index:30;background:var(--shirt)}
+header.site .wrap{display:flex;align-items:center;gap:20px;padding-block:10px;flex-wrap:wrap}
+.brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink)}
+.brand img{width:52px;height:52px}
+.brand b{font-family:var(--display);font-stretch:118%;font-weight:900;font-size:19px;letter-spacing:-.01em;line-height:1}
+.brand small{display:block;font-size:12.5px;color:var(--soft);font-weight:500;margin-top:3px}
+nav.main{margin-left:auto;display:flex;gap:4px 18px;flex-wrap:wrap;align-items:center}
+nav.main a{color:var(--ink);text-decoration:none;font-weight:600;font-size:15.5px;padding-block:8px;border-bottom:2px solid transparent}
+nav.main a:hover,nav.main a[aria-current="page"]{border-bottom-color:var(--red)}
+nav.main a.join{background:var(--red);color:#fff;padding:8px 14px;border:0;font-weight:700}
+nav.main a.join:hover{background:var(--ink)}
+@media (max-width:720px){
+  header.site .wrap{gap:8px;padding-block:8px}
+  .brand img{width:44px;height:44px}
+  nav.main{margin-left:0;width:100%;justify-content:space-between;gap:0}
+  nav.main a{font-size:15px;padding:8px 2px}
+  nav.main a.join{padding:8px 10px}
+}
+
+/* Opening band: black shoulder panel, the team photo, the question every parent has */
+.open{background:var(--panel);color:var(--on-panel)}
+.open .wrap{display:grid;grid-template-columns:minmax(0,5fr) minmax(0,7fr);gap:48px;align-items:center;padding-block:44px}
+.open h1{font-size:clamp(36px,4.6vw,60px);font-stretch:118%;font-weight:900;letter-spacing:-.03em}
+.open h1 span{color:var(--red)}
+.open .sub{color:var(--on-panel-soft);margin-top:14px;font-size:17px;max-width:44ch}
+.open figure{margin:0;position:relative;min-width:0}
+.open figure img{display:block;width:100%;height:auto;max-width:1000px;aspect-ratio:16/9;object-fit:cover;object-position:70% 40%}
+.open figcaption{font-size:13px;color:var(--on-panel-soft);margin-top:8px}
+@media (min-width:861px){.open .wrap{align-items:stretch}.open figure{display:flex}.open figure img{height:100%;min-height:420px;aspect-ratio:auto;object-fit:cover;object-position:88% 40%}}
+.pick{margin-top:22px;display:grid;gap:10px}
+.pick label{font-weight:700;font-size:15px;color:var(--on-panel)}
+.pick .row{display:flex;gap:10px;flex-wrap:wrap}
+.pick select{flex:1 1 200px;min-width:0;font:600 18px var(--text);padding:14px 12px;border:2px solid var(--on-panel);border-radius:0;background:var(--shirt);color:var(--ink)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;font:700 17px var(--text);padding:14px 20px;border:2px solid var(--red);background:var(--red);color:#fff;text-decoration:none;cursor:pointer;border-radius:0}
+.btn:hover{background:var(--ink);border-color:var(--ink);color:#fff}
+.open .btn:hover{background:var(--shirt);border-color:var(--shirt);color:var(--ink)}
+.btn.line{background:transparent;color:var(--ink);border-color:var(--ink)}
+.btn.line:hover{background:var(--ink);color:#fff}
+.open .btn.line{color:#fff;border-color:#fff}
+.open .quick{margin-top:16px;font-size:15px;color:var(--on-panel-soft)}
+.open .quick a{color:#fff}
+@media (max-width:860px){
+  .open .wrap{grid-template-columns:minmax(0,1fr);gap:0;padding-block:0 32px}
+  .open figure{order:-1;margin-inline:calc(-1 * var(--gut)) calc(-1 * var(--gut-r));width:auto}
+  .open figure img{width:100%;max-width:none;aspect-ratio:16/9;object-position:72% 35%}
+  .open figcaption{padding-inline:var(--gut) var(--gut-r)}
+  .open .text{padding-top:20px}
+  .open h1{font-size:34px}
+  .open .sub{margin-top:10px;font-size:16px}
+}
+
+/* Team finder result: the age group as a red squad number */
+.finder{display:grid;grid-template-columns:auto minmax(0,1fr);gap:28px 44px;align-items:start}
+.shirtno{font-family:var(--display);font-stretch:125%;font-weight:900;color:var(--red);font-size:clamp(88px,15vw,176px);line-height:.82;letter-spacing:-.05em;font-variant-numeric:lining-nums;overflow:hidden;padding-bottom:6px;min-width:3.2ch}
+.shirtno span{display:inline-block}
+.shirtno.go span{animation:numIn .55s var(--ease)}
+@keyframes numIn{from{transform:translateY(55%);opacity:.2}to{transform:none;opacity:1}}
+.shirtno + p{font-size:15px;color:var(--soft);margin-top:6px}
+.facts{display:grid;gap:0;border-top:2px solid var(--ink)}
+.facts .f{display:grid;grid-template-columns:9.5em minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.facts dt{font-weight:700}
+.facts dd{margin:0}
+.teams-list{display:flex;flex-wrap:wrap;gap:6px 14px}
+.teams-list a{font-weight:600}
+.places-open{font-weight:700;color:var(--red-ink)}
+.finder .actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:18px}
+@media (max-width:720px){.finder{grid-template-columns:1fr;gap:6px}.facts .f{grid-template-columns:1fr;gap:2px}}
+
+/* This weekend: a team sheet of times */
+.weekend{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:24px 48px;margin-top:26px}
+.day h3{padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.slot{display:grid;grid-template-columns:4.2em minmax(0,1fr);gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+.slot time .ph{font:inherit;color:inherit}
+.slot time{font-family:var(--display);font-stretch:112%;font-weight:800;font-size:20px;color:var(--red-ink);font-variant-numeric:tabular-nums lining-nums}
+.slot span{display:block;color:var(--soft);font-size:15px}
+@media (max-width:720px){.weekend{grid-template-columns:1fr}}
+
+/* Ask Eva */
+.ask{margin-top:22px;max-width:760px}
+.ask form{display:flex;border:2px solid var(--ink);background:var(--shirt)}
+.ask input{flex:1;min-width:0;border:0;padding:15px 14px;font:500 17px var(--text);color:var(--ink);background:transparent}
+.ask input:focus{outline:none}
+.ask input::-webkit-search-cancel-button{-webkit-appearance:none;appearance:none;width:14px;height:14px;cursor:pointer;background:linear-gradient(45deg,transparent 43%,var(--ink) 43% 57%,transparent 57%),linear-gradient(-45deg,transparent 43%,var(--ink) 43% 57%,transparent 57%)}
+.ask form:focus-within{outline:3px solid var(--red);outline-offset:3px}
+.ask button{border:0;background:var(--ink);color:#fff;font:700 16px var(--text);padding:0 20px;cursor:pointer}
+.ask button:hover{background:var(--red)}
+.tries{margin-top:10px;font-size:15px;color:var(--soft);display:flex;flex-wrap:wrap;gap:4px 14px}
+.tries button{background:none;border:0;padding:0;font:inherit;color:var(--ink);text-decoration:underline;text-decoration-color:var(--red);text-underline-offset:4px;cursor:pointer}
+.reply{margin-top:18px;padding:18px 20px;background:var(--mist);border:1px solid var(--rule)}
+.reply .q{font-weight:700;margin-bottom:6px}
+.reply .from{font-size:14px;color:var(--soft);margin-top:10px}
+.reply.welfare{background:#fff;border:2px solid var(--red)}
+.demo-note{font-size:14px;color:var(--soft);margin-top:12px;max-width:70ch}
+.topics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:0 40px;margin-top:30px}
+.topics a{display:block;padding:14px 0;border-bottom:1px solid var(--rule);text-decoration:none;color:var(--ink)}
+.topics a b{display:block;font-family:var(--display);font-stretch:112%;font-size:19px}
+.topics a span{color:var(--soft);font-size:15px}
+.topics a:hover b{color:var(--red-ink)}
+@media (max-width:860px){.topics{grid-template-columns:1fr}}
+
+/* Tables */
+.scroll{overflow-x:auto;margin-top:22px;-webkit-overflow-scrolling:touch}
+table{border-collapse:collapse;width:100%;font-size:16px}
+th{text-align:left;font-size:14px;color:var(--soft);font-weight:600;padding:10px 14px 10px 0;border-bottom:2px solid var(--ink);white-space:nowrap}
+td{padding:12px 14px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+td.age{font-family:var(--display);font-stretch:118%;font-weight:900;font-size:22px;color:var(--red);white-space:nowrap;font-variant-numeric:lining-nums}
+table.ages{min-width:720px}
+@media (max-width:720px){
+  table.stack{min-width:0!important}
+  table.stack thead{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}
+  table.stack tr{display:grid;grid-template-columns:5.5em minmax(0,1fr);column-gap:12px;padding:12px 0;border-bottom:1px solid var(--rule)}
+  table.stack td{border:0;padding:2px 0}
+  table.stack td.age{grid-row:span 4}
+  table.stack td[data-label]:not(.age)::before{content:attr(data-label) ": ";font-weight:700}
+  table.fees tr{grid-template-columns:minmax(0,1fr)}
+}
+.note-row td{color:var(--soft);font-size:15px}
+
+/* Welfare */
+.welfare-band{background:var(--mist)}
+.welfare-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:24px 48px;margin-top:20px}
+.welfare-grid dl{margin:0}
+.welfare-grid dt{font-weight:700;margin-top:12px}
+.welfare-grid dd{margin:2px 0 0}
+@media (max-width:720px){.welfare-grid{grid-template-columns:1fr}}
+
+.sponsors p{max-width:70ch;color:var(--soft)}
+.sponsors b{color:var(--ink);font-weight:600}
+
+/* Help view */
+.help-cat{padding-top:34px}
+.help-cat h2{font-size:clamp(24px,3.4vw,32px);padding-bottom:8px;border-bottom:2px solid var(--ink)}
+.owner{font-size:14.5px;color:var(--soft);margin-top:8px}
+details{border-bottom:1px solid var(--rule)}
+summary{cursor:pointer;padding:14px 32px 14px 0;font-weight:600;list-style:none;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"";position:absolute;right:6px;top:22px;width:10px;height:10px;border-right:2.5px solid var(--red);border-bottom:2.5px solid var(--red);transform:rotate(45deg);transition:transform .25s var(--ease)}
+details[open] summary::after{transform:rotate(-135deg);top:26px}
+details .a{padding:0 0 16px;max-width:68ch}
+details .a p + p{margin-top:8px}
+details.hit{background:#fff6f6}
+.help-layout{display:grid;grid-template-columns:220px minmax(0,1fr);gap:48px}
+.help-nav{position:sticky;top:110px;align-self:start;display:grid;gap:2px;padding-top:34px}
+.help-nav a{color:var(--ink);text-decoration:none;padding:6px 0;font-weight:600}
+.help-nav a:hover{color:var(--red-ink)}
+@media (max-width:860px){.help-layout{grid-template-columns:1fr;gap:0}.help-nav{position:static;display:flex;flex-wrap:wrap;gap:4px 16px;padding-top:20px}}
+
+/* Join view */
+.steps{list-style:none;margin:26px 0 0;padding:0;display:grid;gap:0;border-top:2px solid var(--ink)}
+.steps > li{display:grid;grid-template-columns:3.2em minmax(0,1fr);gap:16px;padding:20px 0;border-bottom:1px solid var(--rule)}
+.steps .n{font-family:var(--display);font-stretch:125%;font-weight:900;font-size:40px;line-height:.9;color:var(--red)}
+.steps h3{margin-bottom:6px}
+.steps p{max-width:64ch}
+.steps p + p{margin-top:8px}
+.need{margin-top:14px;padding-left:1.1em}
+.need li{margin:4px 0}
+.chosen{margin-top:24px;padding:14px 16px;border:2px solid var(--ink);font-weight:600}
+.chosen b{color:var(--red-ink)}
+.chosen a{margin-left:8px;font-weight:500}
+
+/* Team view */
+.team-head{background:var(--panel);color:var(--on-panel)}
+.team-head .wrap{padding-block:34px;display:flex;gap:24px;align-items:end;flex-wrap:wrap}
+.team-head .shirtno{font-size:clamp(80px,12vw,140px)}
+.team-head h1{font-size:clamp(32px,5vw,54px);font-stretch:118%;font-weight:900}
+.team-head p{color:var(--on-panel-soft);margin-top:6px}
+.crumb{font-size:15px;padding-top:14px}
+.crumb a{color:var(--ink)}
+.team-grid{display:grid;grid-template-columns:minmax(0,3fr) minmax(0,2fr);gap:24px 56px}
+.empty{border:2px dashed var(--rule);padding:22px;margin-top:16px}
+.empty b{display:block;font-size:18px;margin-bottom:4px}
+.empty p{color:var(--soft)}
+.empty .actions{margin-top:14px;display:flex;gap:10px;flex-wrap:wrap}
+.side dl{margin:14px 0 0}
+.side dt{font-weight:700;margin-top:12px}
+.side dd{margin:2px 0 0}
+@media (max-width:860px){.team-grid{grid-template-columns:1fr}}
+
+/* Footer: the black shorts */
+footer{background:var(--panel);color:var(--on-panel-soft);font-size:15px}
+footer .wrap{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:24px 32px;padding-block:44px 28px}
+footer b{color:#fff;display:block;margin-bottom:8px;font-family:var(--display);font-stretch:112%;font-size:16px}
+footer a{color:#fff}
+footer ul{list-style:none;margin:0;padding:0;display:grid;gap:4px}
+footer .legal{grid-column:1/-1;border-top:1px solid #2c2e33;padding-top:16px;font-size:13.5px}
+@media (max-width:860px){footer .wrap{grid-template-columns:1fr 1fr}}
+@media (max-width:520px){footer .wrap{grid-template-columns:1fr}}
+
+.copy{font:600 13px var(--text);border:1px solid currentColor;background:transparent;color:inherit;padding:2px 8px;cursor:pointer;margin-left:6px}
+.concept{background:#fff3c4;color:#5c4400;font-size:14px}
+.concept .wrap{padding-block:8px}
+
+@media (prefers-reduced-motion:reduce){*{animation:none!important;transition:none!important}}
+</style>
+
+</head>
+<body>
+<div class="concept"><div class="wrap">Concept v4, 21/11/26. <span class="ph">[Yellow]</span> = to confirm. Eva is a demo, not real AI.</div></div>
+
+<header class="site">
+  <div class="wrap">
+    <a class="brand" href="#home" aria-label="Great Danes YFC home">
+      <img src="img/crest-160.jpg" alt="" width="52" height="52">
+      <span><b>Great Danes YFC</b><small>Sawyers Hall Lane, Brentwood</small></span>
+    </a>
+    <nav class="main" aria-label="Main">
+      <a href="#home" data-nav="home">Teams</a>
+      <a href="#weekend" data-nav="weekend">Fixtures</a>
+      <a href="#help" data-nav="help">Help</a>
+      <a href="#contact" data-nav="contact">Contact</a>
+      <a href="#join" data-nav="join" class="join">Join</a>
+    </nav>
+  </div>
+</header>
+
+<main>
+<!-- HOME -->
+<div data-view="home">
+  <div class="open">
+    <div class="wrap">
+      <div class="text">
+        <h1>Football for girls and boys, <span>Reception to Year 13</span>.</h1>
+        <p class="sub">At Sawyers Hall Lane, Brentwood, since 1971. Over 35 teams, run by volunteers.</p>
+        <form class="pick" id="pickForm">
+          <label for="yearPick">Find your child's team: pick their school year</label>
+          <div class="row">
+            <select id="yearPick" name="year"></select>
+            <button class="btn" type="submit">Show their team</button>
+          </div>
+          <div class="row"><a class="btn line" href="#join" id="heroJoin">Join the club</a></div>
+        </form>
+        <p class="quick">New to football? <a href="#join">Pups (Reception and Year 1) is £5 a session on Saturdays</a>.</p>
+      </div>
+      <figure>
+        <img src="img/team-celebration.jpg" alt="Great Danes girls in white shirts with red numbers celebrating a goal" width="1000" height="563">
+      </figure>
+    </div>
+  </div>
+
+  <section id="finder">
+    <div class="wrap">
+      <h2 id="finderTitle">Your child's team</h2>
+      <p class="lede">Teams are grouped by age on 31 August. In this concept, only U10 Girls has an example team page.</p>
+      <div class="finder" style="margin-top:26px">
+        <div>
+          <div class="shirtno" id="shirtNo" aria-hidden="true"><span>U5</span></div>
+          <p id="shirtCap">Reception, season 2026/27</p>
+        </div>
+        <div>
+          <dl class="facts" id="facts"></dl>
+          <div class="actions">
+            <a class="btn" href="#join" id="finderJoin">Join this age group</a>
+            <a class="btn line" href="#help-joining">Questions about joining</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="weekend">
+    <div class="wrap">
+      <h2>This weekend at Sawyers Hall Lane</h2>
+      <p class="lede">Times for <span class="ph">[28 and 29 November]</span>. Home matches only; away fixtures are on each team's page.</p>
+      <div class="weekend">
+        <div class="day">
+          <h3>Saturday 28 November</h3>
+          <div class="slot"><time>08:45</time><div><b>Wildcats</b> girls' sessions, Years 2 and 3<span>Until 10:00. New players welcome.</span></div></div>
+          <div class="slot"><time>09:00</time><div><b>Pups</b> taster football, Reception and Year 1<span>Until 10:00. £5, pay on the day.</span></div></div>
+          <div class="slot"><time><span class="ph">10:00</span></time><div><b>U8 and U9 home matches</b><span><span class="ph">[pitches and opponents from FA Full-Time]</span></span></div></div>
+        </div>
+        <div class="day">
+          <h3>Sunday 29 November</h3>
+          <div class="slot"><time><span class="ph">10:00</span></time><div><b>U12 to U16 home matches</b><span><span class="ph">[fixtures from FA Full-Time]</span></span></div></div>
+          <div class="slot"><time><span class="ph">10:30</span></time><div><b>U16 Lions</b>, Brentwood League<span>Still need 2 or 3 players, including a goalkeeper. <a href="#join">Ask about a trial</a>.</span></div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="ask-home">
+    <div class="wrap">
+      <h2>Got a question? Ask Eva</h2>
+      <p class="lede">Eva answers from the club's help pages and tells you who to contact if it can't.</p>
+      <div class="ask" data-eva>
+        <form>
+          <label class="visually-hidden" for="evaHome">Your question</label>
+          <input id="evaHome" type="search" placeholder="e.g. what time is training for Year 5?" autocomplete="off">
+          <button type="submit">Ask</button>
+        </form>
+        <div class="tries">Try: <button type="button">How much are subs?</button><button type="button">Where do I park?</button><button type="button">My daughter wants to play</button></div>
+        <div class="out" aria-live="polite"></div>
+      </div>
+      <div class="topics">
+        <a href="#help-joining"><b>Joining</b><span>Age groups, trials, registering</span></a>
+        <a href="#help-fees"><b>Fees and kit</b><span>Subs, paying, what to buy</span></a>
+        <a href="#help-matchday"><b>Match day</b><span>Fixtures, arriving, cancellations</span></a>
+        <a href="#help-training"><b>Training and the ground</b><span>Times, pitches, parking, astro</span></a>
+        <a href="#help-welfare"><b>Welfare and safeguarding</b><span>Raising a concern, codes of conduct</span></a>
+        <a href="#help-helping"><b>Helping and sponsoring</b><span>Coaching, volunteering, sponsors</span></a>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <div class="wrap">
+      <h2>Every age group</h2>
+      <p class="lede">Ages are on 31 August 2026. Match formats follow the FA's youth guidance.</p>
+      <div class="scroll" tabindex="0" role="region" aria-label="Age groups table">
+        <table class="ages stack">
+          <thead><tr><th>Age</th><th>School year</th><th>Teams</th><th>Format</th><th>Places</th></tr></thead>
+          <tbody id="agesBody"></tbody>
+        </table>
+      </div>
+    </div>
+  </section>
+
+  <section class="welfare-band">
+    <div class="wrap">
+      <h2>Keeping children safe</h2>
+      <div class="welfare-grid">
+        <p>Every coach and manager has a DBS check and safeguarding training. If you're worried about a child, talk to our Welfare Officer straight away. If a child is in danger now, call 999.</p>
+        <dl>
+          <dt>Welfare Officer</dt><dd>Kimberley Hall: <a href="mailto:info@greatdanesyfc.uk?subject=Welfare" class="num">info@greatdanesyfc.uk</a> with "Welfare" in the subject <span class="ph">[or a direct welfare email]</span></dd>
+          <dt>Codes of conduct</dt><dd><a href="https://greatdanesyfc.uk/club-documents" target="_blank" rel="noopener">Players, parents and coaches</a></dd>
+          <dt>Accreditation</dt><dd>England Football Accredited club</dd>
+        </dl>
+      </div>
+    </div>
+  </section>
+
+  <section class="sponsors">
+    <div class="wrap">
+      <h2>Thank you to our kit sponsors</h2>
+      <p class="lede"><b>Cape Electrical &amp; Mechanical</b>, <b>Pangaea</b>, <b>Agilion</b>, <b>Leyton Linen</b>, <b>Buckingham James</b>, <b>Superior Group</b>, <b>Envirotek Construction</b>, <b>WL Developments</b>, <b>Bongow</b> and <b>Bakers</b>. <a href="#help-helping">Sponsor a team</a>.</p>
+    </div>
+  </section>
+</div>
+
+<!-- JOIN -->
+<div data-view="join" hidden>
+  <div class="team-head"><div class="wrap"><div><h1>Join Great Danes</h1><p>Four steps, from finding the team to the first match.</p></div></div></div>
+  <div class="wrap"><p class="chosen" id="joinChosen" hidden></p></div>
+  <section style="padding-top:34px">
+    <div class="wrap">
+      <ol class="steps">
+        <li><span class="n" aria-hidden="true">1</span><div><h3>Find your child's age group</h3>
+          <p>Age groups go by age on 31 August, which matches the school year. <a href="#finder">Pick your child's school year</a> to see the teams, training times and places.</p></div></li>
+        <li><span class="n" aria-hidden="true">2</span><div><h3>Come and try it</h3>
+          <p><b>Pups (Reception and Year 1):</b> just come along on Saturday at 09:00. It's £5 a session, paid on the day.</p>
+          <p><b>Wildcats (girls, Years 2 and 3):</b> Saturdays 08:45 to 10:00.</p>
+          <p><b>Other teams:</b> email the Registration Secretary, Andrew Mitchell, with your child's name, school year and any experience. He'll arrange a trial session with the manager.</p></div></li>
+        <li><span class="n" aria-hidden="true">3</span><div><h3>Create an account and apply</h3>
+          <p>Membership applications are online only. <a href="https://greatdanesyfc.uk/register-account" target="_blank" rel="noopener">Create an account on the club site</a>, then apply for membership and pay on the <span class="ph">[Membership and payments page]</span>.</p>
+          <p>You'll need:</p>
+          <ul class="need"><li>your child's date of birth and school year</li><li>a parent's contact details</li><li>a decision on photo consent</li><li>any medical needs, which go privately to the manager, never through Eva</li></ul></div></li>
+        <li><span class="n" aria-hidden="true">4</span><div><h3>Confirm the FA registration</h3>
+          <p>For league teams, the club registers your child with the FA. You'll get an email asking you to confirm it. Please reply, because your child can't play matches until you do.</p></div></li>
+      </ol>
+      <div class="scroll" style="margin-top:34px">
+        <table class="stack fees" style="min-width:560px">
+          <thead><tr><th>Fees, season 2026/27</th><th>Cost</th><th>How to pay</th></tr></thead>
+          <tbody>
+            <tr><td data-label="Who">Pups (Reception and Year 1)</td><td class="num" data-label="Cost">£5 a session</td><td data-label="How to pay">On the day</td></tr>
+            <tr><td data-label="Who">Wildcats</td><td data-label="Cost"><span class="ph">[£ amount]</span></td><td data-label="How to pay"><span class="ph">[on the day or termly]</span></td></tr>
+            <tr><td data-label="Who">U7 to U18 teams</td><td data-label="Cost"><span class="ph">[£ a year]</span></td><td data-label="How to pay"><span class="ph">[online, in one go or monthly]</span></td></tr>
+            <tr><td data-label="Who">Brothers and sisters</td><td data-label="Cost"><span class="ph">[discount, if any]</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+      <p class="owner">Questions about joining go to Andrew Mitchell, Registration Secretary: <a href="mailto:info@greatdanesyfc.uk?subject=Joining" class="num">info@greatdanesyfc.uk</a> <button class="copy" type="button" data-copy="info@greatdanesyfc.uk">Copy</button></p>
+    </div>
+  </section>
+</div>
+
+<!-- HELP -->
+<div data-view="help" hidden>
+  <div class="team-head"><div class="wrap"><div><h1>Help</h1><p>Answers from the club, each with the volunteer who looks after it.</p></div></div></div>
+  <section style="padding-top:30px;border-top:0">
+    <div class="wrap">
+      <div class="ask" data-eva style="margin-top:0">
+        <form>
+          <label class="visually-hidden" for="evaHelp">Search help or ask Eva</label>
+          <input id="evaHelp" type="search" placeholder="Search help or ask Eva" autocomplete="off">
+          <button type="submit">Ask</button>
+        </form>
+        <div class="tries">Try: <button type="button">Training cancelled?</button><button type="button">Football boots or astros?</button><button type="button">I'm worried about a child</button></div>
+        <div class="out" aria-live="polite"></div>
+        <p class="demo-note">Please don't type your child's name, medical details or anything private. Welfare concerns always go to a person, not to Eva.</p>
+      </div>
+      <div class="help-layout">
+        <nav class="help-nav" aria-label="Help topics" id="helpNav"></nav>
+        <div id="helpBody"></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- TEAM (template, using U10 Girls) -->
+<div data-view="team" hidden>
+  <div class="wrap crumb"><a href="#finder">Teams</a> / <a href="#finder">Year 5</a> / U10 Girls</div>
+  <div class="team-head" style="margin-top:12px"><div class="wrap">
+    <div class="shirtno" aria-hidden="true"><span>U10</span></div>
+    <div><h1>Girls</h1><p>Year 5 · 7-a-side · Manager: Tony Walsh</p></div>
+  </div></div>
+  <section style="border-top:0">
+    <div class="wrap team-grid">
+      <div>
+        <h2>Fixtures and results</h2>
+        <div class="empty">
+          <b>No fixtures here yet for 2026/27</b>
+          <p>The league publishes fixtures on FA Full-Time first. Tony also posts them in the team's parents' group.</p>
+          <div class="actions">
+            <a class="btn" href="https://fulltime.thefa.com" target="_blank" rel="noopener">See fixtures on FA Full-Time</a>
+            <a class="btn line" href="#help-matchday">Match day help</a>
+          </div>
+        </div>
+        <h2 style="margin-top:40px">Training</h2>
+        <dl class="facts" style="margin-top:14px">
+          <div class="f"><dt>When</dt><dd><span class="ph">[day, 17:30 to 18:30]</span></dd></div>
+          <div class="f"><dt>Where</dt><dd>Sawyers Hall Lane, <span class="ph">[pitch or astro]</span> · <a href="https://www.google.com/maps/search/?api=1&query=Great+Danes+YFC+Sawyers+Hall+Lane+Brentwood+CM15+9BY" target="_blank" rel="noopener">Map</a></dd></div>
+          <div class="f"><dt>Bring</dt><dd>Shin pads, water, boots or astro trainers, a warm layer</dd></div>
+          <div class="f"><dt>If it's off</dt><dd>Tony messages the parents' group by <span class="ph">[16:00]</span>. Check the <a href="https://greatdanesyfc.uk/club-documents" target="_blank" rel="noopener">Astro Schedule</a> for pitch changes.</dd></div>
+        </dl>
+      </div>
+      <div class="side">
+        <h2>The team</h2>
+        <dl>
+          <dt>Places</dt><dd class="places-open">Ask: girls in Year 5 are welcome to try a session</dd>
+          <dt>League</dt><dd><span class="ph">[league name]</span></dd>
+          <dt>Kit</dt><dd>White shirt, black shorts, black socks. <span class="ph">[Sponsor]</span></dd>
+          <dt>Contact</dt><dd>Tony Walsh: <a href="mailto:info@greatdanesyfc.uk?subject=U10%20Girls" class="num">info@greatdanesyfc.uk</a> with "U10 Girls" in the subject</dd>
+          <dt>Documents</dt><dd><a href="https://greatdanesyfc.uk/club-documents" target="_blank" rel="noopener">Matchday Information 26/27</a></dd>
+        </dl>
+        <a class="btn" style="margin-top:22px" href="#join" id="teamJoin">Join U10 Girls</a>
+      </div>
+    </div>
+  </section>
+</div>
+</main>
+
+<footer id="contact">
+  <div class="wrap">
+    <div><b>Find us</b>Sawyers Hall Lane<br>Brentwood, Essex CM15 9BY<br><a href="https://www.google.com/maps/search/?api=1&query=Great+Danes+YFC+Sawyers+Hall+Lane+Brentwood+CM15+9BY" target="_blank" rel="noopener">Open in Maps</a><br>No smoking or vaping at the ground.</div>
+    <div><b>Contact</b>
+      <ul>
+        <li><a href="mailto:info@greatdanesyfc.uk?subject=Question" class="num">info@greatdanesyfc.uk</a> <button class="copy" type="button" data-copy="info@greatdanesyfc.uk">Copy</button></li>
+        <li>Secretary: Paul Thompson</li>
+        <li>Registration: Andrew Mitchell</li>
+        <li>Welfare: Kimberley Hall</li>
+      </ul></div>
+    <div><b>Club</b>
+      <ul><li><a href="#join">Join</a></li><li><a href="#help">Help</a></li><li><a href="https://greatdanesyfc.uk/club-documents" target="_blank" rel="noopener">Club documents</a></li><li><a href="https://greatdanesyfc.uk/club-info/club-honours" target="_blank" rel="noopener">Honours</a></li></ul></div>
+    <div><b>Members</b>
+      <ul><li><a href="https://greatdanesyfc.uk/login" target="_blank" rel="noopener">Log in</a></li><li><a href="https://greatdanesyfc.uk/shop" target="_blank" rel="noopener">Club shop</a></li><li><a href="https://greatdanesyfc.uk/privacy-policy" target="_blank" rel="noopener">Privacy</a></li></ul></div>
+    <p class="legal">Great Danes YFC Ltd, company number 10229637. Football at Sawyers Hall Lane since 1971.</p>
+  </div>
+</footer>
+
+<script>
+(function(){
+const MAIL='<a href="mailto:info@greatdanesyfc.uk">info@greatdanesyfc.uk</a>';
+const PH=t=>'<span class="ph">['+t+']</span>';
+const FORMAT={U5:'Fun sessions',U6:'Fun sessions',U7:'5-a-side',U8:'5-a-side',U9:'7-a-side',U10:'7-a-side',U11:'9-a-side',U12:'9-a-side'};
+const fmt=a=>FORMAT[a]||'11-a-side';
+// Season 2026/27. Teams from the club site, November 2026.
+const YEARS=[
+ {y:'Reception',age:'U5',teams:['Pups'],train:'Saturdays 09:00 to 10:00',cost:'£5 a session, pay on the day',places:'Open: just come along'},
+ {y:'Year 1',age:'U6',teams:['Pups'],train:'Saturdays 09:00 to 10:00',cost:'£5 a session, pay on the day',places:'Open: just come along'},
+ {y:'Year 2',age:'U7',teams:['U7s','Wildcats (girls)'],train:'Wildcats: Saturdays 08:45 to 10:00. U7s: '+PH('day and time'),places:'Wildcats open to girls'},
+ {y:'Year 3',age:'U8',teams:['Lions','Tigers','Leopards','Lionesses (girls)','Tigresses (girls)','Wildcats (girls)'],train:PH('day and time')+'. Wildcats: Saturdays 08:45 to 10:00',places:'Wildcats open to girls; ask about other teams'},
+ {y:'Year 4',age:'U9',teams:['Lions','Tigers','Leopards']},
+ {y:'Year 5',age:'U10',teams:['Tigers','Lions','Leopards','Pumas','Jaguars','Girls'],link:'Girls'},
+ {y:'Year 6',age:'U11',teams:['Lions','Tigers','Leopards']},
+ {y:'Year 7',age:'U12',teams:['Lions','Tigers','Panthers','Girls']},
+ {y:'Year 8',age:'U13',teams:['Pumas']},
+ {y:'Year 9',age:'U14',teams:['Lions','Leopards','Pumas']},
+ {y:'Year 10',age:'U15',teams:['Jaguars','Girls'],places:'U15 Girls are recruiting'},
+ {y:'Year 11',age:'U16',teams:['Lions'],train:'Thursdays '+PH('time')+'. Matches on Sundays in the Brentwood League',places:'Need 2 or 3 players, including a goalkeeper'},
+ {y:'Year 12',age:'U17',teams:['Leopards','Pumas']},
+ {y:'Year 13',age:'U18',teams:['Jaguars']},
+ {y:'Adult',age:'Adult',teams:['Great Danes FC (two men\'s teams)','Great Danes Womens FC'],train:PH('day and time'),cost:PH('£ a year'),places:'Ask the manager'}
+];
+const sel=document.getElementById('yearPick');
+YEARS.forEach((r,i)=>{const o=document.createElement('option');o.value=i;o.textContent=r.y==='Adult'?'Adult (18 and over)':r.y;sel.appendChild(o)});
+
+function render(i,animate){
+  const r=YEARS[i];const no=document.getElementById('shirtNo');
+  no.innerHTML='<span>'+(r.age==='Adult'?'18+':r.age)+'</span>';
+  if(animate){no.classList.remove('go');void no.offsetWidth;no.classList.add('go')}
+  document.getElementById('shirtCap').textContent=(r.y==='Adult'?'Adults':r.y)+', season 2026/27';
+  document.getElementById('finderTitle').textContent=r.y==='Adult'?'Adult teams':(r.y+': '+r.age+(r.teams.length>1?' teams':''));
+  const teams=r.teams.map(t=>(r.link===t?'<a href="#team">'+t+'</a>':'<span>'+t+'</span>')).join('');
+  const rows=[
+    ['Teams','<div class="teams-list">'+teams+'</div>'],
+    ['Format',r.age==='Adult'?'11-a-side':fmt(r.age)],
+    ['Training',r.train||PH('day and time')+' at Sawyers Hall Lane'],
+    ['Cost',r.cost||PH('£ a year')+'. Kit extra'],
+    ['Places','<span class="places-open">'+(r.places||'Ask the Registration Secretary')+'</span>']
+  ];
+  document.getElementById('facts').innerHTML=rows.map(([k,v])=>'<div class="f"><dt>'+k+'</dt><dd>'+v+'</dd></div>').join('');
+  document.getElementById('finderJoin').textContent=r.age==='Adult'?'Join an adult team':'Join '+r.age+(r.teams[0]==='Pups'?' Pups':'');
+}
+let chosen=null;
+sel.addEventListener('change',()=>render(sel.value,true));
+document.getElementById('finderJoin').addEventListener('click',()=>{chosen=+sel.value});
+document.getElementById('teamJoin').addEventListener('click',()=>{chosen=5});
+document.getElementById('heroJoin').addEventListener('click',()=>{chosen=null});
+function showChosen(){const el=document.getElementById('joinChosen');if(chosen===null){el.hidden=true;return}const r=YEARS[chosen];el.hidden=false;el.innerHTML='Joining: <b>'+(r.age==='Adult'?'Adult teams':r.y+', '+r.age)+'</b>. Training: '+(r.train||PH('day and time'))+'. Places: '+(r.places||'ask the Registration Secretary')+'. <a href="#finder">Change</a>'}
+document.getElementById('pickForm').addEventListener('submit',e=>{e.preventDefault();render(sel.value,true);document.getElementById('finder').scrollIntoView({behavior:matchMedia('(prefers-reduced-motion: reduce)').matches?'auto':'smooth'})});
+render(0,false);
+
+document.getElementById('agesBody').innerHTML=YEARS.map(r=>'<tr><td class="age" data-label="Age">'+(r.age==='Adult'?'18+':r.age)+'</td><td data-label="School year">'+r.y+'</td><td data-label="Teams">'+r.teams.join(', ')+'</td><td data-label="Format">'+(r.age==='Adult'?'11-a-side':fmt(r.age))+'</td><td data-label="Places">'+(r.places||'Ask')+'</td></tr>').join('')+
+ '<tr class="note-row"><td class="age" data-label="Age">All</td><td data-label="School year">Any age</td><td data-label="Teams">Youth Soccability and Soccability</td><td data-label="Format">'+PH('format')+'</td><td data-label="Places">Football for players with disabilities or additional needs '+PH('confirm wording and session time')+'</td></tr>';
+
+// Help content. Every answer names the role that owns it.
+const OWN={reg:'Andrew Mitchell, Registration Secretary',sec:'Paul Thompson, Secretary',wel:'Kimberley Hall, Welfare Officer',man:"your team's manager",com:'the committee'};
+const HELP=[
+ {id:'joining',t:'Joining',owner:'reg',qs:[
+  ['Which age group is my child in?','Age groups go by age on 31 August, so they match the school year. Reception is U5, Year 5 is U10, Year 10 is U15. <a href="#finder">Pick a school year</a> to see the teams.',['age','year','group','which team','old','under']],
+  ['Can my child come for a trial?','Yes. Pups (Reception and Year 1) and Wildcats (girls, Years 2 and 3) can just come along on a Saturday. For other teams, email the Registration Secretary with your child\'s name and school year, and he\'ll set up a trial with the manager.',['trial','try','taster','come along','first session']],
+  ['How do I register?','Applications are online only. Create an account on the club site, then apply for membership and pay on the '+PH('Membership and payments page')+'. <a href="#join">The four steps</a>.',['register','sign up','apply','membership','join','account']],
+  ['Do you have girls\' teams?','Yes. Wildcats for girls in Years 2 and 3, then U8 Lionesses and Tigresses, U10 Girls, U12 Girls and U15 Girls, which is recruiting now. Girls can also play in our mixed teams.',['girl','girls','daughter','lionesses','tigresses','wildcats','women']],
+  ['Is there football for children with disabilities?','Yes, our Soccability sessions. '+PH('Ages, day and time, and who to contact')+'.',['disability','disabilities','additional needs','send','soccability','autism']],
+  ['What is the FA registration email?','For league teams the club registers your child with the FA, and you\'ll get an email asking you to confirm. Please reply, because your child can\'t play matches until you do.',['fa','email','consent','whole game','registration email']]
+ ]},
+ {id:'fees',t:'Fees and kit',owner:'sec',qs:[
+  ['How much are subs?','Pups is £5 a session, paid on the day. For U7 to U18 teams, subs are '+PH('£ a year')+', paid online '+PH('in one go or monthly')+'. '+PH('Sibling discount, if any')+'.',['subs','fee','fees','cost','price','how much','pay','money']],
+  ['What happens if I can\'t afford the subs?','Talk to the Secretary in confidence. '+PH('The club\'s hardship policy')+'.',['afford','hardship','struggling','discount']],
+  ['What kit do we need?','White shirt, black shorts and black socks for matches; the club provides '+PH('which items')+'. For training: shin pads, water, boots or astro trainers and a warm layer.',['kit','shirt','shorts','socks','buy','uniform']],
+  ['Football boots or astro trainers?','Astro trainers or moulded boots on the astro; no metal studs. Grass pitches need boots. Check the <a href="https://greatdanesyfc.uk/club-documents" target="_blank" rel="noopener">Astro Schedule</a> to see where your team plays.',['boots','astro','astros','studs','trainers','shoes']],
+  ['Where is the club shop?','<a href="https://greatdanesyfc.uk/shop" target="_blank" rel="noopener">On the club site</a>. '+PH('Supplier and delivery times')+'.',['shop','order','merch','hoodie','training top']]
+ ]},
+ {id:'matchday',t:'Match day',owner:'man',qs:[
+  ['Where do I find fixtures?','On your team\'s page, and on FA Full-Time, where the league publishes them first. Your manager also posts them in the parents\' group.',['fixture','fixtures','match','game','kick off','kick-off','results','when is']],
+  ['What time should we arrive?',''+PH('30')+' minutes before kick-off unless your manager says otherwise. The <a href="https://greatdanesyfc.uk/club-documents" target="_blank" rel="noopener">Matchday Information 26/27</a> has the details.',['arrive','time','early','meet']],
+  ['Is the match off because of the weather?','Managers decide by '+PH('08:00')+' on match days and tell the parents\' group. Pitch closures are posted '+PH('on the home page')+'.',['weather','cancel','cancelled','called off','rain','frozen','postponed','off']],
+  ['How should parents behave on the touchline?','Cheer everyone, let the coach coach, and respect the referee. Our <a href="https://greatdanesyfc.uk/club-documents" target="_blank" rel="noopener">Code of Conduct</a> applies to all parents.',['touchline','behave','respect','referee','shouting','conduct']]
+ ]},
+ {id:'training',t:'Training and the ground',owner:'sec',qs:[
+  ['When is training?','It depends on the team. <a href="#finder">Pick a school year</a> to see times. Pups: Saturdays 09:00 to 10:00. Wildcats: Saturdays 08:45 to 10:00. U16 Lions: Thursdays.',['training','train','practice','session','what time']],
+  ['Is training cancelled?','Your manager messages the parents\' group by '+PH('16:00')+'. Check the Astro Schedule for pitch changes.',['training cancelled','cancelled','off tonight']],
+  ['Where is the ground?','Sawyers Hall Lane, Brentwood, Essex CM15 9BY. <a href="https://www.google.com/maps/search/?api=1&query=Great+Danes+YFC+Sawyers+Hall+Lane+Brentwood+CM15+9BY" target="_blank" rel="noopener">Open in Maps</a>.',['where','address','ground','directions','postcode','map','venue']],
+  ['Where do I park?','<span class="ph">[Car park details and overflow]</span>. Please don\'t park on Sawyers Hall Lane verges or block neighbours\' drives.',['park','parking','car']],
+  ['Can I smoke or vape at the ground?','No. Sawyers Hall Lane is a no smoking and no vaping site.',['smoke','smoking','vape','vaping']],
+  ['Are there toilets and refreshments?','<span class="ph">[Toilets, clubhouse and tea hut opening times]</span>.',['toilet','toilets','refreshments','tea','food','drink','clubhouse']]
+ ]},
+ {id:'welfare',t:'Welfare and safeguarding',owner:'wel',qs:[
+  ['I\'m worried about a child. Who do I tell?','Talk to our Welfare Officer, Kimberley Hall, straight away. If a child is in danger now, call 999. You can also call the NSPCC helpline on 0808 800 5000.',['worried','concern','safeguarding','welfare','abuse','bullying','bullied','unsafe','danger','hurt']],
+  ['Are coaches DBS checked?','Yes. Every coach and manager has an FA DBS check and safeguarding training before working with children.',['dbs','checked','background','vetted','safe']],
+  ['How are photos of children used?','Only with parental consent, given when you register. Tell the Secretary if you want to change your choice.',['photo','photos','pictures','consent','social media','images']],
+  ['My child has a medical condition. Who needs to know?','Tell your manager privately, and keep the details off the parents\' group and out of Eva.',['medical','asthma','allergy','condition','epilepsy','diabetes','injury']]
+ ]},
+ {id:'helping',t:'Helping and sponsoring',owner:'sec',qs:[
+  ['Can I help coach?','Yes, we always need coaches. The club pays for your FA Introduction to Coaching Football course and DBS check '+PH('confirm')+'.',['coach','coaching','help','volunteer','volunteering','manager']],
+  ['How do I sponsor a team?','Email the Secretary. Sponsors are named on the team\'s shirts and on this site. '+PH('Sponsorship packages and prices')+'.',['sponsor','sponsorship','advertise','business']],
+  ['Can I referee?','Yes. Young people from 14 can train as referees. '+PH('Contact for referee development')+'.',['referee','ref','reffing']]
+ ]}
+];
+document.getElementById('helpNav').innerHTML=HELP.map(c=>'<a href="#help-'+c.id+'">'+c.t+'</a>').join('');
+document.getElementById('helpBody').innerHTML=HELP.map(c=>'<div class="help-cat" id="help-'+c.id+'"><h2>'+c.t+'</h2><p class="owner">Looked after by '+OWN[c.owner]+'</p>'+c.qs.map((q,j)=>'<details id="q-'+c.id+'-'+j+'"><summary>'+q[0]+'</summary><div class="a"><p>'+q[1]+'</p></div></details>').join('')+'</div>').join('');
+
+// Eva demo: matches keywords against the help answers only, cites the source, hands welfare to a person.
+const WELFARE=['worried','abuse','safeguarding','bullying','bullied','unsafe','danger','hurt','concern'];
+function eva(q){
+  const s=' '+q.toLowerCase().replace(/[^a-z0-9' ]/g,' ')+' ';
+  if(WELFARE.some(w=>s.includes(' '+w)))return {welfare:true};
+  let best=null,score=0;
+  HELP.forEach(c=>c.qs.forEach((x,j)=>{let n=0;x[2].forEach(k=>{if(s.includes(k.includes(' ')?k:' '+k))n+=k.length>4?2:1});x[0].toLowerCase().split(/\W+/).forEach(w=>{if(w.length>4&&s.includes(' '+w))n+=.5});if(n>score){score=n;best={c,x,j}}}));
+  return score>=1?best:null;
+}
+document.querySelectorAll('[data-eva]').forEach(box=>{
+  const form=box.querySelector('form'),inp=box.querySelector('input'),out=box.querySelector('.out');
+  function answer(){
+    const q=inp.value.trim();if(!q){out.innerHTML='';return}
+    const r=eva(q);const esc=q.replace(/[<>&]/g,'');
+    if(r&&r.welfare){out.innerHTML='<div class="reply welfare"><p class="q">This needs a person, not Eva.</p><p>Please talk to our Welfare Officer, Kimberley Hall, at '+MAIL+' with "Welfare" in the subject. If a child is in danger now, call 999. The NSPCC helpline is 0808 800 5000.</p></div>';return}
+    if(!r){out.innerHTML='<div class="reply"><p class="q">I can\'t find that in the club\'s help pages.</p><p>Email '+MAIL+' and the right volunteer will reply.</p><p class="from">In the real version, questions Eva can\'t answer would go on a list for the committee.</p></div>';return}
+    out.innerHTML='<div class="reply"><p class="q">'+r.x[0]+'</p><p>'+r.x[1]+'</p><p class="from">From Help, '+r.c.t+'. Still stuck? Contact '+OWN[r.c.owner]+' through '+MAIL+'.</p></div>';
+    if(box.closest('[data-view="help"]')){document.querySelectorAll('details.hit').forEach(d=>d.classList.remove('hit'));const d=document.getElementById('q-'+r.c.id+'-'+r.j);if(d){d.open=true;d.classList.add('hit')}}
+  }
+  form.addEventListener('submit',e=>{e.preventDefault();answer()});
+  box.querySelectorAll('.tries button').forEach(b=>b.addEventListener('click',()=>{inp.value=b.textContent;answer()}));
+});
+
+// Copy buttons
+document.querySelectorAll('[data-copy]').forEach(b=>b.addEventListener('click',()=>{const t=b.dataset.copy;const say=m=>{b.textContent=m;setTimeout(()=>b.textContent='Copy',1800)};try{navigator.clipboard.writeText(t).then(()=>say('Copied'),()=>say('Select and copy'))}catch(e){say('Select and copy')}}));
+
+// Views on the hash: home, join, help, team; section anchors resolve into their view.
+const views=[...document.querySelectorAll('[data-view]')];
+function route(){
+  const h=(location.hash||'#home').slice(1);
+  let v=views.find(x=>x.dataset.view===h);let target=null;
+  if(!v){const el=document.getElementById(h);if(el){v=el.closest('[data-view]');target=el}}
+  if(!v&&h==='contact'){v=views[0];target=document.getElementById('contact')}
+  if(!v)v=views[0];
+  views.forEach(x=>x.hidden=x!==v);
+  const cur=h==='weekend'?'weekend':v.dataset.view;document.querySelectorAll('[data-nav]').forEach(a=>{if(a.dataset.nav===cur)a.setAttribute('aria-current','page');else a.removeAttribute('aria-current')});
+  if(target){if(target.tagName==='DETAILS')target.open=true;requestAnimationFrame(()=>target.scrollIntoView())}else window.scrollTo(0,0);
+}
+addEventListener('hashchange',()=>{route();showChosen()});route();
+})();
+</script>
+
+</body>
+</html>

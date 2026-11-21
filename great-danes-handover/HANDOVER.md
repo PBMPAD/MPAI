@@ -113,3 +113,28 @@ Earlier versions (navy and gold, then red and black with cards) were dropped for
 ## Starter prompt for the new conversation
 
 > I'm picking up a website project for Great Danes Youth Football Club (greatdanesyfc.uk). The attached HANDOVER.md has the brief, the club facts, an Impeccable-method critique of the current site and the Eva recommendation. great-danes-concept.html is the latest concept home page. Read both, then [next task, e.g. "build the Join page and Help centre in the same design" / "write the top 30 FAQ answers for Eva" / "draft an email to MyClubPro asking about script embeds"]. Use British English and keep anything for parents in plain English.
+
+## Update 21/11/26: Impeccable 4.10.0 critique and concept v4
+
+**Critique of the live site (eight pages, phone and desktop):** 16/40 (Poor). The automated detector was blocked in this environment, so the scores come from the design review alone. All ten heuristics were scored this time, so it isn't directly comparable with the earlier 14/32.
+- **P0:** the route to join is broken (the "Payments" link doesn't exist).
+- **P1:** key facts are locked inside poster images.
+- **P1:** there is no help layer.
+- **P1:** team pages and fixtures are empty.
+- **P2:** teams are named by mascot and coach instead of school year.
+
+**Facts resolved from the live site:**
+- The Welfare Officer is Kimberley Hall.
+- The site shows the England Football Accredited badge.
+- There are 39 teams, U5 to U18 plus adult and Soccability.
+
+**Concept v4** (`great-danes-concept-v4.html`; private artifact https://claude.ai/artifact/4kke6XhRYhrbBGGEz4Si9m):
+- This replaces v3's Caslon noticeboard look with "the kit": a white ground, black bands and red squad numbers. The hero is the club's own photo of the girls' team.
+- It has four views:
+  - **Home:** a team finder by school year, this weekend's times, Ask Eva, every age group, welfare and sponsors.
+  - **Join:** four steps and fees.
+  - **Help:** 28 answers in six topics, each with a named owner. Eva answers only from these, and hands welfare concerns to a person.
+  - **Team page template:** U10 Girls.
+- An independent finish review gave the verdict "ship".
+- The direction is in `DIRECTION.md` and the design tokens are in `DESIGN.md`.
+- Images (`img/`) are gitignored because the photo shows children. They are published only with the artifact.
