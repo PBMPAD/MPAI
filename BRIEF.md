@@ -111,3 +111,9 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 - Images are in images/work (agent-* and club-*), desktop and phone versions. The club "before" is a redrawn mock of the old site, not a screenshot.
 - Before going live: get both clients' OK, including the agent's property and kitchen photos.
 - (23/11/26, night) The club "before" is now a phone redraw of the real home page (crest, black menu bar, the same stock grass photo, the club name card), with names changed. The club comparison shows phone views at every screen size. A three-step "how I work" block sits above the comparisons: your business first, your message in your words, nothing that looks churned out by AI.
+
+## Update (24/11/26): Websites page
+- New page websites.html, in the menu after Pricing (Your business, How it works, Pricing, Websites, About, Blog) and in every footer.
+- Order: headline "A website that brings in work", before and after (moved from Pricing), prices, a "send me your website, I'll tell you three things I'd fix" form (Formspree, subject "Website check:", source "Websites page"), then a close pointing to the four-week trial.
+- Pricing keeps the three website prices with a link to the examples.
+- Between 821px and 1100px wide the header button shows its short label so it stays on one line.
