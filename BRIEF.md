@@ -105,3 +105,8 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 - Extra jobs removed: five is now the most a list holds, on Home and the contact page. Jobs a visitor types in are still quoted separately. Figures are in solutions.js (BASE_JOBS, MAX_JOBS, PILOT_PRICE).
 - Websites stay a quoted extra (principle 5): no Websites menu item.
 - Public pages no longer say Matthew is a surveyor (Home, About, and the "What is an LLM?" post).
+
+## Update (23/11/26, later): before and after on the pricing page
+- Under "Websites, as an extra": two before-and-after comparisons with a drag slider, an estate agent and a youth football club. Both are labelled as concepts, with names, places and contact details changed (Larkfield Homes, Sam, Riverside Youth FC, Townsend, 01234 567 890).
+- Images are in images/work (agent-* and club-*), desktop and phone versions. The club "before" is a redrawn mock of the old site, not a screenshot.
+- Before going live: get both clients' OK, including the agent's property and kitchen photos.

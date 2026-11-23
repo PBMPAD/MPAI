@@ -144,6 +144,43 @@
 <p class="plan-sum">Bigger sites are quoted once I&rsquo;ve seen what you need.</p>
 </div>
 </div>
+<div class="work" aria-labelledby="work-title">
+<h3 class="work-h" id="work-title">Before and after</h3>
+<p class="sub center">Two recent concepts. Names, places and contact details have been changed.</p>
+<article class="ba">
+<div class="ba-text">
+<h3>A family-run estate agent</h3>
+<p>From a template with a search box first, to a home page that says what the agent does and how to book a valuation.</p>
+<ul class="ticks"><li>One clear button: book a free valuation</li><li>Written in the owner&rsquo;s own words</li><li>Phone and WhatsApp one tap away on a phone</li></ul>
+</div>
+<figure class="ba-fig">
+<div class="ba-view" style="--pos:50%">
+<picture><source media="(max-width:600px)" srcset="images/work/agent-after-m.webp"><img src="images/work/agent-after-d.webp" alt="The new estate agent concept: a large kitchen photo, a plain headline and a book a valuation button" width="1600" height="1000" loading="lazy"></picture>
+<div class="ba-before" aria-hidden="false"><picture><source media="(max-width:600px)" srcset="images/work/agent-before-m.webp"><img src="images/work/agent-before-d.webp" alt="The old estate agent site: a template with a welcome panel and a search box" width="1600" height="1000" loading="lazy"></picture></div>
+<span class="ba-tag ba-tag-b" aria-hidden="true">Before</span><span class="ba-tag ba-tag-a" aria-hidden="true">After</span>
+<span class="ba-line" aria-hidden="true"></span>
+<input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare the old site with the new one, a family-run estate agent">
+</div>
+<figcaption>Drag to compare. Names and details changed.</figcaption>
+</figure>
+</article><article class="ba">
+<div class="ba-text">
+<h3>A youth football club</h3>
+<p>From a 13-item menu and posters full of text, to a five-link menu and an answer box for the questions parents ask most.</p>
+<ul class="ticks"><li>Thirteen menu items down to five</li><li>Times and prices written as text, not hidden in posters</li><li>Parents type a question and get the answer straight away</li></ul>
+</div>
+<figure class="ba-fig">
+<div class="ba-view" style="--pos:50%">
+<picture><source media="(max-width:600px)" srcset="images/work/club-after-m.webp"><img src="images/work/club-after-d.webp" alt="The new club concept: a short menu, a clear headline and an ask a question box" width="1600" height="1000" loading="lazy"></picture>
+<div class="ba-before" aria-hidden="false"><picture><source media="(max-width:600px)" srcset="images/work/club-before-m.webp"><img src="images/work/club-before-d.webp" alt="The old club site: a long menu, a stock grass photo and poster images" width="1600" height="1000" loading="lazy"></picture></div>
+<span class="ba-tag ba-tag-b" aria-hidden="true">Before</span><span class="ba-tag ba-tag-a" aria-hidden="true">After</span>
+<span class="ba-line" aria-hidden="true"></span>
+<input class="ba-range" type="range" min="0" max="100" value="50" aria-label="Drag to compare the old site with the new one, a youth football club">
+</div>
+<figcaption>Drag to compare. Names and details changed.</figcaption>
+</figure>
+</article>
+</div>
 </div></section>
 
 <section class="close wrap" aria-labelledby="close-title">
@@ -237,6 +274,9 @@
    .catch(function(){ b.disabled=false; b.textContent="Send my enquiry"; say("Sorry, that didn’t send. Please email matthew@mpai.site instead.","err"); });
  });
 })();
+</script>
+<script>
+document.querySelectorAll('.ba-view').forEach(function(v){var r=v.querySelector('.ba-range');var set=function(){v.style.setProperty('--pos',r.value+'%')};r.addEventListener('input',set);set();});
 </script>
 </body>
 </html>
