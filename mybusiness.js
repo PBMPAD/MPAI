@@ -6,7 +6,7 @@ if(!document.getElementById('mb-left')) return;
 function start(){
 var M=window.MPAI, FORM_ACTION=M.FORM_ACTION, TALK=M.TALK, LIB=M.LIB, NAMES=M.NAMES, sortOwn=M.sortOwn, lineFor=M.lineFor, fromLib=M.fromLib, clip=M.clip;
 var TYPES=Object.keys(LIB);
-/* Five jobs come with the set-up; a sixth and seventh can be added (the rules and wording are in solutions.js) */
+/* Five jobs come with the set-up, and five is the most (the rules and wording are in solutions.js) */
 var BASE=M.BASE_JOBS||5, MAX=M.MAX_JOBS||5, WORD=M.COUNT_WORD||[], extraLine=M.extraLine||function(){return ""}, extraNote=M.extraNote||function(){return "None"};
 function sendWord(){var n=off.length; return n>=BASE&&WORD[n]?"Send me my "+WORD[n]:"Send me "+(n===1?"this one":"these "+WORD[n]);}
 

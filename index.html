@@ -10,7 +10,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Space+Grotesk:wght@500;600;700&family=Spectral:ital,wght@0,300;0,400;1,300;1,400&display=swap">
 <link rel="stylesheet" href="site.css?v=20261116b">
-<link rel="stylesheet" href="home.css">
+<link rel="stylesheet" href="home.css?v=20261123">
 <script>if(!window.matchMedia||!matchMedia('(prefers-reduced-motion: reduce)').matches)document.documentElement.classList.add('play');</script>
 <script src="nav.js"></script>
 </head>
@@ -31,7 +31,7 @@
 <div class="wrap">
 <p class="hb-eyebrow">AI, set up for small businesses in and around Brentwood</p>
 <h1 id="hero-title">More time for <em>the work that matters</em></h1>
-<p class="hb-lead">Tell me what you run and I&rsquo;ll show you five jobs I&rsquo;d take off your desk, in your own email and files. All five, from <span class="num">&pound;1,000</span> for one person.</p>
+<p class="hb-lead">Tell me what you run and I&rsquo;ll show you five jobs I&rsquo;d take off your desk, in your own email and files. All five, from <span class="num">&pound;1,000</span> for one person. Not sure yet? Try any one job for four weeks for <span class="num">&pound;250</span>, taken off the price if you carry on.</p>
 <div class="hb-ask" id="your-business">
 <fieldset id="hb-ask-set" hidden>
 <legend>What do you run?</legend>
@@ -78,6 +78,14 @@
 
 <form class="hb-send" id="hb-form" novalidate>
 <p class="hb-hp" aria-hidden="true"><label>Leave this empty <input type="text" id="hb-hp" name="company-website" tabindex="-1" autocomplete="off"></label></p>
+<fieldset class="hb-start hb-wide" id="hb-start">
+<legend>How would you like to start?</legend>
+<div class="hb-start-opts">
+<label class="hb-start-opt"><input type="radio" name="hb-start" value="five" checked><span><b>All five</b> from &pound;1,000 for one person</span></label>
+<label class="hb-start-opt"><input type="radio" name="hb-start" value="trial"><span><b>Try one job first</b> &pound;250 for four weeks, taken off the &pound;1,000 if you carry on</span></label>
+</div>
+<div class="hb-trial-pick" id="hb-trial-pick" hidden><label for="hb-trial-job">Which job would you like to try?</label><select id="hb-trial-job"></select></div>
+</fieldset>
 <div class="sw" id="hb-soft"></div>
 <div class="hb-newrow"><label for="hb-cname">Your name</label><input type="text" id="hb-cname" autocomplete="name"></div>
 <div><label for="hb-cemail">Email</label><input type="email" id="hb-cemail" autocomplete="email"></div>
@@ -116,7 +124,7 @@
 <div class="hb-fact">
 <h3>What it costs</h3>
 <p class="hb-big">from &pound;1,000</p>
-<p>All five jobs, for one person. Each extra team member is <span class="num">&pound;250</span>. Care plans from <span class="num">&pound;100</span> a month are optional.</p>
+<p>All five jobs, for one person. Each extra team member is <span class="num">&pound;250</span>. Or try any one job for four weeks for <span class="num">&pound;250</span>, taken off the price if you carry on. Care plans from <span class="num">&pound;100</span> a month are optional.</p>
 <p><a class="textlink" href="pricing.html">See pricing</a></p>
 </div>
 <div class="hb-fact">
@@ -136,7 +144,7 @@
 <div class="wrap hb-about-grid">
 <img src="matthew.webp" alt="Matthew Price, founder of MPAI" width="700" height="617" loading="lazy">
 <div>
-<h2 class="hb-h2" id="founder-title">Hello, I&rsquo;m Matthew. <em>A chartered surveyor, not a tech company.</em></h2>
+<h2 class="hb-h2" id="founder-title">Hello, I&rsquo;m Matthew. <em>A business owner, not a tech company.</em></h2>
 <p class="hb-about-lead">I live in Brentwood. I started using AI to take the repetitive work off my own desk, and it worked well enough that I now help other small businesses do the same.</p>
 <ul class="hb-results">
 <li><b>Whole days back</b><span>Now spent on planning, outreach and networking.</span></li>
@@ -144,7 +152,7 @@
 <li><b>Nothing slips</b><span>Follow-ups and chasers no longer get forgotten.</span></li>
 <li><b>Drafts, not blank pages</b><span>Quotes and reports start most of the way there.</span></li>
 </ul>
-<p class="hb-small">My own results, at the surveying practice where I work. Client results will go here as they come in.</p>
+<p class="hb-small">My own results, from my own working day. Client results will go here as they come in.</p>
 <p style="margin:0"><a class="textlink" href="about.html">More about me, and what it changed</a></p>
 </div>
 </div>
@@ -153,7 +161,7 @@
 <section class="close wrap" aria-labelledby="close-title">
 <span class="close-mark" aria-hidden="true"></span>
 <h2 class="display center" id="close-title">Ready to get your time back? <em>Your five jobs are waiting.</em></h2>
-<p class="hb-close-links"><a class="btn btn-dark" href="#your-business">Pick your five jobs</a><a class="textlink" href="jobs.html">See what each job does</a></p>
+<p class="hb-close-links"><a class="btn btn-dark" href="#your-business">Pick your five jobs</a><a class="textlink" href="#your-business">Not ready for five? Try one for four weeks</a></p>
 </section>
 </main>
 
@@ -175,7 +183,7 @@
 <p><a href="mailto:matthew@mpai.site">matthew@mpai.site</a></p>
 </div></footer>
 </div>
-<script src="solutions.js" defer></script>
-<script src="home-ticket.js?v=20261116b" defer></script>
+<script src="solutions.js?v=20261123" defer></script>
+<script src="home-ticket.js?v=20261123" defer></script>
 </body>
 </html>

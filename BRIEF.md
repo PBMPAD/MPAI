@@ -97,3 +97,11 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 ## Update (15/11/26, night): the £200 is for a simple job only
 - The extra £200 applies only to a sixth or seventh job marked "Can do" from the ready-made list. A "Let's talk" job, or a job the visitor types in, is always priced separately, and the list and the pricing page both say so.
 - The enquiry email's "extra jobs" line now splits the two: how many extra Can do jobs at £200, and how many jobs to price separately.
+
+## Update (23/11/26): four-week trial, five jobs maximum, website prices
+- Four-week trial: any one job for £250, for one person, paid before it starts, credited against the £1,000 if the client goes ahead with all five within 30 days. No limit on trial places. Drafts only, nothing sent without the client's OK, no automatic renewal.
+- Home: the hero line, the "What it costs" box and the close now mention the trial. The send form asks "How would you like to start?" (all five, or try one job first); picking the trial shows a drop-down of the jobs on the list. The enquiry email gets a "start" line, and the subject starts "Trial request:".
+- Pricing: a new "Try it first" card above the set-up, and a "Websites, as an extra" section: one page from £250, four to six pages from £1,000, eight pages or more on request.
+- Extra jobs removed: five is now the most a list holds, on Home and the contact page. Jobs a visitor types in are still quoted separately. Figures are in solutions.js (BASE_JOBS, MAX_JOBS, PILOT_PRICE).
+- Websites stay a quoted extra (principle 5): no Websites menu item.
+- Public pages no longer say Matthew is a surveyor (Home, About, and the "What is an LLM?" post).
