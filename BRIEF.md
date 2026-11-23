@@ -117,3 +117,7 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 - Order: headline "A website that brings in work", before and after (moved from Pricing), prices, a "send me your website, I'll tell you three things I'd fix" form (Formspree, subject "Website check:", source "Websites page"), then a close pointing to the four-week trial.
 - Pricing keeps the three website prices with a link to the examples.
 - Between 821px and 1100px wide the header button shows its short label so it stays on one line.
+
+## Update (24/11/26, later): website work taken down
+- The Websites page, the before and after sliders and the Websites menu item are off the site: both examples are concepts, not live sites. The work is kept on the git tag websites-concept-draft.
+- Still live: the four-week trial, five jobs maximum, the three website prices on Pricing, the surveyor wording removed, the Great Danes folder removed.
