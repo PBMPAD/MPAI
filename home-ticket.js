@@ -6,8 +6,9 @@
 (function(){
 var M=window.MPAI, form=document.getElementById("hb-form");
 if(!M||!form) return;
-/* Five jobs come with the set-up; a sixth and seventh can be added (the rules and wording are in solutions.js) */
-var BASE=M.BASE_JOBS||5, MAX=M.MAX_JOBS||5, OWN_MAX=2;
+/* Five jobs come with the set-up, and five is the most. Or the visitor tries any one job for four weeks.
+   The figures and wording are in solutions.js. */
+var BASE=M.BASE_JOBS||5, MAX=M.MAX_JOBS||5, OWN_MAX=2, PILOT=M.PILOT_PRICE||250;
 var WORD=M.COUNT_WORD||[], extraLine=M.extraLine||function(){return ""}, extraNote=M.extraNote||function(){return "None"};
 /* Home shows every business type in solutions.js. "Other" is shown as "Something else". */
 var SHOW=Object.keys(M.LIB);
@@ -26,6 +27,21 @@ function tag(){
 function fill(){jobs=M.fromLib(type);chosen=jobs.filter(function(j){return j.id==="can"}).slice(0,BASE)}
 function stamp(j){var t=j.id==="talk";return el("span","hb-stamp "+(t?"talk":"can"),t?"Let’s talk":"Can do")}
 function say(text,kind){var m=$("hb-msg");m.textContent=text;m.className="hb-msg hb-wide"+(kind?" "+kind:"")}
+
+/* Four-week trial: pick any one job from the list */
+function trial(){var r=form.querySelector('input[name="hb-start"]:checked');return !!r&&r.value==="trial"}
+function trialJobs(){return chosen.concat(own)}
+function fillTrial(){
+  var sel=$("hb-trial-job"),keep=sel.value;sel.textContent="";
+  var all=trialJobs();
+  if(!all.length){var o=el("option","","Add a job to your list first");o.value="";sel.appendChild(o);return}
+  all.forEach(function(j){var o=el("option","",j.job);o.value=j.job;sel.appendChild(o)});
+  if(keep&&all.some(function(j){return j.job===keep}))sel.value=keep;
+}
+function sendLabel(){
+  if(trial())return "Email me about the trial";
+  return chosen.length>=BASE&&WORD[chosen.length]?"Email me my "+WORD[chosen.length]:"Email me my list";
+}
 
 function render(animate){
   var list=$("hb-chosen");list.textContent="";
@@ -71,8 +87,12 @@ function render(animate){
   var fullOwn=own.length>=OWN_MAX;
   $("hb-own-add").disabled=fullOwn;$("hb-own").disabled=fullOwn;
   $("hb-own").placeholder=fullOwn?"That’s two of your own":"e.g. writing our weekly newsletter";
-  if(!sent){var b=$("hb-submit");b.textContent=chosen.length>=BASE&&WORD[chosen.length]?"Email me my "+WORD[chosen.length]:"Email me my list"}
+  fillTrial();
+  if(!sent)$("hb-submit").textContent=sendLabel();
 }
+Array.prototype.forEach.call(form.querySelectorAll('input[name="hb-start"]'),function(r){
+  r.addEventListener("change",function(){$("hb-trial-pick").hidden=!trial();if(!sent)$("hb-submit").textContent=sendLabel()});
+});
 
 /* What software do you use? The choices follow the business type */
 /* A visitor with an older copy of solutions.js saved simply doesn't see the question */
@@ -127,6 +147,9 @@ form.addEventListener("submit",function(e){
   if(!chosen.length&&!own.length){say("Add at least one job to the list first.","err");return}
   if(!n){say("Add your name.","err");$("hb-cname").focus();return}
   if(!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(em)){say("That email address doesn’t look right. Check it and try again.","err");$("hb-cemail").focus();return}
+  var tj=trial()?$("hb-trial-job").value:"";
+  if(trial()&&!tj){say("Pick the job you\u2019d like to try.","err");$("hb-trial-job").focus();return}
+  var start=trial()?"Four-week trial, \u00a3"+PILOT+": "+tj:"All five, from \u00a31,000";
   var kind=type==="Other"?(other||(picked?"Other":"Not chosen")):type, bname=M.clip($("hb-bname").value,80);
   var line=function(r){return (r.id==="talk"?"Let's talk":"Can do")+": "+r.job+"\n"+M.lineFor(r)};
   var list=(bname||kind)+" ("+kind+"): off the desk\n\n"+chosen.map(line).join("\n\n");
@@ -135,8 +158,8 @@ form.addEventListener("submit",function(e){
   if($("hb-hp").value){sent=true;b.disabled=true;b.textContent="Sent";say("Sent. I’ll email you your list and how we’d start.");return}
   b.disabled=true;b.textContent="Sending…";
   var fd=new FormData();
-  fd.append("_subject","Your business: "+(bname||kind));fd.append("name",n);fd.append("email",em);fd.append("business",bname);fd.append("type",kind);
-  fd.append("website",M.clip($("hb-site").value,200));fd.append("software",soft.value());fd.append("extra jobs",extraNote(chosen));fd.append("jobs",list);fd.append("source","Home page");
+  fd.append("_subject",(trial()?"Trial request: ":"Your business: ")+(bname||kind));fd.append("start",start);fd.append("name",n);fd.append("email",em);fd.append("business",bname);fd.append("type",kind);
+  fd.append("website",M.clip($("hb-site").value,200));fd.append("software",soft.value());fd.append("extra jobs",extraNote(chosen.concat(own)));fd.append("jobs",list);fd.append("source","Home page");
   fetch(M.FORM_ACTION,{method:"POST",body:fd,headers:{"Accept":"application/json"}}).then(function(r){
     if(!r.ok)throw 0;sent=true;b.textContent="Sent";say("Sent. I’ll email you your list and how we’d start.");thanks(n);
   }).catch(function(){b.disabled=false;render(false);say("That didn’t send. Please email matthew@mpai.site instead.","err")});
