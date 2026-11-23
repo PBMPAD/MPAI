@@ -545,6 +545,8 @@ header.site nav a{white-space:nowrap}
 .mb-after p{margin:0;color:var(--soft);font-size:1rem}
 /* Header button: full wording on wider screens, short on small phones */
 .cta-short{display:none}
+@media (min-width:821px) and (max-width:1100px){.nav-cta .cta-full{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.nav-cta .cta-short{display:inline}}
+.nav-cta{white-space:nowrap}
 @media (max-width:480px){.nav-cta .cta-full{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}.nav-cta .cta-short{display:inline}}
 .mb-colhead{flex-wrap:wrap}.mb-colhead h3{white-space:nowrap}
 /* Send pop-up: centred card on desktop, bottom sheet on phones */
@@ -699,3 +701,11 @@ header.site nav a{white-space:nowrap}
 .method p{margin:0;color:var(--soft);font-size:.98rem}
 .ba-view.ba-phone{aspect-ratio:780/1688;max-width:340px;margin:0 auto}
 @media (max-width:820px){.method{grid-template-columns:minmax(0,1fr)}}
+.ck-form{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:14px;max-width:720px;margin:32px auto 0;padding:26px;border-radius:20px;background:var(--white);border:1px solid var(--line)}
+.ck-wide{grid-column:1/-1}
+.ck-form .btn{border:0;cursor:pointer;justify-self:start}
+.ck-form .hidden{display:none}
+.ck-form input,.ck-form textarea{font:1rem/1.4 var(--body);color:var(--ink);background:var(--paper);border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;min-height:50px;width:100%;min-width:0;transition:border-color .2s}
+.ck-form input:focus,.ck-form textarea:focus{border-color:var(--teal);outline:none}
+.ck-form input:focus-visible,.ck-form textarea:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+@media (max-width:600px){.ck-form{grid-template-columns:minmax(0,1fr);padding:18px 16px}}
