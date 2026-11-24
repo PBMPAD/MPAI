@@ -110,21 +110,21 @@ html:not(.js) .hb-send>:not(noscript){display:none}
 .hb-send noscript p{font-size:1.05rem;color:var(--ink)}
 
 /* After you send it */
-main>section.hb-next{padding:clamp(56px,7vw,104px) 0 clamp(40px,5vw,72px);background:var(--paper)}
+main>section.hb-next{padding:clamp(48px,6vw,80px) 0 clamp(32px,4vw,56px);background:var(--paper)}
 .hb-next ol{list-style:none;counter-reset:hb;margin:30px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px}
 .hb-next li{counter-increment:hb;border-top:2px solid var(--teal);padding-top:14px}
 .hb-next li::before{content:counter(hb);font-family:var(--serif);font-weight:300;font-size:2rem;line-height:1;color:var(--teal-ink);display:block;margin-bottom:8px}
 .hb-next li p{font-size:1rem;color:var(--soft);margin:0}
 .hb-next-more{margin:26px 0 0}
 
-main>section.hb-facts{padding:0 0 clamp(48px,6vw,88px);background:var(--paper)}
+main>section.hb-facts{padding:0 0 clamp(40px,5vw,72px);background:var(--paper)}
 .hb-facts-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
 .hb-fact{background:var(--white);border:1px solid var(--line);border-radius:22px;padding:24px 26px}
 .hb-fact p{margin:0 0 .7em;font-size:1.03rem}
 .hb-fact p:last-child{margin:0}
 .hb-fact .hb-big{font-family:var(--serif);font-weight:300;font-size:2.3rem;line-height:1.1;color:var(--navy);margin-bottom:.3em}
 
-main>section.hb-about{background:var(--mint-wash);padding:clamp(48px,6vw,88px) 0}
+main>section.hb-about{background:var(--mint-wash);padding:clamp(40px,5vw,72px) 0}
 .hb-about-grid{display:grid;grid-template-columns:220px minmax(0,1fr);gap:clamp(28px,4vw,64px);align-items:start}
 .hb-about img{border-radius:50%;display:block;width:100%;aspect-ratio:1/1;object-fit:cover;object-position:50% 20%;border:6px solid var(--white)}
 .hb-about .hb-h2 em{display:block}
