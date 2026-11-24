@@ -110,7 +110,8 @@ html:not(.js) .hb-send>:not(noscript){display:none}
 .hb-send noscript p{font-size:1.05rem;color:var(--ink)}
 
 /* After you send it */
-main>section.hb-next{padding:clamp(48px,6vw,80px) 0 clamp(32px,4vw,56px);background:var(--paper)}
+/* position:relative keeps this section above the zone, whose box runs on past the pulled-up ticket and would otherwise hide this heading */
+main>section.hb-next{position:relative;padding:clamp(48px,6vw,80px) 0 clamp(32px,4vw,56px);background:transparent}
 .hb-next ol{list-style:none;counter-reset:hb;margin:30px 0 0;padding:0;display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:22px}
 .hb-next li{counter-increment:hb;border-top:2px solid var(--teal);padding-top:14px}
 .hb-next li::before{content:counter(hb);font-family:var(--serif);font-weight:300;font-size:2rem;line-height:1;color:var(--teal-ink);display:block;margin-bottom:8px}
@@ -173,6 +174,10 @@ main>section.hb-about{background:var(--mint-wash);padding:clamp(40px,5vw,72px) 0
   .hb-chip span{min-height:46px;padding:0 16px;font-size:.98rem}
   .hb-zone .wrap{padding:0 10px}
   .hb-ticket{border-radius:20px;padding:18px 16px}
+  /* Phones: no pull-up over the navy, so the light panel starts just above the card instead of partway down it */
+  main>section.hb-hero{padding-bottom:calc(36px + var(--radius))}
+  main>section.hb-zone{padding-top:10px}
+  .hb-ticket{top:0;margin-bottom:0}
   .hb-chosen li{grid-template-columns:24px minmax(0,1fr)}
   .hb-side{grid-column:2;flex-direction:row;align-items:center;justify-content:space-between;margin-top:6px}
   .hb-why{display:none}
