@@ -27,6 +27,7 @@ main>section.hb-hero{box-shadow:0 -600px 0 var(--navy);margin-top:-100px;padding
 .hb-see{margin:22px 0 0}
 .hb-see a{font-family:var(--label);font-weight:600;color:var(--on-navy);text-decoration:underline;text-decoration-color:var(--mint);text-decoration-thickness:2px;text-underline-offset:6px}
 .hb-see a:hover{color:var(--mint)}
+.hb-see+.hb-see{margin-top:12px}
 
 /* The list of five, pulled up over the navy */
 main>section.hb-zone{position:relative;margin-top:calc(-1*var(--radius));padding:0;background:var(--paper);border-radius:var(--radius) var(--radius) 0 0}
