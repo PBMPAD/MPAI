@@ -121,3 +121,8 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 ## Update (24/11/26, later): website work taken down
 - The Websites page, the before and after sliders and the Websites menu item are off the site: both examples are concepts, not live sites. The work is kept in git history at commit ea7fc4f (restore with: git checkout ea7fc4f -- websites.html images/work).
 - Still live: the four-week trial, five jobs maximum, the three website prices on Pricing, the surveyor wording removed, the Great Danes folder removed.
+
+## Update (26/11/26): blog links and audio
+- Every blog post links to about three other relevant posts, in the body text. A new post links out to three and gets a link from at least one older post.
+- Every blog post has a listen.mp3 in Matthew's professional voice clone (ElevenLabs), with the same player block under the date. Scripts read dates in full and leave out buttons and source lines.
+- The same rules are in the mpai-blog-writer skill.
