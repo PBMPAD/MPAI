@@ -125,4 +125,5 @@ Static files on Netlify (free). The form uses Netlify Forms (data-netlify="true"
 ## Update (26/11/26): blog links and audio
 - Every blog post links to about three other relevant posts, in the body text. A new post links out to three and gets a link from at least one older post.
 - Every blog post has a listen.mp3 in Matthew's professional voice clone (ElevenLabs), with the same player block under the date. Scripts read dates in full and leave out buttons and source lines.
+- External links cite original sources and stay followed; paid or affiliate links get rel="sponsored", sites not vouched for get rel="nofollow".
 - The same rules are in the mpai-blog-writer skill.
